@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://emoji.aranja.com/emojis/apple/2696-fe0f.png" alt="Balanza de la justicia" width="128" height="128">
+  <img src="https://emoji.aranja.com/emojis/apple/2696-fe0f.png" alt="Balanza de la justicia" width="128">
 </p>
 
 <h1 align="center">Biblioteca Legal Libre de México</h1>
