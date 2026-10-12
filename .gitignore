@@ -1,0 +1,47 @@
+# Todo lo que no es el proyecto vive FUERA de esta carpeta: el entorno de Python, el idioma español del OCR y el
+# candado en la carpeta de datos del usuario, y los temporales en la del sistema (referencia/estructura.md).
+# Estas reglas solo cubren restos que pudieran aparecer; verificar --limpiar los borra.
+
+# Archivos de trabajo del agente (solo existen durante un proceso)
+trabajo/
+
+# Entornos de Python y variables locales creados a mano (pueden tener datos privados)
+.venv/
+venv/
+env/
+.env
+
+# Cachés de Python y de las herramientas de desarrollo
+__pycache__/
+*.py[cod]
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Escrituras interrumpidas, descargas a medias y respaldos de editor
+*.tmp
+*.part
+*.swp
+*~
+
+# Lo que crea el sistema operativo por su cuenta
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Configuración de editores
+.vscode/
+.idea/
+.cursor/
+*.sublime-workspace
+
+# Configuración personal de Claude Code (la del proyecto es .claude/settings.json)
+.claude/settings.local.json
+
+# Registros sueltos de programas
+*.log

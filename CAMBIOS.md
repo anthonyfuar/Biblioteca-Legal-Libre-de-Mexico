@@ -1,0 +1,1121 @@
+# Cambios de la Biblioteca Legal Libre de México
+
+Cada entrada es una publicación (`python biblioteca.py publicar`): lo que cambió en la biblioteca desde la publicación anterior, según `bitacora.jsonl`. La más reciente va primero.
+
+## 2026-10-12 — 1032 nuevos, 0 actualizados, 6 abrogados, 15 agregados al catálogo, 2 eliminados del catálogo, 24 renombrados, 2 otros cambios del catálogo, 1049 convertidos a Markdown, 1017 Markdown con formato nuevo, 1 PDF comprimido, 7 tareas de mantenimiento
+<!-- publicacion: 2026-10-12 11:58:19 -->
+
+Cambios registrados en la bitácora desde el inicio de la bitácora (primera publicación) hasta 2026-10-12 11:58:19.
+
+### Documentos nuevos (1032)
+- Código Civil del Estado de Aguascalientes (`aguascalientes__codigo_civil_del_estado_de_aguascalientes`) — reforma 2026-09-21
+- Código de Procedimientos Civiles del Estado de Aguascalientes (`aguascalientes__codigo_de_procedimientos_civiles_del_estado_de_aguascalientes`) — reforma 2018-11-12
+- Código Electoral del Estado de Aguascalientes (`aguascalientes__codigo_electoral_del_estado_de_aguascalientes`) — reforma 2026-07-03
+- Código Fiscal del Estado de Aguascalientes (`aguascalientes__codigo_fiscal_del_estado_de_aguascalientes`) — reforma 2025-12-26
+- Código Penal para el Estado de Aguascalientes (`aguascalientes__codigo_penal_para_el_estado_de_aguascalientes`) — reforma 2026-09-21
+- Constitución Política del Estado de Aguascalientes (`aguascalientes__constitucion_politica_del_estado_de_aguascalientes`) — reforma 2026-09-07
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencias para el Estado de Aguascalientes (`aguascalientes__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_aguascalientes`) — reforma 2026-09-21
+- Ley de Educación del Estado de Aguascalientes (`aguascalientes__ley_de_educacion_del_estado_de_aguascalientes`) — reforma 2026-07-13
+- Ley de Hacienda del Estado de Aguascalientes (`aguascalientes__ley_de_hacienda_del_estado_de_aguascalientes`) — reforma 2025-05-26
+- Ley de Ingresos del Estado de Aguascalientes (`aguascalientes__ley_de_ingresos_del_estado_de_aguascalientes`) — reforma 2026-06-23
+- Ley de los Derechos de las Niñas, Niños y Adolescentes para el Estado de Aguascalientes (`aguascalientes__ley_de_los_derechos_de_las_ninas_ninos_y_adolescentes_para_el_estado_de_aguascalientes`) — reforma 2026-07-06
+- Ley de Movilidad del Estado de Aguascalientes (`aguascalientes__ley_de_movilidad_del_estado_de_aguascalientes`) — reforma 2025-07-21
+- Ley de Movilidad y Seguridad Vial del Estado de Aguascalientes (`aguascalientes__ley_de_movilidad_y_seguridad_vial_del_estado_de_aguascalientes`) — reforma 2026-05-22
+- Ley de Protección Ambiental para el Estado de Aguascalientes (`aguascalientes__ley_de_proteccion_ambiental_para_el_estado_de_aguascalientes`) — reforma 2026-05-04
+- Ley de Protección de Datos Personales en Posesión de los Sujetos Obligados del Estado de Aguascalientes (`aguascalientes__ley_de_proteccion_de_datos_personales_del_estado_de_aguascalientes`) — reforma 2026-01-12
+- Ley de Responsabilidades Administrativas del Estado de Aguascalientes (`aguascalientes__ley_de_responsabilidades_administrativas_del_estado_de_aguascalientes`) — reforma 2026-07-13
+- Ley de Salud del Estado de Aguascalientes (`aguascalientes__ley_de_salud_del_estado_de_aguascalientes`) — reforma 2026-06-23
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Aguascalientes (`aguascalientes__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_aguascalientes`) — reforma 2026-01-12
+- Ley de Víctimas para el Estado de Aguascalientes (`aguascalientes__ley_de_victimas_para_el_estado_de_aguascalientes`) — reforma 2023-07-03
+- Ley del Notariado para el Estado de Aguascalientes (`aguascalientes__ley_del_notariado_para_el_estado_de_aguascalientes`) — reforma 2024-07-01
+- Ley Municipal para el Estado de Aguascalientes (`aguascalientes__ley_municipal_para_el_estado_de_aguascalientes`) — reforma 2026-07-03
+- Ley Orgánica de la Administración Pública Estatal de Aguascalientes (`aguascalientes__ley_organica_de_la_administracion_publica_del_estado_de_aguascalientes`) — reforma 2026-03-25
+- Ley Orgánica del Poder Judicial del Estado de Aguascalientes (`aguascalientes__ley_organica_del_poder_judicial_del_estado_de_aguascalientes`) — reforma 2026-03-23
+- Ley Orgánica del Poder Legislativo del Estado de Aguascalientes (`aguascalientes__ley_organica_del_poder_legislativo_del_estado_de_aguascalientes`) — reforma 2026-10-05
+- Ley para la Igualdad entre Mujeres y Hombres del Estado de Aguascalientes (`aguascalientes__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_aguascalientes`) — reforma 2026-06-23
+- Reglamento de la Ley de Movilidad del Estado de Aguascalientes (`aguascalientes__reglamento_de_la_ley_de_movilidad_del_estado_de_aguascalientes`) — reforma 2021-10-25
+- Código Civil para el Estado de Baja California (`baja_california__codigo_civil_para_el_estado_de_baja_california`) — reforma 2026-06-05
+- Código de Procedimientos Civiles para el Estado de Baja California (`baja_california__codigo_de_procedimientos_civiles_para_el_estado_de_baja_california`) — reforma 2018-11-30
+- Ley Electoral del Estado de Baja California (`baja_california__codigo_electoral_del_estado_de_baja_california`) — reforma 2026-08-31
+- Código Fiscal del Estado de Baja California (`baja_california__codigo_fiscal_del_estado_de_baja_california`) — reforma 2024-03-15
+- Código Penal para el Estado de Baja California (`baja_california__codigo_penal_para_el_estado_de_baja_california`) — reforma 2026-08-28
+- Constitución Política del Estado Libre y Soberano de Baja California (`baja_california__constitucion_politica_del_estado_libre_y_soberano_de_baja_california`) — reforma 2026-09-04
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencias para el Estado de Baja California (`baja_california__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_baja_california`) — reforma 2026-06-22
+- Ley de Educación del Estado de Baja California (`baja_california__ley_de_educacion_del_estado_de_baja_california`) — reforma 2026-06-22
+- Ley de Hacienda del Estado de Baja California (`baja_california__ley_de_hacienda_del_estado_de_baja_california`) — reforma 2026-06-18
+- Ley para la Igualdad entre Mujeres y Hombres del Estado de Baja California (`baja_california__ley_de_igualdad_de_trato_y_oportunidades_entre_mujeres_y_hombres_para_el_estado_de_baja_california`) — reforma 2025-07-21
+- Ley de Protección al Ambiente para el Estado de Baja California (`baja_california__ley_de_proteccion_al_ambiente_para_el_estado_de_baja_california`) — reforma 2026-06-22
+- Ley de Protección de Datos Personales para el Sector Público del Estado de Baja California (`baja_california__ley_de_proteccion_de_datos_personales_del_estado_de_baja_california`)
+- Ley de Responsabilidades Administrativas del Estado de Baja California (`baja_california__ley_de_responsabilidades_administrativas_del_estado_de_baja_california`) — reforma 2026-08-31
+- Ley de Salud Pública para el Estado de Baja California (`baja_california__ley_de_salud_publica_para_el_estado_de_baja_california`) — reforma 2025-10-10
+- Ley de Transparencia, Acceso a la Información Pública y Apertura Institucional para el Estado de Baja California (`baja_california__ley_de_transparencia_y_acceso_a_la_informacion_publica_para_el_estado_de_baja_california`) — reforma 2025-09-16
+- Ley de Movilidad Sustentable y Transporte del Estado de Baja California (`baja_california__ley_de_transporte_del_estado_de_baja_california`) — reforma 2025-10-03
+- Ley de Víctimas para el Estado de Baja California (`baja_california__ley_de_victimas_del_estado_de_baja_california`) — reforma 2024-03-15
+- Ley del Notariado para el Estado de Baja California (`baja_california__ley_del_notariado_para_el_estado_de_baja_california`) — reforma 2026-09-04
+- Ley del Régimen Municipal para el Estado de Baja California (`baja_california__ley_del_regimen_municipal_del_estado_de_baja_california`) — reforma 2026-02-27
+- Ley Orgánica de la Administración Pública del Estado de Baja California (`baja_california__ley_organica_de_la_administracion_publica_del_estado_de_baja_california`) — reforma 2021-10-27
+- Ley Orgánica del Poder Ejecutivo del Estado de Baja California (`baja_california__ley_organica_del_poder_ejecutivo_del_estado_de_baja_california`) — reforma 2025-09-16
+- Ley Orgánica del Poder Judicial del Estado de Baja California (`baja_california__ley_organica_del_poder_judicial_del_estado_de_baja_california`)
+- Ley Orgánica del Poder Legislativo del Estado de Baja California (`baja_california__ley_organica_del_poder_legislativo_del_estado_de_baja_california`) — reforma 2026-08-27
+- Ley para la Protección y Defensa de los Derechos de Niñas, Niños y Adolescentes del Estado de Baja California (`baja_california__ley_para_la_proteccion_y_defensa_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_baja_california`) — reforma 2026-07-03
+- Ley que Regula los Servicios de Control Vehicular en el Estado de Baja California (`baja_california__ley_que_regula_los_servicios_de_control_vehicular_en_el_estado_de_baja_california`) — reforma 2025-04-11
+- Código Civil para el Estado Libre y Soberano de Baja California Sur (`baja_california_sur__codigo_civil_para_el_estado_libre_y_soberano_de_baja_california_sur`) — reforma 2026-09-08
+- Código de Procedimientos Civiles para el Estado de Baja California Sur (`baja_california_sur__codigo_de_procedimientos_civiles_para_el_estado_de_baja_california_sur`) — reforma 2025-04-30
+- Ley de Instituciones y Procedimientos Electorales del Estado de Baja California Sur (`baja_california_sur__codigo_electoral_del_estado_de_baja_california_sur`) — reforma 2026-05-31
+- Código Fiscal del Estado y Municipios del Estado de Baja California Sur (`baja_california_sur__codigo_fiscal_del_estado_y_municipios_de_baja_california_sur`) — reforma 2024-12-20
+- Código Penal para el Estado Libre y Soberano de Baja California Sur (`baja_california_sur__codigo_penal_para_el_estado_de_baja_california_sur`) — reforma 2026-09-08
+- Constitución Política del Estado Libre y Soberano de Baja California Sur (`baja_california_sur__constitucion_politica_del_estado_de_baja_california_sur`) — reforma 2026-09-08
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencia para el Estado de Baja California Sur (`baja_california_sur__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_baja_california_sur`) — reforma 2025-10-16
+- Ley de Educación del Estado Libre y Soberano de Baja California Sur (`baja_california_sur__ley_de_educacion_del_estado_de_baja_california_sur`) — reforma 2026-06-30
+- `baja_california_sur__ley_de_equilibrio_ecologico_y_la_proteccion_al_ambiente_del_estado_de_baja_california_sur` — reforma 2026-08-21
+- Ley de Hacienda del Estado de Baja California Sur (`baja_california_sur__ley_de_hacienda_del_estado_de_baja_california_sur`) — reforma 2025-12-31
+- Ley de Igualdad entre Mujeres y Hombres para el Estado de Baja California Sur (`baja_california_sur__ley_de_igualdad_entre_mujeres_y_hombres_del_estado_de_baja_california_sur`) — reforma 2025-08-31
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Baja California Sur (`baja_california_sur__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_baja_california_sur`) — reforma 2026-06-30
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Baja California Sur (`baja_california_sur__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_para_el_estado_de_baja_california_sur`) — reforma 2025-12-24
+- Ley de Responsabilidades Administrativas del Estado y Municipios de Baja California Sur (`baja_california_sur__ley_de_responsabilidades_administrativas_del_estado_y_municipios_de_baja_california_sur`) — reforma 2026-05-10
+- Ley de Salud para el Estado de Baja California Sur (`baja_california_sur__ley_de_salud_para_el_estado_de_baja_california_sur`) — reforma 2026-06-30
+- Ley de Tránsito Terrestre del Estado y Municipios de Baja California Sur (`baja_california_sur__ley_de_transito_terrestre_del_estado_de_baja_california_sur`) — reforma 2026-01-31
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Baja California Sur (`baja_california_sur__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_baja_california_sur`) — reforma 2025-11-21
+- Ley de Transporte para el Estado de Baja California Sur (`baja_california_sur__ley_de_transporte_del_estado_de_baja_california_sur`) — reforma 2026-01-31
+- Ley de Atención a Víctimas para el Estado de Baja California Sur (`baja_california_sur__ley_de_victimas_para_el_estado_de_baja_california_sur`) — reforma 2019-04-20
+- Ley de Equilibrio Ecológico y la Protección al Ambiente del Estado de Baja California Sur (`baja_california_sur__ley_del_equilibrio_ecologico_y_proteccion_al_ambiente_del_estado_de_baja_california_sur`) — reforma 2026-08-21
+- Ley del Notariado del Estado de Baja California Sur (`baja_california_sur__ley_del_notariado_para_el_estado_de_baja_california_sur`) — reforma 2016-10-31
+- Ley Orgánica de la Administración Pública del Estado de Baja California Sur (`baja_california_sur__ley_organica_de_la_administracion_publica_del_estado_de_baja_california_sur`) — reforma 2025-11-21
+- Ley Orgánica del Gobierno Municipal del Estado de Baja California Sur (`baja_california_sur__ley_organica_del_gobierno_municipal_del_estado_de_baja_california_sur`) — reforma 2026-05-10
+- Ley Orgánica del Poder Judicial del Estado de Baja California Sur (`baja_california_sur__ley_organica_del_poder_judicial_del_estado_de_baja_california_sur`) — reforma 2025-11-21
+- Ley Orgánica del Poder Legislativo del Estado de Baja California Sur (`baja_california_sur__ley_organica_del_poder_legislativo_del_estado_de_baja_california_sur`) — reforma 2026-07-31
+- Código Civil del Estado de Campeche (`campeche__codigo_civil_del_estado_de_campeche`) — reforma 2026-07-22
+- Ley de Instituciones y Procedimientos Electorales del Estado de Campeche (`campeche__codigo_de_instituciones_y_procedimientos_electorales_del_estado_de_campeche`) — reforma 2026-08-28
+- Código de Procedimientos Civiles del Estado de Campeche (`campeche__codigo_de_procedimientos_civiles_del_estado_de_campeche`) — reforma 2016-03-31
+- Código Fiscal del Estado de Campeche (`campeche__codigo_fiscal_del_estado_de_campeche`) — reforma 2025-12-29
+- Código Penal del Estado de Campeche (`campeche__codigo_penal_del_estado_de_campeche`) — reforma 2026-07-29
+- Constitución Política del Estado de Campeche (`campeche__constitucion_politica_del_estado_de_campeche`) — reforma 2026-07-03
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencias del Estado de Campeche (`campeche__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_del_estado_de_campeche`) — reforma 2026-06-08
+- Ley de Educación del Estado de Campeche (`campeche__ley_de_educacion_del_estado_de_campeche`) — reforma 2026-06-08
+- Ley de Hacienda del Estado de Campeche (`campeche__ley_de_hacienda_del_estado_de_campeche`) — reforma 2025-12-29
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Campeche (`campeche__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_campeche`) — reforma 2026-07-31
+- Ley de Movilidad y Seguridad Vial del Estado de Campeche (`campeche__ley_de_movilidad_y_seguridad_vial_del_estado_de_campeche`) — reforma 2026-06-18
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Campeche (`campeche__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_campeche`) — reforma 2026-06-10
+- Ley de Salud del Estado de Campeche (`campeche__ley_de_salud_del_estado_de_campeche`) — reforma 2026-06-09
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Campeche (`campeche__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_campeche`) — reforma 2026-06-10
+- Ley de Transporte del Estado de Campeche (`campeche__ley_de_transporte_del_estado_de_campeche`) — reforma 2008-06-09
+- Ley de Vialidad, Tránsito y Control Vehicular del Estado de Campeche (`campeche__ley_de_vialidad_transito_y_control_vehicular_del_estado_de_campeche`) — reforma 2026-06-08
+- Ley que Establece el Sistema de Justicia para las Víctimas del Estado de Campeche (`campeche__ley_de_victimas_del_estado_de_campeche`) — reforma 2026-03-20
+- Ley del Equilibrio Ecológico y Protección al Ambiente del Estado de Campeche (`campeche__ley_del_equilibrio_ecologico_y_proteccion_al_ambiente_del_estado_de_campeche`) — reforma 2023-12-05
+- Ley del Notariado del Estado de Campeche (`campeche__ley_del_notariado_del_estado_de_campeche`) — reforma 2009-06-16
+- Ley Orgánica de la Administración Pública del Estado de Campeche (`campeche__ley_organica_de_la_administracion_publica_del_estado_de_campeche`) — reforma 2025-12-29
+- Ley Orgánica de los Municipios del Estado de Campeche (`campeche__ley_organica_de_los_municipios_del_estado_de_campeche`) — reforma 2026-07-29
+- Ley Orgánica del Poder Judicial del Estado de Campeche (`campeche__ley_organica_del_poder_judicial_del_estado_de_campeche`) — reforma 2024-10-09
+- Ley Orgánica del Poder Legislativo del Estado de Campeche (`campeche__ley_organica_del_poder_legislativo_del_estado_de_campeche`) — reforma 2026-07-27
+- Ley para la Igualdad Sustantiva entre Mujeres y Hombres del Estado de Campeche (`campeche__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_campeche`) — reforma 2026-07-10
+- Reglamento de la Ley de Vialidad, Tránsito y Control Vehicular del Estado de Campeche (`campeche__reglamento_de_la_ley_de_vialidad_transito_y_control_vehicular_del_estado`) — reforma 2026-09-10
+- Reglamento en Materia de Transporte de la Ley de Movilidad y Seguridad Vial del Estado de Campeche (`campeche__reglamento_en_materia_de_transporte_de_la_ley_de_movilidad_y_seguridad_vial_del_estado_de_campeche`) — reforma 2025-06-20
+- Código Civil para el Estado de Chiapas (`chiapas__codigo_civil_para_el_estado_de_chiapas`) — reforma 2026-07-28
+- Código de Organización del Poder Judicial del Estado de Chiapas (`chiapas__codigo_de_organizacion_del_poder_judicial_del_estado_de_chiapas`) — reforma 2026-07-28
+- Código de Procedimientos Civiles para el Estado de Chiapas (`chiapas__codigo_de_procedimientos_civiles_para_el_estado_de_chiapas`) — reforma 2019-01-23
+- Código Fiscal del Estado de Chiapas (`chiapas__codigo_fiscal_del_estado_de_chiapas`) — reforma 2025-12-10
+- Código Penal para el Estado de Chiapas (`chiapas__codigo_penal_para_el_estado_de_chiapas`) — reforma 2026-04-29
+- Constitución Política del Estado Libre y Soberano de Chiapas (`chiapas__constitucion_politica_del_estado_libre_y_soberano_de_chiapas`) — reforma 2026-09-30
+- Ley Ambiental para el Estado de Chiapas (`chiapas__ley_ambiental_para_el_estado_de_chiapas`) — reforma 2025-08-06
+- Ley de Derechos y Cultura Indígenas del Estado de Chiapas (`chiapas__ley_de_derechos_y_cultura_indigenas_del_estado_de_chiapas`) — reforma 2026-06-17
+- Ley de Desarrollo Constitucional del Congreso del Estado de Chiapas (`chiapas__ley_de_desarrollo_constitucional_del_congreso_del_estado_de_chiapas`) — reforma 2025-08-06
+- Ley de Desarrollo Constitucional en Materia de Gobierno y Administración Municipal del Estado de Chiapas (`chiapas__ley_de_desarrollo_constitucional_en_materia_de_gobierno_y_administracion_municipal_del_estado_de_chiapas`) — reforma 2026-09-03
+- Ley de Desarrollo Constitucional para la Igualdad de Género y Acceso a una Vida Libre de Violencia para las Mujeres (`chiapas__ley_de_desarrollo_constitucional_para_la_igualdad_de_genero_y_acceso_a_una_vida_libre_de_violencia_para_las_mujeres`) — reforma 2025-04-02
+- Ley de Educación para el Estado de Chiapas (`chiapas__ley_de_educacion_del_estado_de_chiapas`) — reforma 2020-02-12
+- Ley de Educación del Estado Libre y Soberano de Chiapas (`chiapas__ley_de_educacion_del_estado_libre_y_soberano_de_chiapas`) — reforma 2026-05-27
+- Ley de Ingresos del Estado de Chiapas (`chiapas__ley_de_ingresos_del_estado_de_chiapas`) — reforma 2025-12-30
+- Ley de Instituciones y Procedimientos Electorales del Estado de Chiapas (`chiapas__ley_de_instituciones_y_procedimientos_electorales_del_estado_de_chiapas`) — reforma 2026-09-14
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Chiapas (`chiapas__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_chiapas`) — reforma 2025-11-26
+- Ley de Movilidad y Transporte del Estado de Chiapas (`chiapas__ley_de_movilidad_y_transporte_del_estado_de_chiapas`) — reforma 2026-02-05
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Chiapas (`chiapas__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_chiapas`) — reforma 2026-06-17
+- Ley de Responsabilidades Administrativas para el Estado de Chiapas (`chiapas__ley_de_responsabilidades_administrativas_para_el_estado_de_chiapas`) — reforma 2026-02-04
+- Ley de Salud del Estado de Chiapas (`chiapas__ley_de_salud_del_estado_de_chiapas`) — reforma 2025-08-27
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Chiapas (`chiapas__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_chiapas`) — reforma 2026-06-17
+- Ley de Transportes del Estado de Chiapas (`chiapas__ley_de_transportes_del_estado_de_chiapas`) — reforma 2017-07-05
+- Ley de Víctimas del Estado de Chiapas (`chiapas__ley_de_victimas_del_estado_de_chiapas`)
+- Ley del Notariado del Estado de Chiapas (`chiapas__ley_del_notariado_del_estado_de_chiapas`) — reforma 2012-10-03
+- Ley Orgánica de la Administración Pública del Estado de Chiapas (`chiapas__ley_organica_de_la_administracion_publica_del_estado_de_chiapas`) — reforma 2026-05-27
+- Ley para la Igualdad entre Mujeres y Hombres en el Estado de Chiapas (`chiapas__ley_para_la_igualdad_entre_mujeres_y_hombres_en_el_estado_de_chiapas`) — reforma 2016-05-25
+- Reglamento de Tránsito para el Estado de Chiapas (`chiapas__reglamento_de_la_ley_de_transito_para_el_estado_de_chiapas`)
+- Código Civil del Estado de Chihuahua (`chihuahua__codigo_civil_del_estado_de_chihuahua`) — reforma 2024-08-24
+- Código de Procedimientos Civiles del Estado de Chihuahua (`chihuahua__codigo_de_procedimientos_civiles_del_estado_de_chihuahua`) — reforma 2017-02-22
+- Código de Procedimientos Familiares del Estado de Chihuahua (`chihuahua__codigo_de_procedimientos_familiares_del_estado_de_chihuahua`) — reforma 2019-01-09
+- Ley Electoral del Estado de Chihuahua (`chihuahua__codigo_electoral_del_estado_de_chihuahua`) — reforma 2026-06-30
+- Código Fiscal del Estado de Chihuahua (`chihuahua__codigo_fiscal_del_estado_de_chihuahua`) — reforma 2025-12-24
+- Código Municipal para el Estado de Chihuahua (`chihuahua__codigo_municipal_para_el_estado_de_chihuahua`) — reforma 2026-08-29
+- Código Penal del Estado de Chihuahua (`chihuahua__codigo_penal_del_estado_de_chihuahua`) — reforma 2026-08-29
+- Constitución Política del Estado de Chihuahua (`chihuahua__constitucion_politica_del_estado_de_chihuahua`) — reforma 2026-06-30
+- Ley de Víctimas para el Estado de Chihuahua (`chihuahua__ley_de_atencion_a_victimas_para_el_estado_de_chihuahua`) — reforma 2026-08-29
+- Ley de Equilibrio Ecológico y Protección al Ambiente del Estado de Chihuahua (`chihuahua__ley_de_equilibrio_ecologico_y_proteccion_al_ambiente_del_estado_de_chihuahua`)
+- Ley de Igualdad entre Mujeres y Hombres del Estado de Chihuahua (`chihuahua__ley_de_igualdad_entre_mujeres_y_hombres_del_estado_de_chihuahua`) — reforma 2026-08-08
+- Ley de Ingresos del Estado de Chihuahua (`chihuahua__ley_de_ingresos_del_estado_de_chihuahua`)
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Chihuahua (`chihuahua__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_chihuahua`) — reforma 2026-08-08
+- Ley de Movilidad y Seguridad Vial del Estado de Chihuahua (`chihuahua__ley_de_movilidad_y_seguridad_vial_del_estado_de_chihuahua`) — reforma 2026-07-08
+- Ley de Protección de Datos Personales del Estado de Chihuahua (`chihuahua__ley_de_proteccion_de_datos_personales_del_estado_de_chihuahua`) — reforma 2017-11-11
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Chihuahua (`chihuahua__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_chihuahua`) — reforma 2024-01-10
+- Ley de Transporte del Estado de Chihuahua (`chihuahua__ley_de_transporte_y_sus_vias_de_comunicacion_del_estado_de_chihuahua`) — reforma 2022-07-16
+- Ley de Vialidad y Tránsito para el Estado de Chihuahua (`chihuahua__ley_de_vialidad_y_transito_para_el_estado_de_chihuahua`) — reforma 2026-08-08
+- Ley de Notariado del Estado de Chihuahua (`chihuahua__ley_del_notariado_para_el_estado_de_chihuahua`) — reforma 2020-10-31
+- Ley Estatal de Educación (`chihuahua__ley_estatal_de_educacion`) — reforma 2026-07-01
+- Ley Estatal de Salud (`chihuahua__ley_estatal_de_salud`) — reforma 2026-08-08
+- Ley Estatal del Derecho de las Mujeres a una Vida Libre de Violencia (`chihuahua__ley_estatal_del_derecho_de_las_mujeres_a_una_vida_libre_de_violencia`) — reforma 2026-07-01
+- Ley Orgánica del Poder Ejecutivo del Estado de Chihuahua (`chihuahua__ley_organica_del_poder_ejecutivo_del_estado_de_chihuahua`) — reforma 2025-05-21
+- Ley Orgánica del Poder Judicial del Estado de Chihuahua (`chihuahua__ley_organica_del_poder_judicial_del_estado_de_chihuahua`) — reforma 2026-05-09
+- Ley Orgánica del Poder Legislativo del Estado de Chihuahua (`chihuahua__ley_organica_del_poder_legislativo_del_estado_de_chihuahua`) — reforma 2026-03-28
+- Reglamento de la Ley de Vialidad y Tránsito del Estado de Chihuahua (`chihuahua__reglamento_de_la_ley_de_vialidad_y_transito_del_estado_de_chihuahua`) — reforma 2007-05-26
+- Código Civil para el Distrito Federal (`ciudad_de_mexico__codigo_civil_para_el_distrito_federal`) — reforma 2026-08-20
+- Código de Instituciones y Procedimientos Electorales de la Ciudad de México (`ciudad_de_mexico__codigo_de_instituciones_y_procedimientos_electorales_de_la_ciudad_de_mexico`) — reforma 2026-07-13
+- Código de Procedimientos Civiles para el Distrito Federal (`ciudad_de_mexico__codigo_de_procedimientos_civiles_para_el_distrito_federal`) — reforma 2018-07-18
+- Código Fiscal de la Ciudad de México (`ciudad_de_mexico__codigo_fiscal_de_la_ciudad_de_mexico`) — reforma 2025-12-19
+- Código Penal para el Distrito Federal (`ciudad_de_mexico__codigo_penal_para_el_distrito_federal`) — reforma 2026-08-21
+- Constitución Política de la Ciudad de México (`ciudad_de_mexico__constitucion_politica_de_la_ciudad_de_mexico`) — reforma 2026-07-23
+- Ley Ambiental de la Ciudad de México (`ciudad_de_mexico__ley_ambiental_de_la_ciudad_de_mexico`) — reforma 2026-08-21
+- Ley Ambiental de Protección a la Tierra en el Distrito Federal (`ciudad_de_mexico__ley_ambiental_de_proteccion_a_la_tierra_en_el_distrito_federal`) — reforma 2024-07-18
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencia de la Ciudad de México (`ciudad_de_mexico__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_de_la_ciudad_de_mexico`) — reforma 2026-07-23
+- Ley de Cultura Cívica de la Ciudad de México (`ciudad_de_mexico__ley_de_cultura_civica_de_la_ciudad_de_mexico`) — reforma 2026-08-21
+- Ley de Desarrollo Urbano del Distrito Federal (`ciudad_de_mexico__ley_de_desarrollo_urbano_del_distrito_federal`) — reforma 2026-07-22
+- Ley de Educación de la Ciudad de México (`ciudad_de_mexico__ley_de_educacion_de_la_ciudad_de_mexico`) — reforma 2026-08-21
+- Ley de Establecimientos Mercantiles para la Ciudad de México (`ciudad_de_mexico__ley_de_establecimientos_mercantiles_para_la_ciudad_de_mexico`) — reforma 2026-08-21
+- Ley de Igualdad Sustantiva entre Mujeres y Hombres de la Ciudad de México (`ciudad_de_mexico__ley_de_igualdad_sustantiva_entre_mujeres_y_hombres_de_la_ciudad_de_mexico`) — reforma 2025-08-27
+- Ley de Ingresos de la Ciudad de México (`ciudad_de_mexico__ley_de_ingresos_de_la_ciudad_de_mexico`)
+- Ley de los Derechos de Niñas, Niños y Adolescentes de la Ciudad de México (`ciudad_de_mexico__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_de_la_ciudad_de_mexico`) — reforma 2026-08-21
+- Ley de Movilidad de la Ciudad de México (`ciudad_de_mexico__ley_de_movilidad_de_la_ciudad_de_mexico`) — reforma 2025-08-27
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados de la Ciudad de México (`ciudad_de_mexico__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_de_la_ciudad_de_mexico`)
+- Ley de Responsabilidades Administrativas de la Ciudad de México (`ciudad_de_mexico__ley_de_responsabilidades_administrativas_de_la_ciudad_de_mexico`) — reforma 2025-12-24
+- Ley de Salud de la Ciudad de México (`ciudad_de_mexico__ley_de_salud_de_la_ciudad_de_mexico`) — reforma 2026-08-20
+- Ley de Transparencia, Acceso a la Información Pública y Rendición de Cuentas de la Ciudad de México (`ciudad_de_mexico__ley_de_transparencia_acceso_a_la_informacion_publica_y_rendicion_de_cuentas_de_la_ciudad_de_mexico`) — reforma 2021-02-26
+- Ley de Transparencia para el Acceso y Socialización de la Información de la Ciudad de México (`ciudad_de_mexico__ley_de_transparencia_para_el_acceso_y_socializacion_de_la_informacion_de_la_ciudad_de_mexico`)
+- Ley de Víctimas para la Ciudad de México (`ciudad_de_mexico__ley_de_victimas_para_la_ciudad_de_mexico`) — reforma 2026-07-13
+- Ley del Notariado para la Ciudad de México (`ciudad_de_mexico__ley_del_notariado_para_la_ciudad_de_mexico`)
+- Ley Orgánica de Alcaldías de la Ciudad de México (`ciudad_de_mexico__ley_organica_de_alcaldias_de_la_ciudad_de_mexico`) — reforma 2026-08-20
+- Ley Orgánica del Congreso de la Ciudad de México (`ciudad_de_mexico__ley_organica_del_congreso_de_la_ciudad_de_mexico`) — reforma 2026-07-13
+- Ley Orgánica del Poder Ejecutivo y de la Administración Pública de la Ciudad de México (`ciudad_de_mexico__ley_organica_del_poder_ejecutivo_y_de_la_administracion_publica_de_la_ciudad_de_mexico`) — reforma 2026-07-13
+- Ley Orgánica del Poder Judicial de la Ciudad de México (`ciudad_de_mexico__ley_organica_del_poder_judicial_de_la_ciudad_de_mexico`) — reforma 2026-07-13
+- Reglamento de la Ley de Movilidad de la Ciudad de México (`ciudad_de_mexico__reglamento_de_la_ley_de_movilidad_de_la_ciudad_de_mexico`) — reforma 2026-05-06
+- Reglamento de Tránsito de la Ciudad de México (`ciudad_de_mexico__reglamento_de_transito_de_la_ciudad_de_mexico`) — reforma 2026-06-30
+- Código Civil para el Estado de Coahuila de Zaragoza (`coahuila__codigo_civil_para_el_estado_de_coahuila_de_zaragoza`) — reforma 2026-04-10
+- Ley para la Familia de Coahuila de Zaragoza (`coahuila__codigo_de_familia_para_el_estado_de_coahuila_de_zaragoza`) — reforma 2024-01-30
+- Código Electoral para el Estado de Coahuila de Zaragoza (`coahuila__codigo_electoral_para_el_estado_de_coahuila_de_zaragoza`) — reforma 2026-09-01
+- Código Fiscal para el Estado de Coahuila de Zaragoza (`coahuila__codigo_fiscal_para_el_estado_de_coahuila_de_zaragoza`) — reforma 2023-12-26
+- Código Municipal para el Estado de Coahuila de Zaragoza (`coahuila__codigo_municipal_para_el_estado_de_coahuila_de_zaragoza`) — reforma 2026-05-19
+- Código Penal de Coahuila de Zaragoza (`coahuila__codigo_penal_de_coahuila_de_zaragoza`) — reforma 2026-05-19
+- Código Procesal Civil para el Estado de Coahuila de Zaragoza (`coahuila__codigo_procesal_civil_para_el_estado_de_coahuila_de_zaragoza`) — reforma 2019-10-18
+- Código de Procedimientos Familiares para el Estado de Coahuila de Zaragoza (`coahuila__codigo_procesal_familiar_para_el_estado_de_coahuila_de_zaragoza`) — reforma 2019-10-18
+- Constitución Política del Estado de Coahuila de Zaragoza (`coahuila__constitucion_politica_del_estado_de_coahuila_de_zaragoza`) — reforma 2026-09-01
+- Ley de Acceso a la Información Pública para el Estado de Coahuila de Zaragoza (`coahuila__ley_de_acceso_a_la_informacion_publica_para_el_estado_de_coahuila_de_zaragoza`) — reforma 2024-01-30
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencia para el Estado de Coahuila (`coahuila__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_coahuila`) — reforma 2026-05-19
+- Ley de Igualdad entre Mujeres y Hombres en el Estado de Coahuila de Zaragoza (`coahuila__ley_de_igualdad_entre_mujeres_y_hombres_en_el_estado_de_coahuila_de_zaragoza`) — reforma 2026-05-19
+- Ley de Ingresos del Estado de Coahuila (`coahuila__ley_de_ingresos_del_estado_de_coahuila`) — reforma 2025-12-30
+- Ley del Sistema Estatal para la Garantía de los Derechos Humanos de Niños y Niñas del Estado de Coahuila de Zaragoza (`coahuila__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_coahuila`) — reforma 2024-11-12
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Coahuila (`coahuila__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_coahuila`) — reforma 2025-06-27
+- Ley de Responsabilidades de los Servidores Públicos Estatales y Municipales del Estado de Coahuila (`coahuila__ley_de_responsabilidades_de_los_servidores_publicos_estatales_y_municipales_del_estado_de_coahuila`) — reforma 2017-08-11
+- Ley de Tránsito y Transporte del Estado de Coahuila de Zaragoza (`coahuila__ley_de_transito_y_transporte_del_estado_de_coahuila_de_zaragoza`) — reforma 2017-03-07
+- Ley de Transparencia y Acceso a la Información Pública para el Estado de Coahuila de Zaragoza (`coahuila__ley_de_transparencia_y_acceso_a_la_informacion_publica_para_el_estado_de_coahuila_de_zaragoza`) — reforma 2025-06-27
+- Ley de Transporte y Movilidad Sustentable para el Estado de Coahuila de Zaragoza (`coahuila__ley_de_transporte_y_movilidad_sustentable_para_el_estado_de_coahuila_de_zaragoza`) — reforma 2025-05-20
+- Ley de Víctimas para el Estado de Coahuila (`coahuila__ley_de_victimas_para_el_estado_de_coahuila`) — reforma 2024-11-12
+- Ley del Equilibrio Ecológico y la Protección al Ambiente del Estado de Coahuila (`coahuila__ley_del_equilibrio_ecologico_y_la_proteccion_al_ambiente_del_estado_de_coahuila`) — reforma 2026-02-06
+- Ley del Notariado del Estado de Coahuila (`coahuila__ley_del_notariado_del_estado_de_coahuila`) — reforma 2017-12-29
+- Ley Estatal de Educación (`coahuila__ley_estatal_de_educacion`) — reforma 2026-05-08
+- Ley Estatal de Salud (`coahuila__ley_estatal_de_salud`) — reforma 2026-05-19
+- Ley Orgánica de la Administración Pública del Estado de Coahuila (`coahuila__ley_organica_de_la_administracion_publica_del_estado_de_coahuila`) — reforma 2025-11-14
+- Ley Orgánica del Congreso del Estado Independiente, Libre y Soberano de Coahuila (`coahuila__ley_organica_del_congreso_del_estado_independiente_libre_y_soberano_de_coahuila`) — reforma 2026-04-10
+- Ley Orgánica del Poder Judicial del Estado de Coahuila (`coahuila__ley_organica_del_poder_judicial_del_estado_de_coahuila`) — reforma 2025-07-18
+- Ley para Promover la Igualdad y Prevenir la Discriminación en el Estado de Coahuila (`coahuila__ley_para_promover_la_igualdad_y_prevenir_la_discriminacion_en_el_estado_de_coahuila`) — reforma 2022-10-21
+- Reglamento de la Ley de Tránsito y Transporte del Estado de Coahuila (`coahuila__reglamento_de_la_ley_de_transito_y_transporte_del_estado_de_coahuila`) — reforma 1996-10-15
+- Código Civil para el Estado de Colima (`colima__codigo_civil_para_el_estado_de_colima`) — reforma 2025-05-17
+- Código de Procedimientos Civiles para el Estado de Colima (`colima__codigo_de_procedimientos_civiles_para_el_estado_de_colima`) — reforma 2021-07-17
+- Código Electoral del Estado de Colima (`colima__codigo_electoral_del_estado_de_colima`) — reforma 2026-06-27
+- Código Fiscal del Estado de Colima (`colima__codigo_fiscal_del_estado_de_colima`) — reforma 2025-07-12
+- Código Penal para el Estado de Colima (`colima__codigo_penal_para_el_estado_de_colima`) — reforma 2026-08-29
+- Constitución Política del Estado Libre y Soberano de Colima (`colima__constitucion_politica_del_estado_libre_y_soberano_de_colima`) — reforma 2026-08-31
+- Ley Ambiental para el Desarrollo Sustentable del Estado de Colima (`colima__ley_ambiental_para_el_desarrollo_sustentable_del_estado_de_colima`) — reforma 2026-05-23
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencia para el Estado de Colima (`colima__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_colima`) — reforma 2025-09-13
+- Ley de Educación del Estado de Colima (`colima__ley_de_educacion_del_estado_de_colima`) — reforma 2026-09-05
+- Ley de Hacienda del Estado de Colima (`colima__ley_de_hacienda_del_estado_de_colima`) — reforma 2026-06-30
+- Ley de Ingresos del Estado de Colima (`colima__ley_de_ingresos_del_estado_de_colima`)
+- Ley de Juicio Político del Estado de Colima (`colima__ley_de_juicio_politico_del_estado_de_colima`)
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Colima (`colima__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_colima`) — reforma 2026-02-07
+- Ley de Movilidad Sustentable para el Estado de Colima (`colima__ley_de_movilidad_sustentable_para_el_estado_de_colima`) — reforma 2026-08-01
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados para el Estado de Colima (`colima__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_colima`)
+- Ley de Responsabilidades de los Servidores Públicos del Estado de Colima (`colima__ley_de_responsabilidades_de_los_servidores_publicos_del_estado_de_colima`) — reforma 2017-07-01
+- Ley de Salud del Estado de Colima (`colima__ley_de_salud_del_estado_de_colima`) — reforma 2025-10-11
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Colima (`colima__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_colima`)
+- Ley para la Protección de Víctimas en el Estado de Colima (`colima__ley_de_victimas_del_estado_de_colima`) — reforma 2020-03-07
+- Ley del Municipio Libre del Estado de Colima (`colima__ley_del_municipio_libre_del_estado_de_colima`) — reforma 2024-08-24
+- Ley del Notariado para el Estado de Colima (`colima__ley_del_notariado_para_el_estado_de_colima`) — reforma 2024-05-11
+- Ley Orgánica de la Administración Pública del Estado de Colima (`colima__ley_organica_de_la_administracion_publica_del_estado_de_colima`) — reforma 2021-07-24
+- Ley Orgánica del Poder Ejecutivo y de la Administración Pública del Estado de Colima (`colima__ley_organica_del_poder_ejecutivo_y_de_la_administracion_publica_del_estado_de_colima`) — reforma 2026-04-16
+- Ley Orgánica del Poder Judicial del Estado de Colima (`colima__ley_organica_del_poder_judicial_del_estado_de_colima`) — reforma 2026-04-18
+- Ley Orgánica del Poder Legislativo del Estado de Colima (`colima__ley_organica_del_poder_legislativo_del_estado_de_colima`) — reforma 2025-09-19
+- Ley para la Igualdad entre Mujeres y Hombres del Estado de Colima (`colima__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_colima`) — reforma 2022-11-26
+- Reglamento de Seguridad Vial, Tránsito y Movilidad del Estado de Colima (`colima__reglamento_de_la_ley_de_movilidad_sustentable_para_el_estado_de_colima`) — reforma 2019-11-16
+- Código Civil del Estado de Durango (`durango__codigo_civil_del_estado_de_durango`) — reforma 2026-06-07
+- Código de Procedimientos Civiles del Estado de Durango (`durango__codigo_de_procedimientos_civiles_del_estado_de_durango`) — reforma 2018-05-31
+- Código Fiscal del Estado de Durango (`durango__codigo_fiscal_del_estado_de_durango`) — reforma 2025-12-14
+- Código Penal del Estado Libre y Soberano de Durango (`durango__codigo_penal_del_estado_libre_y_soberano_de_durango`) — reforma 2026-06-07
+- Constitución Política del Estado Libre y Soberano de Durango (`durango__constitucion_politica_del_estado_libre_y_soberano_de_durango`) — reforma 2026-05-31
+- Ley de Educación del Estado de Durango (`durango__ley_de_educacion_del_estado_de_durango`) — reforma 2026-06-07
+- Ley de Gestión Ambiental Sustentable para el Estado de Durango (`durango__ley_de_gestion_ambiental_sustentable_para_el_estado_de_durango`) — reforma 2026-05-24
+- Ley de Ingresos del Estado Libre y Soberano de Durango (`durango__ley_de_ingresos_del_estado_libre_y_soberano_de_durango`) — reforma 2025-12-01
+- Ley de Instituciones y Procedimientos Electorales para el Estado de Durango (`durango__ley_de_instituciones_y_procedimientos_electorales_para_el_estado_de_durango`) — reforma 2014-07-03
+- Ley de las Mujeres para una Vida sin Violencia (`durango__ley_de_las_mujeres_para_una_vida_sin_violencia`) — reforma 2025-11-16
+- Ley de los Derechos de las Niñas, Niños y Adolescentes del Estado de Durango (`durango__ley_de_los_derechos_de_las_ninas_ninos_y_adolescentes_del_estado_de_durango`) — reforma 2026-06-07
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Durango y sus Municipios (`durango__ley_de_proteccion_de_datos_personales_del_estado_de_durango`) — reforma 2025-12-27
+- Ley de Responsabilidades de los Servidores Públicos del Estado y de los Municipios (`durango__ley_de_responsabilidades_de_los_servidores_publicos_del_estado_y_de_los_municipios`) — reforma 2017-07-16
+- Ley de Responsabilidades de los Servidores Públicos en materia de juicio político, declaración de procedencia y el ejercicio de facultades legislativas en materia de enjuiciamiento por responsabilidades públicas (`durango__ley_de_responsabilidades_de_los_servidores_publicos_en_materia_de_juicio_politico_declaracion_de_procedencia_y_el_ejercicio_de_facultades_legislativas_en_materia_de_enjuiciamiento_por_responsabilidades_publicas`) — reforma 2019-07-11
+- Ley de Tránsito para los Municipios del Estado de Durango (`durango__ley_de_transito_para_los_municipios_del_estado_de_durango`) — reforma 2025-10-23
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Durango y Sus Municipios (`durango__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_durango`) — reforma 2025-12-27
+- Ley de Transportes para el Estado de Durango (`durango__ley_de_transportes_para_el_estado_de_durango`) — reforma 2025-12-14
+- Ley de Víctimas del Estado de Durango (`durango__ley_de_victimas_del_estado_de_durango`) — reforma 2023-03-23
+- Ley del Notariado para el Estado de Durango (`durango__ley_del_notariado_para_el_estado_de_durango`) — reforma 2026-04-26
+- Ley de Salud del Estado de Durango (`durango__ley_estatal_de_salud`) — reforma 2026-06-07
+- Ley Orgánica de la Administración Pública del Estado de Durango (`durango__ley_organica_de_la_administracion_publica_del_estado_de_durango`) — reforma 2026-06-07
+- Ley Orgánica del Congreso del Estado de Durango (`durango__ley_organica_del_congreso_del_estado_de_durango`) — reforma 2024-12-12
+- Ley Orgánica del Municipio Libre del Estado de Durango (`durango__ley_organica_del_municipio_libre_del_estado_de_durango`) — reforma 2026-06-02
+- Ley Orgánica del Poder Judicial del Estado de Durango (`durango__ley_organica_del_poder_judicial_del_estado_de_durango`) — reforma 2026-05-10
+- Ley para la Igualdad entre Mujeres y Hombres del Estado de Durango (`durango__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_durango`) — reforma 2025-11-16
+- Código Administrativo del Estado de México (`estado_de_mexico__codigo_administrativo_del_estado_de_mexico`) — reforma 2026-10-01
+- Código Civil del Estado de México (`estado_de_mexico__codigo_civil_del_estado_de_mexico`) — reforma 2026-06-16
+- Código de Procedimientos Civiles del Estado de México (`estado_de_mexico__codigo_de_procedimientos_civiles_del_estado_de_mexico`) — reforma 2021-05-14
+- Código Electoral del Estado de México (`estado_de_mexico__codigo_electoral_del_estado_de_mexico`) — reforma 2026-06-03
+- Código Financiero del Estado de México y Municipios (`estado_de_mexico__codigo_financiero_del_estado_de_mexico_y_municipios`) — reforma 2026-10-01
+- Código Penal del Estado de México (`estado_de_mexico__codigo_penal_del_estado_de_mexico`) — reforma 2026-09-25
+- Constitución Política del Estado Libre y Soberano de México (`estado_de_mexico__constitucion_politica_del_estado_libre_y_soberano_de_mexico`) — reforma 2026-09-25
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencia del Estado de México (`estado_de_mexico__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_del_estado_de_mexico`) — reforma 2026-09-25
+- Ley de Educación del Estado de México (`estado_de_mexico__ley_de_educacion_del_estado_de_mexico`) — reforma 2026-06-16
+- Ley de Igualdad de Trato y Oportunidades entre Mujeres y Hombres del Estado de México (`estado_de_mexico__ley_de_igualdad_de_trato_y_oportunidades_entre_mujeres_y_hombres_del_estado_de_mexico`) — reforma 2026-03-27
+- Ley de Ingresos del Estado de México (`estado_de_mexico__ley_de_ingresos_del_estado_de_mexico`) — reforma 2025-12-17
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de México (`estado_de_mexico__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_mexico`) — reforma 2026-05-20
+- Ley de Movilidad y Seguridad Vial del Estado de México y sus Municipios (`estado_de_mexico__ley_de_movilidad_y_seguridad_vial_del_estado_de_mexico`) — reforma 2024-05-21
+- Código para la Biodiversidad del Estado de México (`estado_de_mexico__ley_de_proteccion_ambiental_del_estado_de_mexico`) — reforma 2026-06-16
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de México y Municipios (`estado_de_mexico__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_mexico_y_municipios`) — reforma 2026-10-01
+- Ley de Responsabilidades Administrativas del Estado de México y Municipios (`estado_de_mexico__ley_de_responsabilidades_administrativas_del_estado_de_mexico_y_municipios`) — reforma 2026-05-20
+- Ley de Salud del Estado de México (`estado_de_mexico__ley_de_salud_del_estado_de_mexico`) — reforma 2026-04-28
+- Ley de Tránsito y Transporte del Estado de México (`estado_de_mexico__ley_de_transito_del_estado_de_mexico`) — reforma 1997-02-07
+- Ley de Transparencia y Acceso a la Información Pública del Estado de México y Municipios (`estado_de_mexico__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_mexico_y_municipios`) — reforma 2026-10-01
+- Ley de Víctimas del Estado de México (`estado_de_mexico__ley_de_victimas_del_estado_de_mexico`) — reforma 2025-09-30
+- Ley del Notariado del Estado de México (`estado_de_mexico__ley_del_notariado_del_estado_de_mexico`) — reforma 2025-04-03
+- Ley Orgánica de la Administración Pública del Estado de México (`estado_de_mexico__ley_organica_de_la_administracion_publica_del_estado_de_mexico`) — reforma 2026-10-01
+- Ley Orgánica del Poder Judicial del Estado de México (`estado_de_mexico__ley_organica_del_poder_judicial_del_estado_de_mexico`) — reforma 2026-04-10
+- Ley Orgánica del Poder Legislativo del Estado Libre y Soberano de México (`estado_de_mexico__ley_organica_del_poder_legislativo_del_estado_libre_y_soberano_de_mexico`) — reforma 2026-04-28
+- Ley Orgánica Municipal del Estado de México (`estado_de_mexico__ley_organica_municipal_del_estado_de_mexico`) — reforma 2026-06-16
+- Reglamento de Tránsito del Estado de México (`estado_de_mexico__reglamento_de_transito_del_estado_de_mexico`) — reforma 2025-11-10
+- Código Civil Federal (`federal__codigo_civil_federal`) — reforma 2025-11-14
+- Código de Comercio (`federal__codigo_de_comercio`) — reforma 2026-02-18
+- Código de Justicia Militar (`federal__codigo_de_justicia_militar`) — reforma 2025-07-16
+- Código Federal de Procedimientos Civiles (`federal__codigo_federal_de_procedimientos_civiles`) — reforma 2023-06-07
+- Código Federal de Procedimientos Penales (`federal__codigo_federal_de_procedimientos_penales`) — reforma 2016-06-17
+- Código Fiscal de la Federación (`federal__codigo_fiscal_de_la_federacion`) — reforma 2026-04-09
+- Código Militar de Procedimientos Penales (`federal__codigo_militar_de_procedimientos_penales`) — reforma 2025-11-14
+- Código Nacional de Procedimientos Civiles y Familiares (`federal__codigo_nacional_de_procedimientos_civiles_y_familiares`) — reforma 2026-01-15
+- Código Nacional de Procedimientos Penales (`federal__codigo_nacional_de_procedimientos_penales`) — reforma 2025-11-28
+- Código Penal Federal (`federal__codigo_penal_federal`) — reforma 2026-03-13
+- Constitución Política de los Estados Unidos Mexicanos (`federal__constitucion_politica_de_los_estados_unidos_mexicanos`) — reforma 2026-10-07
+- Convención Americana sobre Derechos Humanos (`federal__convencion_americana_sobre_derechos_humanos`)
+- Convención contra la Tortura y Otros Tratos o Penas Crueles, Inhumanos o Degradantes (`federal__convencion_contra_la_tortura_y_otros_tratos_o_penas_crueles_inhumanos_o_degradantes`)
+- Convención de La Haya sobre los Aspectos Civiles de la Sustracción Internacional de Menores (`federal__convencion_de_la_haya_sobre_los_aspectos_civiles_de_la_sustraccion_internacional_de_menores`)
+- Convención de las Naciones Unidas contra la Corrupción (`federal__convencion_de_las_naciones_unidas_contra_la_corrupcion`)
+- Convención de las Naciones Unidas contra la Delincuencia Organizada Transnacional (Palermo) (`federal__convencion_de_las_naciones_unidas_contra_la_delincuencia_organizada_transnacional_palermo`)
+- Convención de Nueva York sobre Reconocimiento y Ejecución de Sentencias Arbitrales Extranjeras (`federal__convencion_de_nueva_york_sobre_reconocimiento_y_ejecucion_de_sentencias_arbitrales_extranjeras`)
+- Convención de Viena sobre el Derecho de los Tratados (`federal__convencion_de_viena_sobre_el_derecho_de_los_tratados`)
+- Convención Interamericana para Prevenir, Sancionar y Erradicar la Violencia contra la Mujer (Belém do Pará) (`federal__convencion_interamericana_para_prevenir_sancionar_y_erradicar_la_violencia_contra_la_mujer_belem_do_para`)
+- Convención Interamericana para Prevenir y Sancionar la Tortura (`federal__convencion_interamericana_para_prevenir_y_sancionar_la_tortura`)
+- Convención Interamericana sobre Restitución Internacional de Menores (`federal__convencion_interamericana_sobre_restitucion_internacional_de_menores`)
+- Convención sobre la Eliminación de Todas las Formas de Discriminación contra la Mujer (CEDAW) (`federal__convencion_sobre_la_eliminacion_de_todas_las_formas_de_discriminacion_contra_la_mujer_cedaw`)
+- Convención sobre los Derechos de las Personas con Discapacidad (`federal__convencion_sobre_los_derechos_de_las_personas_con_discapacidad`)
+- Convención sobre los Derechos del Niño (`federal__convencion_sobre_los_derechos_del_nino`)
+- Convenio 169 de la OIT sobre Pueblos Indígenas y Tribales (`federal__convenio_169_de_la_oit_sobre_pueblos_indigenas_y_tribales`)
+- Convenio por el que se Suprime la Exigencia de Legalización de los Documentos Públicos Extranjeros (Convención de la Apostilla, La Haya, 5 de octubre de 1961) (`federal__convenio_por_el_que_se_suprime_la_exigencia_de_legalizacion_de_los_documentos_publicos_extranjeros_convencion_de_la_apostilla_la_haya_5_de_octubre_de_1961`)
+- Decreto de Reforma a la Ley de Amparo (DOF 14-jun-2024) (`federal__decreto_de_reforma_a_la_ley_de_amparo_dof_14_jun_2024`)
+- Decreto de Reforma al artículo 2° en materia indígena (DOF 30-sep-2024) (`federal__decreto_de_reforma_al_articulo_2o_en_materia_indigena_dof_30_sep_2024`)
+- Decreto de Reforma de la Guardia Nacional (DOF 30-sep-2024) (`federal__decreto_de_reforma_de_la_guardia_nacional_dof_30_sep_2024`)
+- Decreto de Reforma del Poder Judicial (DOF 15-sep-2024) (`federal__decreto_de_reforma_del_poder_judicial_dof_15_sep_2024`)
+- Decreto de Reforma en materia de Acceso a la Información (DOF 20-dic-2024) (`federal__decreto_de_reforma_en_materia_de_acceso_a_la_informacion_dof_20_dic_2024`)
+- Decreto de Reforma en materia de Bienestar Animal (`federal__decreto_de_reforma_en_materia_de_bienestar_animal`)
+- Decreto de Reforma en materia de Igualdad Sustantiva (DOF 15-ene-2026) (`federal__decreto_de_reforma_en_materia_de_igualdad_sustantiva_dof_15_ene_2026`)
+- Decreto de Reforma en materia de Jornada Laboral de 40 Horas (`federal__decreto_de_reforma_en_materia_de_jornada_laboral_de_40_horas`)
+- Decreto de Reforma en materia de Maíz Nativo (`federal__decreto_de_reforma_en_materia_de_maiz_nativo`)
+- Decretos de reformas constitucionales (cronológico) (`federal__decretos_de_reformas_constitucionales_cronologico`) — reforma 2024-10-31
+- Estatuto de Roma de la Corte Penal Internacional (`federal__estatuto_de_roma_de_la_corte_penal_internacional`)
+- Ley Aduanera (`federal__ley_aduanera`) — reforma 2025-12-27
+- Ley Agraria (`federal__ley_agraria`) — reforma 2025-11-14
+- Ley de Adquisiciones, Arrendamientos y Servicios del Sector Público (`federal__ley_de_adquisiciones_arrendamientos_y_servicios_del_sector_publico`) — reforma 2025-04-16
+- Ley de Aguas Nacionales (`federal__ley_de_aguas_nacionales`) — reforma 2025-12-11
+- Ley de Amparo (`federal__ley_de_amparo`) — reforma 2025-10-16
+- Ley de Biocombustibles (`federal__ley_de_biocombustibles`) — reforma 2025-03-18
+- Ley de Caminos, Puentes y Autotransporte Federal (`federal__ley_de_caminos_puentes_y_autotransporte_federal`) — reforma 2025-11-14
+- Ley de Comercio Exterior (`federal__ley_de_comercio_exterior`) — reforma 2026-05-01
+- Ley de Concursos Mercantiles (`federal__ley_de_concursos_mercantiles`) — reforma 2026-01-16
+- Ley de Coordinación Fiscal (`federal__ley_de_coordinacion_fiscal`) — reforma 2024-01-03
+- Ley de Energía Geotérmica (`federal__ley_de_energia_geotermica`)
+- Ley de Geotermia (`federal__ley_de_geotermia`) — reforma 2025-03-18
+- Ley de Hidrocarburos (`federal__ley_de_hidrocarburos`) — reforma 2025-03-18
+- Ley de Ingresos de la Federación (`federal__ley_de_ingresos_de_la_federacion`) — reforma 2025-11-07
+- Ley de Instituciones de Crédito (`federal__ley_de_instituciones_de_credito`) — reforma 2025-11-14
+- Ley de Instituciones de Seguros y de Fianzas (`federal__ley_de_instituciones_de_seguros_y_de_fianzas`) — reforma 2025-11-14
+- Ley de Inversión Extranjera (`federal__ley_de_inversion_extranjera`) — reforma 2024-05-27
+- Ley de la Comisión Nacional de Energía (`federal__ley_de_la_comision_nacional_de_energia`) — reforma 2025-03-18
+- Ley de la Empresa Pública del Estado, Comisión Federal de Electricidad (`federal__ley_de_la_empresa_publica_del_estado_comision_federal_de_electricidad`) — reforma 2025-03-18
+- Ley de la Empresa Pública del Estado, Petróleos Mexicanos (`federal__ley_de_la_empresa_publica_del_estado_petroleos_mexicanos`) — reforma 2025-03-18
+- Ley de la Fiscalía General de la República (`federal__ley_de_la_fiscalia_general_de_la_republica`) — reforma 2025-11-14
+- Ley de la Guardia Nacional (`federal__ley_de_la_guardia_nacional`) — reforma 2025-07-16
+- Ley de la Industria Eléctrica (`federal__ley_de_la_industria_electrica`) — reforma 2025-03-18
+- Ley de los Derechos de las Personas Adultas Mayores (`federal__ley_de_los_derechos_de_las_personas_adultas_mayores`) — reforma 2024-06-14
+- Ley de los Órganos Reguladores Coordinados en Materia Energética (`federal__ley_de_los_organos_reguladores_coordinados_en_materia_energetica`) — reforma 2025-03-18
+- Ley de los Sistemas de Ahorro para el Retiro (`federal__ley_de_los_sistemas_de_ahorro_para_el_retiro`) — reforma 2025-11-14
+- Ley de Migración (`federal__ley_de_migracion`) — reforma 2026-01-15
+- Ley de Nacionalidad (`federal__ley_de_nacionalidad`) — reforma 2012-04-23
+- Ley de Obras Públicas y Servicios Relacionados con las Mismas (`federal__ley_de_obras_publicas_y_servicios_relacionados_con_las_mismas`) — reforma 2025-11-14
+- Ley de Planeación y Transición Energética (`federal__ley_de_planeacion_y_transicion_energetica`) — reforma 2025-03-18
+- Ley de Protección y Defensa al Usuario de Servicios Financieros (`federal__ley_de_proteccion_y_defensa_al_usuario_de_servicios_financieros`) — reforma 2025-11-14
+- Ley de Seguridad Nacional (`federal__ley_de_seguridad_nacional`) — reforma 2025-11-14
+- Ley de Transición Energética (`federal__ley_de_transicion_energetica`)
+- Ley de Vivienda (`federal__ley_de_vivienda`) — reforma 2026-04-29
+- Ley del Impuesto al Valor Agregado (`federal__ley_del_impuesto_al_valor_agregado`) — reforma 2021-11-12
+- Ley del Impuesto Especial sobre Producción y Servicios (`federal__ley_del_impuesto_especial_sobre_produccion_y_servicios`) — reforma 2025-12-22
+- Ley del Impuesto sobre la Renta (`federal__ley_del_impuesto_sobre_la_renta`) — reforma 2024-04-01
+- Ley del Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado (`federal__ley_del_instituto_de_seguridad_y_servicios_sociales_de_los_trabajadores_del_estado`) — reforma 2026-01-15
+- Ley del Instituto del Fondo Nacional de la Vivienda para los Trabajadores (`federal__ley_del_instituto_del_fondo_nacional_de_la_vivienda_para_los_trabajadores`) — reforma 2025-02-21
+- Ley del Instituto del Fondo Nacional para el Consumo de los Trabajadores (`federal__ley_del_instituto_del_fondo_nacional_para_el_consumo_de_los_trabajadores`) — reforma 2024-01-03
+- Ley del Mercado de Valores (`federal__ley_del_mercado_de_valores`) — reforma 2025-11-14
+- Ley del Sector Eléctrico (`federal__ley_del_sector_electrico`) — reforma 2025-03-18
+- Ley del Sector Hidrocarburos (`federal__ley_del_sector_hidrocarburos`) — reforma 2025-03-18
+- Ley del Seguro Social (`federal__ley_del_seguro_social`) — reforma 2026-01-15
+- Ley del Sistema Nacional de Investigación e Inteligencia en Materia de Seguridad Pública (`federal__ley_del_sistema_nacional_de_investigacion_e_inteligencia_en_materia_de_seguridad_publica`) — reforma 2025-07-16
+- Ley del Sistema Público de Radiodifusión del Estado Mexicano (`federal__ley_del_sistema_publico_de_radiodifusion_del_estado_mexicano`) — reforma 2025-11-14
+- Ley en Materia de Telecomunicaciones y Radiodifusión (`federal__ley_en_materia_de_telecomunicaciones_y_radiodifusion`) — reforma 2025-07-16
+- Ley Federal contra la Delincuencia Organizada (`federal__ley_federal_contra_la_delincuencia_organizada`) — reforma 2025-11-28
+- Ley Federal de Armas de Fuego y Explosivos (`federal__ley_federal_de_armas_de_fuego_y_explosivos`) — reforma 2025-05-29
+- Ley Federal de Competencia Económica (`federal__ley_federal_de_competencia_economica`) — reforma 2025-11-14
+- Ley Federal de Derechos (`federal__ley_federal_de_derechos`) — reforma 2025-12-28
+- Ley Federal de Extinción de Dominio (`federal__ley_federal_de_extincion_de_dominio`) — reforma 2019-08-09
+- Ley Federal de las Entidades Paraestatales (`federal__ley_federal_de_las_entidades_paraestatales`) — reforma 2025-07-16
+- Ley Federal de los Trabajadores al Servicio del Estado (`federal__ley_federal_de_los_trabajadores_al_servicio_del_estado`) — reforma 2026-01-15
+- Ley Federal de Presupuesto y Responsabilidad Hacendaria (`federal__ley_federal_de_presupuesto_y_responsabilidad_hacendaria`) — reforma 2026-04-09
+- Ley Federal de Procedimiento Administrativo (`federal__ley_federal_de_procedimiento_administrativo`) — reforma 2025-11-14
+- Ley Federal de Procedimiento Contencioso Administrativo (`federal__ley_federal_de_procedimiento_contencioso_administrativo`) — reforma 2026-06-09
+- Ley Federal de Protección a la Propiedad Industrial (`federal__ley_federal_de_proteccion_a_la_propiedad_industrial`) — reforma 2026-04-03
+- Ley Federal de Protección al Consumidor (`federal__ley_federal_de_proteccion_al_consumidor`) — reforma 2025-12-23
+- Ley Federal de Protección de Datos Personales en Posesión de los Particulares (`federal__ley_federal_de_proteccion_de_datos_personales_en_posesion_de_los_particulares`) — reforma 2025-11-14
+- Ley Federal de Responsabilidad Ambiental (`federal__ley_federal_de_responsabilidad_ambiental`) — reforma 2025-11-14
+- Ley Federal de Responsabilidades de los Servidores Públicos (`federal__ley_federal_de_responsabilidades_de_los_servidores_publicos`) — reforma 2024-04-01
+- Ley Federal de Telecomunicaciones y Radiodifusión (`federal__ley_federal_de_telecomunicaciones_y_radiodifusion`) — reforma 2025-11-14
+- Ley Federal de Transparencia y Acceso a la Información Pública (`federal__ley_federal_de_transparencia_y_acceso_a_la_informacion_publica`) — reforma 2025-03-20
+- Ley Federal del Derecho de Autor (`federal__ley_federal_del_derecho_de_autor`) — reforma 2026-05-14
+- Ley Federal del Trabajo (`federal__ley_federal_del_trabajo`) — reforma 2026-05-14
+- Ley Federal para la Prevención e Identificación de Operaciones con Recursos de Procedencia Ilícita (`federal__ley_federal_para_la_prevencion_e_identificacion_de_operaciones_con_recursos_de_procedencia_ilicita`) — reforma 2025-07-16
+- Ley Federal para Prevenir y Eliminar la Discriminación (`federal__ley_federal_para_prevenir_y_eliminar_la_discriminacion`) — reforma 2025-11-14
+- Ley Federal para Prevenir y Sancionar la Tortura (`federal__ley_federal_para_prevenir_y_sancionar_la_tortura`) — reforma 2017-06-26
+- Ley General de Acceso de las Mujeres a una Vida Libre de Violencias (`federal__ley_general_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencias`) — reforma 2026-01-15
+- Ley General de Aguas (`federal__ley_general_de_aguas`) — reforma 2025-12-11
+- Ley General de Archivos (`federal__ley_general_de_archivos`) — reforma 2025-11-14
+- Ley General de Asentamientos Humanos, Ordenamiento Territorial y Desarrollo Urbano (`federal__ley_general_de_asentamientos_humanos_ordenamiento_territorial_y_desarrollo_urbano`) — reforma 2024-04-01
+- Ley General de Bienes Nacionales (`federal__ley_general_de_bienes_nacionales`) — reforma 2025-11-14
+- Ley General de Cambio Climático (`federal__ley_general_de_cambio_climatico`) — reforma 2024-04-01
+- Ley General de Cultura Física y Deporte (`federal__ley_general_de_cultura_fisica_y_deporte`) — reforma 2025-11-14
+- Ley General de Cultura y Derechos Culturales (`federal__ley_general_de_cultura_y_derechos_culturales`) — reforma 2026-01-15
+- Ley General de Desarrollo Forestal Sustentable (`federal__ley_general_de_desarrollo_forestal_sustentable`) — reforma 2024-04-01
+- Ley General de Economía Circular (`federal__ley_general_de_economia_circular`) — reforma 2026-01-19
+- Ley General de Educación (`federal__ley_general_de_educacion`) — reforma 2026-01-15
+- Ley General de Educación Superior (`federal__ley_general_de_educacion_superior`) — reforma 2021-04-20
+- Ley General de Instituciones y Procedimientos Electorales (`federal__ley_general_de_instituciones_y_procedimientos_electorales`) — reforma 2026-06-02
+- Ley General de los Derechos de Niñas, Niños y Adolescentes (`federal__ley_general_de_los_derechos_de_ninas_ninos_y_adolescentes`) — reforma 2026-01-15
+- Ley General de Movilidad y Seguridad Vial (`federal__ley_general_de_movilidad_y_seguridad_vial`) — reforma 2023-12-29
+- Ley General de Organizaciones y Actividades Auxiliares del Crédito (`federal__ley_general_de_organizaciones_y_actividades_auxiliares_del_credito`) — reforma 2025-11-14
+- Ley General de Partidos Políticos (`federal__ley_general_de_partidos_politicos`) — reforma 2023-11-24
+- Ley General de Pesca y Acuacultura Sustentables (`federal__ley_general_de_pesca_y_acuacultura_sustentables`) — reforma 2024-04-01
+- Ley General de Población (`federal__ley_general_de_poblacion`) — reforma 2025-07-16
+- Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados (`federal__ley_general_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados`) — reforma 2025-11-14
+- Ley General de Responsabilidades Administrativas (`federal__ley_general_de_responsabilidades_administrativas`) — reforma 2025-12-15
+- Ley General de Salud (`federal__ley_general_de_salud`) — reforma 2026-01-15
+- Ley General de Sociedades Cooperativas (`federal__ley_general_de_sociedades_cooperativas`) — reforma 2025-04-16
+- Ley General de Sociedades Mercantiles (`federal__ley_general_de_sociedades_mercantiles`) — reforma 2025-12-26
+- Ley General de Títulos y Operaciones de Crédito (`federal__ley_general_de_titulos_y_operaciones_de_credito`) — reforma 2024-03-26
+- Ley General de Transparencia y Acceso a la Información Pública (`federal__ley_general_de_transparencia_y_acceso_a_la_informacion_publica`) — reforma 2025-03-20
+- Ley General de Víctimas (`federal__ley_general_de_victimas`) — reforma 2024-04-01
+- Ley General de Vida Silvestre (`federal__ley_general_de_vida_silvestre`) — reforma 2025-07-16
+- Ley General del Equilibrio Ecológico y la Protección al Ambiente (`federal__ley_general_del_equilibrio_ecologico_y_la_proteccion_al_ambiente`) — reforma 2026-01-19
+- Ley General del Servicio Profesional Docente (`federal__ley_general_del_servicio_profesional_docente`) — reforma 2019-05-15
+- Ley General del Sistema de Medios de Impugnación en Materia Electoral (`federal__ley_general_del_sistema_de_medios_de_impugnacion_en_materia_electoral`) — reforma 2025-11-14
+- Ley General del Sistema Nacional Anticorrupción (`federal__ley_general_del_sistema_nacional_anticorrupcion`) — reforma 2021-05-20
+- Ley General del Sistema Nacional de Seguridad Pública (`federal__ley_general_del_sistema_nacional_de_seguridad_publica`) — reforma 2025-07-16
+- Ley General del Sistema para la Carrera de las Maestras y los Maestros (`federal__ley_general_del_sistema_para_la_carrera_de_las_maestras_y_los_maestros`) — reforma 2019-09-30
+- Ley General en Materia de Delitos Electorales (`federal__ley_general_en_materia_de_delitos_electorales`) — reforma 2021-05-20
+- Ley General en Materia de Desaparición Forzada de Personas (`federal__ley_general_en_materia_de_desaparicion_forzada_de_personas`) — reforma 2025-07-16
+- Ley General para la Igualdad Sustantiva entre Mujeres y Hombres (`federal__ley_general_para_la_igualdad_sustantiva_entre_mujeres_y_hombres`) — reforma 2026-01-15
+- Ley General para la Inclusión de las Personas con Discapacidad (`federal__ley_general_para_la_inclusion_de_las_personas_con_discapacidad`) — reforma 2024-06-14
+- Ley General para la Prevención y Gestión Integral de los Residuos (`federal__ley_general_para_la_prevencion_y_gestion_integral_de_los_residuos`) — reforma 2026-01-19
+- Ley General para Prevenir, Investigar y Sancionar la Tortura (`federal__ley_general_para_prevenir_investigar_y_sancionar_la_tortura`) — reforma 2022-04-28
+- Ley General para Prevenir, Investigar y Sancionar los Delitos en Materia de Extorsión (`federal__ley_general_para_prevenir_investigar_y_sancionar_los_delitos_en_materia_de_extorsion`) — reforma 2025-11-28
+- Ley General para Prevenir, Sancionar y Erradicar los Delitos en Materia de Trata de Personas (`federal__ley_general_para_prevenir_sancionar_y_erradicar_los_delitos_en_materia_de_trata_de_personas`) — reforma 2025-11-14
+- Ley General para Prevenir y Sancionar los Delitos en Materia de Secuestro (`federal__ley_general_para_prevenir_y_sancionar_los_delitos_en_materia_de_secuestro`) — reforma 2021-05-20
+- Ley Nacional de Ejecución Penal (`federal__ley_nacional_de_ejecucion_penal`) — reforma 2024-04-01
+- Ley Nacional de Extinción de Dominio (`federal__ley_nacional_de_extincion_de_dominio`) — reforma 2025-11-28
+- Ley Nacional de Mecanismos Alternativos de Solución de Controversias en Materia Penal (`federal__ley_nacional_de_mecanismos_alternativos_de_solucion_de_controversias_en_materia_penal`) — reforma 2024-04-01
+- Ley Nacional del Registro de Detenciones (`federal__ley_nacional_del_registro_de_detenciones`) — reforma 2019-05-27
+- Ley Nacional del Sistema Integral de Justicia Penal para Adolescentes (`federal__ley_nacional_del_sistema_integral_de_justicia_penal_para_adolescentes`) — reforma 2022-12-20
+- Ley Nacional sobre el Uso de la Fuerza (`federal__ley_nacional_sobre_el_uso_de_la_fuerza`) — reforma 2024-01-24
+- Ley Orgánica de la Administración Pública Federal (`federal__ley_organica_de_la_administracion_publica_federal`) — reforma 2026-05-07
+- Ley Orgánica de la Fiscalía General de la República (`federal__ley_organica_de_la_fiscalia_general_de_la_republica`) — reforma 2021-05-20
+- Ley Orgánica de los Tribunales Agrarios (`federal__ley_organica_de_los_tribunales_agrarios`) — reforma 1998-01-23
+- Ley Orgánica del Poder Judicial de la Federación (`federal__ley_organica_del_poder_judicial_de_la_federacion`) — reforma 2025-11-28
+- Ley Orgánica del Tribunal Federal de Justicia Administrativa (`federal__ley_organica_del_tribunal_federal_de_justicia_administrativa`) — reforma 2025-10-16
+- Ley para el Aprovechamiento Sustentable de la Energía (`federal__ley_para_el_aprovechamiento_sustentable_de_la_energia`)
+- Ley para la Transparencia y Ordenamiento de los Servicios Financieros (`federal__ley_para_la_transparencia_y_ordenamiento_de_los_servicios_financieros`) — reforma 2025-11-14
+- Ley para Regular las Instituciones de Tecnología Financiera (`federal__ley_para_regular_las_instituciones_de_tecnologia_financiera`) — reforma 2025-11-14
+- Ley para Regular las Sociedades de Información Crediticia (`federal__ley_para_regular_las_sociedades_de_informacion_crediticia`) — reforma 2024-01-24
+- Ley Reglamentaria de las Fracciones I y II del Artículo 105 de la Constitución Política de los Estados Unidos Mexicanos (`federal__ley_reglamentaria_de_las_fracciones_i_y_ii_del_articulo_105_de_la_constitucion_politica_de_los_estados_unidos_mexicanos`) — reforma 2025-11-14
+- Ley Reglamentaria del Artículo 27 Constitucional en el Ramo del Petróleo (`federal__ley_reglamentaria_del_articulo_27_constitucional_en_el_ramo_del_petroleo`) — reforma 2014-08-11
+- Ley sobre Refugiados, Protección Complementaria y Asilo Político (`federal__ley_sobre_refugiados_proteccion_complementaria_y_asilo_politico`) — reforma 2022-02-18
+- Pacto Internacional de Derechos Civiles y Políticos (`federal__pacto_internacional_de_derechos_civiles_y_politicos`)
+- Pacto Internacional de Derechos Económicos, Sociales y Culturales (`federal__pacto_internacional_de_derechos_economicos_sociales_y_culturales`)
+- Reglamento de Autotransporte Federal y Servicios Auxiliares (`federal__reglamento_de_autotransporte_federal_y_servicios_auxiliares`) — reforma 2023-05-03
+- Reglamento de Tránsito en Carreteras y Puentes de Jurisdicción Federal (`federal__reglamento_de_transito_en_carreteras_y_puentes_de_jurisdiccion_federal`) — reforma 2026-08-13
+- Reglamento sobre el Peso, Dimensiones y Capacidad de los Vehículos de Autotransporte (`federal__reglamento_sobre_el_peso_dimensiones_y_capacidad_de_los_vehiculos_de_autotransporte`) — reforma 2006-11-15
+- Resolución Miscelánea Fiscal (`federal__resolucion_miscelanea_fiscal`) — reforma 2026-07-09
+- Resolucion Miscelanea Fiscal 2026 Anexo 1 (`federal__resolucion_miscelanea_fiscal_2026_anexo_1`) — reforma 2026-07-17
+- Resolucion Miscelanea Fiscal 2026 Anexo 15 (`federal__resolucion_miscelanea_fiscal_2026_anexo_15`) — reforma 2026-07-17
+- Resolucion Miscelanea Fiscal 2026 Anexo 18 (`federal__resolucion_miscelanea_fiscal_2026_anexo_18`)
+- Resolucion Miscelanea Fiscal 2026 Anexo 2 (`federal__resolucion_miscelanea_fiscal_2026_anexo_2`) — reforma 2026-07-17
+- Resolucion Miscelanea Fiscal 2026 Anexo 24 (`federal__resolucion_miscelanea_fiscal_2026_anexo_24`)
+- Resolucion Miscelanea Fiscal 2026 Anexo 25 (`federal__resolucion_miscelanea_fiscal_2026_anexo_25`)
+- Resolucion Miscelanea Fiscal 2026 Anexo 3 (`federal__resolucion_miscelanea_fiscal_2026_anexo_3`) — reforma 2026-07-17
+- Resolucion Miscelanea Fiscal 2026 Anexo 30 (`federal__resolucion_miscelanea_fiscal_2026_anexo_30`)
+- Resolucion Miscelanea Fiscal 2026 Anexo 4 (`federal__resolucion_miscelanea_fiscal_2026_anexo_4`)
+- Resolucion Miscelanea Fiscal 2026 Anexo 5 (`federal__resolucion_miscelanea_fiscal_2026_anexo_5`)
+- Resolucion Miscelanea Fiscal 2026 Anexo 6 (`federal__resolucion_miscelanea_fiscal_2026_anexo_6`) — reforma 2025-12-28
+- Resolucion Miscelanea Fiscal 2026 Anexo 7 (`federal__resolucion_miscelanea_fiscal_2026_anexo_7`)
+- Resolucion Miscelanea Fiscal 2026 Anexo 8 (`federal__resolucion_miscelanea_fiscal_2026_anexo_8`)
+- Tratado entre México, Estados Unidos y Canadá (T-MEC) (`federal__tratado_entre_mexico_estados_unidos_y_canada_t_mec`)
+- Tratado entre México, Estados Unidos y Canadá (T-MEC) - Tomo II (capítulos 14 a 34 y acuerdos paralelos) (`federal__tratado_entre_mexico_estados_unidos_y_canada_t_mec_tomo_ii_capitulos_14_a_34_y_acuerdos_paralelos`)
+- Código Civil para el Estado de Guanajuato (`guanajuato__codigo_civil_para_el_estado_de_guanajuato`) — reforma 2025-12-18
+- Código de Procedimientos Civiles para el Estado de Guanajuato (`guanajuato__codigo_de_procedimientos_civiles_para_el_estado_de_guanajuato`) — reforma 2026-07-03
+- Código Fiscal para el Estado de Guanajuato (`guanajuato__codigo_fiscal_para_el_estado_de_guanajuato`) — reforma 2025-12-31
+- Código Penal del Estado de Guanajuato (`guanajuato__codigo_penal_del_estado_de_guanajuato`) — reforma 2026-05-14
+- Constitución Política del Estado Libre y Soberano de Guanajuato (`guanajuato__constitucion_politica_para_el_estado_de_guanajuato`) — reforma 2026-08-04
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencia para el Estado de Guanajuato (`guanajuato__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_guanajuato`) — reforma 2026-07-08
+- Ley de Educación para el Estado de Guanajuato (`guanajuato__ley_de_educacion_para_el_estado_de_guanajuato`) — reforma 2026-05-14
+- Ley de Ingresos para el Estado de Guanajuato (`guanajuato__ley_de_ingresos_para_el_estado_de_guanajuato`) — reforma 2025-12-30
+- Ley de Instituciones y Procedimientos Electorales para el Estado de Guanajuato (`guanajuato__ley_de_instituciones_y_procedimientos_electorales_para_el_estado_de_guanajuato`) — reforma 2026-05-29
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Guanajuato (`guanajuato__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_guanajuato`) — reforma 2026-05-14
+- Ley de Movilidad del Estado de Guanajuato y sus Municipios (`guanajuato__ley_de_movilidad_del_estado_de_guanajuato_y_sus_municipios`) — reforma 2026-05-28
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados para el Estado de Guanajuato (`guanajuato__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_para_el_estado_de_guanajuato`) — reforma 2017-12-05
+- Ley de Responsabilidades Administrativas para el Estado de Guanajuato (`guanajuato__ley_de_responsabilidades_administrativas_para_el_estado_de_guanajuato`) — reforma 2026-06-29
+- Ley de Salud del Estado de Guanajuato (`guanajuato__ley_de_salud_del_estado_de_guanajuato`) — reforma 2026-04-10
+- Ley de Transparencia y Acceso a la Información Pública para el Estado de Guanajuato (`guanajuato__ley_de_transparencia_y_acceso_a_la_informacion_publica_para_el_estado_de_guanajuato`) — reforma 2026-04-08
+- Ley de Víctimas del Estado de Guanajuato (`guanajuato__ley_de_victimas_del_estado_de_guanajuato`) — reforma 2026-04-21
+- Ley del Notariado para el Estado de Guanajuato (`guanajuato__ley_del_notariado_para_el_estado_de_guanajuato`) — reforma 2023-12-13
+- Ley Orgánica del Poder Ejecutivo para el Estado de Guanajuato (`guanajuato__ley_organica_del_poder_ejecutivo_para_el_estado_de_guanajuato`) — reforma 2026-04-08
+- Ley Orgánica del Poder Judicial del Estado de Guanajuato (`guanajuato__ley_organica_del_poder_judicial_del_estado_de_guanajuato`) — reforma 2025-04-28
+- Ley Orgánica del Poder Legislativo del Estado de Guanajuato (`guanajuato__ley_organica_del_poder_legislativo_del_estado_de_guanajuato`) — reforma 2026-05-29
+- Ley Orgánica Municipal para el Estado de Guanajuato (`guanajuato__ley_organica_municipal_para_el_estado_de_guanajuato`) — reforma 2022-11-30
+- Ley para el Gobierno y Administración de los Municipios del Estado de Guanajuato (`guanajuato__ley_para_el_gobierno_y_administracion_de_los_municipios_del_estado_de_guanajuato`) — reforma 2026-05-29
+- Ley para la Igualdad entre Mujeres y Hombres del Estado de Guanajuato (`guanajuato__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_guanajuato`) — reforma 2025-06-25
+- Ley para la Protección y Preservación del Ambiente del Estado de Guanajuato (`guanajuato__ley_para_la_proteccion_y_preservacion_del_ambiente_del_estado_de_guanajuato`) — reforma 2024-09-17
+- Reglamento de la Ley de Movilidad del Estado de Guanajuato y sus Municipios (`guanajuato__reglamento_de_la_ley_de_movilidad_del_estado_de_guanajuato_y_sus_municipios`) — reforma 2022-10-19
+- Reglamento de Tránsito de la Ley de Tránsito y Transporte del Estado de Guanajuato (`guanajuato__reglamento_de_transito_en_carreteras_y_zonas_urbanas_de_jurisdiccion_del_estado_de_guanajuato`) — reforma 2008-10-14
+- Código Civil del Estado Libre y Soberano de Guerrero (`guerrero__codigo_civil_del_estado_libre_y_soberano_de_guerrero`) — reforma 2026-04-07
+- Código Fiscal del Estado de Guerrero (`guerrero__codigo_fiscal_del_estado_de_guerrero`) — reforma 2025-12-23
+- Código Penal para el Estado Libre y Soberano de Guerrero (`guerrero__codigo_penal_para_el_estado_libre_y_soberano_de_guerrero`) — reforma 2026-05-22
+- Código Procesal Civil del Estado Libre y Soberano de Guerrero (`guerrero__codigo_procesal_civil_del_estado_libre_y_soberano_de_guerrero`) — reforma 2022-12-30
+- Constitución Política del Estado Libre y Soberano de Guerrero (`guerrero__constitucion_politica_del_estado_libre_y_soberano_de_guerrero`) — reforma 2026-04-21
+- Ley de Ingresos del Estado de Guerrero (`guerrero__ley_de_ingresos_del_estado_de_guerrero`) — reforma 2025-12-22
+- Ley de Instituciones y Procedimientos Electorales del Estado de Guerrero (`guerrero__ley_de_instituciones_y_procedimientos_electorales_del_estado_de_guerrero`) — reforma 2026-06-02
+- Ley de Transporte y Vialidad del Estado de Guerrero (`guerrero__ley_de_transporte_y_vialidad_del_estado_de_guerrero`) — reforma 2024-07-16
+- Ley del Notariado del Estado de Guerrero (`guerrero__ley_del_notariado_del_estado_de_guerrero`) — reforma 2011-08-19
+- Ley Número 1212 de Salud del Estado de Guerrero (`guerrero__ley_numero_1212_de_salud_del_estado_de_guerrero`) — reforma 2026-08-14
+- Ley Número 207 de Transparencia y Acceso a la Información Pública del Estado de Guerrero (`guerrero__ley_numero_207_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_guerrero`) — reforma 2023-01-17
+- Ley Número 450 de Víctimas del Estado Libre y Soberano de Guerrero (`guerrero__ley_numero_450_de_victimas_del_estado_libre_y_soberano_de_guerrero`) — reforma 2024-03-12
+- Ley Número 464 de Educación del Estado Libre y Soberano de Guerrero (`guerrero__ley_numero_464_de_educacion_del_estado_libre_y_soberano_de_guerrero`) — reforma 2026-08-14
+- Ley Número 465 de Responsabilidades Administrativas para el Estado de Guerrero (`guerrero__ley_numero_465_de_responsabilidades_administrativas_para_el_estado_de_guerrero`) — reforma 2026-09-29
+- Ley Número 466 de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Guerrero (`guerrero__ley_numero_466_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_guerrero`) — reforma 2017-07-18
+- Ley Número 494 para la Igualdad entre Mujeres y Hombres del Estado de Guerrero (`guerrero__ley_numero_494_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_guerrero`) — reforma 2026-05-12
+- Ley Número 51 Estatuto de los Trabajadores al Servicio del Estado, de los Municipios y de los Organismos Públicos Coordinados y Descentralizados del Estado de Guerrero (`guerrero__ley_numero_51_estatuto_de_los_trabajadores_al_servicio_del_estado_de_los_municipios_y_de_los_organismos_publicos_coordinados_y_descentralizados_del_estado_de_guerrero`) — reforma 2026-04-07
+- Ley Número 553 de Acceso de las Mujeres a una Vida Libre de Violencia del Estado Libre y Soberano de Guerrero (`guerrero__ley_numero_553_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_del_estado_libre_y_soberano_de_guerrero`) — reforma 2026-05-26
+- Ley Número 695 de Responsabilidades de los Servidores Públicos del Estado y de los Municipios de Guerrero (`guerrero__ley_numero_695_de_responsabilidades_administrativas_para_el_estado_y_municipios_de_guerrero`) — reforma 2017-07-18
+- Ley Número 701 de Reconocimiento, Derechos y Cultura de los Pueblos y Comunidades Indígenas y Afromexicanas del Estado de Guerrero (`guerrero__ley_numero_701_de_reconocimiento_derechos_y_cultura_de_los_pueblos_y_comunidades_indigenas_del_estado_de_guerrero`) — reforma 2022-07-05
+- Ley Número 812 para la Protección de los Derechos de Niñas, Niños y Adolescentes del Estado de Guerrero (`guerrero__ley_numero_812_para_la_proteccion_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_guerrero`) — reforma 2024-03-12
+- Ley Número 878 del Equilibrio Ecológico y la Protección al Ambiente del Estado de Guerrero (`guerrero__ley_numero_878_del_equilibrio_ecologico_y_la_proteccion_al_ambiente_del_estado_de_guerrero`) — reforma 2024-07-05
+- Ley Orgánica de la Administración Pública del Estado de Guerrero (`guerrero__ley_organica_de_la_administracion_publica_del_estado_de_guerrero`) — reforma 2025-12-30
+- Ley Orgánica del Municipio Libre del Estado de Guerrero (`guerrero__ley_organica_del_municipio_libre_del_estado_de_guerrero`) — reforma 2026-02-13
+- Ley Orgánica del Poder Judicial del Estado Libre y Soberano de Guerrero Número 129 (`guerrero__ley_organica_del_poder_judicial_del_estado_de_guerrero`) — reforma 2022-04-29
+- Ley Orgánica del Poder Legislativo del Estado de Guerrero (`guerrero__ley_organica_del_poder_legislativo_del_estado_de_guerrero`) — reforma 2026-05-12
+- Reglamento de la Ley de Transporte y Vialidad del Estado de Guerrero (`guerrero__reglamento_de_transito_del_estado_de_guerrero`) — reforma 2023-03-07
+- Código Civil para el Estado de Hidalgo (`hidalgo__codigo_civil_para_el_estado_de_hidalgo`) — reforma 2025-08-22
+- Código de Procedimientos Civiles para el Estado de Hidalgo (`hidalgo__codigo_de_procedimientos_civiles_para_el_estado_de_hidalgo`) — reforma 2017-06-26
+- Código de Procedimientos Familiares para el Estado de Hidalgo (`hidalgo__codigo_de_procedimientos_familiares_para_el_estado_de_hidalgo`) — reforma 2017-07-10
+- Código Electoral del Estado de Hidalgo (`hidalgo__codigo_electoral_del_estado_de_hidalgo`) — reforma 2026-09-14
+- Código Fiscal del Estado de Hidalgo (`hidalgo__codigo_fiscal_del_estado_de_hidalgo`) — reforma 2025-12-31
+- Código Penal para el Estado de Hidalgo (`hidalgo__codigo_penal_para_el_estado_de_hidalgo`) — reforma 2026-09-25
+- Constitución Política del Estado de Hidalgo (`hidalgo__constitucion_politica_del_estado_de_hidalgo`) — reforma 2026-07-08
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencias para el Estado de Hidalgo (`hidalgo__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_hidalgo`) — reforma 2026-09-18
+- Ley de Educación para el Estado de Hidalgo (`hidalgo__ley_de_educacion_para_el_estado_de_hidalgo`) — reforma 2026-08-28
+- Ley de Ingresos del Estado Libre y Soberano de Hidalgo (`hidalgo__ley_de_ingresos_del_estado_libre_y_soberano_de_hidalgo`)
+- Ley de los Derechos de Niñas, Niños y Adolescentes para el Estado de Hidalgo (`hidalgo__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_para_el_estado_de_hidalgo`) — reforma 2026-08-28
+- Ley de Movilidad y Transporte para el Estado de Hidalgo (`hidalgo__ley_de_movilidad_y_transporte_para_el_estado_de_hidalgo`) — reforma 2026-04-28
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados para el Estado de Hidalgo (`hidalgo__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_para_el_estado_de_hidalgo`) — reforma 2022-06-27
+- Ley de Transparencia y Acceso a la Información Pública para el Estado de Hidalgo (`hidalgo__ley_de_transparencia_y_acceso_a_la_informacion_publica_para_el_estado_de_hidalgo`) — reforma 2024-10-15
+- Ley de Víctimas para el Estado de Hidalgo (`hidalgo__ley_de_victimas_para_el_estado_de_hidalgo`) — reforma 2026-08-17
+- Ley del Notariado para el Estado de Hidalgo (`hidalgo__ley_del_notariado_para_el_estado_de_hidalgo`) — reforma 2024-08-20
+- Ley de Salud para el Estado de Hidalgo (`hidalgo__ley_estatal_de_salud`) — reforma 2026-08-17
+- Ley de Responsabilidades Administrativas del Estado de Hidalgo (`hidalgo__ley_general_de_responsabilidades_administrativas_del_estado_de_hidalgo`) — reforma 2026-07-08
+- Ley Orgánica de la Administración Pública para el Estado de Hidalgo (`hidalgo__ley_organica_de_la_administracion_publica_para_el_estado_de_hidalgo`) — reforma 2025-12-26
+- Ley Orgánica del Poder Judicial del Estado de Hidalgo (`hidalgo__ley_organica_del_poder_judicial_del_estado_de_hidalgo`) — reforma 2026-07-08
+- Ley Orgánica del Poder Legislativo del Estado Libre y Soberano de Hidalgo (`hidalgo__ley_organica_del_poder_legislativo_del_estado_de_hidalgo`) — reforma 2026-08-28
+- Ley Orgánica Municipal para el Estado de Hidalgo (`hidalgo__ley_organica_municipal_para_el_estado_de_hidalgo`) — reforma 2026-08-27
+- Ley para la Familia del Estado de Hidalgo (`hidalgo__ley_para_la_familia_del_estado_de_hidalgo`) — reforma 2026-08-28
+- Ley para la Igualdad entre Mujeres y Hombres del Estado de Hidalgo (`hidalgo__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_hidalgo`) — reforma 2025-12-26
+- Ley para la Protección al Ambiente del Estado de Hidalgo (`hidalgo__ley_para_la_proteccion_al_ambiente_del_estado_de_hidalgo`) — reforma 2026-08-28
+- Reglamento de la Ley de Movilidad y Transporte para el Estado de Hidalgo (`hidalgo__reglamento_de_la_ley_de_movilidad_y_transporte_para_el_estado_de_hidalgo`) — reforma 2021-08-02
+- Código Civil del Estado de Jalisco (`jalisco__codigo_civil_del_estado_de_jalisco`)
+- Código de Asistencia Social del Estado de Jalisco (`jalisco__codigo_de_asistencia_social_del_estado_de_jalisco`) — reforma 2025-11-25
+- Código de Procedimientos Civiles del Estado de Jalisco (`jalisco__codigo_de_procedimientos_civiles_del_estado_de_jalisco`)
+- Código Electoral del Estado de Jalisco (`jalisco__codigo_electoral_del_estado_de_jalisco`)
+- Código Fiscal del Estado de Jalisco (`jalisco__codigo_fiscal_del_estado_de_jalisco`)
+- Código Penal para el Estado Libre y Soberano de Jalisco (`jalisco__codigo_penal_para_el_estado_libre_y_soberano_de_jalisco`)
+- Constitución Política del Estado de Jalisco (`jalisco__constitucion_politica_del_estado_de_jalisco`)
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencia del Estado de Jalisco (`jalisco__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_del_estado_de_jalisco`)
+- Ley de Atención a Víctimas del Estado de Jalisco (`jalisco__ley_de_atencion_a_victimas_del_estado_de_jalisco`)
+- Ley de Educación del Estado Libre y Soberano de Jalisco (`jalisco__ley_de_educacion_del_estado_de_jalisco`) — reforma 2026-09-19
+- Ley de Ingresos del Estado de Jalisco (`jalisco__ley_de_ingresos_del_estado_de_jalisco`)
+- Ley de los Derechos de Niñas, Niños y Adolescentes en el Estado de Jalisco (`jalisco__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_en_el_estado_de_jalisco`)
+- Ley de Movilidad, Seguridad Vial y Transporte del Estado de Jalisco (`jalisco__ley_de_movilidad_seguridad_vial_y_transporte_del_estado_de_jalisco`)
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Jalisco y sus Municipios (`jalisco__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_jalisco_y_sus_municipios`) — reforma 2021-05-15
+- Ley de Responsabilidades Políticas y Administrativas del Estado de Jalisco (`jalisco__ley_de_responsabilidades_politicas_y_administrativas_del_estado_de_jalisco`)
+- Ley de Salud del Estado de Jalisco (`jalisco__ley_de_salud_del_estado_de_jalisco`) — reforma 2026-08-20
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Jalisco y sus Municipios (`jalisco__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_jalisco_y_sus_municipios`) — reforma 2023-08-03
+- Ley del Gobierno y la Administración Pública Municipal del Estado de Jalisco (`jalisco__ley_del_gobierno_y_la_administracion_publica_municipal_del_estado_de_jalisco`)
+- Ley del Notariado del Estado de Jalisco (`jalisco__ley_del_notariado_del_estado_de_jalisco`)
+- Ley Estatal del Equilibrio Ecológico y la Protección al Ambiente (`jalisco__ley_estatal_del_equilibrio_ecologico_y_la_proteccion_al_ambiente`)
+- Ley Estatal para la Igualdad entre Mujeres y Hombres (`jalisco__ley_estatal_para_la_igualdad_entre_mujeres_y_hombres`)
+- Ley Orgánica del Poder Ejecutivo del Estado de Jalisco (`jalisco__ley_organica_del_poder_ejecutivo_del_estado_de_jalisco`)
+- Ley Orgánica del Poder Judicial del Estado de Jalisco (`jalisco__ley_organica_del_poder_judicial_del_estado_de_jalisco`)
+- Ley Orgánica del Poder Legislativo del Estado de Jalisco (`jalisco__ley_organica_del_poder_legislativo_del_estado_de_jalisco`)
+- Reglamento de la Ley de Movilidad, Seguridad Vial y Transporte del Estado de Jalisco (`jalisco__reglamento_de_la_ley_de_movilidad_seguridad_vial_y_transporte_del_estado_de_jalisco`)
+- Código Civil para el Estado de Michoacán de Ocampo (`michoacan__codigo_civil_para_el_estado_de_michoacan_de_ocampo`) — reforma 2026-04-27
+- Código de Procedimientos Civiles para el Estado de Michoacán de Ocampo (`michoacan__codigo_de_procedimientos_civiles_para_el_estado_de_michoacan_de_ocampo`) — reforma 2022-09-26
+- Código Electoral del Estado de Michoacán de Ocampo (`michoacan__codigo_electoral_del_estado_de_michoacan_de_ocampo`) — reforma 2026-05-29
+- Código Familiar para el Estado de Michoacán de Ocampo (`michoacan__codigo_familiar_para_el_estado_de_michoacan_de_ocampo`) — reforma 2026-05-04
+- Código Fiscal del Estado de Michoacán de Ocampo (`michoacan__codigo_fiscal_del_estado_de_michoacan_de_ocampo`) — reforma 2024-12-16
+- Código Penal para el Estado de Michoacán (`michoacan__codigo_penal_para_el_estado_de_michoacan_de_ocampo`) — reforma 2026-08-18
+- Constitución Política del Estado Libre y Soberano de Michoacán de Ocampo (`michoacan__constitucion_politica_del_estado_libre_y_soberano_de_michoacan_de_ocampo`) — reforma 2026-03-16
+- Ley Ambiental para el Desarrollo Sustentable del Estado de Michoacán (`michoacan__ley_ambiental_para_el_desarrollo_sustentable_del_estado_de_michoacan`) — reforma 2017-01-25
+- Ley de Atención a Víctimas para el Estado de Michoacán de Ocampo (`michoacan__ley_de_atencion_y_proteccion_a_victimas_del_estado_de_michoacan`) — reforma 2024-07-26
+- Ley de Comunicaciones y Transportes del Estado de Michoacán (`michoacan__ley_de_comunicaciones_y_transportes_del_estado_de_michoacan`) — reforma 2023-06-02
+- Ley de Educación del Estado de Michoacán de Ocampo (`michoacan__ley_de_educacion_para_el_estado_de_michoacan`) — reforma 2026-07-09
+- Ley de Ingresos del Estado de Michoacán (`michoacan__ley_de_ingresos_del_estado_de_michoacan`) — reforma 2025-12-09
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Michoacán (`michoacan__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_michoacan`) — reforma 2026-08-05
+- Ley de Movilidad y Seguridad Vial del Estado de Michoacán de Ocampo (`michoacan__ley_de_movilidad_y_seguridad_vial`) — reforma 2026-03-23
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Michoacán de Ocampo (`michoacan__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_michoacan`) — reforma 2026-05-26
+- Ley de Responsabilidades Administrativas para el Estado de Michoacán (`michoacan__ley_de_responsabilidades_administrativas_para_el_estado_de_michoacan`) — reforma 2025-06-26
+- Ley de Salud del Estado de Michoacán (`michoacan__ley_de_salud_del_estado_de_michoacan`) — reforma 2026-08-18
+- Ley de Tránsito y Vialidad del Estado de Michoacán de Ocampo (`michoacan__ley_de_transito_y_vialidad_del_estado_de_michoacan_de_ocampo`) — reforma 2021-01-22
+- Ley de Transparencia, Acceso a la Información Pública y Protección de Datos Personales del Estado de Michoacán (`michoacan__ley_de_transparencia_acceso_a_la_informacion_publica_y_proteccion_de_datos_personales_del_estado_de_michoacan`) — reforma 2024-01-25
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Michoacán de Ocampo (`michoacan__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_michoacan_de_ocampo`) — reforma 2026-05-26
+- Ley del Notariado del Estado de Michoacán (`michoacan__ley_del_notariado_del_estado_de_michoacan`) — reforma 2022-03-28
+- Ley Orgánica de la Administración Pública del Estado de Michoacán (`michoacan__ley_organica_de_la_administracion_publica_del_estado_de_michoacan`) — reforma 2026-05-26
+- Ley Orgánica del Poder Judicial del Estado de Michoacán de Ocampo (`michoacan__ley_organica_del_poder_judicial_del_estado_de_michoacan_de_ocampo`) — reforma 2025-10-09
+- Ley Orgánica Municipal del Estado de Michoacán de Ocampo (`michoacan__ley_organica_municipal_del_estado_de_michoacan_de_ocampo`) — reforma 2026-08-18
+- Ley Orgánica y de Procedimientos del Congreso del Estado de Michoacán (`michoacan__ley_organica_y_de_procedimientos_del_congreso_del_estado_de_michoacan`) — reforma 2025-07-08
+- Ley para la Conservación y Sustentabilidad Ambiental del Estado de Michoacán de Ocampo (`michoacan__ley_para_la_conservacion_y_sustentabilidad_ambiental_del_estado_de_michoacan_de_ocampo`) — reforma 2026-08-10
+- Ley para la Igualdad entre Mujeres y Hombres del Estado de Michoacán (`michoacan__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_michoacan`) — reforma 2025-08-28
+- Ley por una Vida Libre de Violencia para las Mujeres en el Estado de Michoacán (`michoacan__ley_por_una_vida_libre_de_violencia_para_las_mujeres_en_el_estado_de_michoacan`) — reforma 2025-08-28
+- Reglamento de la Ley de Movilidad y Seguridad Vial del Estado de Michoacán de Ocampo (`michoacan__reglamento_de_la_ley_de_movilidad_y_seguridad_vial_del_estado_de_michoacan_de_ocampo`) — reforma 2025-06-02
+- Reglamento de la Ley de Tránsito y Vialidad del Estado de Michoacán (`michoacan__reglamento_de_transito_del_estado_de_michoacan`) — reforma 2007-03-14
+- Código Civil para el Estado Libre y Soberano de Morelos (`morelos__codigo_civil_para_el_estado_libre_y_soberano_de_morelos`)
+- Código de Instituciones y Procedimientos Electorales para el Estado de Morelos (`morelos__codigo_de_instituciones_y_procedimientos_electorales_para_el_estado_de_morelos`)
+- Código Familiar para el Estado Libre y Soberano de Morelos (`morelos__codigo_familiar_para_el_estado_libre_y_soberano_de_morelos`) — reforma 2026-07-22
+- Código Fiscal para el Estado de Morelos (`morelos__codigo_fiscal_para_el_estado_de_morelos`)
+- Código Penal para el Estado de Morelos (`morelos__codigo_penal_para_el_estado_de_morelos`) — reforma 2026-09-23
+- Código Procesal Civil para el Estado Libre y Soberano de Morelos (`morelos__codigo_procesal_civil_para_el_estado_libre_y_soberano_de_morelos`)
+- Código Procesal Familiar para el Estado Libre y Soberano de Morelos (`morelos__codigo_procesal_familiar_para_el_estado_libre_y_soberano_de_morelos`)
+- Constitución Política del Estado Libre y Soberano de Morelos (`morelos__constitucion_politica_del_estado_libre_y_soberano_de_morelos`) — reforma 2026-01-27
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencia para el Estado de Morelos (`morelos__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_morelos`) — reforma 2026-05-13
+- Ley de Víctimas del Estado de Morelos (`morelos__ley_de_atencion_y_reparacion_a_victimas_del_delito_y_de_violaciones_a_los_derechos_humanos_para_el_estado_de_morelos`) — reforma 2026-02-03
+- Ley de Educación del Estado de Morelos (`morelos__ley_de_educacion_del_estado_de_morelos`) — reforma 2026-09-02
+- Ley de Igualdad de Derechos y Oportunidades entre Mujeres y Hombres para el Estado de Morelos (`morelos__ley_de_igualdad_de_derechos_y_oportunidades_entre_hombres_y_mujeres_en_el_estado_de_morelos`) — reforma 2024-10-15
+- Ley de Ingresos del Estado de Morelos (`morelos__ley_de_ingresos_del_estado_de_morelos`) — reforma 2025-12-16
+- Ley de los Derechos de las Niñas, Niños y Adolescentes del Estado de Morelos (`morelos__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_morelos`) — reforma 2026-07-22
+- Ley de Movilidad, Transporte y Seguridad Vial del Estado de Morelos (`morelos__ley_de_movilidad_y_transporte_del_estado_de_morelos`) — reforma 2026-04-23
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Morelos (`morelos__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_morelos`) — reforma 2018-03-21
+- Ley de Responsabilidades Administrativas para el Estado de Morelos (`morelos__ley_de_responsabilidades_administrativas_para_el_estado_de_morelos`) — reforma 2024-02-28
+- Ley de Salud del Estado de Morelos (`morelos__ley_de_salud_del_estado_de_morelos`) — reforma 2026-09-16
+- Ley de Tránsito del Estado de Morelos (`morelos__ley_de_transito_del_estado_de_morelos`) — reforma 2017-03-01
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Morelos (`morelos__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_morelos`) — reforma 2025-10-15
+- Ley del Equilibrio Ecológico y la Protección al Ambiente del Estado de Morelos (`morelos__ley_del_equilibrio_ecologico_y_la_proteccion_al_ambiente_del_estado_de_morelos`) — reforma 2024-02-28
+- Ley del Notariado del Estado de Morelos (`morelos__ley_del_notariado_del_estado_de_morelos`) — reforma 2024-09-04
+- Ley Orgánica de la Administración Pública para el Estado Libre y Soberano de Morelos (`morelos__ley_organica_de_la_administracion_publica_del_estado_libre_y_soberano_de_morelos`) — reforma 2026-03-25
+- Ley Orgánica del Poder Judicial del Estado de Morelos (`morelos__ley_organica_del_poder_judicial_del_estado_de_morelos`) — reforma 2024-09-04
+- Ley Orgánica Municipal del Estado de Morelos (`morelos__ley_organica_municipal_del_estado_de_morelos`) — reforma 2026-09-02
+- Ley Orgánica para el Congreso del Estado de Morelos (`morelos__ley_organica_para_el_congreso_del_estado_de_morelos`) — reforma 2026-07-01
+- Reglamento de Tránsito del Estado de Morelos (`morelos__reglamento_de_transito_y_vialidad_del_estado_de_morelos`) — reforma 2013-03-27
+- Código Civil para el Estado de Nayarit (`nayarit__codigo_civil_para_el_estado_de_nayarit`) — reforma 2025-12-17
+- Código de Procedimientos Civiles para el Estado de Nayarit (`nayarit__codigo_de_procedimientos_civiles_para_el_estado_de_nayarit`) — reforma 2022-06-13
+- Código Fiscal del Estado de Nayarit (`nayarit__codigo_fiscal_del_estado_de_nayarit`) — reforma 2022-12-19
+- Código Penal para el Estado de Nayarit (`nayarit__codigo_penal_para_el_estado_de_nayarit`) — reforma 2026-03-06
+- Constitución Política del Estado Libre y Soberano de Nayarit (`nayarit__constitucion_politica_del_estado_libre_y_soberano_de_nayarit`) — reforma 2026-09-03
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencias para el Estado de Nayarit (`nayarit__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_nayarit`) — reforma 2026-05-15
+- Ley de Atención y Protección a Víctimas del Delito para el Estado de Nayarit (`nayarit__ley_de_atencion_y_proteccion_a_victimas_del_estado_de_nayarit`) — reforma 2011-06-04
+- Ley de Educación del Estado de Nayarit (`nayarit__ley_de_educacion_del_estado_de_nayarit`) — reforma 2026-04-13
+- Ley de Ingresos del Estado Libre y Soberano de Nayarit (`nayarit__ley_de_ingresos_del_estado_libre_y_soberano_de_nayarit`) — reforma 2025-12-29
+- Ley de los Derechos de Niñas, Niños y Adolescentes para el Estado de Nayarit (`nayarit__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_para_el_estado_de_nayarit`) — reforma 2026-03-19
+- Ley de Movilidad del Estado de Nayarit (`nayarit__ley_de_movilidad_del_estado_de_nayarit`) — reforma 2026-07-20
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Nayarit (`nayarit__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_nayarit`) — reforma 2026-06-01
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados para el Estado de Nayarit (`nayarit__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_para_el_estado_de_nayarit`) — reforma 2022-06-13
+- Ley de Responsabilidades Administrativas del Estado de Nayarit (`nayarit__ley_de_responsabilidades_administrativas_del_estado_de_nayarit`) — reforma 2026-03-06
+- Ley de Responsabilidades de los Servidores Públicos del Estado de Nayarit (`nayarit__ley_de_responsabilidades_de_los_servidores_publicos_del_estado_de_nayarit`) — reforma 2016-11-08
+- Ley de Salud para el Estado de Nayarit (`nayarit__ley_de_salud_para_el_estado_de_nayarit`) — reforma 2026-05-07
+- Ley de Tránsito y Transporte del Estado de Nayarit (`nayarit__ley_de_transito_y_transporte_del_estado_de_nayarit`) — reforma 2018-03-24
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Nayarit (`nayarit__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_nayarit`) — reforma 2025-12-29
+- Ley de Víctimas para el Estado de Nayarit (`nayarit__ley_de_victimas_para_el_estado_de_nayarit`) — reforma 2019-06-03
+- Ley del Notariado para el Estado de Nayarit (`nayarit__ley_del_notariado_para_el_estado_de_nayarit`) — reforma 2023-05-04
+- Ley Electoral del Estado de Nayarit (`nayarit__ley_electoral_del_estado_de_nayarit`) — reforma 2025-10-08
+- Ley Estatal del Equilibrio Ecológico y Protección al Ambiente del Estado de Nayarit (`nayarit__ley_estatal_del_equilibrio_ecologico_y_proteccion_al_ambiente_del_estado_de_nayarit`) — reforma 2025-09-15
+- Ley Municipal para el Estado de Nayarit (`nayarit__ley_municipal_para_el_estado_de_nayarit`) — reforma 2026-08-21
+- Ley Orgánica del Poder Ejecutivo del Estado de Nayarit (`nayarit__ley_organica_del_poder_ejecutivo_del_estado_de_nayarit`) — reforma 2026-02-13
+- Ley Orgánica del Poder Judicial del Estado de Nayarit (`nayarit__ley_organica_del_poder_judicial_del_estado_de_nayarit`) — reforma 2026-03-31
+- Ley Orgánica del Poder Legislativo del Estado de Nayarit (`nayarit__ley_organica_del_poder_legislativo_del_estado_de_nayarit`) — reforma 2026-07-20
+- Ley de Igualdad entre Mujeres y Hombres para el Estado de Nayarit (`nayarit__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_nayarit`) — reforma 2026-09-18
+- Reglamento de la Ley de Movilidad del Estado de Nayarit (`nayarit__reglamento_de_la_ley_de_movilidad_del_estado_de_nayarit`) — reforma 2022-02-28
+- Código Civil para el Estado de Nuevo León (`nuevo_leon__codigo_civil_para_el_estado_de_nuevo_leon`) — reforma 2026-06-26
+- Código de Procedimientos Civiles del Estado de Nuevo León (`nuevo_leon__codigo_de_procedimientos_civiles_del_estado_de_nuevo_leon`) — reforma 2022-06-10
+- Código Fiscal del Estado de Nuevo León (`nuevo_leon__codigo_fiscal_del_estado_de_nuevo_leon`) — reforma 2023-01-13
+- Código Penal para el Estado de Nuevo León (`nuevo_leon__codigo_penal_para_el_estado_de_nuevo_leon`) — reforma 2026-06-15
+- Constitución Política del Estado Libre y Soberano de Nuevo León (`nuevo_leon__constitucion_politica_del_estado_libre_y_soberano_de_nuevo_leon`) — reforma 2026-07-06
+- Ley Ambiental del Estado de Nuevo León (`nuevo_leon__ley_ambiental_del_estado_de_nuevo_leon`) — reforma 2025-05-10
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencia (`nuevo_leon__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia`) — reforma 2025-05-28
+- Ley de Educación del Estado (`nuevo_leon__ley_de_educacion_del_estado`) — reforma 2023-06-23
+- Ley de Educación para el Estado de Nuevo León (`nuevo_leon__ley_de_educacion_para_el_estado_de_nuevo_leon`) — reforma 2026-04-27
+- Ley de Gobierno Municipal del Estado de Nuevo León (`nuevo_leon__ley_de_gobierno_municipal_del_estado_de_nuevo_leon`) — reforma 2025-11-07
+- Ley de Ingresos del Estado de Nuevo León (`nuevo_leon__ley_de_ingresos_del_estado_de_nuevo_leon`) — reforma 2025-02-18
+- Ley de los Derechos de Niñas, Niños y Adolescentes para el Estado de Nuevo León (`nuevo_leon__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_para_el_estado_de_nuevo_leon`) — reforma 2025-11-07
+- Ley de Movilidad Sostenible, de Accesibilidad y Seguridad Vial para el Estado de Nuevo León (`nuevo_leon__ley_de_movilidad_sostenible_y_accesibilidad_para_el_estado_de_nuevo_leon`) — reforma 2026-05-22
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Nuevo León (`nuevo_leon__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_nuevo_leon`) — reforma 2019-12-11
+- Ley de Responsabilidades Administrativas del Estado de Nuevo León (`nuevo_leon__ley_de_responsabilidades_administrativas_del_estado_de_nuevo_leon`) — reforma 2026-10-02
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Nuevo León (`nuevo_leon__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_nuevo_leon`) — reforma 2022-04-15
+- Ley de Víctimas del Estado de Nuevo León (`nuevo_leon__ley_de_victimas_del_estado_de_nuevo_leon`) — reforma 2022-01-26
+- Ley del Notariado del Estado de Nuevo León (`nuevo_leon__ley_del_notariado_del_estado_de_nuevo_leon`) — reforma 2025-01-17
+- Ley Electoral para el Estado de Nuevo León (`nuevo_leon__ley_electoral_para_el_estado_de_nuevo_leon`) — reforma 2023-05-29
+- Ley Estatal de Salud (`nuevo_leon__ley_estatal_de_salud`) — reforma 2025-12-29
+- Ley Orgánica de la Administración Pública para el Estado de Nuevo León (`nuevo_leon__ley_organica_de_la_administracion_publica_para_el_estado_de_nuevo_leon`) — reforma 2021-10-02
+- Ley Orgánica del Poder Judicial del Estado de Nuevo León (`nuevo_leon__ley_organica_del_poder_judicial_del_estado_de_nuevo_leon`) — reforma 2022-05-20
+- Ley Orgánica del Poder Legislativo del Estado de Nuevo León (`nuevo_leon__ley_organica_del_poder_legislativo_del_estado_de_nuevo_leon`) — reforma 2026-05-25
+- Ley para la Igualdad entre Mujeres y Hombres del Estado de Nuevo León (`nuevo_leon__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_nuevo_leon`) — reforma 2025-05-28
+- Reglamento de la Ley de Movilidad Sostenible, de Accesibilidad y Seguridad Vial para el Estado de Nuevo León (`nuevo_leon__reglamento_de_transito_y_vialidad_del_estado_de_nuevo_leon`) — reforma 2025-05-28
+- Código Civil para el Estado de Oaxaca (`oaxaca__codigo_civil_para_el_estado_de_oaxaca`) — reforma 2026-08-01
+- Código de Instituciones Políticas y Procedimientos Electorales para el Estado de Oaxaca (`oaxaca__codigo_de_instituciones_politicas_y_procedimientos_electorales_para_el_estado_de_oaxaca`) — reforma 2017-02-04
+- Código de Procedimientos Civiles para el Estado de Oaxaca (`oaxaca__codigo_de_procedimientos_civiles_para_el_estado_de_oaxaca`) — reforma 2021-03-13
+- Código Fiscal para el Estado de Oaxaca (`oaxaca__codigo_fiscal_para_el_estado_de_oaxaca`) — reforma 2025-12-10
+- Código Penal para el Estado Libre y Soberano de Oaxaca (`oaxaca__codigo_penal_para_el_estado_libre_y_soberano_de_oaxaca`) — reforma 2026-05-23
+- Constitución Política del Estado Libre y Soberano de Oaxaca (`oaxaca__constitucion_politica_del_estado_libre_y_soberano_de_oaxaca`) — reforma 2026-08-01
+- Ley de Derechos de los Pueblos y Comunidades Indígenas y Afromexicano del Estado de Oaxaca (`oaxaca__ley_de_derechos_de_los_pueblos_y_comunidades_indigenas_y_afromexicano_del_estado_de_oaxaca`) — reforma 2026-01-03
+- Ley de Ingresos del Estado de Oaxaca (`oaxaca__ley_de_ingresos_del_estado_de_oaxaca`) — reforma 2025-12-10
+- Ley de Instituciones y Procedimientos Electorales del Estado de Oaxaca (`oaxaca__ley_de_instituciones_y_procedimientos_electorales_del_estado_de_oaxaca`) — reforma 2026-08-01
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Oaxaca (`oaxaca__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_oaxaca`) — reforma 2026-04-11
+- Ley de Movilidad para el Estado de Oaxaca (`oaxaca__ley_de_movilidad_para_el_estado_de_oaxaca`) — reforma 2026-02-10
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Oaxaca (`oaxaca__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_oaxaca`) — reforma 2025-12-31
+- Ley de Responsabilidades Administrativas del Estado y Municipios de Oaxaca (`oaxaca__ley_de_responsabilidades_administrativas_del_estado_y_municipios_de_oaxaca`) — reforma 2026-01-10
+- Ley de Tránsito y Vialidad del Estado de Oaxaca (`oaxaca__ley_de_transito_movilidad_y_vialidad_del_estado_de_oaxaca`) — reforma 2026-01-03
+- Ley de Transparencia, Acceso a la Información Pública con sentido social y Buen Gobierno del Estado de Oaxaca (`oaxaca__ley_de_transparencia_acceso_a_la_informacion_publica_y_buen_gobierno_del_estado_de_oaxaca`) — reforma 2025-12-31
+- Ley de Víctimas del Estado de Oaxaca (`oaxaca__ley_de_victimas_del_estado_de_oaxaca`) — reforma 2025-12-13
+- Ley del Equilibrio Ecológico y Protección al Ambiente para el Estado de Oaxaca (`oaxaca__ley_del_equilibrio_ecologico_del_estado_de_oaxaca`) — reforma 2026-01-03
+- Ley del Notariado para el Estado de Oaxaca (`oaxaca__ley_del_notariado_para_el_estado_de_oaxaca`) — reforma 2020-10-10
+- Ley Estatal de Acceso de las Mujeres a una Vida Libre de Violencia de Género (`oaxaca__ley_estatal_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_de_genero`) — reforma 2026-08-01
+- Ley de Educación para el Estado Libre y Soberano de Oaxaca (`oaxaca__ley_estatal_de_educacion`) — reforma 2022-04-02
+- Ley Estatal de Salud (`oaxaca__ley_estatal_de_salud`) — reforma 2026-01-03
+- Ley Orgánica del Poder Ejecutivo del Estado de Oaxaca (`oaxaca__ley_organica_del_poder_ejecutivo_del_estado_de_oaxaca`) — reforma 2026-08-01
+- Ley Orgánica del Poder Judicial del Estado de Oaxaca (`oaxaca__ley_organica_del_poder_judicial_del_estado_de_oaxaca`) — reforma 2023-04-01
+- Ley Orgánica del Poder Legislativo del Estado Libre y Soberano de Oaxaca (`oaxaca__ley_organica_del_poder_legislativo_del_estado_libre_y_soberano_de_oaxaca`) — reforma 2026-04-07
+- Ley Orgánica Municipal del Estado de Oaxaca (`oaxaca__ley_organica_municipal_del_estado_de_oaxaca`) — reforma 2026-08-01
+- Ley de Igualdad entre Mujeres y Hombres para el Estado de Oaxaca (`oaxaca__ley_para_la_igualdad_entre_mujeres_y_hombres_en_el_estado_de_oaxaca`) — reforma 2024-10-12
+- Reglamento de la Ley de Tránsito y Vialidad del Estado de Oaxaca (`oaxaca__reglamento_de_la_ley_de_transito_y_vialidad_del_estado_de_oaxaca`) — reforma 2022-09-27
+- Código Civil para el Estado Libre y Soberano de Puebla (`puebla__codigo_civil_para_el_estado_libre_y_soberano_de_puebla`) — reforma 2025-10-17
+- Código de Instituciones y Procesos Electorales del Estado de Puebla (`puebla__codigo_de_instituciones_y_procesos_electorales_del_estado_de_puebla`) — reforma 2025-04-11
+- Código de Procedimientos Civiles para el Estado Libre y Soberano de Puebla (`puebla__codigo_de_procedimientos_civiles_para_el_estado_libre_y_soberano_de_puebla`) — reforma 2017-12-29
+- Código Fiscal del Estado de Puebla (`puebla__codigo_fiscal_del_estado_de_puebla`)
+- Código Penal del Estado Libre y Soberano de Puebla (`puebla__codigo_penal_del_estado_libre_y_soberano_de_puebla`)
+- Constitución Política del Estado Libre y Soberano de Puebla (`puebla__constitucion_politica_del_estado_libre_y_soberano_de_puebla`)
+- Ley de Educación del Estado de Puebla (`puebla__ley_de_educacion_del_estado_de_puebla`) — reforma 2025-07-23
+- Ley de Ingresos del Estado de Puebla (`puebla__ley_de_ingresos_del_estado_de_puebla`) — reforma 2025-11-27
+- Ley de los Derechos de las Niñas, Niños y Adolescentes del Estado de Puebla (`puebla__ley_de_los_derechos_de_las_ninas_ninos_y_adolescentes_del_estado_de_puebla`) — reforma 2026-03-03
+- Ley de Movilidad y Seguridad Vial del Estado de Puebla (`puebla__ley_de_movilidad_y_seguridad_vial_del_estado_de_puebla`) — reforma 2025-06-18
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Puebla (`puebla__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_puebla`) — reforma 2026-06-30
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Puebla (`puebla__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_puebla`) — reforma 2026-06-30
+- Ley de Transporte del Estado de Puebla (`puebla__ley_de_transporte_para_el_estado_de_puebla`) — reforma 2026-04-24
+- Ley de Vialidad para el Estado Libre y Soberano de Puebla (`puebla__ley_de_vialidad_para_el_estado_libre_y_soberano_de_puebla`) — reforma 2022-10-21
+- Ley de Víctimas del Estado de Puebla (`puebla__ley_de_victimas_del_estado_de_puebla`) — reforma 2024-10-04
+- Ley del Notariado para el Estado de Puebla (`puebla__ley_del_notariado_para_el_estado_de_puebla`) — reforma 2024-08-05
+- Ley Estatal de Salud (`puebla__ley_estatal_de_salud`) — reforma 2025-11-04
+- Ley de Responsabilidades de los Servidores Públicos del Estado de Puebla (`puebla__ley_general_de_responsabilidades_administrativas_del_estado_de_puebla`) — reforma 2026-03-15
+- Ley Orgánica de la Administración Pública del Estado de Puebla (`puebla__ley_organica_de_la_administracion_publica_del_estado_de_puebla`) — reforma 2025-12-15
+- Ley Orgánica del Poder Judicial del Estado de Puebla (`puebla__ley_organica_del_poder_judicial_del_estado_de_puebla`) — reforma 2026-03-15
+- Ley Orgánica del Poder Legislativo del Estado Libre y Soberano de Puebla (`puebla__ley_organica_del_poder_legislativo_del_estado_libre_y_soberano_de_puebla`) — reforma 2025-05-29
+- Ley Orgánica Municipal (`puebla__ley_organica_municipal_del_estado_de_puebla`) — reforma 2026-06-08
+- Ley para el Acceso de las Mujeres a una Vida Libre de Violencia del Estado de Puebla (`puebla__ley_para_el_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_del_estado_de_puebla`) — reforma 2026-04-24
+- Ley para la Igualdad entre Mujeres y Hombres del Estado de Puebla (`puebla__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_puebla`) — reforma 2025-08-19
+- Ley para la Protección del Ambiente Natural y el Desarrollo Sustentable del Estado de Puebla (`puebla__ley_para_la_proteccion_del_ambiente_natural_y_el_desarrollo_sustentable_del_estado_de_puebla`) — reforma 2025-08-19
+- Reglamento de la Ley de Movilidad y Seguridad Vial del Estado de Puebla (`puebla__reglamento_de_transito_y_movilidad_para_el_estado_de_puebla`) — reforma 2025-09-08
+- Código Civil del Estado de Querétaro (`queretaro__codigo_civil_del_estado_de_queretaro`) — reforma 2025-03-07
+- Código de Procedimientos Civiles del Estado de Querétaro (`queretaro__codigo_de_procedimientos_civiles_del_estado_de_queretaro`) — reforma 2024-09-20
+- Código Fiscal del Estado de Querétaro (`queretaro__codigo_fiscal_del_estado_de_queretaro`) — reforma 2025-12-23
+- Código Penal para el Estado de Querétaro (`queretaro__codigo_penal_para_el_estado_de_queretaro`)
+- Constitución Política del Estado Libre y Soberano de Querétaro (`queretaro__constitucion_politica_del_estado_libre_y_soberano_de_queretaro`) — reforma 2026-07-15
+- Ley de Educación del Estado de Querétaro (`queretaro__ley_de_educacion_del_estado_de_queretaro`) — reforma 2026-08-07
+- Ley de Ingresos del Estado de Querétaro (`queretaro__ley_de_ingresos_del_estado_de_queretaro`) — reforma 2025-12-23
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Querétaro (`queretaro__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_queretaro`) — reforma 2026-08-28
+- Ley de la Agencia de Movilidad y Modalidades de Transporte Público para el Estado de Querétaro (`queretaro__ley_de_movilidad_para_el_transporte_publico_del_estado_de_queretaro`) — reforma 2025-12-30
+- Código Ambiental del Estado de Querétaro (`queretaro__ley_de_proteccion_ambiental_para_el_desarrollo_sustentable_del_estado_de_queretaro`) — reforma 2023-12-27
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Querétaro (`queretaro__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_queretaro`) — reforma 2021-10-08
+- Ley de Responsabilidades Administrativas del Estado de Querétaro (`queretaro__ley_de_responsabilidades_administrativas_del_estado_de_queretaro`) — reforma 2021-10-08
+- Ley de Salud del Estado de Querétaro (`queretaro__ley_de_salud_del_estado_de_queretaro`) — reforma 2026-08-07
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Querétaro (`queretaro__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_queretaro`) — reforma 2021-10-08
+- Ley de Protección a Víctimas y Personas que Intervienen en el Procedimiento Penal del Estado de Querétaro (`queretaro__ley_de_victimas_del_estado_de_queretaro`) — reforma 2024-09-27
+- Ley del Notariado del Estado de Querétaro (`queretaro__ley_del_notariado_del_estado_de_queretaro`) — reforma 2024-09-20
+- Ley Electoral del Estado de Querétaro (`queretaro__ley_electoral_del_estado_de_queretaro`) — reforma 2026-07-15
+- Ley Estatal de Acceso de las Mujeres a una Vida Libre de Violencia (`queretaro__ley_estatal_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia`) — reforma 2026-06-15
+- Ley Orgánica del Poder Ejecutivo del Estado de Querétaro (`queretaro__ley_organica_del_poder_ejecutivo_del_estado_de_queretaro`) — reforma 2024-09-27
+- Ley Orgánica del Poder Judicial del Estado de Querétaro (`queretaro__ley_organica_del_poder_judicial_del_estado_de_queretaro`) — reforma 2024-08-19
+- Ley Orgánica del Poder Legislativo del Estado de Querétaro (`queretaro__ley_organica_del_poder_legislativo_del_estado_de_queretaro`) — reforma 2025-04-18
+- Ley Orgánica Municipal del Estado de Querétaro (`queretaro__ley_organica_municipal_del_estado_de_queretaro`) — reforma 2026-08-07
+- Ley de Igualdad Sustantiva entre Mujeres y Hombres del Estado de Querétaro (`queretaro__ley_para_la_igualdad_sustantiva_entre_mujeres_y_hombres_del_estado_de_queretaro`) — reforma 2024-09-27
+- Reglamento de la Ley de Movilidad para el Transporte del Estado de Querétaro (`queretaro__reglamento_de_la_ley_de_movilidad_para_el_transporte_publico_del_estado_de_queretaro`) — reforma 2019-03-15
+- Código Civil para el Estado de Quintana Roo (`quintana_roo__codigo_civil_para_el_estado_libre_y_soberano_de_quintana_roo`) — reforma 2026-09-07
+- Código de Procedimientos Civiles para el Estado Libre y Soberano de Quintana Roo (`quintana_roo__codigo_de_procedimientos_civiles_para_el_estado_libre_y_soberano_de_quintana_roo`) — reforma 2019-06-14
+- Código Fiscal del Estado de Quintana Roo (`quintana_roo__codigo_fiscal_del_estado_de_quintana_roo`) — reforma 2025-12-16
+- Código Penal para el Estado Libre y Soberano de Quintana Roo (`quintana_roo__codigo_penal_para_el_estado_libre_y_soberano_de_quintana_roo`) — reforma 2026-04-10
+- Constitución Política del Estado Libre y Soberano de Quintana Roo (`quintana_roo__constitucion_politica_del_estado_libre_y_soberano_de_quintana_roo`) — reforma 2026-06-22
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencia del Estado de Quintana Roo (`quintana_roo__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_del_estado_de_quintana_roo`) — reforma 2025-12-10
+- Ley de Educación del Estado de Quintana Roo (`quintana_roo__ley_de_educacion_del_estado_de_quintana_roo`) — reforma 2024-07-10
+- Ley de Ingresos del Estado de Quintana Roo (`quintana_roo__ley_de_ingresos_del_estado_de_quintana_roo`)
+- Ley de Instituciones y Procedimientos Electorales para el Estado de Quintana Roo (`quintana_roo__ley_de_instituciones_y_procedimientos_electorales_para_el_estado_de_quintana_roo`) — reforma 2026-05-29
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Quintana Roo (`quintana_roo__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_quintana_roo`) — reforma 2024-12-09
+- Ley de los Municipios del Estado de Quintana Roo (`quintana_roo__ley_de_los_municipios_del_estado_de_quintana_roo`) — reforma 2026-05-29
+- Ley de Movilidad del Estado de Quintana Roo (`quintana_roo__ley_de_movilidad_del_estado_de_quintana_roo`) — reforma 2026-03-05
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Quintana Roo (`quintana_roo__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_quintana_roo`) — reforma 2025-11-25
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados para el Estado de Quintana Roo (`quintana_roo__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_para_el_estado_de_quintana_roo`) — reforma 2018-01-16
+- Ley de Responsabilidades Administrativas del Estado de Quintana Roo (`quintana_roo__ley_de_responsabilidades_administrativas_del_estado_de_quintana_roo`)
+- Ley de Responsabilidades Administrativas del Estado de Quintana Roo y sus Municipios (`quintana_roo__ley_de_responsabilidades_administrativas_del_estado_de_quintana_roo_y_sus_municipios`) — reforma 2024-10-15
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Quintana Roo (`quintana_roo__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_quintana_roo`) — reforma 2025-11-25
+- Ley de Transparencia y Acceso a la Información Pública para el Estado de Quintana Roo (`quintana_roo__ley_de_transparencia_y_acceso_a_la_informacion_publica_para_el_estado_de_quintana_roo`) — reforma 2024-10-09
+- Ley de Víctimas del Estado de Quintana Roo (`quintana_roo__ley_de_victimas_del_estado_de_quintana_roo`) — reforma 2025-12-10
+- Ley del Equilibrio Ecológico y la Protección al Ambiente del Estado de Quintana Roo (`quintana_roo__ley_del_equilibrio_ecologico_y_la_proteccion_al_ambiente_del_estado_de_quintana_roo`) — reforma 2025-08-20
+- Ley del Notariado para el Estado de Quintana Roo (`quintana_roo__ley_del_notariado_para_el_estado_de_quintana_roo`) — reforma 2025-08-12
+- Ley de Salud del Estado de Quintana Roo (`quintana_roo__ley_estatal_de_salud`) — reforma 2025-12-16
+- Ley Orgánica de la Administración Pública del Estado de Quintana Roo (`quintana_roo__ley_organica_de_la_administracion_publica_del_estado_de_quintana_roo`) — reforma 2026-03-20
+- Ley Orgánica del Poder Judicial del Estado de Quintana Roo (`quintana_roo__ley_organica_del_poder_judicial_del_estado_de_quintana_roo`)
+- Ley Orgánica del Poder Legislativo del Estado de Quintana Roo (`quintana_roo__ley_organica_del_poder_legislativo_del_estado_de_quintana_roo`) — reforma 2026-05-12
+- Ley para la Igualdad entre Mujeres y Hombres del Estado de Quintana Roo (`quintana_roo__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_quintana_roo`) — reforma 2025-12-10
+- Código Civil para el Estado de San Luis Potosí (`san_luis_potosi__codigo_civil_para_el_estado_de_san_luis_potosi`) — reforma 2026-03-17
+- Código de Procedimientos Civiles para el Estado de San Luis Potosí (`san_luis_potosi__codigo_de_procedimientos_civiles_para_el_estado_de_san_luis_potosi`) — reforma 2019-11-12
+- Código Familiar para el Estado de San Luis Potosí (`san_luis_potosi__codigo_familiar_para_el_estado_de_san_luis_potosi`) — reforma 2026-05-20
+- Código Fiscal del Estado de San Luis Potosí (`san_luis_potosi__codigo_fiscal_del_estado_de_san_luis_potosi`) — reforma 2025-12-24
+- Código Penal del Estado de San Luis Potosí (`san_luis_potosi__codigo_penal_del_estado_de_san_luis_potosi`) — reforma 2026-07-30
+- Constitución Política del Estado Libre y Soberano de San Luis Potosí (`san_luis_potosi__constitucion_politica_del_estado_libre_y_soberano_de_san_luis_potosi`) — reforma 2026-09-28
+- Ley Ambiental del Estado de San Luis Potosí (`san_luis_potosi__ley_ambiental_del_estado_de_san_luis_potosi`) — reforma 2026-06-24
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencia del Estado de San Luis Potosí (`san_luis_potosi__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_del_estado_de_san_luis_potosi`) — reforma 2026-06-24
+- Ley de Atención a Víctimas para el Estado de San Luis Potosí (`san_luis_potosi__ley_de_atencion_a_victimas_para_el_estado_de_san_luis_potosi`) — reforma 2024-06-14
+- Ley de Educación del Estado de San Luis Potosí (`san_luis_potosi__ley_de_educacion_del_estado_de_san_luis_potosi`) — reforma 2026-09-30
+- Ley de Ingresos del Estado de San Luis Potosí (`san_luis_potosi__ley_de_ingresos_del_estado_de_san_luis_potosi`) — reforma 2025-12-24
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de San Luis Potosí (`san_luis_potosi__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_san_luis_potosi`) — reforma 2026-06-24
+- Ley de Protección de Datos Personales en Posesión de los Sujetos Obligados del Estado de San Luis Potosí (`san_luis_potosi__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_san_luis_potosi`) — reforma 2024-04-08
+- Ley de Responsabilidades Administrativas para el Estado y Municipios de San Luis Potosí (`san_luis_potosi__ley_de_responsabilidades_administrativas_para_el_estado_y_municipios_de_san_luis_potosi`) — reforma 2026-03-25
+- Ley de Salud del Estado de San Luis Potosí (`san_luis_potosi__ley_de_salud_del_estado_de_san_luis_potosi`) — reforma 2025-11-28
+- Ley de Tránsito del Estado de San Luis Potosí (`san_luis_potosi__ley_de_transito_del_estado_de_san_luis_potosi`) — reforma 2026-04-30
+- Ley de Transparencia y Acceso a la Información Pública del Estado de San Luis Potosí (`san_luis_potosi__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_san_luis_potosi`) — reforma 2025-10-02
+- Ley de Transporte Público del Estado de San Luis Potosí (`san_luis_potosi__ley_de_transporte_publico_del_estado_de_san_luis_potosi`) — reforma 2025-11-14
+- Ley del Notariado para el Estado de San Luis Potosí (`san_luis_potosi__ley_del_notariado_del_estado_de_san_luis_potosi`) — reforma 2024-12-22
+- Ley Electoral del Estado de San Luis Potosí (`san_luis_potosi__ley_electoral_del_estado_de_san_luis_potosi`) — reforma 2026-08-12
+- Ley Orgánica de la Administración Pública del Estado de San Luis Potosí (`san_luis_potosi__ley_organica_de_la_administracion_publica_del_estado_de_san_luis_potosi`) — reforma 2026-03-31
+- Ley Orgánica del Municipio Libre del Estado de San Luis Potosí (`san_luis_potosi__ley_organica_del_municipio_libre_del_estado_de_san_luis_potosi`) — reforma 2026-06-29
+- Ley Orgánica del Poder Judicial del Estado de San Luis Potosí (`san_luis_potosi__ley_organica_del_poder_judicial_del_estado_de_san_luis_potosi`) — reforma 2026-06-29
+- Ley Orgánica del Poder Legislativo del Estado de San Luis Potosí (`san_luis_potosi__ley_organica_del_poder_legislativo_del_estado_de_san_luis_potosi`) — reforma 2026-10-05
+- Ley para la Igualdad entre Mujeres y Hombres del Estado de San Luis Potosí (`san_luis_potosi__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_san_luis_potosi`) — reforma 2026-10-08
+- Ley Reglamentaria del Artículo 9° de la Constitución Política del Estado sobre los Derechos y la Cultura Indígena (`san_luis_potosi__ley_reglamentaria_del_articulo_9o_de_la_constitucion_politica_del_estado_sobre_los_derechos_y_la_cultura_indigena`) — reforma 2020-03-03
+- Código Civil para el Estado de Sinaloa (`sinaloa__codigo_civil_para_el_estado_de_sinaloa`) — reforma 2022-03-11
+- Código de Procedimientos Civiles del Estado de Sinaloa (`sinaloa__codigo_de_procedimientos_civiles_del_estado_de_sinaloa`) — reforma 2016-12-28
+- Código de Procedimientos Familiares del Estado de Sinaloa (`sinaloa__codigo_de_procedimientos_familiares_del_estado_de_sinaloa`) — reforma 2019-07-22
+- Código Familiar del Estado de Sinaloa (`sinaloa__codigo_familiar_del_estado_de_sinaloa`) — reforma 2026-09-04
+- Código Fiscal del Estado de Sinaloa (`sinaloa__codigo_fiscal_del_estado_de_sinaloa`) — reforma 2019-12-25
+- Código Penal para el Estado de Sinaloa (`sinaloa__codigo_penal_para_el_estado_de_sinaloa`) — reforma 2026-10-07
+- Constitución Política del Estado de Sinaloa (`sinaloa__constitucion_politica_del_estado_de_sinaloa`) — reforma 2026-09-16
+- Ley Ambiental para el Desarrollo Sustentable del Estado de Sinaloa (`sinaloa__ley_ambiental_para_el_desarrollo_sustentable_del_estado_de_sinaloa`) — reforma 2026-08-26
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencia para el Estado de Sinaloa (`sinaloa__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_sinaloa`) — reforma 2025-06-06
+- Ley de Atención y Protección a Víctimas del Estado de Sinaloa (`sinaloa__ley_de_atencion_y_proteccion_a_victimas_del_estado_de_sinaloa`) — reforma 2026-07-17
+- Ley de Educación para el Estado de Sinaloa (`sinaloa__ley_de_educacion_para_el_estado_de_sinaloa`) — reforma 2026-09-14
+- Ley de Gobierno Municipal del Estado de Sinaloa (`sinaloa__ley_de_gobierno_municipal_del_estado_de_sinaloa`) — reforma 2026-09-04
+- Ley de Ingresos del Estado de Sinaloa (`sinaloa__ley_de_ingresos_del_estado_de_sinaloa`) — reforma 2025-12-22
+- Ley de Instituciones y Procedimientos Electorales del Estado de Sinaloa (`sinaloa__ley_de_instituciones_y_procedimientos_electorales_del_estado_de_sinaloa`) — reforma 2026-09-04
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Sinaloa (`sinaloa__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_sinaloa`) — reforma 2026-10-07
+- Ley de Movilidad Sustentable y Seguridad Vial del Estado de Sinaloa (`sinaloa__ley_de_movilidad_sustentable_y_seguridad_vial_del_estado_de_sinaloa`) — reforma 2026-07-22
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Sinaloa (`sinaloa__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_sinaloa`)
+- Ley de Responsabilidades Administrativas del Estado de Sinaloa (`sinaloa__ley_de_responsabilidades_administrativas_del_estado_de_sinaloa`) — reforma 2026-02-13
+- Ley de Salud del Estado de Sinaloa (`sinaloa__ley_de_salud_del_estado_de_sinaloa`) — reforma 2026-06-19
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Sinaloa (`sinaloa__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_sinaloa`) — reforma 2022-09-23
+- Ley del Notariado para el Estado de Sinaloa (`sinaloa__ley_del_notariado_para_el_estado_de_sinaloa`) — reforma 2026-09-04
+- Ley Orgánica de la Administración Pública del Estado de Sinaloa (`sinaloa__ley_organica_de_la_administracion_publica_del_estado_de_sinaloa`) — reforma 2022-09-23
+- Ley Orgánica del Congreso del Estado de Sinaloa (`sinaloa__ley_organica_del_congreso_del_estado_de_sinaloa`) — reforma 2025-02-14
+- Ley Orgánica del Poder Judicial del Estado de Sinaloa (`sinaloa__ley_organica_del_poder_judicial_del_estado_de_sinaloa`) — reforma 2026-09-04
+- Ley para la Igualdad entre Mujeres y Hombres del Estado de Sinaloa (`sinaloa__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_sinaloa`) — reforma 2025-08-18
+- Reglamento General de la Ley de Tránsito y Transportes del Estado de Sinaloa (`sinaloa__reglamento_de_la_ley_de_transito_y_transportes_del_estado_de_sinaloa`) — reforma 2017-08-18
+- Código Civil para el Estado de Sonora (`sonora__codigo_civil_para_el_estado_de_sonora`) — reforma 2021-05-14
+- Código de Familia para el Estado de Sonora (`sonora__codigo_de_familia_para_el_estado_de_sonora`) — reforma 2026-01-26
+- Código de Procedimientos Civiles para el Estado de Sonora (`sonora__codigo_de_procedimientos_civiles_para_el_estado_de_sonora`) — reforma 2018-10-01
+- Código Fiscal del Estado de Sonora (`sonora__codigo_fiscal_del_estado_de_sonora`) — reforma 2025-12-12
+- Código Penal del Estado de Sonora (`sonora__codigo_penal_del_estado_de_sonora`) — reforma 2026-08-31
+- Constitución Política del Estado Libre y Soberano de Sonora (`sonora__constitucion_politica_del_estado_libre_y_soberano_de_sonora`) — reforma 2026-05-28
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencia para el Estado de Sonora (`sonora__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_sonora`) — reforma 2026-06-11
+- Ley de Atención a Víctimas para el Estado de Sonora (`sonora__ley_de_atencion_a_victimas_para_el_estado_de_sonora`) — reforma 2021-03-01
+- Ley de Educación para el Estado de Sonora (`sonora__ley_de_educacion_para_el_estado_de_sonora`) — reforma 2026-05-18
+- Ley de Gobierno y Administración Municipal del Estado de Sonora (`sonora__ley_de_gobierno_y_administracion_municipal_del_estado_de_sonora`) — reforma 2026-07-14
+- Ley de Ingresos y Presupuesto de Ingresos del Estado de Sonora (`sonora__ley_de_ingresos_y_presupuesto_de_ingresos_del_estado_de_sonora`) — reforma 2025-12-12
+- Ley de Instituciones y Procedimientos Electorales para el Estado de Sonora (`sonora__ley_de_instituciones_y_procedimientos_electorales_para_el_estado_de_sonora`) — reforma 2026-06-04
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Sonora (`sonora__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_sonora`) — reforma 2026-06-22
+- Ley de Movilidad y Seguridad Vial para el Estado de Sonora (`sonora__ley_de_movilidad_y_seguridad_vial_para_el_estado_de_sonora`) — reforma 2024-01-05
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Sonora (`sonora__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_sonora`) — reforma 2025-08-29
+- Ley de Responsabilidades y Sanciones para el Estado de Sonora (`sonora__ley_de_responsabilidades_y_sanciones_para_el_estado_de_sonora`) — reforma 2026-05-18
+- Ley de Salud para el Estado de Sonora (`sonora__ley_de_salud_para_el_estado_de_sonora`) — reforma 2026-04-24
+- Ley de Tránsito del Estado de Sonora (`sonora__ley_de_transito_del_estado_de_sonora`) — reforma 2025-12-12
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Sonora (`sonora__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_sonora`) — reforma 2025-08-29
+- Ley de Transporte del Estado de Sonora (`sonora__ley_de_transporte_del_estado_de_sonora`) — reforma 2025-12-26
+- Ley del Equilibrio Ecológico y Protección al Ambiente del Estado de Sonora (`sonora__ley_del_equilibrio_ecologico_y_proteccion_al_ambiente_del_estado_de_sonora`) — reforma 2024-07-01
+- Ley del Notariado para el Estado de Sonora (`sonora__ley_del_notariado_para_el_estado_de_sonora`) — reforma 2024-02-06
+- Ley Orgánica del Poder Ejecutivo del Estado de Sonora (`sonora__ley_organica_del_poder_ejecutivo_del_estado_de_sonora`) — reforma 2025-12-12
+- Ley Orgánica del Poder Judicial del Estado de Sonora (`sonora__ley_organica_del_poder_judicial_del_estado_de_sonora`) — reforma 2026-05-11
+- Ley Orgánica del Poder Legislativo del Estado de Sonora (`sonora__ley_organica_del_poder_legislativo_del_estado_de_sonora`) — reforma 2026-05-18
+- Ley para la Igualdad entre Mujeres y Hombres en el Estado de Sonora (`sonora__ley_para_la_igualdad_entre_mujeres_y_hombres_en_el_estado_de_sonora`) — reforma 2023-03-06
+- Código Civil para el Estado de Tabasco (`tabasco__codigo_civil_para_el_estado_de_tabasco`) — reforma 2026-09-02
+- Código de Procedimientos Civiles para el Estado de Tabasco (`tabasco__codigo_de_procedimientos_civiles_para_el_estado_de_tabasco`) — reforma 2019-10-16
+- Código Fiscal del Estado de Tabasco (`tabasco__codigo_fiscal_del_estado_de_tabasco`) — reforma 2025-12-24
+- Código Penal para el Estado de Tabasco (`tabasco__codigo_penal_para_el_estado_de_tabasco`) — reforma 2026-09-12
+- Constitución Política del Estado Libre y Soberano de Tabasco (`tabasco__constitucion_politica_del_estado_libre_y_soberano_de_tabasco`) — reforma 2026-08-26
+- Ley de Educación del Estado de Tabasco (`tabasco__ley_de_educacion_del_estado_de_tabasco`) — reforma 2026-09-23
+- Ley de Ingresos del Estado de Tabasco (`tabasco__ley_de_ingresos_del_estado_de_tabasco`) — reforma 2025-12-24
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Tabasco (`tabasco__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_tabasco`) — reforma 2025-12-27
+- Ley de Movilidad para el Estado de Tabasco (`tabasco__ley_de_movilidad_para_el_estado_de_tabasco`) — reforma 2026-09-19
+- Ley de Protección Ambiental del Estado de Tabasco (`tabasco__ley_de_proteccion_ambiental_del_estado_de_tabasco`) — reforma 2020-12-11
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Tabasco (`tabasco__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_tabasco`) — reforma 2025-06-14
+- Ley de Salud del Estado de Tabasco (`tabasco__ley_de_salud_del_estado_de_tabasco`) — reforma 2025-10-11
+- Ley General de Tránsito y Vialidad del Estado de Tabasco (`tabasco__ley_de_transito_y_vialidad_del_estado_de_tabasco`) — reforma 2026-05-16
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Tabasco (`tabasco__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_tabasco`) — reforma 2025-11-19
+- Ley de Transportes para el Estado de Tabasco (`tabasco__ley_de_transportes_para_el_estado_de_tabasco`) — reforma 2017-07-05
+- Ley de Atención a Víctimas del Estado de Tabasco (`tabasco__ley_de_victimas_del_estado_de_tabasco`) — reforma 2019-10-16
+- Ley del Notariado para el Estado de Tabasco (`tabasco__ley_del_notariado_para_el_estado_de_tabasco`) — reforma 2026-05-06
+- Ley Electoral y de Partidos Políticos del Estado de Tabasco (`tabasco__ley_electoral_y_de_partidos_del_estado_de_tabasco`) — reforma 2026-09-02
+- Ley Estatal de Acceso de las Mujeres a una Vida Libre de Violencia (`tabasco__ley_estatal_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia`) — reforma 2025-10-01
+- Ley de Responsabilidad Administrativa, de los Servidores Públicos, Reglamentaria del Artículo 68, del Título VII, de la Constitución Política del Estado de Tabasco (`tabasco__ley_general_de_responsabilidades_administrativas_del_estado_de_tabasco`) — reforma 2022-04-23
+- Ley Orgánica de los Municipios del Estado de Tabasco (`tabasco__ley_organica_de_los_municipios_del_estado_de_tabasco`) — reforma 2026-05-02
+- Ley Orgánica del Poder Ejecutivo del Estado de Tabasco (`tabasco__ley_organica_del_poder_ejecutivo_del_estado_de_tabasco`) — reforma 2026-09-19
+- Ley Orgánica del Poder Judicial del Estado de Tabasco (`tabasco__ley_organica_del_poder_judicial_del_estado_de_tabasco`) — reforma 2026-09-02
+- Ley Orgánica del Poder Legislativo del Estado de Tabasco (`tabasco__ley_organica_del_poder_legislativo_del_estado_de_tabasco`) — reforma 2025-09-27
+- Ley para la Igualdad entre Mujeres y Hombres del Estado de Tabasco (`tabasco__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_tabasco`) — reforma 2025-12-10
+- Reglamento de la Ley General de Tránsito y Vialidad del Estado de Tabasco (`tabasco__reglamento_de_la_ley_de_transito_y_vialidad_del_estado_de_tabasco`) — reforma 2010-08-21
+- Código Civil para el Estado de Tamaulipas (`tamaulipas__codigo_civil_para_el_estado_de_tamaulipas`) — reforma 2026-03-30
+- Código de Procedimientos Civiles del Estado de Tamaulipas (`tamaulipas__codigo_de_procedimientos_civiles_del_estado_de_tamaulipas`) — reforma 2017-12-18
+- Código Fiscal del Estado de Tamaulipas (`tamaulipas__codigo_fiscal_del_estado_de_tamaulipas`) — reforma 2025-12-16
+- Código Municipal para el Estado de Tamaulipas (`tamaulipas__codigo_municipal_para_el_estado_de_tamaulipas`) — reforma 2026-09-29
+- Código para el Desarrollo Sustentable del Estado de Tamaulipas (`tamaulipas__codigo_para_el_desarrollo_sustentable_del_estado_de_tamaulipas`) — reforma 2026-09-29
+- Código Penal para el Estado de Tamaulipas (`tamaulipas__codigo_penal_para_el_estado_de_tamaulipas`) — reforma 2026-09-29
+- Constitución Política del Estado de Tamaulipas (`tamaulipas__constitucion_politica_del_estado_de_tamaulipas`) — reforma 2026-06-26
+- Ley de Atención a Víctimas para el Estado de Tamaulipas (`tamaulipas__ley_de_atencion_a_victimas_para_el_estado_de_tamaulipas`) — reforma 2026-03-09
+- Ley de Educación para el Estado de Tamaulipas (`tamaulipas__ley_de_educacion_para_el_estado_de_tamaulipas`) — reforma 2026-09-29
+- Ley de Ingresos del Estado de Tamaulipas (`tamaulipas__ley_de_ingresos_del_estado_de_tamaulipas`) — reforma 2025-12-16
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Tamaulipas (`tamaulipas__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_tamaulipas`) — reforma 2026-08-25
+- Ley de Movilidad del Estado de Tamaulipas (`tamaulipas__ley_de_movilidad_del_estado_de_tamaulipas`) — reforma 2026-03-30
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Tamaulipas (`tamaulipas__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_tamaulipas`) — reforma 2026-03-30
+- Ley de Responsabilidades Administrativas del Estado de Tamaulipas (`tamaulipas__ley_de_responsabilidades_administrativas_del_estado_de_tamaulipas`) — reforma 2026-06-25
+- Ley de Salud para el Estado de Tamaulipas (`tamaulipas__ley_de_salud_para_el_estado_de_tamaulipas`) — reforma 2026-08-25
+- Ley de Tránsito del Estado de Tamaulipas (`tamaulipas__ley_de_transito_del_estado_de_tamaulipas`) — reforma 2026-10-05
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Tamaulipas (`tamaulipas__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_tamaulipas`) — reforma 2026-08-18
+- Ley de Transporte del Estado de Tamaulipas (`tamaulipas__ley_de_transporte_del_estado_de_tamaulipas`) — reforma 2026-04-29
+- Ley del Notariado para el Estado de Tamaulipas (`tamaulipas__ley_del_notariado_para_el_estado_de_tamaulipas`) — reforma 2026-04-29
+- Ley Electoral del Estado de Tamaulipas (`tamaulipas__ley_electoral_del_estado_de_tamaulipas`) — reforma 2026-05-29
+- Ley Orgánica de la Administración Pública del Estado de Tamaulipas (`tamaulipas__ley_organica_de_la_administracion_publica_del_estado_de_tamaulipas`) — reforma 2026-09-30
+- Ley Orgánica del Poder Judicial del Estado de Tamaulipas (`tamaulipas__ley_organica_del_poder_judicial_del_estado_de_tamaulipas`) — reforma 2026-03-03
+- Ley para la Igualdad de Género en Tamaulipas (`tamaulipas__ley_para_la_igualdad_de_genero_en_tamaulipas`) — reforma 2026-06-26
+- Ley para Prevenir, Atender, Sancionar y Erradicar la Violencia contra las Mujeres (`tamaulipas__ley_para_prevenir_atender_sancionar_y_erradicar_la_violencia_contra_las_mujeres`) — reforma 2026-09-29
+- Ley sobre la Organización y Funcionamiento Internos del Congreso del Estado de Tamaulipas (`tamaulipas__ley_sobre_la_organizacion_y_funcionamiento_internos_del_congreso_del_estado_de_tamaulipas`) — reforma 2026-09-10
+- Reglamento de Tránsito del Estado de Tamaulipas (`tamaulipas__reglamento_de_la_ley_de_transito_del_estado_de_tamaulipas`) — reforma 2026-02-10
+- Código Civil para el Estado Libre y Soberano de Tlaxcala (`tlaxcala__codigo_civil_para_el_estado_libre_y_soberano_de_tlaxcala`) — reforma 2024-06-18
+- Código de Procedimientos Civiles para el Estado Libre y Soberano de Tlaxcala (`tlaxcala__codigo_de_procedimientos_civiles_para_el_estado_libre_y_soberano_de_tlaxcala`) — reforma 2018-09-04
+- Código Financiero para el Estado de Tlaxcala y sus Municipios (`tlaxcala__codigo_financiero_para_el_estado_de_tlaxcala_y_sus_municipios`) — reforma 2025-11-28
+- Código Penal para el Estado Libre y Soberano de Tlaxcala (`tlaxcala__codigo_penal_para_el_estado_libre_y_soberano_de_tlaxcala`) — reforma 2026-06-05
+- Constitución Política del Estado Libre y Soberano de Tlaxcala (`tlaxcala__constitucion_politica_del_estado_libre_y_soberano_de_tlaxcala`) — reforma 2026-09-01
+- Ley de Comunicaciones y Transportes del Estado de Tlaxcala (`tlaxcala__ley_de_comunicaciones_y_transportes_del_estado_de_tlaxcala`) — reforma 2023-12-18
+- Ley de Educación para el Estado de Tlaxcala (`tlaxcala__ley_de_educacion_para_el_estado_de_tlaxcala`) — reforma 2026-06-29
+- Ley de Ingresos del Estado de Tlaxcala (`tlaxcala__ley_de_ingresos_del_estado_de_tlaxcala`)
+- Ley de Instituciones y Procedimientos Electorales para el Estado de Tlaxcala (`tlaxcala__ley_de_instituciones_y_procedimientos_electorales_para_el_estado_de_tlaxcala`) — reforma 2026-08-28
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Tlaxcala (`tlaxcala__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_tlaxcala`) — reforma 2025-12-09
+- Ley de Protección al Medio Ambiente y el Desarrollo Sostenible del Estado de Tlaxcala (`tlaxcala__ley_de_proteccion_al_medio_ambiente_y_el_desarrollo_sostenible_del_estado_de_tlaxcala`) — reforma 2023-12-12
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Tlaxcala (`tlaxcala__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_tlaxcala`)
+- Ley de Responsabilidades de los Servidores Públicos para el Estado de Tlaxcala (`tlaxcala__ley_de_responsabilidades_de_los_servidores_publicos_para_el_estado_de_tlaxcala`) — reforma 2018-04-12
+- Ley de Salud del Estado de Tlaxcala (`tlaxcala__ley_de_salud_del_estado_de_tlaxcala`) — reforma 2026-02-18
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Tlaxcala (`tlaxcala__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_tlaxcala`)
+- Ley de Movilidad y Seguridad Vial del Estado de Tlaxcala (`tlaxcala__ley_de_vialidad_del_estado_de_tlaxcala`)
+- Ley de Víctimas del Estado de Tlaxcala (`tlaxcala__ley_de_victimas_del_estado_de_tlaxcala`)
+- Ley del Notariado para el Estado de Tlaxcala (`tlaxcala__ley_del_notariado_para_el_estado_de_tlaxcala`) — reforma 2025-12-18
+- Ley Municipal del Estado de Tlaxcala (`tlaxcala__ley_municipal_del_estado_de_tlaxcala`) — reforma 2026-05-15
+- Ley Orgánica de la Administración Pública del Estado de Tlaxcala (`tlaxcala__ley_organica_de_la_administracion_publica_del_estado_de_tlaxcala`) — reforma 2026-04-13
+- Ley Orgánica del Poder Judicial del Estado de Tlaxcala (`tlaxcala__ley_organica_del_poder_judicial_del_estado_de_tlaxcala`) — reforma 2025-08-26
+- Ley Orgánica del Poder Legislativo del Estado de Tlaxcala (`tlaxcala__ley_organica_del_poder_legislativo_del_estado_de_tlaxcala`) — reforma 2023-04-13
+- Ley de Igualdad Sustantiva entre Mujeres y Hombres del Estado de Tlaxcala (`tlaxcala__ley_para_la_igualdad_entre_mujeres_y_hombres_en_tlaxcala`)
+- Ley que Garantiza el Acceso a las Mujeres a una Vida Libre de Violencia en el Estado de Tlaxcala (`tlaxcala__ley_para_prevenir_atender_sancionar_y_erradicar_la_violencia_contra_las_mujeres_en_el_estado_de_tlaxcala`) — reforma 2026-06-05
+- Reglamento de la Ley de Comunicaciones y Transportes del Estado de Tlaxcala (`tlaxcala__reglamento_de_la_ley_de_comunicaciones_y_transportes_del_estado_de_tlaxcala`)
+- Código Civil para el Estado de Veracruz de Ignacio de la Llave (`veracruz__codigo_civil_para_el_estado_de_veracruz_de_ignacio_de_la_llave`) — reforma 2025-10-08
+- Código de Procedimientos Civiles para el Estado de Veracruz de Ignacio de la Llave (`veracruz__codigo_de_procedimientos_civiles_para_el_estado_de_veracruz_de_ignacio_de_la_llave`) — reforma 2020-07-03
+- Código Electoral para el Estado de Veracruz (`veracruz__codigo_electoral_para_el_estado_de_veracruz`) — reforma 2026-08-28
+- Código Financiero para el Estado de Veracruz de Ignacio de la Llave (`veracruz__codigo_financiero_para_el_estado_de_veracruz_de_ignacio_de_la_llave`) — reforma 2026-01-12
+- Código Hacendario Municipal para el Estado de Veracruz (`veracruz__codigo_hacendario_municipal_para_el_estado_de_veracruz`) — reforma 2026-09-18
+- Código Penal para el Estado Libre y Soberano de Veracruz de Ignacio de la Llave (`veracruz__codigo_penal_para_el_estado_libre_y_soberano_de_veracruz_de_ignacio_de_la_llave`) — reforma 2026-10-07
+- Código de Procedimientos Penales para el Estado Libre y Soberano de Veracruz de Ignacio de la Llave (`veracruz__codigo_procesal_penal_para_el_estado_de_veracruz`) — reforma 2014-07-18
+- Constitución Política del Estado Libre y Soberano de Veracruz de Ignacio de la Llave (`veracruz__constitucion_politica_del_estado_de_veracruz_de_ignacio_de_la_llave`) — reforma 2026-09-28
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencia para el Estado de Veracruz (`veracruz__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_veracruz`) — reforma 2026-07-02
+- Ley de Educación del Estado de Veracruz (`veracruz__ley_de_educacion_del_estado_de_veracruz`) — reforma 2020-02-04
+- Ley de Ingresos del Gobierno del Estado de Veracruz (`veracruz__ley_de_ingresos_del_gobierno_del_estado_de_veracruz`) — reforma 2025-12-19
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Veracruz (`veracruz__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_veracruz`) — reforma 2025-03-07
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados para el Estado de Veracruz (`veracruz__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_para_el_estado_de_veracruz`) — reforma 2025-06-30
+- Ley de Responsabilidades Administrativas para el Estado de Veracruz (`veracruz__ley_de_responsabilidades_administrativas_para_el_estado_de_veracruz`) — reforma 2022-12-20
+- Ley de Salud del Estado de Veracruz (`veracruz__ley_de_salud_del_estado_de_veracruz`) — reforma 2020-02-04
+- Ley de Tránsito y Seguridad Vial para el Estado de Veracruz (`veracruz__ley_de_transito_y_seguridad_vial_para_el_estado_de_veracruz`) — reforma 2021-03-22
+- Ley de Transparencia y Acceso a la Información Pública para el Estado de Veracruz (`veracruz__ley_de_transparencia_y_acceso_a_la_informacion_publica_para_el_estado_de_veracruz`) — reforma 2025-06-30
+- Ley de Tránsito y Transporte para el Estado de Veracruz de Ignacio de la Llave (`veracruz__ley_de_transporte_del_estado_de_veracruz`) — reforma 2021-03-22
+- Ley de Víctimas para el Estado de Veracruz (`veracruz__ley_de_victimas_para_el_estado_de_veracruz`) — reforma 2025-03-07
+- Ley del Notariado para el Estado de Veracruz (`veracruz__ley_del_notariado_para_el_estado_de_veracruz`)
+- Ley Estatal de Protección Ambiental (`veracruz__ley_estatal_de_proteccion_ambiental`) — reforma 2026-07-10
+- Ley Orgánica del Municipio Libre del Estado de Veracruz (`veracruz__ley_organica_del_municipio_libre_del_estado_de_veracruz`) — reforma 2026-09-18
+- Ley Orgánica del Poder Ejecutivo del Estado de Veracruz (`veracruz__ley_organica_del_poder_ejecutivo_del_estado_de_veracruz`) — reforma 2026-05-15
+- Ley Orgánica del Poder Judicial del Estado de Veracruz (`veracruz__ley_organica_del_poder_judicial_del_estado_de_veracruz`) — reforma 2026-08-28
+- Ley Orgánica del Poder Legislativo del Estado de Veracruz (`veracruz__ley_organica_del_poder_legislativo_del_estado_de_veracruz`) — reforma 2026-09-18
+- Ley para la Igualdad entre Mujeres y Hombres para el Estado de Veracruz (`veracruz__ley_para_la_igualdad_entre_mujeres_y_hombres_para_el_estado_de_veracruz`) — reforma 2026-09-30
+- Reglamento de la Ley de Tránsito y Seguridad Vial para el Estado de Veracruz (`veracruz__reglamento_de_la_ley_de_transito_y_seguridad_vial_para_el_estado_de_veracruz`) — reforma 2020-05-01
+- Código Civil del Estado de Yucatán (`yucatan__codigo_civil_del_estado_de_yucatan`) — reforma 2022-06-07
+- Código de Familia para el Estado de Yucatán (`yucatan__codigo_de_familia_para_el_estado_de_yucatan`) — reforma 2024-07-31
+- Código de la Administración Pública de Yucatán (`yucatan__codigo_de_la_administracion_publica_de_yucatan`) — reforma 2025-07-28
+- Código de Procedimientos Civiles del Estado de Yucatán (`yucatan__codigo_de_procedimientos_civiles_del_estado_de_yucatan`) — reforma 2016-12-28
+- Código de Procedimientos Familiares para el Estado de Yucatán (`yucatan__codigo_de_procedimientos_familiares_para_el_estado_de_yucatan`) — reforma 2016-12-28
+- Código Fiscal del Estado de Yucatán (`yucatan__codigo_fiscal_del_estado_de_yucatan`) — reforma 2023-12-28
+- Código Penal del Estado de Yucatán (`yucatan__codigo_penal_del_estado_de_yucatan`) — reforma 2026-07-28
+- Constitución Política del Estado de Yucatán (`yucatan__constitucion_politica_del_estado_de_yucatan`) — reforma 2026-09-04
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencias del Estado de Yucatán (`yucatan__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_del_estado_de_yucatan`) — reforma 2026-04-08
+- Ley de Educación del Estado de Yucatán (`yucatan__ley_de_educacion_del_estado_de_yucatan`) — reforma 2026-06-11
+- Ley de Gobierno de los Municipios del Estado de Yucatán (`yucatan__ley_de_gobierno_de_los_municipios_del_estado_de_yucatan`) — reforma 2026-07-28
+- Ley de Gobierno del Poder Legislativo del Estado de Yucatán (`yucatan__ley_de_gobierno_del_poder_legislativo_del_estado_de_yucatan`) — reforma 2026-07-28
+- Ley de Ingresos del Estado de Yucatán (`yucatan__ley_de_ingresos_del_estado_de_yucatan`) — reforma 2025-12-26
+- Ley de Instituciones y Procedimientos Electorales del Estado de Yucatán (`yucatan__ley_de_instituciones_y_procedimientos_electorales_del_estado_de_yucatan`) — reforma 2026-07-28
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Yucatán (`yucatan__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_yucatan`) — reforma 2026-06-11
+- Ley de Movilidad y Seguridad Vial del Estado de Yucatán (`yucatan__ley_de_movilidad_y_seguridad_vial_del_estado_de_yucatan`) — reforma 2025-12-31
+- Ley de Protección al Medio Ambiente del Estado de Yucatán (`yucatan__ley_de_proteccion_al_ambiente_del_estado_de_yucatan`) — reforma 2025-10-14
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Yucatán (`yucatan__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_yucatan`)
+- Ley de Responsabilidades Administrativas del Estado de Yucatán (`yucatan__ley_de_responsabilidades_administrativas_del_estado_de_yucatan`) — reforma 2024-08-05
+- Ley de Salud del Estado de Yucatán (`yucatan__ley_de_salud_del_estado_de_yucatan`) — reforma 2026-06-29
+- Ley de Tránsito y Vialidad del Estado de Yucatán (`yucatan__ley_de_transito_y_vialidad_del_estado_de_yucatan`) — reforma 2019-12-13
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Yucatán (`yucatan__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_yucatan`)
+- Ley de Transporte del Estado de Yucatán (`yucatan__ley_de_transporte_del_estado_de_yucatan`) — reforma 2020-07-29
+- Ley de Víctimas del Estado de Yucatán (`yucatan__ley_de_victimas_del_estado_de_yucatan`) — reforma 2024-08-05
+- Ley del Notariado del Estado de Yucatán (`yucatan__ley_del_notariado_del_estado_de_yucatan`) — reforma 2022-06-07
+- Ley Orgánica del Poder Judicial del Estado de Yucatán (`yucatan__ley_organica_del_poder_judicial_del_estado_de_yucatan`) — reforma 2025-08-28
+- Ley para la Igualdad entre Mujeres y Hombres del Estado de Yucatán (`yucatan__ley_para_la_igualdad_entre_mujeres_y_hombres_del_estado_de_yucatan`) — reforma 2025-06-20
+- Reglamento de la Ley de Tránsito y Vialidad del Estado de Yucatán (`yucatan__reglamento_de_la_ley_de_transito_y_vialidad_del_estado_de_yucatan`) — reforma 2025-05-26
+- Código Civil del Estado de Zacatecas (`zacatecas__codigo_civil_del_estado_de_zacatecas`) — reforma 2026-07-18
+- Código de Procedimientos Civiles del Estado de Zacatecas (`zacatecas__codigo_de_procedimientos_civiles_del_estado_de_zacatecas`) — reforma 2018-02-21
+- Código Familiar del Estado de Zacatecas (`zacatecas__codigo_familiar_del_estado_de_zacatecas`) — reforma 2026-08-22
+- Código Fiscal del Estado de Zacatecas y sus Municipios (`zacatecas__codigo_fiscal_del_estado_de_zacatecas_y_sus_municipios`) — reforma 2025-12-31
+- Código Penal para el Estado de Zacatecas (`zacatecas__codigo_penal_para_el_estado_de_zacatecas`) — reforma 2026-09-16
+- Constitución Política del Estado Libre y Soberano de Zacatecas (`zacatecas__constitucion_politica_del_estado_libre_y_soberano_de_zacatecas`) — reforma 2026-09-16
+- Ley de Acceso de las Mujeres a una Vida Libre de Violencias para el Estado de Zacatecas (`zacatecas__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_zacatecas`) — reforma 2026-07-18
+- Ley de Atención a Víctimas del Estado de Zacatecas (`zacatecas__ley_de_atencion_a_victimas_del_estado_de_zacatecas`) — reforma 2014-12-13
+- Ley de Educación del Estado de Zacatecas (`zacatecas__ley_de_educacion_del_estado_de_zacatecas`) — reforma 2026-09-16
+- Ley de Ingresos del Estado de Zacatecas (`zacatecas__ley_de_ingresos_del_estado_de_zacatecas`) — reforma 2025-12-31
+- Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Zacatecas (`zacatecas__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_zacatecas`) — reforma 2026-01-24
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Zacatecas (`zacatecas__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_zacatecas`) — reforma 2026-07-18
+- Ley de Responsabilidades de los Servidores Públicos del Estado y Municipios de Zacatecas (`zacatecas__ley_de_responsabilidades_de_los_servidores_publicos_del_estado_y_municipios_de_zacatecas`) — reforma 2017-09-06
+- Ley de Salud del Estado de Zacatecas (`zacatecas__ley_de_salud_del_estado_de_zacatecas`) — reforma 2026-09-16
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Zacatecas (`zacatecas__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_zacatecas`) — reforma 2026-07-18
+- Ley de Transporte, Tránsito y Vialidad del Estado de Zacatecas (`zacatecas__ley_de_transporte_transito_y_vialidad_del_estado_de_zacatecas`) — reforma 2026-09-30
+- Ley del Equilibrio Ecológico y la Protección al Ambiente del Estado de Zacatecas (`zacatecas__ley_del_equilibrio_ecologico_y_la_proteccion_al_ambiente_del_estado_de_zacatecas`) — reforma 2021-01-09
+- Ley del Notariado para el Estado de Zacatecas (`zacatecas__ley_del_notariado_para_el_estado_de_zacatecas`) — reforma 2025-12-18
+- Ley Electoral del Estado de Zacatecas (`zacatecas__ley_electoral_del_estado_de_zacatecas`) — reforma 2025-02-15
+- Ley Orgánica de la Administración Pública del Estado de Zacatecas (`zacatecas__ley_organica_de_la_administracion_publica_del_estado_de_zacatecas`) — reforma 2026-09-30
+- Ley Orgánica del Municipio del Estado de Zacatecas (`zacatecas__ley_organica_del_municipio_del_estado_de_zacatecas`) — reforma 2026-09-30
+- Ley Orgánica del Poder Judicial del Estado de Zacatecas (`zacatecas__ley_organica_del_poder_judicial_del_estado_de_zacatecas`) — reforma 2025-06-18
+- Ley Orgánica del Poder Legislativo del Estado de Zacatecas (`zacatecas__ley_organica_del_poder_legislativo_del_estado_de_zacatecas`) — reforma 2026-08-01
+- Ley para la Igualdad Sustantiva entre Mujeres y Hombres del Estado de Zacatecas (`zacatecas__ley_para_la_igualdad_entre_mujeres_y_hombres_en_el_estado_de_zacatecas`) — reforma 2026-09-16
+- Reglamento General de la Ley de Transporte, Tránsito y Vialidad del Estado de Zacatecas (`zacatecas__reglamento_de_la_ley_de_transporte_transito_y_vialidad_del_estado_de_zacatecas`) — reforma 2017-06-07
+
+### Abrogados (6)
+- Ley de Educación para el Estado de Chiapas (`chiapas__ley_de_educacion_del_estado_de_chiapas`) — Abrogada por el artículo segundo transitorio de la Ley de Educación del Estado Libre y Soberano de Chiapas (Decreto 003, P.O. 131, 14/10/2020), que abroga la L…
+- Ley de Equilibrio Ecológico y la Protección al Ambiente del Estado de Baja California Sur (`baja_california_sur__ley_del_equilibrio_ecologico_y_proteccion_al_ambiente_del_estado_de_baja_california_sur`) — Abrogada por la Ley de Equilibrio Ecológico y la Protección al Ambiente del Estado de Baja California Sur (Decreto 3300, BOGE No. 66 extraordinario, 21/08/2026…
+- Ley de Transparencia y Acceso a la Información Pública para el Estado de Quintana Roo (`quintana_roo__ley_de_transparencia_y_acceso_a_la_informacion_publica_para_el_estado_de_quintana_roo`) — Abrogada por el Decreto 154 (POE 25-nov-2025), que expide la Ley de Transparencia y Acceso a la Información Pública del Estado de Quintana Roo (transitorio Seg…
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados para el Estado de Quintana Roo (`quintana_roo__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_para_el_estado_de_quintana_roo`) — Abrogada por el Decreto 154 (POE 25-nov-2025), que expide la Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Quintana Roo…
+- Ley de Responsabilidades Administrativas del Estado de Quintana Roo (`quintana_roo__ley_de_responsabilidades_administrativas_del_estado_de_quintana_roo`) — Ley de 2017 (Decreto 85, POE 19-jul-2017) abrogada mediante el Decreto 143 (28-dic-2017) según la ficha del Congreso https://www.congresoqroo.gob.mx/leyes/182/…
+- Reglamento de la Ley de Tránsito Reformada del Estado de Oaxaca (`oaxaca__reglamento_de_transito_del_estado_de_oaxaca`) — Abrogado por el transitorio CUARTO del Reglamento de la Ley de Tránsito y Vialidad del Estado de Oaxaca (decreto publicado en el Periódico Oficial Extra del 27…
+
+### Agregados al catálogo (15)
+- Ley General de Aguas (`federal__ley_general_de_aguas`) — Ley nueva: expedida DOF 11-12-2025 (sin reformas), en el mismo paquete que reformó la Ley de Aguas Nacionales (DOF 11-12-2025). Fuente: índice de leyes vigente…
+- Ley General de Economía Circular (`federal__ley_general_de_economia_circular`) — Ley nueva: expedida DOF 19-01-2026 (sin reformas), en el mismo paquete que reformó la LGEEPA y la LGPGIR (ambas con última reforma DOF 19-01-2026). Fuente: índ…
+- Ley de Educación del Estado Libre y Soberano de Chiapas (`chiapas__ley_de_educacion_del_estado_libre_y_soberano_de_chiapas`) — Sustituye a la Ley de Educación del Estado de Chiapas de 2004 (Decreto 003, P.O. 131, 14/10/2020, art. segundo transitorio). Listado de Legislación Vigente del…
+- Ley de Equilibrio Ecológico y la Protección al Ambiente del Estado de Baja California Sur (`baja_california_sur__ley_de_equilibrio_ecologico_y_la_proteccion_al_ambiente_del_estado_de_baja_california_sur`) — Ley nueva: Decreto 3300, BOGE No. 66 extraordinario, 21/08/2026; abroga la Ley de Equilibrio Ecológico y Protección del Ambiente de 1991 (Decreto 829). Texto v…
+- Ley General para Prevenir, Investigar y Sancionar los Delitos en Materia de Extorsión (`federal__ley_general_para_prevenir_investigar_y_sancionar_los_delitos_en_materia_de_extorsion`) — Ley nueva: expedida DOF 28-11-2025 (Nueva Ley, sin reformas al 2026-10-09). Nombre completo: '..., Reglamentaria de la fracción XXI del artículo 73 de la Const…
+- Ley del Sistema Nacional de Investigación e Inteligencia en Materia de Seguridad Pública (`federal__ley_del_sistema_nacional_de_investigacion_e_inteligencia_en_materia_de_seguridad_publica`) — Ley nueva: expedida DOF 16-07-2025 junto con la nueva Ley General del Sistema Nacional de Seguridad Pública y la nueva Ley de la Guardia Nacional (sin reformas…
+- Reglamento de la Ley de Tránsito y Vialidad del Estado de Oaxaca (`oaxaca__reglamento_de_la_ley_de_transito_y_vialidad_del_estado_de_oaxaca`) — Expedido por decreto del Ejecutivo publicado en el Periódico Oficial Extra del 27/09/2022 (en vigor al día siguiente); su transitorio CUARTO abroga el Reglamen…
+- Ley de Transparencia y Acceso a la Información Pública del Estado de Quintana Roo (`quintana_roo__ley_de_transparencia_y_acceso_a_la_informacion_publica_del_estado_de_quintana_roo`) — Ley nueva expedida por el Decreto 154 (POE 25-nov-2025); abroga la Ley de Transparencia ... para el Estado de Quintana Roo de 2016. Fuente: https://www.congres…
+- Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Quintana Roo (`quintana_roo__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_quintana_roo`) — Ley nueva expedida por el Decreto 154 (POE 25-nov-2025); abroga la Ley de Protección de Datos Personales ... para el Estado de Quintana Roo de 2017. Fuente: ht…
+- Ley de Responsabilidades Administrativas del Estado de Quintana Roo y sus Municipios (`quintana_roo__ley_de_responsabilidades_administrativas_del_estado_de_quintana_roo_y_sus_municipios`) — Ley nueva expedida por el Decreto 007 (POE 15-oct-2024). Fuente: https://www.congresoqroo.gob.mx/leyes/312/
+- Ley de Movilidad y Seguridad Vial del Estado de Chihuahua (`chihuahua__ley_de_movilidad_y_seguridad_vial_del_estado_de_chihuahua`) — Ley nueva (P.O. 82 del 12/10/2024, en vigor el 01/01/2025; última reforma POE 2026.07.08/No. 54). No abroga la Ley de Vialidad y Tránsito ni la Ley de Transpor…
+- Ley de Movilidad y Seguridad Vial del Estado de Yucatán (`yucatan__ley_de_movilidad_y_seguridad_vial_del_estado_de_yucatan`) — Sustituye a la Ley de Transporte del Estado de Yucatán, a la Ley de Seguridad Vial y a la Ley de Fomento al Uso de la Bicicleta (art. 2o transitorio; Decreto 5…
+- Ley de Igualdad entre Mujeres y Hombres en el Estado de Coahuila de Zaragoza (`coahuila__ley_de_igualdad_entre_mujeres_y_hombres_en_el_estado_de_coahuila_de_zaragoza`) — Faltaba en el catálogo (Coahuila era el único estado sin su ley de igualdad entre mujeres y hombres; el lugar lo ocupaba la Ley para Promover la Igualdad y Pre…
+- Ley de Movilidad y Seguridad Vial para el Estado de Sonora (`sonora__ley_de_movilidad_y_seguridad_vial_para_el_estado_de_sonora`) — Ley nueva (Ley 176, B.O. Edición Especial 05-ene-2024, sin reformas según su apéndice); coexiste con la Ley de Tránsito y la Ley de Transporte del Estado de So…
+- Ley de Movilidad del Estado de Tamaulipas (`tamaulipas__ley_de_movilidad_del_estado_de_tamaulipas`) — Ley nueva (Decreto 65-561, LXV Legislatura); coexiste con la Ley de Tránsito y la Ley de Transporte del Estado (no abroga ninguna). Última reforma P.O. Extraor…
+
+### Eliminados del catálogo (2)
+- Ley General de Bienes Nacionales (`leyes_federales_ambiental__ley_general_de_bienes_nacionales`) — Entrada duplicada: la Ley General de Bienes Nacionales vigente es leyes_federales_asentamientos_y_desarrollo_urbano__ley_general_de_bienes_nacionales (Federal/…
+- Ley de Equilibrio Ecológico y la Protección al Ambiente del Estado de Baja California Sur (`baja_california_sur__ley_de_equilibrio_ecologico_y_la_proteccion_al_ambiente_del_estado_de_baja_california_sur`) — Duplicado creado por error en la corrida e1 del 2026-10-09: la ley nueva se registra renombrando la entrada existente baja_california_sur__ley_del_equilibrio_e…
+
+### Renombrados (24)
+- `baja_california_sur__constitucion_politica_del_estado_de_baja_california_sur`: «Constitución Política del Estado de Baja California Sur» → «Constitución Política del Estado Libre y Soberano de Baja California Sur» — Nombre oficial según el texto vigente del Congreso de BCS: https://www.cbcs.gob.mx/LEYES-BCS/CPoliticaBCS-.doc
+- `baja_california_sur__ley_del_notariado_para_el_estado_de_baja_california_sur`: «Ley del Notariado de Baja California Sur» → «Ley del Notariado del Estado de Baja California Sur» — Nombre según el listado y el texto vigente del Congreso de BCS: https://www.cbcs.gob.mx/LEYES-BCS/LNotariadoBCS.doc
+- `baja_california_sur__ley_de_educacion_del_estado_de_baja_california_sur`: «Ley de Educación del Estado de Baja California Sur» → «Ley de Educación del Estado Libre y Soberano de Baja California Sur» — La Ley de Educación para el Estado de BCS (BOGE 22/04/2014) fue abrogada por el transitorio segundo de esta ley (BOGE 15/05/2024). Texto vigente: Word oficial…
+- `baja_california_sur__ley_de_transporte_del_estado_de_baja_california_sur`: «Ley de Transporte del Estado de Baja California Sur» → «Ley de Transporte para el Estado de Baja California Sur» — Nombre oficial según el texto vigente del Congreso de BCS: https://www.cbcs.gob.mx/LEYES-BCS/LTransporteBCS.doc
+- `baja_california_sur__ley_de_igualdad_entre_mujeres_y_hombres_del_estado_de_baja_california_sur`: «Ley de Igualdad entre Mujeres y Hombres del Estado de Baja California Sur» → «Ley de Igualdad entre Mujeres y Hombres para el Estado de Baja California Sur» — Nombre oficial según el texto vigente del Congreso de BCS: https://www.cbcs.gob.mx/LEYES-BCS/LIgualdadMujeresHombresBCS.doc
+- `hidalgo__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_hidalgo`: «Ley de Acceso de las Mujeres a una Vida Libre de Violencia para el Estado de Hidalgo» → «Ley de Acceso de las Mujeres a una Vida Libre de Violencias para el Estado de Hidalgo» — Reformada la denominación P.O. Alcance Dos del 18-sep-2026 (portada del PDF del Congreso: https://www.congreso-hidalgo.gob.mx/biblioteca_legislativa/leyes_cint…
+- `aguascalientes__ley_de_acceso_de_las_mujeres_a_una_vida_libre_de_violencia_para_el_estado_de_aguascalientes`: «Ley de Acceso de las Mujeres a una Vida Libre de Violencia para el Estado de Aguascalientes» → «Ley de Acceso de las Mujeres a una Vida Libre de Violencias para el Estado de Aguascalientes» — Denominación reformada (P.O. 23/06/2026), según el texto vigente del Congreso: https://congresoags.gob.mx/agenda_legislativa/leyes/descargarPdf/393
+- `jalisco__ley_de_educacion_del_estado_de_jalisco`: «Ley de Educación del Estado de Jalisco» → «Ley de Educación del Estado Libre y Soberano de Jalisco» — Nombre del catálogo inexacto: la 'Ley de Educación del Estado de Jalisco' (decreto 16644) fue abrogada por el decreto 27909/LXII/20 (P.O. 'El Estado de Jalisco…
+- `morelos__ley_de_atencion_y_reparacion_a_victimas_del_delito_y_de_violaciones_a_los_derechos_humanos_para_el_estado_de_morelos`: «Ley de Atención y Reparación a Víctimas del Delito y de Violaciones a los Derechos Humanos para el Estado de Morelos» → «Ley de Víctimas del Estado de Morelos» — Reformada de manera integral y renombrada por el Decreto No. 2205 (POEM 'Tierra y Libertad' No. 5445, 2017/10/31); antes 'Ley de Atención y Reparación a Víctim…
+- `morelos__ley_organica_de_la_administracion_publica_del_estado_libre_y_soberano_de_morelos`: «Ley Orgánica de la Administración Pública del Estado Libre y Soberano de Morelos» → «Ley Orgánica de la Administración Pública para el Estado Libre y Soberano de Morelos» — Nombre del catálogo inexacto ('del Estado'): la portada y la ficha del Marco Jurídico dicen 'para el Estado Libre y Soberano de Morelos'. Fuente: https://marco…
+- `morelos__ley_de_los_derechos_de_ninas_ninos_y_adolescentes_del_estado_de_morelos`: «Ley de los Derechos de Niñas, Niños y Adolescentes del Estado de Morelos» → «Ley de los Derechos de las Niñas, Niños y Adolescentes del Estado de Morelos» — Nombre del catálogo inexacto (faltaba 'las'): así lo dicen la portada del PDF y la ficha del Marco Jurídico. Fuente: https://marcojuridico.morelos.gob.mx/docum…
+- `baja_california_sur__ley_del_equilibrio_ecologico_y_proteccion_al_ambiente_del_estado_de_baja_california_sur`: «Ley del Equilibrio Ecológico y Protección al Ambiente del Estado de Baja California Sur» → «Ley de Equilibrio Ecológico y Protección del Ambiente del Estado de Baja California Sur» — Nombre oficial de la ley de 1991 (Decreto 829, BOGE 30/11/1991), tal como la cita el transitorio segundo de la ley que la abroga: https://www.cbcs.gob.mx/LEYES…
+- `estado_de_mexico__ley_de_movilidad_y_seguridad_vial_del_estado_de_mexico`: «Ley de Movilidad y Seguridad Vial del Estado de México» → «Ley de Movilidad y Seguridad Vial del Estado de México y sus Municipios» — Nombre del catálogo inexacto: el Decreto 264 de la LXI Legislatura (POGG 21-may-2024) expide la 'Ley de Movilidad y Seguridad Vial del Estado de México y sus M…
+- `michoacan__ley_de_educacion_para_el_estado_de_michoacan`: «Ley de Educación para el Estado de Michoacán» → «Ley de Educación del Estado de Michoacán de Ocampo» — Nombre del catálogo inexacto: la 'Ley de Educación para el Estado de Michoacán de Ocampo' (PO 28-feb-2014) fue abrogada por el transitorio Segundo del Decreto…
+- `michoacan__ley_de_movilidad_y_seguridad_vial`: «Ley de Movilidad y Seguridad Vial» → «Ley de Movilidad y Seguridad Vial del Estado de Michoacán de Ocampo» — Nombre del catálogo incompleto: el Decreto 405 (PO 2-jun-2023, 9a secc.) expide la 'Ley de Movilidad y Seguridad Vial del Estado de Michoacán de Ocampo' (porta…
+- `baja_california_sur__ley_del_equilibrio_ecologico_y_proteccion_al_ambiente_del_estado_de_baja_california_sur`: «Ley de Equilibrio Ecológico y Protección del Ambiente del Estado de Baja California Sur» → «Ley de Equilibrio Ecológico y la Protección al Ambiente del Estado de Baja California Sur» — Ley nueva: Decreto 3300, BOGE No. 66 extraordinario, 21/08/2026, que en su transitorio segundo abrogó la Ley de Equilibrio Ecológico y Protección del Ambiente…
+- `baja_california_sur__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_para_el_estado_de_baja_california_sur`: «Ley de Protección de Datos Personales en Posesión de Sujetos Obligados para el Estado de Baja California Sur» → «Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de Baja California Sur» — Ley nueva: Decreto 3256, BOGE 88 extraordinario, 24/12/2025 (en vigor 01/01/2026); su transitorio segundo abrogó la '...para el Estado de Baja California Sur'…
+- `nuevo_leon__ley_de_movilidad_sostenible_y_accesibilidad_para_el_estado_de_nuevo_leon`: «Ley de Movilidad Sostenible y Accesibilidad para el Estado de Nuevo León» → «Ley de Movilidad Sostenible, de Accesibilidad y Seguridad Vial para el Estado de Nuevo León» — Denominación reformada por decreto publicado en el P.O. del 24/11/2023 ('(REFORMADA SU DENOMINACIÓN, P.O. 24 DE NOVIEMBRE DE 2023)' sobre el título). Fuente: p…
+- `oaxaca__ley_para_la_igualdad_entre_mujeres_y_hombres_en_el_estado_de_oaxaca`: «Ley para la Igualdad entre Mujeres y Hombres en el Estado de Oaxaca» → «Ley de Igualdad entre Mujeres y Hombres para el Estado de Oaxaca» — Nombre del catálogo inexacto (no hubo cambio de denominación): así la nombran el decreto de expedición (Decreto 996, LX Legislatura) dentro del PDF y la tabla…
+- `campeche__reglamento_de_la_ley_de_vialidad_transito_y_control_vehicular_del_estado`: «Reglamento de la Ley de Vialidad, Tránsito y Control Vehicular del Estado» → «Reglamento de la Ley de Vialidad, Tránsito y Control Vehicular del Estado de Campeche» — Reglamento NUEVO con el mismo nombre: Acuerdo del Ejecutivo, P.O. No. 2695, 2a Sección, 15/07/2026 (fe de erratas P.O. 10/09/2026); su transitorio segundo abro…
+- `queretaro__ley_de_victimas_del_estado_de_queretaro`: «Ley de Protección a Víctimas, Ofendidos y Personas que Intervienen en el Procedimiento Penal del Estado de Querétaro» → «Ley de Protección a Víctimas y Personas que Intervienen en el Procedimiento Penal del Estado de Querétaro» — La reforma publicada en La Sombra de Arteaga No. 26 (06-mar-2019) cambió la denominación y quitó 'Ofendidos': así aparece el título de la ley '(Ref. P. O. No.…
+- `san_luis_potosi__ley_del_notariado_del_estado_de_san_luis_potosi`: «Ley del Notariado del Estado de San Luis Potosí» → «Ley del Notariado para el Estado de San Luis Potosí» — Nombre oficial del Decreto 473 (POE 27-abr-2000) y de la portada de la compilación del Congreso ('LEY DEL NOTARIADO PARA EL ESTADO DE SAN LUIS POTOSI'); el lis…
+- `san_luis_potosi__ley_de_proteccion_de_datos_personales_en_posesion_de_sujetos_obligados_del_estado_de_san_luis_potosi`: «Ley de Protección de Datos Personales en Posesión de Sujetos Obligados del Estado de San Luis Potosí» → «Ley de Protección de Datos Personales en Posesión de los Sujetos Obligados del Estado de San Luis Potosí» — Denominación reformada (P.O. 14-dic-2017), según la portada y el encabezado del Decreto 0675 en la compilación del Congreso: 'LEY DE PROTECCION DE DATOS PERSON…
+- `chiapas__ley_de_educacion_del_estado_de_chiapas`: «Ley de Educación del Estado de Chiapas» → «Ley de Educación para el Estado de Chiapas» — Nombre oficial según el Decreto 194 (P.O. 241 Tomo II, 16/06/2004: 'Decreto de Ley de Educación para el Estado de Chiapas'), sus decretos de reforma (p. ej. De…
+
+### Otros cambios del catálogo (2)
+- `baja_california_sur__ley_de_equilibrio_ecologico_y_la_proteccion_al_ambiente_del_estado_de_baja_california_sur`: PDF retirado de la biblioteca — Entrada duplicada creada en esta misma corrida: la convención del catálogo para leyes de la misma materia reexpedidas es renombrar la entrada existente; el PDF…
+- `baja_california_sur__ley_del_equilibrio_ecologico_y_proteccion_al_ambiente_del_estado_de_baja_california_sur`: abrogado → vigente — La entrada es la ley ambiental vigente de BCS; se renombra a la ley nueva (ver nota de renombre)
+
+### Convertidos a Markdown (1049)
+- lector_word: 33
+- markitdown: 1010
+- ocr: 6
+
+### Markdown con formato nuevo (1017)
+- formato 2: 1017 documento(s), sin reconvertir el original
+
+### PDF comprimidos (1)
+- `ciudad_de_mexico__codigo_fiscal_de_la_ciudad_de_mexico`: 163.9 → 56.5 MB (nivel 30)
+
+### Mantenimiento (7)
+- esquema_v2: catalogo.json y Documentos/manifiesto.json migrados del esquema 1 al 2 (SHA-256, fechas ISO, archivo/formato, sin ambito, pistas normalizadas, manifiesto con version); 4 pistas de sitios no oficiales quitadas
+- fechas_releidas: lector de fechas nuevo (fechas.py) aplicado a las portadas guardadas: 92 fecha_reforma rellenadas, 2 corregidas, 215 siguen sin fecha
+- ids_federales: Los 188 ids federales heredados (leyes_federales_*__, constitucion_y_reformas__, tratados_internacionales__, codigos_federales_y_nacionales__, transito_movilidad_y_autotransporte_federal__) pasan a federal__<archivo>, la misma regla que aplica catalogo.py agregar. Solo cambia el id: los archivos de…
+- restaurar_markdown_crudo: Se restauró el Markdown crudo (copia de respaldo del 2026-10-06, mismo PDF por MD5) de 2 documentos reestructurados en una prueba: la revisión del formato 2 encontró pérdidas (números de artículo citados quitados como folio) y el formato se corrige antes de aplicarse a la biblioteca.
+- fuentes_comandos: fuentes.json: las notas que citaban 'python scripts/descargar.py' y 'registros/trabajo' pasan a 'python biblioteca.py descargar' y 'trabajo' (estructura simplificada); sin cambios de URLs ni de datos.
+- reconstruccion: Por pedido del usuario se vació documentos/ (documentos oficiales, Markdown y manifiesto) para reconstruir la biblioteca desde cero con los procesos ACTUALIZAR, CONVERTIR y COMPRIMIR. Se conserva documentos/catalogo.json (la lista de qué descargar y sus pistas).
+- notas_fuentes: fuentes.json: en las notas de agentes se quitaron las etiquetas internas de los bloques de trabajo y la fecha repetida; el contenido de cada nota no cambió.

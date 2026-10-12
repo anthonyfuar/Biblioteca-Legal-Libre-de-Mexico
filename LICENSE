@@ -1,0 +1,64 @@
+LICENCIA DE LA BIBLIOTECA LEGAL LIBRE DE MÉXICO
+Versión 1.0 — 6 de octubre de 2026
+
+Esta licencia cubre la OBRA: las herramientas (biblioteca.py, herramientas/ y pruebas/), la documentación
+(README.md, AGENTS.md, CLAUDE.md, referencia/), la configuración de agentes (.agents/ y .claude/), el
+catálogo (documentos/catalogo.json), el mapa de fuentes (fuentes.json), el manifiesto
+(documentos/manifiesto.json), las conversiones a Markdown (archivos .md de documentos/) y la organización
+de la biblioteca (estructura de carpetas, nombres de archivo y metadatos). Todo ello fue diseñado y construido por el
+autor del proyecto.
+
+NO cubre los textos oficiales (constituciones, leyes, códigos, reglamentos, decretos, tratados y
+demás documentos legislativos, reglamentarios, administrativos o judiciales guardados en documentos/
+en PDF o Word). Son documentos públicos del Estado mexicano, no están sujetos a derechos de autor
+(artículo 14, fracción VIII, de la Ley Federal del Derecho de Autor) y cualquier persona puede
+usarlos libremente, con o sin este proyecto.
+
+1. PERMISO
+   Se concede a toda persona, de forma gratuita y sin límite de tiempo, permiso para usar, copiar,
+   modificar, fusionar, publicar, distribuir y crear obras derivadas de la Obra, con o sin fines
+   comerciales, siempre que:
+   a) este aviso de licencia se conserve íntegro en todas las copias o partes sustanciales de la Obra;
+   b) se respete la exclusión de la sección 2.
+
+2. EXCLUSIÓN
+   Queda estrictamente prohibido, bajo cualquier condición y por cualquier medio (directo, indirecto,
+   a través de terceros, contratistas, empresas o sistemas automatizados), el uso de la Obra a:
+   a) las personas afiliadas, militantes o registradas en un partido político, y los candidatos o
+      precandidatos a un cargo de elección popular, mientras conserven esa condición;
+   b) los servidores públicos y funcionarios de cualquier poder (Ejecutivo, Legislativo o Judicial),
+      orden de gobierno (federal, estatal, municipal o de la Ciudad de México) u organismo autónomo,
+      mientras ejerzan el cargo;
+   c) los partidos políticos, sus órganos y organizaciones, y las dependencias y entidades públicas
+      como tales.
+   Encargar, delegar o subcontratar el uso no elimina la prohibición. Esta exclusión no limita el
+   derecho de cualquier persona a consultar los textos oficiales, que no forman parte de la Obra.
+
+3. TERMINACIÓN
+   Cualquier incumplimiento de esta licencia termina automáticamente los derechos concedidos.
+
+4. SIN GARANTÍA
+   LA OBRA SE ENTREGA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA, INCLUIDAS LAS DE
+   COMERCIABILIDAD, IDONEIDAD PARA UN FIN DETERMINADO Y NO INFRACCIÓN. EN NINGÚN CASO EL AUTOR SERÁ
+   RESPONSABLE DE RECLAMACIÓN, DAÑO U OTRA RESPONSABILIDAD DERIVADA DE LA OBRA O DE SU USO. Las
+   conversiones a Markdown son automáticas y pueden contener errores: el texto oficial es siempre el
+   PDF publicado por la fuente oficial.
+
+5. NOTA
+   Esta licencia no es una licencia de "código abierto" según la definición de la Open Source
+   Initiative ni una licencia "libre" según la Free Software Foundation, porque excluye a determinadas
+   personas (sección 2). Es una licencia de uso libre y gratuito para todas las demás personas.
+
+---
+
+LICENSE OF THE BIBLIOTECA LEGAL LIBRE DE MÉXICO — summary in English (the Spanish text above governs)
+
+Free, perpetual, royalty-free permission for everyone to use, copy, modify, publish, distribute and
+build upon the Work (tools, documentation, agent configuration, catalogue, source map, manifest,
+Markdown conversions and the organisation of the library), provided this notice is kept, EXCEPT that
+use of the Work is strictly prohibited, under any condition and by any means, to persons affiliated
+with political parties (members, candidates and pre-candidates) and to public servants or officials
+of any branch or level of government while in office, and to parties and public bodies as such. The
+official legal texts (the PDF and Word files in documentos/) are public documents of the Mexican State, not subject to
+copyright, and are not covered by this license. THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+KIND. This is not an OSI-approved open-source license.

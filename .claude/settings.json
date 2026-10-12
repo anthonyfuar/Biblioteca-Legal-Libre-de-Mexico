@@ -1,0 +1,44 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python biblioteca.py *)",
+      "Bash(python3 biblioteca.py *)",
+      "Bash(python3.12 biblioteca.py *)",
+      "Bash(python3.13 biblioteca.py *)",
+      "Bash(py biblioteca.py *)",
+      "PowerShell(python biblioteca.py *)",
+      "PowerShell(py biblioteca.py *)",
+      "WebSearch",
+      "WebFetch",
+      "Bash(python --version)",
+      "Bash(python3 --version)",
+      "Bash(py --version)"
+    ],
+    "ask": [
+      "Bash(* biblioteca.py publicar --push*)",
+      "Bash(* biblioteca.py publicar * --push*)",
+      "PowerShell(* biblioteca.py publicar --push*)",
+      "PowerShell(* biblioteca.py publicar * --push*)"
+    ],
+    "deny": [
+      "Bash(curl -k *)",
+      "Bash(curl --insecure *)",
+      "Bash(wget *)",
+      "Bash(pip install *)",
+      "Bash(pip3 install *)",
+      "Bash(rm -rf documentos*)",
+      "Bash(rm -r documentos*)",
+      "Edit(documentos/**)",
+      "Write(documentos/**)",
+      "Edit(fuentes.json)",
+      "Write(fuentes.json)",
+      "Edit(bitacora.jsonl)",
+      "Write(bitacora.jsonl)",
+      "Edit(CAMBIOS.md)",
+      "Write(CAMBIOS.md)",
+      "Bash(git push*)",
+      "Bash(git remote add*)",
+      "Bash(git remote set-url*)"
+    ]
+  }
+}

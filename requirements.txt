@@ -1,0 +1,28 @@
+# Paquetes de Python de la Biblioteca Legal Libre de México. Los instala `python biblioteca.py instalar` en su propio
+# entorno, fuera de la carpeta del proyecto. Cada sección es un perfil (--para): actualizar instala [actualizar];
+# comprimir, también [comprimir]; convertir y todo (el predeterminado), también [convertir]; desarrollo, además,
+# [desarrollo] (pytest, ruff y mypy, para `python biblioteca.py pruebas`). Versiones mínimas validadas con Python 3.12.
+
+# [actualizar]  ≈ 25 MB: descargar, validar y comparar documentos oficiales
+requests>=2.32.5
+certifi>=2026.7.22
+pdfminer.six>=20260107
+olefile>=0.47
+defusedxml>=0.7.1
+
+# [comprimir]  PDF de más de 60 MB, verificados contra el original
+pikepdf>=10.16.0
+pypdfium2>=5.14.0
+Pillow>=12.3.0
+numpy>=2.5.3
+mozjpeg-lossless-optimization>=1.3.2
+
+# [convertir]  PDF y Word a Markdown, con OCR en español para los escaneados
+markitdown[pdf,docx]>=0.1.8
+mammoth>=1.11.0
+pytesseract>=0.3.13
+
+# [desarrollo]  pruebas del código
+pytest>=9.1
+ruff>=0.14
+mypy>=1.18

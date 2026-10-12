@@ -1,0 +1,39 @@
+# Configuración de las herramientas de desarrollo (pytest, ruff, mypy). Se corren con: python biblioteca.py pruebas
+# (sus cachés quedan fuera del proyecto). Los paquetes están en requirements.txt.
+[tool.pytest.ini_options]
+testpaths = ["pruebas"]
+addopts = "-q -p no:cacheprovider"      # sin .pytest_cache ni __pycache__ en el proyecto
+
+[tool.ruff]
+line-length = 130
+target-version = "py310"
+extend-exclude = ["documentos"]
+
+[tool.ruff.per-file-target-version]     # se importan con el Python del sistema antes de entrar al entorno (3.9 en macOS)
+"biblioteca.py" = "py39"
+"herramientas/comun.py" = "py39"
+"herramientas/instalar.py" = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "PLC", "PLE", "PLW", "BLE", "RUF"]
+ignore = [
+    "PLC0415",   # importar dentro de la función es deliberado: terceros solo cuando hacen falta
+    "RUF001", "RUF002", "RUF003",   # texto en español con guiones y comillas tipográficas
+    "SIM108",    # un if/else explícito se lee mejor que un ternario largo
+    "PLW2901",   # reasignar la variable del bucle es claro en los parseos cortos
+    "SIM105",    # try/except/pass explícito en vez de contextlib.suppress (se lee mejor en los reintentos)
+    "PLW0603",   # el estado del proceso (temporal, hijos, preparado) vive en globales a propósito
+]
+
+[tool.ruff.lint.per-file-ignores]
+"biblioteca.py" = ["E402"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["herramientas"]
+
+[tool.mypy]
+python_version = "3.10"
+files = ["herramientas", "biblioteca.py"]
+ignore_missing_imports = true
+warn_unused_ignores = true
+no_implicit_optional = true

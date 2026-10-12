@@ -1,0 +1,15 @@
+# Finales de línea: siempre LF en el repositorio, en cualquier sistema (los JSON y Markdown se comparan y hashean
+# por bytes; con CRLF cada corrida en Windows reescribiría todo)
+* text=auto eol=lf
+*.py    text eol=lf
+*.md    text eol=lf
+*.json  text eol=lf
+*.jsonl text eol=lf
+*.txt   text eol=lf
+*.toml  text eol=lf
+
+# Documentos oficiales: binarios, nunca se normalizan. Son el archivo oficial tal cual se descargó (PDF o Word; nunca
+# páginas web) y su SHA-256 está en el manifiesto: ni un byte cambia
+*.pdf  binary
+*.doc  binary
+*.docx binary
