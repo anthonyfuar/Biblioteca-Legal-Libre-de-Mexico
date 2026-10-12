@@ -59,8 +59,17 @@ No tienes que pagar, registrarte ni instalar nada para consultarla.
    `Markdown`, el **`.md`** con el mismo nombre, su texto. Al principio de cada `.md` verás de dónde se descargó y la
    fecha de su última reforma.
 
-**¿Quieres toda la biblioteca en tu computadora?** En la página principal del proyecto, usa el botón verde
-**Code → Download ZIP** (ocupa alrededor de 1.8 GB).
+**¿Quieres toda la biblioteca en tu computadora?** Descárgala en un solo archivo ZIP, en el formato que prefieras:
+
+| Qué incluye                            | Descarga                                                                                                 |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Solo el texto de las leyes (Markdown)  | [Markdown.zip](https://mega.nz/file/PdxRDYSS#VUxTRznujt4OM0T4IzvUnjsmRv_0Sj4Aawq-CIbM--0)                |
+| Solo los documentos oficiales (PDF)    | [PDF.zip](https://mega.nz/file/bYpQAB6L#6OsVl3NABTVGw4FAcrnuyYwfKyT_0WnLeTe0b6dpwlw)                     |
+| Los dos formatos                       | [Todos los formatos.zip](https://mega.nz/file/2VBwhLCb#-i0HKYnle_M41BK9lPkAS-ma_aR08umERftjpccd254)      |
+
+Los ZIP son una copia de la biblioteca del día en que se subieron: lo más reciente está siempre en este repositorio.
+Para bajar el proyecto completo, con sus herramientas, usa el botón verde **Code → Download ZIP** de la página
+principal (ocupa alrededor de 1.8 GB).
 
 > [!NOTE]
 > Esta biblioteca es una herramienta de consulta. **Solo el texto publicado en el Diario Oficial de la Federación o
