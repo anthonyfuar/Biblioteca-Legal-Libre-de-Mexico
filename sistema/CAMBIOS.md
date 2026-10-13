@@ -1,6 +1,6 @@
 # Cambios de la Biblioteca Legal Libre de México
 
-Cada entrada es una publicación (`python biblioteca.py publicar`): lo que cambió en la biblioteca desde la publicación anterior, según `bitacora.jsonl`. La más reciente va primero.
+Cada entrada es una publicación (`python sistema/biblioteca.py publicar`): lo que cambió en la biblioteca desde la publicación anterior, según `bitacora.jsonl`. La más reciente va primero.
 
 ## 2026-10-12 — 1032 nuevos, 0 actualizados, 6 abrogados, 15 agregados al catálogo, 2 eliminados del catálogo, 24 renombrados, 2 otros cambios del catálogo, 1049 convertidos a Markdown, 1017 Markdown con formato nuevo, 1 PDF comprimido, 7 tareas de mantenimiento
 <!-- publicacion: 2026-10-12 11:58:19 -->

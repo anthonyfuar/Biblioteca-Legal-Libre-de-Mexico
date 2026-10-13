@@ -1,13 +1,13 @@
 ---
 name: publicar
-description: "Publica la Biblioteca Legal Libre de México en GitHub. Úsala SOLO cuando el usuario escriba \"publicar\", \"sube la biblioteca a GitHub\" o \"haz el commit y súbelo\". Revisa la integridad, genera documentos/SHA256SUMS y la entrada de CAMBIOS.md, hace el commit y PREGUNTA antes del push; nunca empuja a GitHub sin autorización expresa del usuario."
+description: "Publica la Biblioteca Legal Libre de México en GitHub. Úsala SOLO cuando el usuario escriba \"publicar\", \"sube la biblioteca a GitHub\" o \"haz el commit y súbelo\". Revisa la integridad, genera biblioteca/SHA256SUMS y la entrada de CAMBIOS.md, hace el commit y PREGUNTA antes del push; nunca empuja a GitHub sin autorización expresa del usuario."
 argument-hint: "[<URL del repositorio>]"
 ---
 <!-- GENERADO por biblioteca.py sincronizar desde .agents/skills/publicar/SKILL.md. No lo edites aquí: edita .agents/skills/publicar/SKILL.md y vuelve a generar. -->
 
 # Publicar la biblioteca en GitHub
 
-**Alcance:** todo el repositorio (herramientas + `documentos/`), rama `main`, sin LFS. Si el usuario escribió
+**Alcance:** todo el repositorio (herramientas + `biblioteca/`), rama `main`, sin LFS. Si el usuario escribió
 una URL junto al comando ("publicar https://github.com/usuario/repositorio.git"), es la del remoto.
 
 Sigue `AGENTS.md`, sección 9.2. Trabaja desde la carpeta del proyecto. **Nunca ejecutes `git push`, `git remote
@@ -15,10 +15,10 @@ add` ni `git commit` por tu cuenta: todo pasa por `publicar`.**
 
 ## 1. Revisar
 ```
-python biblioteca.py publicar --revisar
+python sistema/biblioteca.py publicar --revisar
 ```
 Muestra la integridad (`verificar --final`), los archivos de más de 95 MiB (GitHub bloquea 100 MiB), si
-`documentos/SHA256SUMS` está al día, qué entraría en `CAMBIOS.md` desde la última publicación, el tamaño del
+`biblioteca/SHA256SUMS` está al día, qué entraría en `CAMBIOS.md` desde la última publicación, el tamaño del
 repositorio y si hay remoto. No escribe nada.
 - Si hay **ERRORES** de integridad, corrígelos con las herramientas (sección 8, fase 3 de `AGENTS.md`) y repite.
 - Si hay archivos de **más de 95 MiB**, no se puede publicar: dile al usuario cuáles son y ofrécele el proceso
@@ -26,16 +26,16 @@ repositorio y si hay remoto. No escribe nada.
 
 ## 2. Preparar
 ```
-python biblioteca.py publicar --preparar
+python sistema/biblioteca.py publicar --preparar
 ```
-Exige `INTEGRIDAD: OK`; escribe `documentos/SHA256SUMS` (huella SHA-256 de cada archivo de `documentos/`) y
+Exige `INTEGRIDAD: OK`; escribe `biblioteca/SHA256SUMS` (huella SHA-256 de cada archivo de `biblioteca/`) y
 añade a `CAMBIOS.md` la entrada de esta publicación (nuevos, actualizados, abrogados, agregados, eliminados,
 renombrados, convertidos y comprimidos desde la última entrada, tomados de la bitácora). Si no hay cambios desde
 la última publicación, lo dice: díselo al usuario y cierra (paso 5).
 
 ## 3. Commit
 ```
-python biblioteca.py publicar --commit
+python sistema/biblioteca.py publicar --commit
 ```
 Hace `git add -A` y el commit con el resumen de la entrada de `CAMBIOS.md`. Si no hay cambios en git, lo dice.
 
@@ -47,7 +47,7 @@ Enseña el resumen (commit, cuántos archivos, tamaño que se subirá, remoto) y
 
 - Solo con un **"sí" claro del usuario en esta conversación**:
   ```
-  python biblioteca.py publicar --push                      (o --push --remoto <URL> la primera vez)
+  python sistema/biblioteca.py publicar --push                      (o --push --remoto <URL> la primera vez)
   ```
   La herramienta mide lo que falta subir (GitHub rechaza un push de 2 GB o más), empuja `main` y comprueba en el
   remoto que quedó igual. Si pasa de 1 GiB, lo sube sola **por bloques** de commits, del más viejo al más nuevo;
@@ -59,7 +59,7 @@ Enseña el resumen (commit, cuántos archivos, tamaño que se subirá, remoto) y
 
 ## 5. Cierre
 ```
-python biblioteca.py verificar --limpiar
+python sistema/biblioteca.py verificar --limpiar
 ```
 Obligatorio siempre: `INTEGRIDAD: OK`, 0 temporales y sin AVISOS de archivos sueltos.
 

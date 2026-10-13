@@ -39,7 +39,7 @@ from herramientas.comun import (
 )
 
 # ====================================================================================================
-# La ÚNICA organización de documentos/ (referencia/estructura.md): carpetas válidas,
+# La ÚNICA organización de biblioteca/ (sistema/referencia/estructura.md): carpetas válidas,
 # rutas de cada documento, qué va en Abrogadas/, y el único lugar que mueve archivos (mover_documento).
 # ====================================================================================================
 FORMATOS = ("pdf", "doc", "docx")      # solo PDF o Word, nunca páginas web; en este orden se busca el archivo
@@ -127,20 +127,20 @@ def problema_de_estructura(doc: dict) -> str | None:
     if motivo:
         return f"carpeta '{doc['grupo']}' fuera de la estructura ({motivo})"
     if grupo_segun_estado(doc["grupo"], doc["estado"]) != doc["grupo"]:
-        return (f"está en {doc['grupo']} pero es '{doc['estado']}' (corrige con: python biblioteca.py catalogo mover "
-                f"{doc['id']} --grupo \"{doc['grupo']}\")")
+        return (f"está en {doc['grupo']} pero es '{doc['estado']}' (corrige con: python sistema/biblioteca.py "
+                f"catalogo mover {doc['id']} --grupo \"{doc['grupo']}\")")
     if doc["archivo"] != nombre_archivo(doc["nombre"]):
         return (f"su archivo '{doc['archivo']}' no corresponde a su nombre (debe ser '{nombre_archivo(doc['nombre'])}'; "
-                f"corrige con: python biblioteca.py catalogo mover {doc['id']} --grupo \"{doc['grupo']}\")")
+                f"corrige con: python sistema/biblioteca.py catalogo mover {doc['id']} --grupo \"{doc['grupo']}\")")
     return None
 
 
 def exigir_estructura(doc: dict) -> None:
-    """Para las herramientas que escriben en documentos/: si el documento no está en la estructura, se
+    """Para las herramientas que escriben en biblioteca/: si el documento no está en la estructura, se
     detienen en vez de crear carpetas o archivos fuera de ella."""
     motivo = problema_de_estructura(doc)
     if motivo:
-        salir_con_error(f"{doc['id']}: {motivo}. No se escribió nada en documentos/.")
+        salir_con_error(f"{doc['id']}: {motivo}. No se escribió nada en biblioteca/.")
 
 
 def mover_documento(doc: dict, nuevo_grupo: str, catalogo: dict, manifiesto: dict,
@@ -156,7 +156,7 @@ def mover_documento(doc: dict, nuevo_grupo: str, catalogo: dict, manifiesto: dic
     motivo = validar_grupo(nuevo_grupo, doc.get("entidad"))
     if motivo:
         salir_con_error(f"'{nuevo_grupo}' no es parte de la estructura de la biblioteca: {motivo}. "
-                        "Carpetas válidas: python biblioteca.py catalogo grupos")
+                        "Carpetas válidas: python sistema/biblioteca.py catalogo grupos")
     choque = next((d for d in catalogo["documentos"] if d is not doc and d["grupo"] == nuevo_grupo
                    and d["archivo"] == nuevo_archivo), None)
     if choque:
@@ -193,12 +193,12 @@ def buscar_documento(catalogo: dict, doc_id: str) -> dict:
     parecidos = difflib.get_close_matches(doc_id, ids, n=5, cutoff=0.5)
     pista = f" ¿Quisiste decir: {', '.join(parecidos)}?" if parecidos else ""
     salir_con_error(f"No existe el id '{doc_id}' en el catálogo.{pista} "
-                    f"Usa: python biblioteca.py catalogo listar --buscar \"texto\"")
+                    f"Usa: python sistema/biblioteca.py catalogo listar --buscar \"texto\"")
     return {}  # inalcanzable
 
 
 def ruta_pdf(doc: dict, formato: str | None = None) -> Path:
-    """Dónde va el documento oficial: documentos/PDF/<grupo>/<archivo>.pdf (ver ESTRUCTURA). Si la fuente oficial lo
+    """Dónde va el documento oficial: biblioteca/PDF/<grupo>/<archivo>.pdf (ver ESTRUCTURA). Si la fuente oficial lo
     publica solo en Word, va en el mismo lugar con su extensión real (.doc, .docx). Sin
     `formato`, devuelve el archivo que exista (o el .pdf si aún no hay)."""
     base = DOCUMENTOS.joinpath(CARPETA_PDF, *doc["grupo"].split("/"), doc["archivo"])
@@ -212,12 +212,12 @@ def ruta_pdf(doc: dict, formato: str | None = None) -> Path:
 
 
 def ruta_md(doc: dict) -> Path:
-    """Su Markdown: documentos/Markdown/<grupo>/<archivo>.md (la misma carpeta y el mismo nombre que en PDF/)."""
+    """Su Markdown: biblioteca/Markdown/<grupo>/<archivo>.md (la misma carpeta y el mismo nombre que en PDF/)."""
     return DOCUMENTOS.joinpath(CARPETA_MARKDOWN, *doc["grupo"].split("/"), doc["archivo"] + ".md")
 
 
 def ruta_relativa_pdf(doc: dict, formato: str | None = None) -> str:
-    """Como se guarda en el manifiesto ('archivo'): relativa a documentos/, con '/' (empieza con PDF/)."""
+    """Como se guarda en el manifiesto ('archivo'): relativa a biblioteca/, con '/' (empieza con PDF/)."""
     return ruta_pdf(doc, formato).relative_to(DOCUMENTOS).as_posix()
 
 
@@ -232,7 +232,7 @@ def pendiente_de_descarga(doc: dict, manifiesto: dict) -> bool:
 
 
 # ====================================================================================================
-# Esquema de documentos/catalogo.json y documentos/manifiesto.json (referencia/esquema.md): versiones, vocabularios y
+# Esquema de biblioteca/catalogo.json y biblioteca/manifiesto.json (sistema/referencia/esquema.md): versiones, vocabularios y
 # validadores de cada entrada; huella del documento oficial y si su Markdown está al día.
 # ====================================================================================================
 ESTADOS_JURIDICOS = ("vigente", "abrogado", "no_existe", "no_localizado")   # estado de un documento del catálogo
@@ -254,7 +254,7 @@ def markdown_al_dia(doc: dict, registro: dict) -> bool:
 
 
 def problemas_de_esquema_doc(doc: dict) -> list[str]:
-    """Qué tiene mal una entrada del catálogo respecto al esquema (referencia/esquema.md). Vacío = bien."""
+    """Qué tiene mal una entrada del catálogo respecto al esquema (sistema/referencia/esquema.md). Vacío = bien."""
     p = []
     obligatorios: tuple[tuple[str, type], ...] = (("id", str), ("nombre", str), ("grupo", str), ("archivo", str),
                                                   ("estado", str), ("pistas", dict))
@@ -376,14 +376,14 @@ biblioteca.py catalogo — Consultar y mantener el catálogo de documentos.
 
 El catálogo (catalogo.json) dice QUÉ documentos debe tener la biblioteca y
 guarda PISTAS para encontrarlos (URLs conocidas, nombre en el índice oficial).
-El manifiesto (documentos/manifiesto.json) dice QUÉ se tiene ya descargado.
+El manifiesto (biblioteca/manifiesto.json) dice QUÉ se tiene ya descargado.
 Esta herramienta cruza ambos para que el agente sepa qué hacer.
 
 USO:
-  python biblioteca.py catalogo resumen
+  python sistema/biblioteca.py catalogo resumen
       Totales: documentos, descargados, convertidos, pendientes, por grupo.
 
-  python biblioteca.py catalogo listar [--grupo G] [--entidad E] [--estado S]
+  python sistema/biblioteca.py catalogo listar [--grupo G] [--entidad E] [--estado S]
                                     [--buscar TEXTO] [--pendientes]
                                     [--sin-verificar DIAS] [--con-aviso] [--limite N] [--solo-ids]
       Lista documentos con filtros. --pendientes = nunca descargados.
@@ -391,20 +391,20 @@ USO:
       --con-aviso = con un hallazgo de investigación por resolver (abrogada, renombrada...).
       --solo-ids imprime únicamente los ids (uno por línea), para usarlos en un ciclo de shell.
 
-  python biblioteca.py catalogo ver <id>
+  python sistema/biblioteca.py catalogo ver <id>
       Ficha completa: pistas, URLs conocidas, estado de descarga y conversión.
 
-  python biblioteca.py catalogo fuentes <entidad|federal> [--resumen | --seccion <nombre>]
+  python sistema/biblioteca.py catalogo fuentes <entidad|federal> [--resumen | --seccion <nombre>]
       Dónde y cómo buscar en esa entidad (portal oficial, patrones, trampas). El mapa completo pesa
       decenas de KB: --resumen muestra el portal y el tamaño de cada sección; --seccion trae solo una
       (patrones_url, particularidades, notas_de_agentes...).
 
-  python biblioteca.py catalogo grupos
+  python sistema/biblioteca.py catalogo grupos
       Muestra la ESTRUCTURA de la biblioteca (la única válida) con cuántos documentos hay en cada
       carpeta: Constitucion/[Reformas], Federal/Tratados_internacionales/<tema>, Federal/<Materia>
       [/Abrogadas] y Estados/<Estado>. Úsala para saber qué poner en --grupo.
 
-  python biblioteca.py catalogo marcar <id> --estado ESTADO --nota "texto con fuente" [--sin-pdf]
+  python sistema/biblioteca.py catalogo marcar <id> --estado ESTADO --nota "texto con fuente" [--sin-pdf]
       Cambia el estado de un documento (y resuelve su AVISO, si tenía). ESTADOS válidos:
         vigente        se debe mantener actualizado (normal)
         abrogado       la ley ya no está vigente; se conserva la última versión
@@ -412,41 +412,42 @@ USO:
         no_existe      no existe como documento separado (nota obligatoria)
         no_localizado  se buscó y no se encontró fuente oficial (nota obligatoria)
 
-  python biblioteca.py catalogo agregar --nombre "Nombre oficial" --grupo "Federal/<Materia>" [--url URL] [--nota "..."]
-  python biblioteca.py catalogo agregar --nombre "Nombre oficial" --entidad "Estado" [--url URL] [--nota "..."]
+  python sistema/biblioteca.py catalogo agregar --nombre "Nombre oficial" --grupo "Federal/<Materia>" [--url URL]
+                                                     [--nota "..."]
+  python sistema/biblioteca.py catalogo agregar --nombre "Nombre oficial" --entidad "Estado" [--url URL] [--nota "..."]
       Agrega un documento nuevo al catálogo (p. ej. una ley recién expedida). El grupo debe ser una
       carpeta de la estructura (biblioteca.py catalogo grupos); los estatales van solos a Estados/<Estado>.
       El archivo toma el nombre oficial y el id es <estado>__<archivo> o federal__<archivo>.
 
-  python biblioteca.py catalogo renombrar <id> --nombre "Nombre oficial nuevo" --nota "decreto y fuente"
+  python sistema/biblioteca.py catalogo renombrar <id> --nombre "Nombre oficial nuevo" --nota "decreto y fuente"
       La ley sigue vigente pero cambió de nombre por decreto, o el nombre del catálogo era
       inexacto y hay que dejar el nombre oficial de la portada (el id no cambia; el archivo, su
       PDF y su Markdown toman el nombre nuevo).
 
-  python biblioteca.py catalogo pista <id> --url URL [--nota "..."] [--quitar]
+  python sistema/biblioteca.py catalogo pista <id> --url URL [--nota "..."] [--quitar]
       Registra una URL como pista (biblioteca.py descargar lo hace solo cuando tiene éxito): va al frente y
       queda "sin_probar". Si la URL ya era pista, solo le pone la --nota (no la mueve ni cambia su
       resultado). Con --quitar la elimina (p. ej. resultó ser de OTRO documento).
 
-  python biblioteca.py catalogo mover <id> --grupo "Federal/<Materia>"   |   mover --mapa lista.txt
+  python sistema/biblioteca.py catalogo mover <id> --grupo "Federal/<Materia>"   |   mover --mapa lista.txt
       Cambia un documento de carpeta: mueve su PDF y su Markdown y corrige catálogo y manifiesto (el id
       no cambia). En las materias federales, lo abrogado va solo a <materia>/Abrogadas/ (también al
       marcarlo abrogado con 'marcar').
 
-  python biblioteca.py catalogo retirar-pdf <id> --nota "por qué"
+  python sistema/biblioteca.py catalogo retirar-pdf <id> --nota "por qué"
       Quita un PDF guardado por error (era de otra ley o de una versión equivocada y no hay otra
       fuente). El documento vuelve a estar pendiente (la copia que queda en anteriores/, en la carpeta temporal, se
       borra al cerrar el proceso con biblioteca.py verificar --limpiar).
 
-  python biblioteca.py catalogo eliminar <id> --nota "por qué"
+  python sistema/biblioteca.py catalogo eliminar <id> --nota "por qué"
       Borra del catálogo una entrada que nunca debió existir (duplicada o creada por error). Solo si no
       tiene archivo guardado (si lo tiene, primero retirar-pdf). Queda en la bitácora.
 
-  python biblioteca.py catalogo nota-fuente <entidad|federal> "lo que aprendiste"
+  python sistema/biblioteca.py catalogo nota-fuente <entidad|federal> "lo que aprendiste"
       Deja escrito en el mapa de fuentes algo nuevo de un portal (cambió de ruta,
       bloquea descargas, ahora publica en otro sitio...). El próximo agente lo verá.
 
-  python biblioteca.py catalogo reporte [--desde "AAAA-MM-DD HH:MM"] [--entidad E] [--grupo G]
+  python sistema/biblioteca.py catalogo reporte [--desde "AAAA-MM-DD HH:MM"] [--entidad E] [--grupo G]
       Con --entidad/--grupo solo cuenta lo de ese alcance (varios agentes trabajan en paralelo).
       Resumen de lo hecho (nuevos, actualizados, dudosos, errores, conversiones)
       a partir de la bitácora. Úsalo para el informe final al usuario.
@@ -498,7 +499,7 @@ def cmd_resumen(args) -> None:
     print(f"  sin verificar hace >30 d:  {len(viejos)}")
     avisos = [d for d in docs if d.get("aviso")]
     if avisos:
-        print(f"Con AVISO por resolver:      {len(avisos)}  (python biblioteca.py catalogo listar --con-aviso)")
+        print(f"Con AVISO por resolver:      {len(avisos)}  (python sistema/biblioteca.py catalogo listar --con-aviso)")
     print("\nPor grupo (descargados / activos):")
     grupos: dict[str, list[int]] = {}
     for d in activos:
@@ -577,7 +578,7 @@ def cmd_ver(args):
     pistas = doc.get("pistas", {})
     if pistas.get("indice_diputados"):
         print(f"\nÍndice de Diputados: buscar por nombre \"{pistas['indice_diputados']}\""
-              f"  ->  python biblioteca.py buscar diputados \"{pistas['indice_diputados']}\"")
+              f"  ->  python sistema/biblioteca.py buscar diputados \"{pistas['indice_diputados']}\"")
     if pistas.get("urls"):
         print("\nURLs conocidas (punto de partida, en orden de preferencia; una URL vieja puede seguir "
               "respondiendo con una versión ANTERIOR: si el portal tiene listado o índice, manda el portal):")
@@ -595,7 +596,7 @@ def cmd_ver(args):
         print(f"  {'markdown':20} " + (f"{md.get('metodo', '—')}, {md.get('caracteres', 0):,} caracteres, {md.get('fecha', '')}"
                                        if md else "— (aún no se convierte)"))
     entidad = doc.get("entidad") or "federal"
-    print(f"\nDónde buscar: python biblioteca.py catalogo fuentes \"{entidad}\"")
+    print(f"\nDónde buscar: python sistema/biblioteca.py catalogo fuentes \"{entidad}\"")
     salida.poner(documento=doc, registro=reg, situacion=_situacion(doc, man), archivo=relativa(ruta_pdf(doc)),
                  markdown=relativa(ruta_md(doc)), fuentes=entidad)
 
@@ -627,7 +628,7 @@ def cmd_fuentes(args):
         if portal:
             print("\nPortal oficial:")
             _imprimir({k: portal.get(k) for k in ("nombre", "url", "funciona_hoy")})
-        print(f"\nVe cada sección con: python biblioteca.py catalogo fuentes \"{args.entidad}\" --seccion <nombre>")
+        print(f"\nVe cada sección con: python sistema/biblioteca.py catalogo fuentes \"{args.entidad}\" --seccion <nombre>")
         salida.poner(entidad=args.entidad, portal_oficial=portal,
                      secciones={k: (len(v) if isinstance(v, (list, dict)) else len(str(v))) for k, v in bloque.items()})
     else:
@@ -665,7 +666,7 @@ def cmd_grupos(args):
         print(f"{'  ' * sangria}{grupo.split('/')[-1] + '/':{58 - 2 * sangria}} {cuenta.get(grupo, 0):4d}  {nota}")
         en_uso.discard(grupo)
 
-    print("ESTRUCTURA DE documentos/PDF/ y documentos/Markdown/ (las mismas carpetas en las dos). Usa estos valores "
+    print("ESTRUCTURA DE biblioteca/PDF/ y biblioteca/Markdown/ (las mismas carpetas en las dos). Usa estos valores "
           "en --grupo.\n")
     fila(CONSTITUCION, 0, CONSTITUCION)
     for s in SUBGRUPOS_CONSTITUCION:
@@ -745,27 +746,27 @@ def _agregar(args):
         entidades = {normalizar(e): e for e in cargar_fuentes().get("entidades", {})}
         if normalizar(args.entidad) not in entidades:
             salir_con_error(f"Entidad desconocida '{args.entidad}'. Usa el nombre de uno de los 32 estados "
-                                  "(python biblioteca.py catalogo grupos).")
+                                  "(python sistema/biblioteca.py catalogo grupos).")
         args.entidad = entidades[normalizar(args.entidad)]
         args.grupo = args.grupo or grupo_de_estado(args.entidad)
     elif not args.grupo:
         salir_con_error('Indica --grupo con la carpeta de la estructura (p. ej. "Federal/Fiscal"). '
-                              "Carpetas válidas: python biblioteca.py catalogo grupos")
+                              "Carpetas válidas: python sistema/biblioteca.py catalogo grupos")
     args.grupo = args.grupo.strip().strip("/")
     motivo = validar_grupo(args.grupo, args.entidad)
     if motivo:
         salir_con_error(f"'{args.grupo}' no es parte de la estructura de la biblioteca: {motivo}. "
-                              "Carpetas válidas: python biblioteca.py catalogo grupos")
+                              "Carpetas válidas: python sistema/biblioteca.py catalogo grupos")
     # id permanente: <estado>__<archivo> o federal__<archivo> (no depende de la carpeta, que puede cambiar)
     base = re.sub(r"[^a-z0-9_]", "", ((nombre_archivo(args.entidad) if args.entidad else "federal")
                                       + "__" + archivo).lower())
     if base in {d["id"] for d in cat["documentos"]}:
-        salir_con_error(f"Ya existe '{base}'. Revisa con: python biblioteca.py catalogo ver {base}")
+        salir_con_error(f"Ya existe '{base}'. Revisa con: python sistema/biblioteca.py catalogo ver {base}")
     igual = next((d for d in cat["documentos"] if d["archivo"] == archivo
                   and (d.get("entidad") or None) == (args.entidad or None)), None)
     if igual:
         salir_con_error(f"Ya existe ese documento: {igual['id']} (en {igual['grupo']}). Revisa con: "
-                              f"python biblioteca.py catalogo ver {igual['id']}")
+                              f"python sistema/biblioteca.py catalogo ver {igual['id']}")
     doc = {"id": base, "nombre": args.nombre, "grupo": args.grupo, "archivo": archivo, "estado": "vigente",
            "pistas": {"urls": []}}
     if args.entidad:
@@ -781,7 +782,7 @@ def _agregar(args):
     guardar_catalogo(cat)
     bitacora({"herramienta": "catalogo", "accion": "agregar", "id": base, "nombre": args.nombre,
                     "url": args.url, "nota": args.nota})
-    print(f"OK: agregado '{base}'. Descárgalo con: python biblioteca.py descargar {base} <URL>")
+    print(f"OK: agregado '{base}'. Descárgalo con: python sistema/biblioteca.py descargar {base} <URL>")
     salida.poner(id=base, nombre=args.nombre, grupo=args.grupo, entidad=args.entidad)
 
 
@@ -917,7 +918,7 @@ def cmd_eliminar(args):
         cat, man = cargar_catalogo(), cargar_manifiesto()
         doc = buscar_documento(cat, args.id)
         if doc["id"] in man or ruta_pdf(doc).exists() or ruta_md(doc).exists():
-            salir_con_error(f"{doc['id']} tiene archivos guardados: primero python biblioteca.py catalogo "
+            salir_con_error(f"{doc['id']} tiene archivos guardados: primero python sistema/biblioteca.py catalogo "
                                   f"retirar-pdf {doc['id']} --nota \"...\"")
         cat["documentos"] = [d for d in cat["documentos"] if d["id"] != doc["id"]]
         guardar_catalogo(cat)
@@ -939,7 +940,8 @@ def cmd_nota_fuente(args):
             entidades = fuentes.setdefault("entidades", {})
             nombre = next((k for k in entidades if normalizar(k) == clave), None)
             if not nombre:
-                salir_con_error(f"Entidad desconocida '{args.entidad}'. Revisa: python biblioteca.py catalogo grupos")
+                salir_con_error(f"Entidad desconocida '{args.entidad}'. Revisa: "
+                                "python sistema/biblioteca.py catalogo grupos")
             bloque = entidades[nombre]
         texto = re.sub(r"^\s*\d{4}-\d{2}-\d{2}\s*:\s*", "", args.texto.strip())   # la fecha la pone la herramienta
         bloque.setdefault("notas_de_agentes", []).insert(0, f"{hoy()}: {texto}")

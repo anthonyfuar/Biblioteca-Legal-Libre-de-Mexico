@@ -1,7 +1,7 @@
-# Paquetes de Python de la Biblioteca Legal Libre de México. Los instala `python biblioteca.py instalar` en su propio
+# Paquetes de Python de la Biblioteca Legal Libre de México. Los instala `python sistema/biblioteca.py instalar` en su propio
 # entorno, fuera de la carpeta del proyecto. Cada sección es un perfil (--para): actualizar instala [actualizar];
 # comprimir, también [comprimir]; convertir y todo (el predeterminado), también [convertir]; desarrollo, además,
-# [desarrollo] (pytest, ruff y mypy, para `python biblioteca.py pruebas`). Versiones mínimas validadas con Python 3.12.
+# [desarrollo] (pytest, ruff y mypy, para `python sistema/biblioteca.py pruebas`). Versiones mínimas validadas con Python 3.12.
 
 # [actualizar]  ≈ 25 MB: descargar, validar y comparar documentos oficiales
 requests>=2.32.5

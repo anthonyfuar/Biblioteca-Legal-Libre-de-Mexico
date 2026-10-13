@@ -18,7 +18,9 @@ from herramientas.comun import (
     BASURA_SO,
     BITACORA,
     DOCUMENTOS,
+    ENTRADA,
     RAIZ,
+    SISTEMA,
     Analizador,
     ahora,
     bitacora,
@@ -38,9 +40,9 @@ from herramientas.comun import (
 # Publicación de la biblioteca (PROCESO 5, PUBLICAR): las funciones puras o de archivo que usan biblioteca.py publicar y
 # biblioteca.py verificar. Solo biblioteca estándar y sin estado.
 #
-#   - archivos_de / sumas / escribir_sumas / comprobar_sumas / leer_sumas: documentos/SHA256SUMS en el formato de
-#     `sha256sum` ("<sha256 en hexadecimal>  <ruta relativa a documentos/ con />", una línea por archivo, ordenadas
-#     por ruta, saltos \n, sin BOM) con TODO lo que hay en documentos/ (PDF o Word oficiales, Markdown,
+#   - archivos_de / sumas / escribir_sumas / comprobar_sumas / leer_sumas: biblioteca/SHA256SUMS en el formato de
+#     `sha256sum` ("<sha256 en hexadecimal>  <ruta relativa a biblioteca/ con />", una línea por archivo, ordenadas
+#     por ruta, saltos \n, sin BOM) con TODO lo que hay en biblioteca/ (PDF o Word oficiales, Markdown,
 #     manifiesto y catálogo); nunca el propio SHA256SUMS, los archivos que deja el sistema operativo (.DS_Store,
 #     Thumbs.db) ni los temporales que git no publica (*.tmp, *.pyc, __pycache__/). Quien descarga la biblioteca
 #     comprueba que no le falta ni le cambió nada con `sha256sum -c SHA256SUMS` (en macOS, `shasum -a 256 -c`).
@@ -55,8 +57,8 @@ from herramientas.comun import (
 ARCHIVO_SUMAS = "SHA256SUMS"
 LIMITE_ARCHIVO_MIB = 95          # GitHub bloquea los archivos de 100 MiB o más
 ENCABEZADO_CAMBIOS = "# Cambios de la Biblioteca Legal Libre de México"
-EXPLICACION_CAMBIOS = ("Cada entrada es una publicación (`python biblioteca.py publicar`): lo que cambió en la biblioteca "
-                       "desde la publicación anterior, según `bitacora.jsonl`. La más reciente va primero.")
+EXPLICACION_CAMBIOS = ("Cada entrada es una publicación (`python sistema/biblioteca.py publicar`): lo que cambió en la "
+                       "biblioteca desde la publicación anterior, según `bitacora.jsonl`. La más reciente va primero.")
 
 # Carpetas que nunca van al repositorio ni se recorren: las de git, el entorno y las cachés
 _NO_RECORRER = {".git", ".venv", "trabajo", "__pycache__", ".ruff_cache", ".mypy_cache", ".pytest_cache"}
@@ -74,8 +76,8 @@ _LARGO_NOTA = 160
 # SHA256SUMS
 # ---------------------------------------------------------------------------
 def archivos_de(documentos: Path) -> list[tuple[str, Path]]:
-    """[(ruta relativa con /, ruta)] de cada archivo de documentos/, ordenados por ruta relativa.
-    Sin SHA256SUMS (el de la raíz de documentos/), sin basura del sistema, sin enlaces simbólicos y sin lo que git
+    """[(ruta relativa con /, ruta)] de cada archivo de biblioteca/, ordenados por ruta relativa.
+    Sin SHA256SUMS (el de la raíz de biblioteca/), sin basura del sistema, sin enlaces simbólicos y sin lo que git
     no publica (*.tmp, *.pyc, __pycache__/: .gitignore los excluye y el clon fallaría `sha256sum -c`)."""
     encontrados: list[tuple[str, Path]] = []
     for carpeta, subcarpetas, archivos in os.walk(documentos):
@@ -93,7 +95,7 @@ def archivos_de(documentos: Path) -> list[tuple[str, Path]]:
 
 
 def sumas(documentos: Path) -> list[tuple[str, str]]:
-    """[(sha256, ruta relativa a documentos/)] de todos los archivos de la biblioteca, ordenados por ruta."""
+    """[(sha256, ruta relativa a biblioteca/)] de todos los archivos de la biblioteca, ordenados por ruta."""
     return [(sha256_archivo(ruta), relativa) for relativa, ruta in archivos_de(documentos)]
 
 
@@ -103,7 +105,7 @@ def texto_sumas(lista: list[tuple[str, str]]) -> str:
 
 
 def escribir_sumas(documentos: Path, calculadas: list[tuple[str, str]] | None = None) -> Path:
-    """Escribe (atómicamente, sin BOM) documentos/SHA256SUMS y devuelve su ruta. `calculadas` evita volver a
+    """Escribe (atómicamente, sin BOM) biblioteca/SHA256SUMS y devuelve su ruta. `calculadas` evita volver a
     hashear si ya se llamó a sumas()."""
     if not documentos.is_dir():
         raise FileNotFoundError(f"no existe la carpeta de la biblioteca: {documentos}")
@@ -130,7 +132,7 @@ def leer_sumas(archivo: Path) -> tuple[dict[str, str], int]:
 
 
 def comprobar_sumas(documentos: Path, calculadas: list[tuple[str, str]] | None = None) -> dict:
-    """Compara documentos/SHA256SUMS con lo que hay en disco. Devuelve:
+    """Compara biblioteca/SHA256SUMS con lo que hay en disco. Devuelve:
       existe: hay SHA256SUMS · ok: está al día · faltantes: archivos en disco que no están listados ·
       sobrantes: listados que ya no existen · distintas: listados con otra huella · lineas_invalidas ·
       listadas / en_disco: cuántos hay en cada lado.
@@ -541,16 +543,16 @@ def archivos_grandes(raiz: Path, limite_mib: int = LIMITE_ARCHIVO_MIB) -> list[P
 AYUDA_PUBLICAR = """
 biblioteca.py publicar — Deja la biblioteca lista para publicarla en GitHub y la sube SOLO cuando el usuario lo pide.
 
-ES UN PROCESO APARTE (PROCESO 5, PUBLICAR). Un solo repositorio con todo (herramientas + documentos/), rama
+ES UN PROCESO APARTE (PROCESO 5, PUBLICAR). Un solo repositorio con todo (herramientas + biblioteca/), rama
 `main`, sin Git LFS. Cuatro pasos, uno por opción; cada uno comprueba lo que dejó el anterior:
 
   --revisar    NO escribe nada. Muestra qué haría: el resultado de biblioteca.py verificar --final, los archivos de más
-               de 95 MiB (GitHub bloquea 100 MiB por archivo), si documentos/SHA256SUMS está al día, lo que
+               de 95 MiB (GitHub bloquea 100 MiB por archivo), si biblioteca/SHA256SUMS está al día, lo que
                entraría en CAMBIOS.md desde la última publicación, el tamaño del repositorio y si hay remoto.
                Sale 0 solo cuando la biblioteca está lista para --commit (integridad OK, nada grande, SHA256SUMS
                al día y ninguna entrada pendiente); si falta --preparar, sale 1 y lo dice.
   --preparar   Exige INTEGRIDAD: OK del verificador (si no, sale con 1 y lista los errores). Genera
-               documentos/SHA256SUMS (formato de sha256sum: "<sha256>  <ruta>" por cada archivo de documentos/,
+               biblioteca/SHA256SUMS (formato de sha256sum: "<sha256>  <ruta>" por cada archivo de biblioteca/,
                ordenadas por ruta) y añade a CAMBIOS.md la entrada de esta publicación: fecha, conteos y listas
                de nuevos, actualizados, abrogados, agregados, eliminados, renombrados, convertidos y
                comprimidos desde la entrada anterior, tomados de bitacora.jsonl (la ventana va de la
@@ -579,10 +581,10 @@ ES UN PROCESO APARTE (PROCESO 5, PUBLICAR). Un solo repositorio con todo (herram
                reanuda subidas).
 
 USO:
-  python biblioteca.py publicar --revisar
-  python biblioteca.py publicar --preparar
-  python biblioteca.py publicar --commit
-  python biblioteca.py publicar --push [--remoto https://github.com/<usuario>/<repositorio>.git]
+  python sistema/biblioteca.py publicar --revisar
+  python sistema/biblioteca.py publicar --preparar
+  python sistema/biblioteca.py publicar --commit
+  python sistema/biblioteca.py publicar --push [--remoto https://github.com/<usuario>/<repositorio>.git]
   --json    salida en JSON por stdout (el texto va a stderr), en todos los modos
 
 Cada paso queda en la bitácora (herramienta "publicar", acción preparar/commit/push). git se ejecuta desde la
@@ -595,7 +597,7 @@ qué falta) · 64 = uso incorrecto
 """
 
 
-CAMBIOS = RAIZ / "CAMBIOS.md"
+CAMBIOS = SISTEMA / "CAMBIOS.md"
 RAMA = "main"
 REMOTO = "origin"
 LIMITE_PUSH_BYTES = int(1.8 * 1024 ** 3)        # GitHub rechaza un push de 2 GB o más: ningún push pasa de aquí
@@ -605,7 +607,6 @@ TOPE_PUSH_MINIMO = 3600.0                       # segundos: el tope nunca baja d
 COAUTORIA = "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
 # Lo que NUNCA debe aparecer en git status (si aparece, .gitignore está roto) y la única excepción
 _NUNCA_EN_GIT = ("trabajo/", ".venv/")
-_PERMITIDOS = {"bitacora.jsonl"}
 _URL_REMOTO = re.compile(r"^(https://|ssh://|git@)\S+$")
 # Credenciales dentro de una URL: `esquema://usuario:token@host` (o `esquema://token@host`) y la forma scp
 # `usuario@host:ruta` (usuario o token: letras, dígitos, `_`, `.`, `+`, `-`). `git@` es el usuario convencional de
@@ -617,7 +618,7 @@ CREAR_REPOSITORIO = f"""No hay remoto '{REMOTO}'. Para publicar por primera vez:
   1. El USUARIO crea un repositorio VACÍO en GitHub (https://github.com/new): sin README, sin .gitignore y sin
      licencia (el proyecto ya los tiene). Público, para que la biblioteca sea libre.
   2. Se vuelve a ejecutar con la URL que da GitHub:
-       python biblioteca.py publicar --push --remoto https://github.com/<usuario>/<repositorio>.git
+       python sistema/biblioteca.py publicar --push --remoto https://github.com/<usuario>/<repositorio>.git
      (o la URL SSH, git@github.com:<usuario>/<repositorio>.git, si el usuario usa llaves SSH)
   3. La autenticación la hace el usuario, nunca el agente: `gh auth login` (GitHub CLI), un token en el gestor
      de credenciales de git o sus llaves SSH. La URL nunca lleva usuario:token."""
@@ -693,15 +694,20 @@ def cambios_git(raiz: Path) -> list[str]:
     return rutas
 
 
+def _permitidos() -> set[str]:
+    """La bitácora, como la muestra git status (ruta desde la raíz del repositorio)."""
+    return {BITACORA.relative_to(RAIZ).as_posix()}
+
+
 def cambios_prohibidos(cambios: list[str]) -> list[str]:
     """Las rutas de `cambios` que nunca deben publicarse (trabajo/ del agente y un .venv/ creado a mano)."""
-    return [r for r in cambios if r.startswith(_NUNCA_EN_GIT) and r not in _PERMITIDOS]
+    return [r for r in cambios if r.startswith(_NUNCA_EN_GIT) and r not in _permitidos()]
 
 
 def cambios_pendientes(cambios: list[str]) -> list[str]:
     """Las rutas de `cambios` que de verdad hay que confirmar: todas menos la bitácora (que cambia sola con cada
     push y entra con la publicación siguiente)."""
-    return [r for r in cambios if r not in _PERMITIDOS]
+    return [r for r in cambios if r not in _permitidos()]
 
 
 def rutas_ignoradas(raiz: Path, rutas: list[str]) -> list[str]:
@@ -846,7 +852,7 @@ def entradas_pendientes(raiz: Path, cambios: Path) -> list[str]:
     actuales = entradas(cambios)
     if not actuales:
         return []
-    r = _git(raiz, "show", f"HEAD:{cambios.name}", fallar=False)
+    r = _git(raiz, "show", f"HEAD:{cambios.relative_to(raiz).as_posix()}", fallar=False)
     confirmadas = {fecha for fecha, _ in entradas_texto(r.stdout)} if r.returncode == 0 else set()
     return [texto for fecha, texto in actuales if fecha not in confirmadas]
 
@@ -868,8 +874,8 @@ def _ultimo_json(texto: str) -> dict | None:
 
 
 def verificador() -> dict:
-    """Ejecuta `python biblioteca.py verificar --final --json` y devuelve su JSON (integridad, errores, avisos...)."""
-    cmd = [sys.executable, str(RAIZ / "biblioteca.py"), "verificar", "--final", "--json"]
+    """Ejecuta `biblioteca.py verificar --final --json` y devuelve su JSON (integridad, errores, avisos...)."""
+    cmd = [sys.executable, str(ENTRADA), "verificar", "--final", "--json"]
     try:
         r = correr_hijo(cmd, timeout=900, cwd=str(RAIZ))
     except subprocess.TimeoutExpired:
@@ -897,7 +903,7 @@ def _mostrar_errores(v: dict) -> None:
     for error in errores[:20]:
         print(f"  - {error}")
     if len(errores) > 20:
-        print(f"  ... y {len(errores) - 20} más (python biblioteca.py verificar --final)")
+        print(f"  ... y {len(errores) - 20} más (python sistema/biblioteca.py verificar --final)")
 
 
 def _exigir_integridad(v: dict) -> None:
@@ -912,8 +918,8 @@ def _exigir_sin_grandes(grandes: list[Path]) -> None:
         for ruta in grandes[:10]:
             print(f"  - {relativa(ruta)} ({_mib(ruta.stat().st_size)})")
         salir_con_error(f"{len(grandes)} archivo(s) de más de {LIMITE_ARCHIVO_MIB} MiB: GitHub los rechazaría. Comprime los "
-                        "PDF (proceso COMPRIMIR: python biblioteca.py comprimir --listar) o saca del proyecto lo que no sea "
-                        "de la biblioteca")
+                        "PDF (proceso COMPRIMIR: python sistema/biblioteca.py comprimir --listar) o saca del proyecto "
+                        "lo que no sea de la biblioteca")
 
 
 def _exigir_repositorio(git: dict) -> None:
@@ -1020,7 +1026,7 @@ def cmd_revisar() -> None:
     print(f"Archivos de más de {LIMITE_ARCHIVO_MIB} MiB (GitHub bloquea 100 MiB): "
           + (", ".join(f"{relativa(g)} ({_mib(g.stat().st_size)})" for g in grandes) if grandes else "ninguno"))
     s = _estado_sumas()
-    print(f"documentos/{ARCHIVO_SUMAS}: {_describir_sumas(s)}")
+    print(f"biblioteca/{ARCHIVO_SUMAS}: {_describir_sumas(s)}")
     desde, avisos = _ventana()
     print("CAMBIOS.md: " + (f"última publicación {desde}" if desde
                             else "sin entradas (esta sería la primera publicación: entra toda la bitácora)"))
@@ -1047,13 +1053,14 @@ def cmd_revisar() -> None:
     elif grandes:
         siguiente = "comprime los archivos grandes (proceso COMPRIMIR) y repite --revisar"
     elif not s["ok"] or texto:
-        siguiente = "python biblioteca.py publicar --preparar"
+        siguiente = "python sistema/biblioteca.py publicar --preparar"
     elif not git.get("repositorio") or pendientes:
-        siguiente = "python biblioteca.py publicar --commit"
+        siguiente = "python sistema/biblioteca.py publicar --commit"
     elif not git.get("remoto"):
-        siguiente = "python biblioteca.py publicar --push --remoto <URL del repositorio vacío> (solo si el usuario lo pide)"
+        siguiente = ("python sistema/biblioteca.py publicar --push --remoto <URL del repositorio vacío> "
+                     "(solo si el usuario lo pide)")
     elif not git.get("origen_main") or git.get("adelante"):
-        siguiente = "python biblioteca.py publicar --push (solo si el usuario lo pide)"
+        siguiente = "python sistema/biblioteca.py publicar --push (solo si el usuario lo pide)"
     else:
         siguiente = "nada: todo está publicado"
     print(f"\nLISTO PARA PUBLICAR: {'SÍ' if listo else 'NO'} · siguiente paso: {siguiente}")
@@ -1069,7 +1076,7 @@ def cmd_preparar() -> None:
     print(f"Verificador: {_resumen_verificador(v)}")
     _exigir_sin_grandes(archivos_grandes(RAIZ))
     if not DOCUMENTOS.is_dir():
-        salir_con_error("no existe documentos/: no hay biblioteca que publicar (primero el proceso ACTUALIZAR)")
+        salir_con_error("no existe biblioteca/: no hay biblioteca que publicar (primero el proceso ACTUALIZAR)")
     desde, avisos = _ventana()
     for aviso in avisos:
         print(f"AVISO: {aviso}")
@@ -1081,7 +1088,7 @@ def cmd_preparar() -> None:
         reescrito = not estado["ok"]
         if reescrito:
             escribir_sumas(DOCUMENTOS, calculadas)
-    print(f"documentos/{ARCHIVO_SUMAS}: {'generado' if reescrito else 'ya estaba al día'} ({len(calculadas):,} archivos)")
+    print(f"biblioteca/{ARCHIVO_SUMAS}: {'generado' if reescrito else 'ya estaba al día'} ({len(calculadas):,} archivos)")
     if texto:
         insertar_entrada(CAMBIOS, texto)
         print(f"CAMBIOS.md: entrada añadida ({texto.splitlines()[0][3:]})")
@@ -1095,7 +1102,7 @@ def cmd_preparar() -> None:
     bitacora({"herramienta": "publicar", "accion": "preparar", "desde": desde, "publicacion": momento,
               "entrada": bool(texto), "conteos": conteos, "sumas": {"archivos": len(calculadas), "reescrito": reescrito}})
     if texto or reescrito:
-        print("\nSiguiente paso: python biblioteca.py publicar --commit")
+        print("\nSiguiente paso: python sistema/biblioteca.py publicar --commit")
     else:
         print("\nNada que preparar: SHA256SUMS y CAMBIOS.md ya estaban al día.")
     salida.poner(verificador=v, sumas={"archivo": relativa(DOCUMENTOS / ARCHIVO_SUMAS), "archivos": len(calculadas),
@@ -1112,7 +1119,8 @@ def cmd_commit() -> None:
     with bloqueo():                # desde comprobar SHA256SUMS hasta que termina el commit nadie reemplaza un documento
         s = _estado_sumas()
         if not s["ok"]:
-            salir_con_error(f"documentos/{ARCHIVO_SUMAS} {_describir_sumas(s)}: ejecuta python biblioteca.py publicar --preparar")
+            salir_con_error(f"biblioteca/{ARCHIVO_SUMAS} {_describir_sumas(s)}: ejecuta "
+                            "python sistema/biblioteca.py publicar --preparar")
         git = estado_git(RAIZ)
         cambios = git["cambios"]
         pendientes = cambios_pendientes(cambios)
@@ -1132,13 +1140,13 @@ def cmd_commit() -> None:
             for ruta in ignoradas[:10]:
                 print(f"  - {ruta}")
             salir_con_error(f"{ARCHIVO_SUMAS} lista {len(ignoradas)} archivo(s) que .gitignore excluye (el clon fallaría "
-                            "`sha256sum -c`): ejecuta python biblioteca.py verificar --limpiar y repite --preparar")
+                            "`sha256sum -c`): ejecuta python sistema/biblioteca.py verificar --limpiar y repite --preparar")
         entradas_nuevas = entradas_pendientes(RAIZ, CAMBIOS)
-        if entradas_nuevas and CAMBIOS.name in cambios:
+        if entradas_nuevas and CAMBIOS.relative_to(RAIZ).as_posix() in cambios:
             asunto, cuerpo = mensaje_commit_varias(entradas_nuevas)
         else:         # la entrada ya se confirmó antes: solo cambian herramientas, documentación o la bitácora
             asunto = f"Biblioteca {hoy()}: sin cambios en los documentos"
-            cuerpo = ("Cambios en las herramientas, la documentación o la bitácora del proyecto; documentos/ no cambió "
+            cuerpo = ("Cambios en las herramientas, la documentación o la bitácora del proyecto; biblioteca/ no cambió "
                       "desde la publicación anterior.")
         print(f"Archivos con cambios: {len(pendientes)}")
         if len(entradas_nuevas) > 1:
@@ -1148,7 +1156,8 @@ def cmd_commit() -> None:
                   "entradas": len(entradas_nuevas)})
         sha, resumen = hacer_commit(RAIZ, asunto, cuerpo)
     print(f"Commit {sha}: {resumen or 'hecho'}")
-    print("\nSiguiente paso: PREGUNTA al usuario si autoriza subirlo; solo con su sí: python biblioteca.py publicar --push"
+    print("\nSiguiente paso: PREGUNTA al usuario si autoriza subirlo; solo con su sí: "
+          "python sistema/biblioteca.py publicar --push"
           + ("" if git["remoto"] else " --remoto <URL del repositorio vacío>"))
     salida.poner(commit=sha, asunto=asunto, cuerpo=cuerpo, archivos=len(pendientes), entradas=len(entradas_nuevas),
                  resumen=resumen, remoto=git["remoto"])

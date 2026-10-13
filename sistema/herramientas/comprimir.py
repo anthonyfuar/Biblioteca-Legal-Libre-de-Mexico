@@ -39,7 +39,7 @@ AYUDA_COMPRIMIR = """
 biblioteca.py comprimir — Reduce el peso de los PDF grandes de la biblioteca (por defecto, los de más de 60 MB).
 
 ES UN PROCESO APARTE (PROCESO 4, COMPRIMIR): solo se ejecuta cuando el usuario lo pide, y el agente le
-PREGUNTA antes el nivel. Método completo, variaciones por tipo de PDF y mediciones: referencia/comprimir.md
+PREGUNTA antes el nivel. Método completo, variaciones por tipo de PDF y mediciones: sistema/referencia/comprimir.md
 
 NIVELES (el % es la INTENSIDAD, no una reducción garantizada: la reducción depende del contenido)
   10  Sin pérdida           Píxeles idénticos. Reoptimiza los JPEG (mozjpeg, sin tocar un píxel), pasa los
@@ -57,9 +57,9 @@ en cada página y, al dibujar cada página, píxeles idénticos (nivel 10) o una
 38 dB (nivel 30), 32 dB (50) o 24 dB (80). Si no pasa, o no pesa menos, se conserva el original.
 
 USO:
-  python biblioteca.py comprimir --listar                    qué PDF pasan de 60 MB y de qué están hechos
-  python biblioteca.py comprimir --nivel 30                  comprime todos los de más de 60 MB
-  python biblioteca.py comprimir --nivel 30 --id ID [ID...]  solo esos (si pasan del umbral)
+  python sistema/biblioteca.py comprimir --listar                    qué PDF pasan de 60 MB y de qué están hechos
+  python sistema/biblioteca.py comprimir --nivel 30                  comprime todos los de más de 60 MB
+  python sistema/biblioteca.py comprimir --nivel 30 --id ID [ID...]  solo esos (si pasan del umbral)
   --umbral MB        sube el umbral (60 por defecto). REGLA: los PDF de 60 MB o menos NUNCA se tocan,
                      ni en modo prueba ni aunque se pidan por --id; el umbral no puede bajar de 60
   --salida CARPETA   MODO PRUEBA: deja los comprimidos en CARPETA/<grupo>/<archivo>.pdf y su registro en
@@ -67,7 +67,7 @@ USO:
   --recomprimir      también los que ya se comprimieron (se parte del archivo ya comprimido)
   --dpi N            resolución de la verificación (100 por defecto)
 
-En la biblioteca, el PDF comprimido reemplaza al original en documentos/ y el manifiesto guarda SIEMPRE
+En la biblioteca, el PDF comprimido reemplaza al original en biblioteca/ y el manifiesto guarda SIEMPRE
 en "compresion" las dos huellas y los dos tamaños (sha256_original/bytes_original del PDF oficial y
 sha256/bytes del comprimido), el nivel y el resultado de la verificación. biblioteca.py verificar exige que estén
 completas. Así una nueva descarga idéntica del oficial sigue siendo SIN_CAMBIO y el Markdown sigue al día.
@@ -114,7 +114,7 @@ def _dependencias():
         import pypdfium2  # noqa: F401
         from PIL import Image  # noqa: F401
     except ImportError as e:
-        salir_con_error(f"Falta una dependencia para comprimir ({e.name}). Ejecuta: python biblioteca.py instalar")
+        salir_con_error(f"Falta una dependencia para comprimir ({e.name}). Ejecuta: python sistema/biblioteca.py instalar")
 
 
 # ---------------------------------------------------------------------------

@@ -32,7 +32,7 @@ from herramientas.comun import (
     ANTERIORES,
     CACHE,
     CACHE_VIGENCIA_SEG,
-    RAIZ,
+    ENTRADA,
     Analizador,
     asegurar_carpetas,
     bitacora,
@@ -843,7 +843,7 @@ tablas (en formato de tabla de Markdown, con sus filas y columnas). Omite lo que
 (escudos, firmas), y las instrucciones internas de los campos de Word (conserva su resultado visible).
 
 Prueba a mano (muestra el Markdown):
-  python biblioteca.py word <archivo.doc|.docx>
+  python sistema/biblioteca.py word <archivo.doc|.docx>
 """
 
 
@@ -1236,7 +1236,7 @@ def a_markdown(ruta: Path) -> str:
 
 
 def main_word() -> None:
-    """python biblioteca.py word <archivo.doc|.docx>: muestra el texto en Markdown (prueba a mano)."""
+    """python sistema/biblioteca.py word <archivo.doc|.docx>: muestra el texto en Markdown (prueba a mano)."""
     p = Analizador(description="Muestra el texto de un Word oficial (.doc o .docx) en Markdown.",
                    formatter_class=argparse.RawDescriptionHelpFormatter, epilog=AYUDA_WORD)
     p.add_argument("archivo", type=Path, help="el .doc o .docx")
@@ -1328,7 +1328,7 @@ def texto_documento(ruta: Path, paginas: int = 3) -> str:
         texto = texto_plano(ruta)
     except ImportError as e:
         raise FaltaDependencia(f"falta el paquete '{(e.name or 'olefile').split('.')[0]}' para leer Word: "
-                               "ejecuta python biblioteca.py instalar") from e
+                               "ejecuta python sistema/biblioteca.py instalar") from e
     except Exception:  # noqa: BLE001 - archivo dañado: se trata como sin texto
         return ""
     return texto if not paginas else texto[: paginas * CARACTERES_POR_PAGINA]
@@ -1355,7 +1355,8 @@ def texto_pdf(ruta: Path, paginas: int = 3) -> str:
     try:
         from pdfminer.high_level import extract_text
     except ImportError as e:
-        raise FaltaDependencia("falta el paquete 'pdfminer.six' para leer PDF: ejecuta python biblioteca.py instalar") from e
+        raise FaltaDependencia("falta el paquete 'pdfminer.six' para leer PDF: ejecuta "
+                               "python sistema/biblioteca.py instalar") from e
     try:
         return extract_text(str(ruta), maxpages=paginas) or ""
     except Exception:  # noqa: BLE001 - PDF dañado, cifrado o sin texto
@@ -1426,7 +1427,7 @@ def revisar_nombre(nombre: str, texto: str, otros_nombres=()) -> tuple[bool | No
       2. Ningún OTRO documento del catálogo (`otros_nombres`) debe aparecer antes que él: si el PDF
          dice 'Ley del Impuesto sobre la Renta' antes que 'Ley del IVA', es la LISR. La Constitución
          no cuenta como competidora (todas las leyes la citan en su preámbulo).
-    Medición de falsas alarmas y cruces aceptados: referencia/actualizar.md (sección 1)."""
+    Medición de falsas alarmas y cruces aceptados: sistema/referencia/actualizar.md (sección 1)."""
     clave = _secuencia(nombre)
     plano = normalizar(texto)
     if not clave or clave[0] not in _TITULOS_OFICIALES or len(plano) < 200:
@@ -1480,15 +1481,15 @@ proyecto: la página se borra al terminar; el índice de Diputados se guarda en 
 se borra al cerrar el proceso con biblioteca.py verificar --limpiar.
 
 USO:
-  python biblioteca.py buscar diputados "Código Fiscal de la Federación"
+  python sistema/biblioteca.py buscar diputados "Código Fiscal de la Federación"
       Busca por NOMBRE en el índice oficial de leyes federales de la Cámara de
       Diputados. Muestra la URL vigente del PDF y la fecha de la última reforma.
       Con esa fecha puedes saber si hay algo nuevo SIN descargar.
 
-  python biblioteca.py buscar diputados "Reglamento de Tránsito" --reglamentos
+  python sistema/biblioteca.py buscar diputados "Reglamento de Tránsito" --reglamentos
       Igual, pero en el índice de REGLAMENTOS federales.
 
-  python biblioteca.py buscar enlaces <URL_DE_UNA_PÁGINA> [--filtro "texto"] [--todos] [--solo-pdf] [--limite N]
+  python sistema/biblioteca.py buscar enlaces <URL_DE_UNA_PÁGINA> [--filtro "texto"] [--todos] [--solo-pdf] [--limite N]
       Descarga una página web (p. ej. el listado de leyes de un congreso estatal)
       y lista los enlaces que parecen documentos (PDF, 'descargar', etc.) con su
       texto visible. --filtro deja solo los que contienen esas palabras
@@ -1597,7 +1598,8 @@ def cmd_enlaces(args):
     salida.poner(pagina=r["url_final"], total=len(enlaces),
                  enlaces=[{"url": u, "texto": t, "word": es_word(u)} for u, t in enlaces])   # con --json van todos
     for i, (u, t) in enumerate(enlaces[: args.limite], 1):
-        word = "  [WORD, no es PDF: si es la única versión vigente, ver referencia/actualizar.md]" if es_word(u) else ""
+        word = ("  [WORD, no es PDF: si es la única versión vigente, ver sistema/referencia/actualizar.md]"
+                if es_word(u) else "")
         print(f"{i:4}. {t[:110] or '(sin texto)'}{word}\n      {u}")
     if len(enlaces) > args.limite:
         print(f"\n... {len(enlaces) - args.limite} enlaces más (usa --limite o un --filtro más preciso).")
@@ -1666,20 +1668,20 @@ esta herramienta hace el resto de forma segura y siempre igual:
      borra al cerrar.
 
 USO:
-  python biblioteca.py descargar <id> <URL>                 descargar y registrar
-  python biblioteca.py descargar <id> <URL> --revisar       solo inspeccionar (no guarda nada)
-  python biblioteca.py descargar <id> <URL> --revisar --buscar "abroga"
+  python sistema/biblioteca.py descargar <id> <URL>                 descargar y registrar
+  python sistema/biblioteca.py descargar <id> <URL> --revisar       solo inspeccionar (no guarda nada)
+  python sistema/biblioteca.py descargar <id> <URL> --revisar --buscar "abroga"
                                                          además, fragmentos de TODO el PDF con ese
                                                          texto (para leer los transitorios)
-  python biblioteca.py descargar <id> --archivo ruta.pdf [--origen URL]
+  python sistema/biblioteca.py descargar <id> --archivo ruta.pdf [--origen URL]
                                                          registrar un PDF obtenido de otra forma
                                                          (--origen = URL oficial de donde salió)
-  python biblioteca.py descargar <id> <URL> --forzar        aceptar un caso DUDOSO que ya revisaste
+  python sistema/biblioteca.py descargar <id> <URL> --forzar        aceptar un caso DUDOSO que ya revisaste
   --permitir-pequeno   aceptar PDFs legítimos de menos de 10 KB
   --reforma AAAA-MM-DD fecha de última reforma que TÚ leíste (también DD-MM-AAAA): si la portada no la trae
                        o la herramienta la lee mal. Manda sobre la leída y corrige también un documento ya
                        guardado (SIN_CAMBIO)
-  python biblioteca.py descargar --lote lista.txt           uno por línea: "id URL" o "id URL AAAA-MM-DD"
+  python sistema/biblioteca.py descargar --lote lista.txt           uno por línea: "id URL" o "id URL AAAA-MM-DD"
                                                          (la fecha, opcional, es la de --reforma). Descarga
                                                          uno tras otro y resume cada uno con su resultado,
                                                          fecha y título; la URL debe salir del listado o
@@ -1786,7 +1788,7 @@ def _obtener(doc: dict, args, candidato) -> tuple[str, str]:
         print(f"  Motivo: {r['error']}")
         print("  Intentos:\n    " + "\n    ".join(r["intentos"]))
         print("  Sugerencia: la URL cambió o el portal bloquea descargas automáticas. Busca la liga "
-              "vigente (python biblioteca.py catalogo fuentes ...) o descarga el PDF con otra "
+              "vigente (python sistema/biblioteca.py catalogo fuentes ...) o descarga el PDF con otra "
               "herramienta y regístralo con --archivo.")
         sys.exit(1)
     url_final = r["url_final"]
@@ -1865,7 +1867,7 @@ def _lote(args) -> None:
     print(f"Lote de {len(trabajos)} documento(s):", flush=True)
     for n, (doc_id, url, reforma) in enumerate(trabajos, 1):
         try:
-            r = correr_hijo([sys.executable, str(RAIZ / "biblioteca.py"), "descargar", doc_id, url, *extra,
+            r = correr_hijo([sys.executable, str(ENTRADA), "descargar", doc_id, url, *extra,
                              *(["--reforma", reforma] if reforma else [])], timeout=3600)
             lineas = (r.stdout or "").splitlines()
             errores = (r.stderr or "").strip().splitlines()
@@ -1931,14 +1933,15 @@ def main():
     try:  # sin pdfminer todos los PDF parecerían escaneados y no se podría revisar título ni fecha
         import pdfminer  # noqa: F401
     except ImportError:
-        salir_con_error("Falta la dependencia pdfminer. Ejecuta primero: python biblioteca.py instalar")
+        salir_con_error("Falta la dependencia pdfminer. Ejecuta primero: python sistema/biblioteca.py instalar")
 
     asegurar_carpetas()
     catalogo = cargar_catalogo()
     doc = buscar_documento(catalogo, args.id)
     if doc["estado"] in ("no_existe", "no_localizado") and not args.revisar:
         salir_con_error(f"'{doc['id']}' está marcado como {doc['estado']}. Si ya existe/lo encontraste, "
-                              f"primero: python biblioteca.py catalogo marcar {doc['id']} --estado vigente --nota \"...\"")
+                              f"primero: python sistema/biblioteca.py catalogo marcar {doc['id']} --estado vigente "
+                              "--nota \"...\"")
 
     # Solo fuentes oficiales: la copia de otro sitio nunca se guarda (ni siquiera la de la misma reforma)
     for u in (args.url, args.origen):

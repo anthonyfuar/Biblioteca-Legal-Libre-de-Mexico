@@ -6,15 +6,15 @@
 ## 1. Catálogo y manifiesto (esquema 3)
 
 Los dos archivos son la interfaz pública de la biblioteca: otros proyectos los leen para saber qué documentos hay,
-dónde están y si cambiaron. Por eso su esquema tiene **versión** (`herramientas/comun.py`) y solo cambia con una
-migración documentada aquí. Los escriben únicamente las herramientas (`python biblioteca.py …`, nunca a mano);
+dónde están y si cambiaron. Por eso su esquema tiene **versión** (`sistema/herramientas/comun.py`) y solo cambia con una
+migración documentada aquí. Los escriben únicamente las herramientas (`python sistema/biblioteca.py …`, nunca a mano);
 `verificar` comprueba cada entrada contra este esquema y reporta como ERROR lo que no cumpla.
 
 Convenciones comunes: codificación UTF-8, finales de línea `\n`, fechas `AAAA-MM-DD`, huellas **SHA-256** en
 hexadecimal de 64 caracteres, rutas relativas con `/`. Los campos opcionales **se omiten** cuando no aplican (nunca
 se guardan vacíos o en `null`, salvo donde se indica).
 
-### `documentos/catalogo.json` — qué documentos debe tener la biblioteca
+### `biblioteca/catalogo.json` — qué documentos debe tener la biblioteca
 
 ```json
 {
@@ -29,7 +29,7 @@ se guardan vacíos o en `null`, salvo donde se indica).
 |---|---|---|---|
 | `id` | texto | sí | Identificador **permanente y opaco**: `federal__<archivo en minúsculas>` o `<estado>__<archivo en minúsculas>` al crearse; nunca cambia después, ni al renombrar ni al mover (por eso puede no coincidir con el `archivo` actual). Es la clave del manifiesto |
 | `nombre` | texto | sí | Nombre oficial vigente (con acentos) |
-| `grupo` | texto | sí | Subcarpeta, la misma dentro de `documentos/PDF/` (el documento oficial) y de `documentos/Markdown/` (su Markdown): `Constitucion`, `Federal/<Materia>[/Abrogadas]`, `Federal/Tratados_internacionales/<Tema>`, `Estados/<Estado>`; ver `estructura.md` |
+| `grupo` | texto | sí | Subcarpeta, la misma dentro de `biblioteca/PDF/` (el documento oficial) y de `biblioteca/Markdown/` (su Markdown): `Constitucion`, `Federal/<Materia>[/Abrogadas]`, `Federal/Tratados_internacionales/<Tema>`, `Estados/<Estado>`; ver `estructura.md` |
 | `archivo` | texto | sí | Nombre de archivo sin extensión = `nombre` sin acentos y con `_` |
 | `estado` | `vigente` · `abrogado` · `no_existe` · `no_localizado` | sí | Situación jurídica o de búsqueda |
 | `entidad` | texto | solo estatales | Nombre del estado tal como está en `fuentes.json` (con acentos). Ausente = federal |
@@ -42,7 +42,7 @@ se guardan vacíos o en `null`, salvo donde se indica).
 
 Lo federal/estatal se deduce de `entidad` (no hay campo `ambito`).
 
-### `documentos/manifiesto.json` — qué hay guardado
+### `biblioteca/manifiesto.json` — qué hay guardado
 
 ```json
 {
@@ -55,7 +55,7 @@ Lo federal/estatal se deduce de `entidad` (no hay campo `ambito`).
 
 | Campo del registro | Tipo | Siempre | Significado |
 |---|---|---|---|
-| `archivo` | texto | sí | Ruta relativa a `documentos/` del documento oficial: `PDF/<grupo>/<archivo>.<formato>` |
+| `archivo` | texto | sí | Ruta relativa a `biblioteca/` del documento oficial: `PDF/<grupo>/<archivo>.<formato>` |
 | `formato` | `pdf` · `doc` · `docx` | sí | Formato real del archivo oficial (los pocos Word van en `PDF/` con su extensión real). Nunca una página web |
 | `sha256` | hex 64 | sí | Huella del archivo tal como está en disco |
 | `bytes` | entero | sí | Tamaño en bytes del archivo en disco |
@@ -79,8 +79,8 @@ Lo federal/estatal se deduce de `entidad` (no hay campo `ambito`).
 - Los textos oficiales no están sujetos a derechos de autor; el resto del proyecto, a `LICENSE`.
 
 ### Historial
-- **v3 (2026-10-08)**: la carpeta de la biblioteca pasa a llamarse `documentos/` (antes `Documentos/`), con sus
-  carpetas `PDF/` y `Markdown/`, y un solo catálogo, `documentos/catalogo.json` (antes también estaba en la raíz del
+- **v3 (2026-10-08)**: la carpeta de la biblioteca pasa a llamarse `biblioteca/` (antes `Documentos/`), con sus
+  carpetas `PDF/` y `Markdown/`, y un solo catálogo, `biblioteca/catalogo.json` (antes también estaba en la raíz del
   proyecto); el campo `archivo` del front-matter de cada Markdown sigue al del manifiesto; `formato` admite solo `pdf`,
   `doc` y `docx` (la biblioteca guarda solo PDF o Word, nunca páginas web).
 - **v2 (2026-10-06)**: SHA-256 en lugar de MD5 (`md5` → `sha256`, `md5_original` → `sha256_original`,
@@ -110,7 +110,7 @@ quitado, una variante rara que continuaba la frase anterior). Si algo no cuadra,
 ### 1. Front-matter
 
 Cada archivo empieza con un bloque YAML entre `---`, con estas claves en este orden: `id`, `nombre`, `entidad` (`null`
-si es federal), `grupo`, `estado`, `archivo` (ruta del documento oficial dentro de `documentos/`, con `PDF/` al principio), `fuente` (URL
+si es federal), `grupo`, `estado`, `archivo` (ruta del documento oficial dentro de `biblioteca/`, con `PDF/` al principio), `fuente` (URL
 oficial), `fecha_reforma` (`AAAA-MM-DD` o `null`), `sha256_origen` (huella del documento oficial del que salió),
 `metodo` (`markitdown`, `ocr` o `lector_word`), `convertido` (`AAAA-MM-DD`), `version` (2) y `aviso` ("Conversión
 automática del documento oficial; ante cualquier diferencia prevalece el PDF publicado en la fuente oficial"). Los
@@ -196,7 +196,7 @@ encabezados seguidos (fiel al original).
 ## 3. Ids heredados (v1) de los documentos federales
 
 Los `id` de `catalogo.json` son **permanentes y opacos**: identifican a cada documento para siempre (son la clave de
-`documentos/manifiesto.json` y los usa `bitacora.jsonl`), no indican su carpeta y no cambian al renombrar
+`biblioteca/manifiesto.json` y los usa `bitacora.jsonl`), no indican su carpeta y no cambian al renombrar
 (`catalogo renombrar`) ni al mover (`catalogo mover`) el documento. El esquema vigente es **un solo prefijo por
 ámbito**: `<estado>__<archivo>` para los estatales (p. ej. `jalisco__codigo_civil_del_estado_de_jalisco`) y
 `federal__<archivo>` para los federales, siempre sobre el campo `archivo` en minúsculas y sin más caracteres que

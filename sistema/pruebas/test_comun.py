@@ -70,10 +70,10 @@ def test_dos_procesos_no_pierden_incrementos(tmp_path):
 # ====================================================================================================
 def test_limpiar_cuenta_anteriores_como_fuera_del_proyecto(tmp_path, monkeypatch):
     raiz, temp = tmp_path / "proyecto", tmp_path / "temporal"
-    for nombre, valor in {"RAIZ": raiz, "TRABAJO": raiz / "trabajo", "DOCUMENTOS": raiz / "documentos",
+    for nombre, valor in {"RAIZ": raiz, "TRABAJO": raiz / "trabajo", "DOCUMENTOS": raiz / "biblioteca",
                           "TEMP_PROYECTO": temp, "ANTERIORES": temp / "anteriores", "CACHE": temp / "cache"}.items():
         monkeypatch.setattr(comun, nombre, valor)
-    (raiz / "documentos").mkdir(parents=True)
+    (raiz / "biblioteca").mkdir(parents=True)
     (raiz / "trabajo").mkdir()
     (raiz / "trabajo" / "listado.txt").write_text("x", encoding="utf-8")
     (temp / "anteriores").mkdir(parents=True)
@@ -85,10 +85,13 @@ def test_limpiar_cuenta_anteriores_como_fuera_del_proyecto(tmp_path, monkeypatch
 
 def test_carpetas_de_editores_y_entorno_propio_no_son_restos(tmp_path, monkeypatch):
     monkeypatch.setattr(comun, "RAIZ", tmp_path)
-    for carpeta in (".vscode", ".idea", ".cursor", ".venv", "documentos"):
+    monkeypatch.setattr(comun, "SISTEMA", tmp_path / "sistema")
+    for carpeta in (".vscode", ".idea", ".cursor", ".venv", "biblioteca", "sistema"):
         (tmp_path / carpeta).mkdir()
+    (tmp_path / "sistema" / "bitacora.jsonl").write_text("", encoding="utf-8")
     (tmp_path / "listado.txt").write_text("x", encoding="utf-8")
-    assert [p.name for p in comun.inesperados()] == ["listado.txt"]
+    (tmp_path / "sistema" / "notas.txt").write_text("x", encoding="utf-8")
+    assert [p.name for p in comun.inesperados()] == ["listado.txt", "notas.txt"]
 
 
 def test_instalar_escribe_en_utf8_aunque_la_consola_no_lo_sea():

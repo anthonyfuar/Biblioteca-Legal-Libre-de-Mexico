@@ -30,17 +30,19 @@ from typing import Any, NoReturn
 # OCR) y el candado viven en la carpeta de datos del usuario (LOCAL), y los temporales en la del sistema
 # (TEMP_PROYECTO); ambas llevan una huella de la ruta del proyecto para que dos copias no se mezclen.
 # ====================================================================================================
-RAIZ = Path(__file__).resolve().parent.parent
-DOCUMENTOS = RAIZ / "documentos"           # LA BIBLIOTECA: las carpetas PDF/ y Markdown/, el catálogo y el manifiesto
-CARPETA_PDF = "PDF"                        # documentos/PDF/<grupo>/: cada documento oficial (PDF, o Word si no hay PDF)
-CARPETA_MARKDOWN = "Markdown"              # documentos/Markdown/<grupo>/: su Markdown, con la misma carpeta y nombre
+SISTEMA = Path(__file__).resolve().parent.parent   # lo que mantiene la biblioteca: código, pruebas y datos
+RAIZ = SISTEMA.parent                 # la raíz del repositorio: biblioteca/, sistema/ y los manuales
+ENTRADA = SISTEMA / "biblioteca.py"   # la única entrada de las herramientas
+DOCUMENTOS = RAIZ / "biblioteca"           # LA BIBLIOTECA: las carpetas PDF/ y Markdown/, el catálogo y el manifiesto
+CARPETA_PDF = "PDF"                        # biblioteca/PDF/<grupo>/: cada documento oficial (PDF, o Word si no hay PDF)
+CARPETA_MARKDOWN = "Markdown"              # biblioteca/Markdown/<grupo>/: su Markdown, con la misma carpeta y nombre
 CATALOGO = DOCUMENTOS / "catalogo.json"    # qué documentos debe tener la biblioteca + pistas para encontrarlos
 MANIFIESTO = DOCUMENTOS / "manifiesto.json"  # huella (SHA-256), URL y fechas de cada documento guardado
-FUENTES = RAIZ / "fuentes.json"            # dónde buscar cada entidad (mapa de fuentes)
-BITACORA = RAIZ / "bitacora.jsonl"         # una línea por cada acción de las herramientas
+FUENTES = SISTEMA / "fuentes.json"    # dónde buscar cada entidad (mapa de fuentes)
+BITACORA = SISTEMA / "bitacora.jsonl"  # una línea por cada acción de las herramientas
 TRABAJO = RAIZ / "trabajo"                 # archivos de inspección del AGENTE: solo durante un proceso
-VERSION_CATALOGO = 3                       # esquema de documentos/catalogo.json (referencia/esquema.md)
-VERSION_MANIFIESTO = 3                     # esquema de documentos/manifiesto.json
+VERSION_CATALOGO = 3                       # esquema de biblioteca/catalogo.json (sistema/referencia/esquema.md)
+VERSION_MANIFIESTO = 3                     # esquema de biblioteca/manifiesto.json
 UMBRAL_COMPRIMIR_MB = 60                   # comprimir trabaja con los PDF que pasan de esto
 LIMITE_GITHUB_MB = 100                     # GitHub rechaza archivos de este tamaño o más
 
@@ -514,11 +516,13 @@ def contar_archivos(carpeta: Path) -> int:
     return sum(1 for f in carpeta.rglob("*") if f.is_file()) if carpeta.exists() else 0
 
 
-# Lo que debe haber en la raíz del proyecto (lo demás se avisa: suelen ser restos de un agente)
-_RAIZ_ESPERADA = {"README.md", "AGENTS.md", "CLAUDE.md", "LICENSE", "CAMBIOS.md", "biblioteca.py", "fuentes.json",
-                  "bitacora.jsonl", "requirements.txt", "pyproject.toml", "herramientas", "pruebas", "referencia",
-                  "documentos", "trabajo", ".agents", ".claude", ".git", ".gitignore", ".gitattributes", ".github",
+# Lo que debe haber en la raíz del repositorio (lo demás se avisa: suelen ser restos de un agente)
+_RAIZ_ESPERADA = {"README.md", "AGENTS.md", "CLAUDE.md", "LICENSE", "biblioteca", "sistema", "trabajo", ".agents",
+                  ".claude", ".git", ".gitignore", ".gitattributes", ".github",
                   ".vscode", ".idea", ".cursor", ".venv"}    # editores y un entorno propio: de la persona, no se avisan
+# Lo que debe haber en sistema/
+_SISTEMA_ESPERADO = {"biblioteca.py", "herramientas", "pruebas", "referencia", "fuentes.json", "bitacora.jsonl",
+                          "CAMBIOS.md", "requirements.txt", "pyproject.toml"}
 # Archivos que crean el Finder y el Explorador por su cuenta: no son del proyecto; --limpiar los borra
 BASURA_SO = {".DS_Store", "Thumbs.db", "desktop.ini"}
 # Cachés de las herramientas de desarrollo si se corren a mano (biblioteca.py pruebas las deja fuera); --limpiar las borra
@@ -553,16 +557,17 @@ def temporales_en_proyecto(todos: bool = False) -> list[Path]:
 
 
 def inesperados() -> list[Path]:
-    """Archivos o carpetas que no son parte del proyecto en su raíz (p. ej. un listado que el agente dejó ahí). No se
-    borran solos: podrían ser de una persona."""
-    return [p for p in RAIZ.iterdir()
-            if p.name not in _RAIZ_ESPERADA and p.name not in BASURA_SO and p.name not in CACHES_DESARROLLO]
+    """Archivos o carpetas que no son parte del proyecto en su raíz ni en sistema/ (p. ej. un listado que el
+    agente dejó ahí). No se borran solos: podrían ser de una persona."""
+    return [p for carpeta, esperado in ((RAIZ, _RAIZ_ESPERADA), (SISTEMA, _SISTEMA_ESPERADO))
+            for p in sorted(carpeta.iterdir())
+            if p.name not in esperado and p.name not in BASURA_SO and p.name not in CACHES_DESARROLLO]
 
 
 def basura() -> list[Path]:
     """Lo que el sistema operativo o las herramientas de desarrollo crean por su cuenta en el proyecto (.DS_Store,
     Thumbs.db, .ruff_cache/...): no es un error, pero --limpiar lo borra para que la carpeta quede limpia."""
-    restos = [RAIZ / c for c in CACHES_DESARROLLO if (RAIZ / c).exists()]
+    restos = [base / c for base in (RAIZ, SISTEMA) for c in CACHES_DESARROLLO if (base / c).exists()]
     for carpeta, _subcarpetas, archivos in _recorrer(RAIZ):
         restos += [carpeta / a for a in archivos if a in BASURA_SO]
     return restos
@@ -601,7 +606,7 @@ def limpiar_temporales() -> tuple[int, int, list[Path]]:
             borrados += n
         elif TRABAJO not in fallidos:
             fallidos.append(TRABAJO)
-    # carpetas vacías que dejaron mover/renombrar/retirar-pdf dentro de documentos/
+    # carpetas vacías que dejaron mover/renombrar/retirar-pdf dentro de biblioteca/
     if DOCUMENTOS.exists():
         for carpeta in sorted((c for c in DOCUMENTOS.rglob("*") if c.is_dir()), key=lambda c: -len(c.parts)):
             try:
@@ -726,7 +731,8 @@ def cargar_catalogo() -> dict:
         salir_con_error(f"No se encontró un catálogo válido en {CATALOGO}")
     if datos.get("version") != VERSION_CATALOGO:
         salir_con_error(f"{relativa(CATALOGO)} tiene el esquema {datos.get('version')!r}; esta versión de las herramientas "
-                        f"usa el {VERSION_CATALOGO} (referencia/esquema.md). Actualiza las herramientas o migra el catálogo.")
+                        f"usa el {VERSION_CATALOGO} (sistema/referencia/esquema.md). Actualiza las herramientas o "
+                        "migra el catálogo.")
     return datos
 
 
@@ -747,7 +753,7 @@ def cargar_manifiesto() -> dict:
         return {}
     if "documentos" not in datos or datos.get("version") != VERSION_MANIFIESTO:
         salir_con_error(f"{relativa(MANIFIESTO)} tiene el esquema {datos.get('version')!r}; esta versión de las "
-                        f"herramientas usa el {VERSION_MANIFIESTO} (referencia/esquema.md).")
+                        f"herramientas usa el {VERSION_MANIFIESTO} (sistema/referencia/esquema.md).")
     return datos["documentos"]
 
 
@@ -755,7 +761,7 @@ def guardar_manifiesto(manifiesto: dict) -> None:
     guardar_json(MANIFIESTO, {
         "descripcion": "Manifiesto de la Biblioteca Legal Libre de México: qué documento está guardado, de dónde salió, "
                        "su huella SHA-256, su fecha de reforma y el estado de su Markdown. Lo escriben solo las "
-                       "herramientas de biblioteca.py (esquema: referencia/esquema.md).",
+                       "herramientas de biblioteca.py (esquema: sistema/referencia/esquema.md).",
         "version": VERSION_MANIFIESTO, "actualizado": hoy(), "documentos": dict(sorted(manifiesto.items())),
     })
 

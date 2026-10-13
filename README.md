@@ -42,8 +42,8 @@ No tienes que pagar, registrarte ni instalar nada para consultarla.
 
 ## 2. Cómo consultar una ley
 
-1. Entra a la carpeta **[`documentos`](documentos)** y elige qué quieres: **[`PDF`](documentos/PDF)** tiene el
-   documento oficial y **[`Markdown`](documentos/Markdown)** su texto. Por dentro, las dos tienen las mismas carpetas.
+1. Entra a la carpeta **[`biblioteca`](biblioteca)** y elige qué quieres: **[`PDF`](biblioteca/PDF)** tiene el
+   documento oficial y **[`Markdown`](biblioteca/Markdown)** su texto. Por dentro, las dos tienen las mismas carpetas.
 
 2. Elige dónde buscar:
    
@@ -178,7 +178,7 @@ probado con **Claude Code**. Todo lo demás (Python, sus paquetes y el reconocim
 escaneados) lo instala el asistente.
 
 1. Descarga el proyecto (**Code → Download ZIP**, o `git clone`) y abre su carpeta en Claude Code.
-2. Escribe **`actualizar`**. La primera vez descarga la biblioteca completa en `documentos/`.
+2. Escribe **`actualizar`**. La primera vez descarga la biblioteca completa en `biblioteca/`.
 3. Al terminar recibes un informe y la pregunta *"¿Deseas convertirlos a Markdown?"*: responde `sí` o `no`.
 
 > [!IMPORTANT]
@@ -219,12 +219,12 @@ cada cambio lleva su justificación en una nota. Nada de publicidad ni contenido
 | Quieres…                                  | Haz esto                                                                                                                                   |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | Actualizar la biblioteca                  | Escribe `actualizar` en tu asistente de IA                                                                                                 |
-| Agregar una ley nueva                     | `python biblioteca.py catalogo agregar --nombre "…" --grupo "Federal/<Materia>"` (o `--entidad "<Estado>"`) `--url …`, y luego `descargar` |
-| Marcar una ley abrogada o inexistente     | `python biblioteca.py catalogo marcar <id> --estado abrogado\|no_existe --nota "…, fuente: …"`                                             |
-| Cambiarla de carpeta o corregir su nombre | `python biblioteca.py catalogo mover <id> --grupo "…"` · `catalogo renombrar <id> --nombre "…" --nota "…"`                                 |
-| Anotar algo nuevo de un portal            | `python biblioteca.py catalogo nota-fuente "<Estado>" "…"`                                                                                 |
-| Cambiar un agente o un comando de la IA   | Edita el original en `.agents/` y ejecuta `python biblioteca.py sincronizar`                                                               |
-| Cambiar la lógica del proceso             | Edita `AGENTS.md` (por debajo de 30 KiB; lo largo va en `referencia/`)                                                                     |
+| Agregar una ley nueva                     | `python sistema/biblioteca.py catalogo agregar --nombre "…" --grupo "Federal/<Materia>"` (o `--entidad "<Estado>"`) `--url …`, y luego `descargar` |
+| Marcar una ley abrogada o inexistente     | `python sistema/biblioteca.py catalogo marcar <id> --estado abrogado\|no_existe --nota "…, fuente: …"`                                             |
+| Cambiarla de carpeta o corregir su nombre | `python sistema/biblioteca.py catalogo mover <id> --grupo "…"` · `catalogo renombrar <id> --nombre "…" --nota "…"`                                 |
+| Anotar algo nuevo de un portal            | `python sistema/biblioteca.py catalogo nota-fuente "<Estado>" "…"`                                                                                 |
+| Cambiar un agente o un comando de la IA   | Edita el original en `.agents/` y ejecuta `python sistema/biblioteca.py sincronizar`                                                               |
+| Cambiar la lógica del proceso             | Edita `AGENTS.md` (por debajo de 31 KiB; lo largo va en `sistema/referencia/`)                                                                     |
 
 ---
 
@@ -242,8 +242,8 @@ Esta sección es para quien quiera entender o modificar el sistema.
 3. **Descarga, validación y registro.** `descargar` baja el archivo a una carpeta temporal fuera del proyecto,
    valida que sea un PDF o Word real (nunca una página web), revisa en la portada el nombre del documento y la
    entidad, compara su SHA-256 con el manifiesto y, si cambió, la fecha de última reforma. El resultado (NUEVO,
-   ACTUALIZADO, SIN_CAMBIO, SIN_CAMBIO_REAL, DUDOSO o ERROR) se guarda de forma atómica en `documentos/`, el
-   manifiesto, el catálogo y la bitácora ([`referencia/actualizar.md`](referencia/actualizar.md)).
+   ACTUALIZADO, SIN_CAMBIO, SIN_CAMBIO_REAL, DUDOSO o ERROR) se guarda de forma atómica en `biblioteca/`, el
+   manifiesto, el catálogo y la bitácora ([`sistema/referencia/actualizar.md`](sistema/referencia/actualizar.md)).
 4. **Trabajo en paralelo.** Una revisión completa reparte los estados en bloques entre hasta ocho subagentes; toda
    escritura del catálogo y del manifiesto pasa por un candado del sistema operativo.
 5. **Conversión** (opcional). `convertir` pasa a Markdown cada documento sin texto al día (MarkItDown; OCR en
@@ -253,7 +253,7 @@ Esta sección es para quien quiera entender o modificar el sistema.
    el manifiesto guarda las dos huellas.
 7. **Cierre.** `verificar --limpiar` revisa la integridad (huellas, rutas, estructura y esquema) y borra los
    temporales.
-8. **Publicación** (con autorización). `publicar` escribe `documentos/SHA256SUMS` y la entrada de `CAMBIOS.md`,
+8. **Publicación** (con autorización). `publicar` escribe `biblioteca/SHA256SUMS` y la entrada de `CAMBIOS.md`,
    hace el commit y solo sube a GitHub cuando el usuario lo autoriza.
 
 ```mermaid
@@ -274,35 +274,37 @@ flowchart LR
 
 ```
 Biblioteca_Legal_Libre_de_Mexico/
-├── biblioteca.py          ← la ÚNICA entrada: python biblioteca.py <herramienta>
-├── herramientas/          ← el código: un módulo por proceso (comun, instalar, catalogo, descargar, convertir,
-│                            comprimir, publicar, verificar)
-├── pruebas/               ← pruebas automáticas (python biblioteca.py pruebas)
-├── documentos/            ← LA BIBLIOTECA
+├── biblioteca/            ← LA BIBLIOTECA
 │   ├── PDF/<grupo>/<archivo>.pdf       el documento oficial (o .doc/.docx si la fuente solo publica Word)
 │   ├── Markdown/<grupo>/<archivo>.md   su texto en Markdown: la misma carpeta y el mismo nombre
 │   ├── catalogo.json                   QUÉ documentos debe tener la biblioteca + pistas para encontrarlos
 │   ├── manifiesto.json                 huella, URL, fecha de reforma y Markdown de cada documento
-│   └── SHA256SUMS                      huella de cada archivo de documentos/ (la escribe publicar)
-├── fuentes.json           ← DÓNDE buscar: portal oficial, navegación, patrones y trampas de cada entidad
-├── bitacora.jsonl         ← historial de cada acción
-├── referencia/            ← estructura, esquema (catálogo, manifiesto, Markdown), actualizar, comprimir
+│   └── SHA256SUMS                      huella de cada archivo de biblioteca/ (la escribe publicar)
+├── sistema/               ← TODO LO QUE LA MANTIENE AL DÍA
+│   ├── biblioteca.py      la ÚNICA entrada: python sistema/biblioteca.py <herramienta>
+│   ├── herramientas/      el código: un módulo por proceso (comun, instalar, catalogo, descargar, convertir,
+│   │                      comprimir, publicar, verificar)
+│   ├── pruebas/           pruebas automáticas (python sistema/biblioteca.py pruebas)
+│   ├── fuentes.json       DÓNDE buscar: portal oficial, navegación, patrones y trampas de cada entidad
+│   ├── bitacora.jsonl     historial de cada acción
+│   ├── CAMBIOS.md         historial de cada publicación
+│   ├── referencia/        estructura, esquema (catálogo, manifiesto, Markdown), actualizar, comprimir
+│   └── requirements.txt · pyproject.toml   paquetes (una sección por proceso) · configuración de pytest, ruff y mypy
 ├── README.md · AGENTS.md · CLAUDE.md   ← para personas · manual de la IA · entrada de Claude Code
-├── LICENSE · CAMBIOS.md                ← licencia · historial de cada publicación
-├── requirements.txt · pyproject.toml   ← paquetes (una sección por proceso) · configuración de pytest, ruff y mypy
+├── LICENSE                ← licencia
 ├── .agents/               ← ORIGINALES de comandos (skills/) y agentes (agents/)
 └── .claude/               ← Claude Code: comandos y agentes (generados) + permisos
 ```
 
 El entorno de Python, el OCR y los temporales se guardan **fuera** del proyecto (en la carpeta de datos del usuario
-y en la temporal del sistema). La organización de `documentos/` es una sola: `PDF/` y `Markdown/` con las mismas
+y en la temporal del sistema). La organización de `biblioteca/` es una sola: `PDF/` y `Markdown/` con las mismas
 carpetas (`Constitucion/`, `Federal/<Materia>/[Abrogadas/]`, `Federal/Tratados_internacionales/<tema>/`,
 `Estados/<Estado>/`; archivo = nombre oficial) y `verificar` marca ERROR si algo queda fuera
-([`referencia/estructura.md`](referencia/estructura.md)).
+([`sistema/referencia/estructura.md`](sistema/referencia/estructura.md)).
 
 ### 9.3 Las herramientas
 
-Se ejecutan desde la carpeta del proyecto: `python biblioteca.py <herramienta> …` (`python`, `python3` o `py`, según
+Se ejecutan desde la carpeta del proyecto: `python sistema/biblioteca.py <herramienta> …` (`python`, `python3` o `py`, según
 el sistema). Cada herramienta usa sus paquetes sola, explica sus opciones con `--help` y acepta `--json` (stdout
 lleva un objeto con `ok`, `codigo`, `resultado` y los datos; el texto va a stderr). Error de uso: código 64;
 Ctrl+C: 130.
@@ -328,20 +330,20 @@ Ctrl+C: 130.
 
 | Archivo                                | Qué guarda                                                                                                                                                                                | Quién lo modifica                     |
 | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| `documentos/catalogo.json`             | Cada documento: `id` permanente, `nombre`, `grupo`, `archivo`, `estado` (`vigente`, `abrogado`, `no_existe`, `no_localizado`), `entidad`, `nota`, `pistas`, `aviso`, `nombres_anteriores` | `catalogo` y `descargar`              |
+| `biblioteca/catalogo.json`             | Cada documento: `id` permanente, `nombre`, `grupo`, `archivo`, `estado` (`vigente`, `abrogado`, `no_existe`, `no_localizado`), `entidad`, `nota`, `pistas`, `aviso`, `nombres_anteriores` | `catalogo` y `descargar`              |
 | `fuentes.json`                         | Por entidad y para lo federal: portal oficial, cómo navegarlo, patrones de URL, trampas y notas de agentes                                                                                | `catalogo nota-fuente`                |
-| `documentos/manifiesto.json`           | Por id: `archivo`, `formato` (`pdf`, `doc` o `docx`), `sha256`, `bytes`, `url`, `fecha_reforma`, fechas de descarga y verificación, `markdown` y `compresion`                             | `descargar`, `convertir`, `comprimir` |
-| `documentos/SHA256SUMS` · `CAMBIOS.md` | Huella de cada archivo de `documentos/` · qué cambió en cada publicación                                                                                                                  | `publicar --preparar`                 |
+| `biblioteca/manifiesto.json`           | Por id: `archivo`, `formato` (`pdf`, `doc` o `docx`), `sha256`, `bytes`, `url`, `fecha_reforma`, fechas de descarga y verificación, `markdown` y `compresion`                             | `descargar`, `convertir`, `comprimir` |
+| `biblioteca/SHA256SUMS` · `CAMBIOS.md` | Huella de cada archivo de `biblioteca/` · qué cambió en cada publicación                                                                                                                  | `publicar --preparar`                 |
 | `bitacora.jsonl`                       | Una línea por acción, con fecha y resultado; `catalogo reporte` la resume                                                                                                                 | Todas las herramientas                |
 
-Los dos JSON de `documentos/` son la **interfaz pública** de la biblioteca (otros proyectos los leen): su esquema
-tiene versión y solo cambia con una migración documentada ([`referencia/esquema.md`](referencia/esquema.md)).
+Los dos JSON de `biblioteca/` son la **interfaz pública** de la biblioteca (otros proyectos los leen): su esquema
+tiene versión y solo cambia con una migración documentada ([`sistema/referencia/esquema.md`](sistema/referencia/esquema.md)).
 Quien descargue la biblioteca puede comprobar que ningún archivo cambió con `shasum -a 256 -c SHA256SUMS` (macOS)
-o `sha256sum -c SHA256SUMS` (Linux) dentro de `documentos/`.
+o `sha256sum -c SHA256SUMS` (Linux) dentro de `biblioteca/`.
 
 **Publicar.** Crea un repositorio **vacío** en GitHub, configura tu acceso (`gh auth login` o llaves SSH; la
 herramienta nunca pide contraseñas) y escribe `publicar`: la IA revisa, prepara, hace el commit y **te pregunta**
-antes de `python biblioteca.py publicar --push --remoto <URL>`. GitHub rechaza un envío de 2 GB o más: si hay más
+antes de `python sistema/biblioteca.py publicar --push --remoto <URL>`. GitHub rechaza un envío de 2 GB o más: si hay más
 de 1 GiB por subir, la herramienta lo sube sola en varias partes y, si una falla, repetir el comando sigue desde ahí.
 
 ### 9.5 Reglas y seguridad
@@ -361,19 +363,19 @@ de 1 GiB por subir, la herramienta lo sube sola en varias partes y, si una falla
 | Problema                                                                 | Solución                                                                                                        |
 | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
 | `python` no se reconoce                                                  | Usa `py` (Windows) o `python3` (macOS/Linux), o instala Python ([sección 7](#7-mantenerla-tú-mismo-con-una-ia)) |
-| `No module named ...` / "Falta la dependencia"                           | `python biblioteca.py instalar`                                                                                 |
+| `No module named ...` / "Falta la dependencia"                           | `python sistema/biblioteca.py instalar`                                                                                 |
 | `externally-managed-environment`                                         | No uses `pip` directo: `instalar` crea su propio entorno, fuera del proyecto                                    |
 | El Python de Homebrew falla al crear el entorno (`pyexpat`, `ensurepip`) | `instalar` lo detecta y muestra el comando (`brew reinstall --build-from-source python@3.12`)                   |
-| La conversión falla en un PDF escaneado                                  | `python biblioteca.py instalar` (instala el OCR en español) y vuelve a convertir                                |
+| La conversión falla en un PDF escaneado                                  | `python sistema/biblioteca.py instalar` (instala el OCR en español) y vuelve a convertir                                |
 | Tesseract recién instalado "no aparece"                                  | Cierra y abre la terminal y repite                                                                              |
-| La computadora se pone muy lenta al convertir                            | `python biblioteca.py convertir --procesos 1`, o cierra otros programas pesados                                 |
+| La computadora se pone muy lenta al convertir                            | `python sistema/biblioteca.py convertir --procesos 1`, o cierra otros programas pesados                                 |
 | "Esperando el candado..."                                                | Otra herramienta está guardando algo: espera unos segundos                                                      |
-| `verificar` marca temporales o avisos                                    | `python biblioteca.py verificar --limpiar` cuando no haya nada corriendo                                        |
+| `verificar` marca temporales o avisos                                    | `python sistema/biblioteca.py verificar --limpiar` cuando no haya nada corriendo                                        |
 | Un documento quedó DUDOSO                                                | Es normal: no se guardó algo que podía estar mal. Revisa el motivo en el informe                                |
 | `publicar` rechaza un archivo de más de 95 MiB                           | GitHub bloquea 100 MiB: `comprimir` (nivel 30) antes de publicar                                                |
 | Claude Code no ve los comandos `/actualizar`                             | Abre la carpeta del proyecto (la que tiene `AGENTS.md`) y confía en ella                                        |
 
-Más síntomas y soluciones: [`referencia/actualizar.md`](referencia/actualizar.md), sección 2.
+Más síntomas y soluciones: [`sistema/referencia/actualizar.md`](sistema/referencia/actualizar.md), sección 2.
 
 ### 9.7 Agentes de IA
 
@@ -381,13 +383,13 @@ Más síntomas y soluciones: [`referencia/actualizar.md`](referencia/actualizar.
   `/convertir`, `/comprimir` y `/publicar` (`.claude/skills/`), los subagentes `instalador`, `actualizador`,
   `convertidor`, `compresor` y `publicador` (`.claude/agents/`) y los permisos de `.claude/settings.json`.
 - **Los originales** de comandos y agentes viven en `.agents/`; los de `.claude/` se generan con
-  `python biblioteca.py sincronizar` y `verificar` marca ERROR si no están al día.
+  `python sistema/biblioteca.py sincronizar` y `verificar` marca ERROR si no están al día.
 - **Cualquier otro agente** que ejecute comandos puede operar la biblioteca leyendo `AGENTS.md`, que se mantiene por
-  debajo de 30 KiB porque algunos agentes solo leen los primeros 32 KiB.
+  debajo de 31 KiB porque algunos agentes solo leen los primeros 32 KiB.
 
 ### 9.8 Desarrollo y programas de terceros
 
-`python biblioteca.py instalar --para desarrollo` una vez; luego `python biblioteca.py pruebas` (pytest, ruff y
+`python sistema/biblioteca.py instalar --para desarrollo` una vez; luego `python sistema/biblioteca.py pruebas` (pytest, ruff y
 mypy, con sus cachés fuera del proyecto).
 
 Programas libres que usa el proyecto (cada uno con su licencia):

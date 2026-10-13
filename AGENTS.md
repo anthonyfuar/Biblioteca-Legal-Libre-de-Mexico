@@ -32,7 +32,7 @@ resuelves los casos raros e informas con honestidad. **Las herramientas** (`bibl
 te ayudan a buscar, y descargan, validan, comparan, registran, convierten, comprimen, instalan y verifican.
 
 **Regla de oro:** tú encuentras la URL; `descargar` decide si es nuevo, actualizado o igual.
-Nunca copies, muevas ni edites a mano archivos de `documentos/` (ni su catálogo ni su manifiesto).
+Nunca copies, muevas ni edites a mano archivos de `biblioteca/` (ni su catálogo ni su manifiesto).
 
 ---
 
@@ -51,7 +51,7 @@ Nunca copies, muevas ni edites a mano archivos de `documentos/` (ni su catálogo
 | `sí` (a la pregunta del final de ACTUALIZAR) | CONVERTIR | Los PDF pendientes del mismo alcance que se actualizó |
 | `comprimir` / `comprimir 30` | COMPRIMIR | Los PDF de más de 60 MB (pregunta el nivel si no lo dijo) |
 | `publicar` / `publicar <URL del repositorio>` | PUBLICAR | Revisar, preparar y hacer commit; preguntar antes del `push` |
-| `verificar` | — | Solo `python biblioteca.py verificar` y explicar el resultado |
+| `verificar` | — | Solo `python sistema/biblioteca.py verificar` y explicar el resultado |
 
 Si el usuario solo escribe "actualizar", el alcance es **todo**. Si hay ambigüedad entre procesos,
 pregunta; **nunca asumas que quiere convertir**.
@@ -62,32 +62,32 @@ pregunta; **nunca asumas que quiere convertir**.
 
 ```
 Biblioteca_Legal_Libre_de_Mexico/
-├── biblioteca.py      ← la ÚNICA entrada: python biblioteca.py <herramienta> [opciones]
-├── herramientas/      ← el código: un módulo por proceso
-├── pruebas/           ← pruebas automáticas (python biblioteca.py pruebas)
-├── documentos/        ← LA BIBLIOTECA: PDF/<grupo>/<archivo>.pdf · Markdown/<grupo>/<archivo>.md · catalogo.json
+├── biblioteca/        ← LA BIBLIOTECA: PDF/<grupo>/<archivo>.pdf · Markdown/<grupo>/<archivo>.md · catalogo.json
 │                        (QUÉ debe haber + PISTAS) · manifiesto.json (SHA-256, URL, reforma) · SHA256SUMS
-├── fuentes.json       ← DÓNDE buscar: portal, navegación, patrones y trampas por entidad
-├── bitacora.jsonl     ← una línea por acción (permanente)
-├── referencia/        ← consulta: estructura, esquema, actualizar, comprimir
-├── AGENTS.md CLAUDE.md ← este manual y la entrada para Claude Code
+├── sistema/           ← lo que la mantiene al día:
+│   ├── biblioteca.py  ← la ÚNICA entrada: python sistema/biblioteca.py <herramienta> [opciones]
+│   ├── herramientas/  ← el código: un módulo por proceso · pruebas/ (… biblioteca.py pruebas)
+│   ├── fuentes.json   ← DÓNDE buscar: portal, navegación, patrones y trampas por entidad
+│   ├── bitacora.jsonl ← una línea por acción (permanente) · CAMBIOS.md (cada publicación)
+│   ├── referencia/    ← consulta: estructura, esquema, actualizar, comprimir
+│   └── requirements.txt pyproject.toml
+├── README.md LICENSE AGENTS.md CLAUDE.md ← para personas, licencia, este manual y la entrada de Claude Code
 ├── .agents/ .claude/  ← ORIGINALES de comandos y agentes y sus copias GENERADAS (`sincronizar`)
-├── README.md CAMBIOS.md LICENSE requirements.txt pyproject.toml
 └── trabajo/           ← lo ÚNICO que tú puedes crear (listados, pruebas), solo durante un proceso
 ```
 
-**Estructura ÚNICA** (`referencia/estructura.md`; `catalogo grupos`): en `PDF/` y `Markdown/`, las mismas
+**Estructura ÚNICA** (`sistema/referencia/estructura.md`; `catalogo grupos`): en `PDF/` y `Markdown/`, las mismas
 carpetas: `Constitucion/[Reformas/]`, `Federal/Tratados_internacionales/<tema>/`, `Federal/<Materia>/[Abrogadas/]`
 y `Estados/<Estado>/`; archivo = nombre oficial. Nada fuera: lo abrogado lo mueve `marcar`; otra carpeta,
 `catalogo mover`.
 
-**Ejecuta todo desde la carpeta del proyecto** con `python biblioteca.py <herramienta> ...`
+**Ejecuta todo desde la carpeta del proyecto** con `python sistema/biblioteca.py <herramienta> ...`
 (`python`, `python3` o `py` según el sistema). El entorno de Python, el OCR y el candado viven **fuera** del
 proyecto; las herramientas lo usan solas.
 
 **Temporales:** lo único temporal que puedes crear va en `trabajo/`. **Al terminar CUALQUIER proceso** (el
-agente principal; nunca un subagente a la mitad) ejecuta `python biblioteca.py verificar --limpiar`, **siempre**,
-aunque el proceso falle: borra `trabajo/`, la caché y cualquier resto (`referencia/estructura.md`).
+agente principal; nunca un subagente a la mitad) ejecuta `python sistema/biblioteca.py verificar --limpiar`, **siempre**,
+aunque el proceso falle: borra `trabajo/`, la caché y cualquier resto (`sistema/referencia/estructura.md`).
 
 ---
 
@@ -99,7 +99,7 @@ aunque el proceso falle: borra `trabajo/`, la caché y cualquier resto (`referen
    sitio (Legismex/ITESM, ordenjuridico.gob.mx: `descargar` la rechaza); sin fuente oficial en línea,
    no localizado. Copia oficial incompleta: vale la de otro organismo público (p. ej. CNDH), declarándolo.
 3. **Nunca inventes una URL.** Solo usa URLs que viste en una página oficial o en una búsqueda.
-4. **Nunca edites a mano** `documentos/` (catálogo y manifiesto incluidos), `fuentes.json` ni la bitácora. Usa las
+4. **Nunca edites a mano** `biblioteca/` (catálogo y manifiesto incluidos), `fuentes.json` ni la bitácora. Usa las
    herramientas (`catalogo marcar/agregar/pista/nota-fuente`, `descargar`).
 5. **Nunca desactives la seguridad**: prohibido `curl -k`, `--insecure` o equivalentes.
 6. **Nunca conviertas sin permiso.** ACTUALIZAR no ejecuta `convertir`: termina preguntando.
@@ -149,7 +149,7 @@ aceptan `--json`: stdout trae un objeto con `ok`, `codigo`, `resultado` y los da
 | `RESULTADO: DUDOSO` | 2 | Nada se guardó. Puede ser otro documento, otro estado, una versión más vieja o no se pudo comparar | **Lee el motivo** y resuelve (sección 7, paso D) |
 | `RESULTADO: VARIOS_ENLACES` | 3 | Diste una página con varios PDFs posibles | Elige el correcto de la lista y repite con esa URL |
 
-Paso a paso de cómo decide (validación, SHA-256, fecha de reforma, candado): `referencia/actualizar.md` (sección 1).
+Paso a paso de cómo decide (validación, SHA-256, fecha de reforma, candado): `sistema/referencia/actualizar.md` (sección 1).
 
 ---
 
@@ -163,8 +163,8 @@ lo único pedido, cierra con `verificar --limpiar` (nunca con `--quitar`).
    instálalo (Windows `winget install -e --id Python.Python.3.12` · macOS `brew install python@3.12` ·
    Debian/Ubuntu `sudo apt-get install -y python3 python3-venv python3-pip`). Si `sudo` pide contraseña,
    **no la pidas**: dale el comando al usuario y espera.
-2. **Diagnóstico**: `python biblioteca.py instalar --revisar` (✔ / ✘ / →; no instala nada).
-3. **Instalar lo que falte**: `python biblioteca.py instalar --para actualizar` (≈25 MB), `--para comprimir` o
+2. **Diagnóstico**: `python sistema/biblioteca.py instalar --revisar` (✔ / ✘ / →; no instala nada).
+3. **Instalar lo que falte**: `python sistema/biblioteca.py instalar --para actualizar` (≈25 MB), `--para comprimir` o
    `--para convertir`; "instalar" a secas instala todo (con Tesseract para PDFs escaneados). Crea el entorno
    (fuera del proyecto), instala los paquetes, Tesseract y el idioma español si falta, y anota todo en `entorno.json`.
 4. **Resultado**: **0** = todo listo · **2** = listo sin OCR (avísalo si el proceso es CONVERTIR) ·
@@ -180,7 +180,7 @@ Para **cada** documento de tu alcance:
 
 ### Paso A — Lee su ficha
 ```
-python biblioteca.py catalogo ver <id>
+python sistema/biblioteca.py catalogo ver <id>
 ```
 Te dice: nombre oficial, entidad, estado (vigente/abrogado/...), URLs conocidas (punto de partida,
 con sus notas), si es federal con entrada en el índice de Diputados y su situación actual.
@@ -193,11 +193,11 @@ con sus notas), si es federal con entrada en el índice de Diputados y su situac
 
 ### Paso B — Obtén la URL VIGENTE y descárgala
 ```
-python biblioteca.py descargar <id> <URL vigente>
+python sistema/biblioteca.py descargar <id> <URL vigente>
 ```
 - **Manda la fuente oficial, no la pista.** Una URL vieja puede seguir respondiendo con una versión
   ANTERIOR (en Nayarit la vigente se llama `...-1.pdf` y la vieja sigue en línea). Por eso:
-  - Federal con índice de Diputados: `python biblioteca.py buscar diputados "<nombre>"` da la URL vigente.
+  - Federal con índice de Diputados: `python sistema/biblioteca.py buscar diputados "<nombre>"` da la URL vigente.
   - Estatal con listado (ver `catalogo fuentes`): toma el enlace actual de la fila de esa ley
     (`buscar enlaces`); si coincide con una pista, mejor.
   - Solo si no hay índice ni listado, usa la primera pista (lee su nota).
@@ -206,12 +206,12 @@ python biblioteca.py descargar <id> <URL vigente>
 ### Paso C — Si la pista falló (ERROR): busca la URL vigente
 Ve de lo más confiable a lo menos:
 
-1. **Mapa de fuentes**: `python biblioteca.py catalogo fuentes "<Entidad>"` (o `federal`): portal oficial,
+1. **Mapa de fuentes**: `python sistema/biblioteca.py catalogo fuentes "<Entidad>"` (o `federal`): portal oficial,
    **cómo navegarlo**, patrones de URL y trampas conocidas.
-2. **Lista los PDFs del portal**: `python biblioteca.py buscar enlaces "<URL del listado>" --filtro "palabras"`.
+2. **Lista los PDFs del portal**: `python sistema/biblioteca.py buscar enlaces "<URL del listado>" --filtro "palabras"`.
    El texto de cada enlace suele traer la **fecha de publicación y de última reforma**: compárala con
    la registrada (`catalogo ver`). Si recorta ("se muestran los primeros N"), sube `--limite`. Portales
-   con SPA, API o anti-robots: `referencia/actualizar.md` (sección 2).
+   con SPA, API o anti-robots: `sistema/referencia/actualizar.md` (sección 2).
 3. **Búsqueda web** restringida a sitios oficiales: `"<nombre exacto>" pdf site:gob.mx`, `"<nombre exacto>"
    congreso <estado> legislación vigente` o `... periódico oficial <estado> última reforma`.
 4. **Tu herramienta web** (WebFetch o similar) para páginas con JavaScript o que bloquean descargas.
@@ -221,14 +221,14 @@ También puedes pasarle a `descargar` la **página** que contiene el PDF: si el 
 sigue solo; si hay varios, te los lista (código 3).
 
 Si el portal bloquea las descargas automáticas pero tú sí pudiste obtener el PDF por otro medio,
-regístralo con su URL oficial: `python biblioteca.py descargar <id> --archivo trabajo/x.pdf --origen <URL>`.
+regístralo con su URL oficial: `python sistema/biblioteca.py descargar <id> --archivo trabajo/x.pdf --origen <URL>`.
 Cuando descubras algo nuevo de un portal (cambió de ruta, ahora bloquea, hay un listado mejor), **déjalo
-escrito** para el siguiente agente: `python biblioteca.py catalogo nota-fuente "<Entidad>" "lo que aprendiste, con la URL"`.
+escrito** para el siguiente agente: `python sistema/biblioteca.py catalogo nota-fuente "<Entidad>" "lo que aprendiste, con la URL"`.
 
 ### Paso D — Si salió DUDOSO: razona antes de decidir
 Primero inspecciona sin guardar nada:
 ```
-python biblioteca.py descargar <id> <url> --revisar [--buscar "abroga"]
+python sistema/biblioteca.py descargar <id> <url> --revisar [--buscar "abroga"]
 ```
 Muestra el inicio del texto, la fecha y la revisión del título; `--buscar` muestra los fragmentos de TODO
 el PDF con ese texto (transitorios). Una alarma del NOMBRE confirmada con `--forzar` no se repite en esa
@@ -245,13 +245,13 @@ misma URL mientras sea idéntica. Según el motivo:
 
 ### Paso E — Casos jurídicos
 - **Ley abrogada** (ya no vigente, sin sustituta): conserva la última versión y márcala:
-  `python biblioteca.py catalogo marcar <id> --estado abrogado --nota "Abrogada por ... (DOF/PO fecha), fuente: URL"`
+  `python sistema/biblioteca.py catalogo marcar <id> --estado abrogado --nota "Abrogada por ... (DOF/PO fecha), fuente: URL"`
   Si nunca se descargó, busca su última versión (listado de abrogadas del portal o periódico oficial) y
   descárgala **antes** de marcarla (orden: `renombrar` si hace falta, descargar, marcar). Si ya no está
   en ninguna fuente oficial en línea, agrega `--sin-pdf` (deja de ser pendiente).
 - **Ley sustituida por otra** (p. ej. en 2025 la *Ley de Hidrocarburos* fue sustituida por la *Ley del
   Sector Hidrocarburos*): marca la vieja como `abrogado` con nota y **agrega la nueva**:
-  `python biblioteca.py catalogo agregar --nombre "<nombre oficial nuevo>" --grupo "Federal/<Materia>" | --entidad "<Estado>" --url <url>`
+  `python sistema/biblioteca.py catalogo agregar --nombre "<nombre oficial nuevo>" --grupo "Federal/<Materia>" | --entidad "<Estado>" --url <url>`
   y luego descárgala con `descargar`.
 - **Ley renombrada** (sigue vigente; un decreto le cambió el nombre, p. ej. "...Vida Libre de Violencia" ->
   "...Vida Libre de Violencias") **o nombre del catálogo inexacto**:
@@ -276,9 +276,9 @@ misma URL mientras sea idéntica. Según el motivo:
 
 ### Fase 0 — Preparación
 ```
-python biblioteca.py instalar --revisar --para actualizar   → si sale 1, PROCESO 1 con --para actualizar y continúa
-python biblioteca.py verificar               (estado inicial; anota errores previos)
-python biblioteca.py catalogo resumen
+python sistema/biblioteca.py instalar --revisar --para actualizar   → si sale 1, PROCESO 1 con --para actualizar y continúa
+python sistema/biblioteca.py verificar               (estado inicial; anota errores previos)
+python sistema/biblioteca.py catalogo resumen
 ```
 Anota la fecha y hora de inicio (`AAAA-MM-DD HH:MM`): la usarás en `catalogo reporte --desde`.
 
@@ -298,7 +298,7 @@ Aplica la **sección 7** a cada documento del bloque. **No conviertas.**
 
 ### Fase 3 — Verificación y limpieza
 ```
-python biblioteca.py verificar --limpiar
+python sistema/biblioteca.py verificar --limpiar
 ```
 - **ERRORES**: corrígelos (normalmente registrando o re-descargando con las herramientas).
 - **PENDIENTES**: son trabajo que falta; se reportan. (Los "Markdown faltante o desactualizado" son
@@ -306,8 +306,8 @@ python biblioteca.py verificar --limpiar
 
 ### Fase 4 — Informe y PREGUNTA final
 ```
-python biblioteca.py catalogo reporte --desde "<fecha y hora de inicio>"
-python biblioteca.py convertir --listar       (solo cuenta; MISMO alcance: un estado → --entidad "<Estado>";
+python sistema/biblioteca.py catalogo reporte --desde "<fecha y hora de inicio>"
+python sistema/biblioteca.py convertir --listar       (solo cuenta; MISMO alcance: un estado → --entidad "<Estado>";
                                           federal → --entidad federal; pendientes o una ley → --id <ids>)
 ```
 Escribe un informe **en español** con:
@@ -331,45 +331,45 @@ ejecuta el **PROCESO 3** con ese mismo filtro. Si dice que no o no responde, **t
 
 Solo corre cuando el usuario **lo pide** ("convertir") o **acepta** la pregunta final de ACTUALIZAR.
 
-1. **Dependencias:** `python biblioteca.py instalar --revisar`. Si sale 1, o si falta el OCR y quieres
-   convertir escaneados, ejecuta el PROCESO 1 completo (`python biblioteca.py instalar`).
-2. **Qué hay pendiente:** `python biblioteca.py convertir --listar` (acepta `--entidad`, `--grupo`, `--id`).
+1. **Dependencias:** `python sistema/biblioteca.py instalar --revisar`. Si sale 1, o si falta el OCR y quieres
+   convertir escaneados, ejecuta el PROCESO 1 completo (`python sistema/biblioteca.py instalar`).
+2. **Qué hay pendiente:** `python sistema/biblioteca.py convertir --listar` (acepta `--entidad`, `--grupo`, `--id`).
    Si el usuario no había aceptado explícitamente una cantidad, dile cuántos son y confirma.
-3. **Convertir:** `python biblioteca.py convertir` (todo lo pendiente; `--entidad "Jalisco"`, `--grupo`, `--id ...`
+3. **Convertir:** `python sistema/biblioteca.py convertir` (todo lo pendiente; `--entidad "Jalisco"`, `--grupo`, `--id ...`
    para una parte). Un PDF por subproceso, **máximo 5 a la vez** (por defecto 3); nunca dos `convertir`
    juntos. El OCR en español y los reintentos por tiempo son automáticos. Puede tardar horas con toda la
    biblioteca: si tu entorno corta procesos largos, hazlo por partes e informa el avance.
 4. **Fallas:** reintenta una vez con `--id <id>`. Si dice "OCR no disponible", ejecuta
-   `python biblioteca.py instalar` (con OCR) y reintenta. Si sigue fallando, repórtalo.
-5. **Verificación y limpieza:** `python biblioteca.py verificar --limpiar` (→ `INTEGRIDAD: OK`).
+   `python sistema/biblioteca.py instalar` (con OCR) y reintenta. Si sigue fallando, repórtalo.
+5. **Verificación y limpieza:** `python sistema/biblioteca.py verificar --limpiar` (→ `INTEGRIDAD: OK`).
 6. **Informe:** cuántos se convirtieron, cuántos con OCR, cuáles fallaron y por qué.
 
 Un Markdown está pendiente cuando `markdown.sha256_origen` (manifiesto) ya no es la huella del documento actual.
-Cada Markdown se guarda **estructurado** (`referencia/esquema.md`, sección 2: front-matter, `#### Artículo N`, párrafos
+Cada Markdown se guarda **estructurado** (`sistema/referencia/esquema.md`, sección 2: front-matter, `#### Artículo N`, párrafos
 unidos, sin ruido de paginación; validado sin pérdida de palabras). Si `--listar` dice que hay Markdown "con
-formato anterior", `python biblioteca.py convertir --reestructurar` reaplica el formato sin reconvertir.
+formato anterior", `python sistema/biblioteca.py convertir --reestructurar` reaplica el formato sin reconvertir.
 
 ### 9.1 PROCESO 4 — COMPRIMIR (agente `compresor`)
 Solo si el usuario lo pide. Regla fija: los PDF de **más de 60 MB** (GitHub rechaza 100 MB o más).
-1. `python biblioteca.py instalar --revisar --para comprimir` (si sale 1, PROCESO 1 con `--para comprimir`).
-2. `python biblioteca.py comprimir --listar`: peso y tipo de cada uno. Si no hay, dilo y cierra.
+1. `python sistema/biblioteca.py instalar --revisar --para comprimir` (si sale 1, PROCESO 1 con `--para comprimir`).
+2. `python sistema/biblioteca.py comprimir --listar`: peso y tipo de cada uno. Si no hay, dilo y cierra.
 3. **Pregunta el nivel** (salvo que ya lo dijo), con sus advertencias: **10** sin pérdida · **30
    RECOMENDADO**, pérdida invisible (tablas y texto escaneados en 16 grises) · **50** pérdida mínima
    (fotos en JPEG 85) · **80** pérdida visible. Sin respuesta, no comprimas.
-4. `python biblioteca.py comprimir --nivel N`: cada PDF se verifica contra el original (páginas, texto,
+4. `python sistema/biblioteca.py comprimir --nivel N`: cada PDF se verifica contra el original (páginas, texto,
    imagen de cada página) antes de reemplazarlo; el manifiesto guarda la huella del oficial.
 5. Cierre: `verificar --limpiar`. Informe: antes → después y verificación.
-Método, variaciones por tipo de PDF y mediciones: `referencia/comprimir.md`.
+Método, variaciones por tipo de PDF y mediciones: `sistema/referencia/comprimir.md`.
 
 ### 9.2 PROCESO 5 — PUBLICAR (agente `publicador`)
-Solo si el usuario lo pide. Un solo repositorio (herramientas + `documentos/`), rama `main`, sin LFS.
-1. `python biblioteca.py publicar --revisar`: integridad, archivos > 95 MiB (GitHub bloquea 100 MiB: ofrece
+Solo si el usuario lo pide. Un solo repositorio (herramientas + `biblioteca/`), rama `main`, sin LFS.
+1. `python sistema/biblioteca.py publicar --revisar`: integridad, archivos > 95 MiB (GitHub bloquea 100 MiB: ofrece
    `comprimir`), `SHA256SUMS`, qué entraría en `CAMBIOS.md`, tamaño del repositorio y remoto.
-2. `python biblioteca.py publicar --preparar`: exige `INTEGRIDAD: OK`; escribe `documentos/SHA256SUMS` y la
+2. `python sistema/biblioteca.py publicar --preparar`: exige `INTEGRIDAD: OK`; escribe `biblioteca/SHA256SUMS` y la
    entrada de `CAMBIOS.md` desde la bitácora. Si no hay cambios desde la última publicación, dilo y cierra.
-3. `python biblioteca.py publicar --commit`: commit con el resumen de la entrada.
+3. `python sistema/biblioteca.py publicar --commit`: commit con el resumen de la entrada.
 4. **Pregunta** "¿Autorizas subirlo a GitHub (`git push`)?" (y la URL, si no hay remoto). Solo con un "sí"
-   claro: `python biblioteca.py publicar --push [--remoto URL]`. Nunca `git push` por tu cuenta.
+   claro: `python sistema/biblioteca.py publicar --push [--remoto URL]`. Nunca `git push` por tu cuenta.
 5. Informe: commit, lo publicado y el resultado del `push` (o que quedó listo sin subir).
 Códigos: 0 hecho · 1 error o no lista (`--revisar` con errores o sin `--preparar`; `--commit` sin cambios: la
 bitácora sola no cuenta) · 64 uso. El `push` deja una línea en la bitácora que entra en la publicación siguiente.
@@ -401,21 +401,21 @@ Sin subagentes: haz los bloques uno tras otro tú mismo.
 
 Cambian **cada año**: las Leyes de Ingresos (federal y 32 estatales, nov.–dic.) y la Resolución
 Miscelánea Fiscal (dic., más modificaciones durante el año). Con cada paquete económico: CFF, ISR, IVA,
-IEPS. Con frecuencia: constituciones y códigos. Qué hacer al cambiar de año: `referencia/actualizar.md` (sección 4).
+IEPS. Con frecuencia: constituciones y códigos. Qué hacer al cambiar de año: `sistema/referencia/actualizar.md` (sección 4).
 
 ---
 
 ## 12. Dónde buscar
 
-Lo **detallado y vivo** está en `fuentes.json`: `python biblioteca.py catalogo fuentes "<Entidad>"` (o `federal`;
+Lo **detallado y vivo** está en `fuentes.json`: `python sistema/biblioteca.py catalogo fuentes "<Entidad>"` (o `federal`;
 `--resumen` o `--seccion` si es muy larga). Federal: Diputados (`LeyesBiblio/`), SAT (RMF), SRE/ONU/OEA/OIT
-(tratados). Estatal, en orden: congreso local → periódico oficial → ejecutivo o judicial. Resumen: `referencia/actualizar.md` (sección 3).
+(tratados). Estatal, en orden: congreso local → periódico oficial → ejecutivo o judicial. Resumen: `sistema/referencia/actualizar.md` (sección 3).
 
 ---
 
 ## 13. Cuando algo falla
 
-Antes de buscar a ciegas, consulta **`referencia/actualizar.md`**, sección 2 (síntomas, causas y soluciones aprendidas:
+Antes de buscar a ciegas, consulta **`sistema/referencia/actualizar.md`**, sección 2 (síntomas, causas y soluciones aprendidas:
 HTML disfrazado de PDF, URLs que cambian, certificados incompletos, portales con JavaScript, leyes homónimas de
 otro estado). Cómo decide `descargar`: sección 1 del mismo archivo.
 
@@ -423,7 +423,7 @@ otro estado). Cómo decide `descargar`: sección 1 del mismo archivo.
 
 ## 14. Lo que NO debes hacer (además de las reglas de la sección 4)
 
-- Descargar con `curl`/`wget` directo a `documentos/` (se salta validación, comparación y registro).
+- Descargar con `curl`/`wget` directo a `biblioteca/` (se salta validación, comparación y registro).
 - Ejecutar varios `convertir` (o `comprimir`) al mismo tiempo; comprimir sin preguntar el nivel.
 - Instalar con `pip` por tu cuenta (usa `instalar`); escribir scripts propios si una herramienta ya lo hace (`descargar --lote`).
 - Hacer `git push` (o `git remote add`) por tu cuenta: solo `publicar --push` tras la autorización del usuario.

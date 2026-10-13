@@ -1,7 +1,8 @@
 """
 biblioteca.py — Punto de entrada único de las herramientas de la Biblioteca Legal Libre de México.
 
-USO:  python biblioteca.py <herramienta> [opciones]        ayuda de cada una: python biblioteca.py <herramienta> --help
+USO:  python sistema/biblioteca.py <herramienta> [opciones]
+      ayuda de cada una: python sistema/biblioteca.py <herramienta> --help
 
   instalar     detecta e instala lo que falte: Python, entorno, paquetes y OCR en español
   catalogo     consulta y mantiene el catálogo: resumen, listar, ver, fuentes, marcar, agregar, mover, renombrar...

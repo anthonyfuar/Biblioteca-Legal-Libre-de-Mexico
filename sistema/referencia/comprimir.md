@@ -14,9 +14,9 @@ elegir el nivel.
 ## 1. Paso a paso (lo que hace `comprimir`)
 
 ```
-python biblioteca.py comprimir --listar          1. qué PDF pasan de 60 MB y de qué están hechos
+python sistema/biblioteca.py comprimir --listar          1. qué PDF pasan de 60 MB y de qué están hechos
 (el agente pregunta el nivel)                  2. el usuario elige 10, 30 (recomendado), 50 u 80
-python biblioteca.py comprimir --nivel 30         3. comprime, verifica y registra
+python sistema/biblioteca.py comprimir --nivel 30         3. comprime, verifica y registra
 ```
 
 Por cada PDF, `comprimir`:
@@ -27,7 +27,7 @@ Por cada PDF, `comprimir`:
    cada página y la **imagen de cada página** dibujada a 100 dpi. En el nivel 10 se exigen píxeles
    idénticos; en los demás, una fidelidad mínima (PSNR): 38 dB en el nivel 30, 32 dB en el 50 y 24 dB en
    el 80.
-4. **Solo si pasa y pesa menos**, reemplaza al original en `documentos/`. Si no, lo descarta y avisa
+4. **Solo si pasa y pesa menos**, reemplaza al original en `biblioteca/`. Si no, lo descarta y avisa
    (`NO SE USA`). El resultado es **reproducible**: el mismo PDF con el mismo nivel da siempre el mismo archivo
    (el `/ID` del PDF se calcula del contenido, no del reloj), así que repetir la compresión no cambia la huella.
 5. **Registra** en `manifiesto.json` → `compresion`, **siempre las dos huellas y los dos tamaños**, para poder
@@ -109,7 +109,7 @@ fidelidad por debajo de su mínimo, el comprimido se rechaza y se conserva el or
 | **pypdfium2** (PDFium) | Dibujar cada página y extraer su texto para la verificación | Apache 2.0 / BSD |
 | **zlib** (biblioteca estándar de Python) | Compresión Flate de las imágenes en gris | zlib |
 
-Se instalan con `python biblioteca.py instalar` (están en `requirements.txt`).
+Se instalan con `python sistema/biblioteca.py instalar` (están en `requirements.txt`).
 
 **Qué NO se usa y por qué:**
 - **Ghostscript `/ebook` o `/screen`:** bajan la resolución de todo sin verificar.
@@ -127,7 +127,7 @@ Se instalan con `python biblioteca.py instalar` (están en `requirements.txt`).
 | `NO SE USA (no pesa menos)` | El PDF ya estaba bien comprimido | Nada que hacer |
 | `sigue pasando de 100 MB` | El nivel no alcanza para ese contenido | `--nivel 50 --recomprimir --id <id>`. Si ni el 80 alcanza, se puede dividir en tomos a mano (sin pérdida) |
 | `OMITIDO ...: ya está comprimido` | Ya se comprimió antes | Para otro nivel: `--recomprimir` (parte del ya comprimido y lo verifica contra él) |
-| `Falta una dependencia para comprimir` | No se ha instalado pikepdf u otra | `python biblioteca.py instalar` |
+| `Falta una dependencia para comprimir` | No se ha instalado pikepdf u otra | `python sistema/biblioteca.py instalar` |
 
 **Modo prueba:** `--salida CARPETA` deja los comprimidos en otra carpeta sin tocar la biblioteca ni el
 manifiesto, para compararlos con calma antes de aplicar un nivel.

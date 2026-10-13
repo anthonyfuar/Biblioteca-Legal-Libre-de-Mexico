@@ -45,7 +45,7 @@ flowchart TD
    lista (código 3). Un PDF de menos de 10 KB se rechaza salvo `--permitir-pequeno`.
    **Fuente oficial en Word.** Si llega un **Word** (`.doc` o `.docx`, reconocido por su firma interna y no por
    la extensión), se guarda ESE archivo tal cual, sin convertirlo, en la carpeta de su grupo y con su extensión real
-   (`documentos/PDF/Estados/Baja_California_Sur/Ley_de_Salud_para_el_Estado_de_Baja_California_Sur.doc`). Su huella
+   (`biblioteca/PDF/Estados/Baja_California_Sur/Ley_de_Salud_para_el_Estado_de_Baja_California_Sur.doc`). Su huella
    (SHA-256) es la del archivo oficial: cualquiera puede descargarlo y comprobarla. El texto para las
    revisiones se lee con el lector de Word propio (`biblioteca.py word`). **Una página web nunca se guarda**: la
    biblioteca solo guarda PDF o Word (AGENTS.md, regla 13).
@@ -80,7 +80,7 @@ flowchart TD
      guardado y también su URL: el registro sigue diciendo de dónde salió ese archivo. Para reemplazar una
      copia de otro sitio por el Word oficial, `--forzar`; el archivo del formato anterior se borra.
 5. **Registra**: guarda el PDF en su lugar de la estructura única, `PDF/<grupo>/<archivo>.pdf`
-   (`referencia/estructura.md`; si el documento no la cumple, se detiene sin escribir nada), y anota en el
+   (`sistema/referencia/estructura.md`; si el documento no la cumple, se detiene sin escribir nada), y anota en el
    manifiesto (archivo, SHA-256, bytes, URL, fecha de reforma, fecha de descarga y de verificación),
    la URL como primera pista en el catálogo (así la próxima vez ya se sabe dónde está) y la bitácora.
    Durante el proceso, la versión reemplazada se guarda en `anteriores/`, en la carpeta temporal del sistema (se borra al cerrar
@@ -93,7 +93,7 @@ muere el sistema suelta el candado solo. Guardar el catálogo, el manifiesto o u
 interrupción nunca deja un archivo a medias, y si el manifiesto no se pudo guardar se deshace el cambio
 del PDF. Si la ficha del manifiesto no coincide con el PDF guardado, un SIN_CAMBIO la corrige.
 
-### Descarga robusta sin bajar la seguridad (`herramientas/descargar.py`, con `requests`)
+### Descarga robusta sin bajar la seguridad (`sistema/herramientas/descargar.py`, con `requests`)
 
 - User-Agent de navegador; acentos y espacios de la URL codificados; solo `http://` y `https://`.
 - Hasta 3 reintentos con espera creciente (2, 6 y 18 s, ±25 %) ante 429, 500-504 y cortes de red, respetando
@@ -104,7 +104,7 @@ del PDF. Si la ficha del manifiesto no coincide con el PDF guardado, un SIN_CAMB
   (por `Content-Length` o por bytes recibidos); un archivo parcial nunca se queda.
 - Ctrl+C detiene la descarga al instante, aunque el servidor se haya quedado callado.
 
-### Lectura de la fecha de última reforma (`herramientas/descargar.py`)
+### Lectura de la fecha de última reforma (`sistema/herramientas/descargar.py`)
 
 Formatos que entiende (todos con pruebas en `pruebas/test_descargar.py`): "Última Reforma DOF 09-04-2026"; "última
 reforma publicada … el 15 de marzo de 2025", "ÚLTIMA REFORMA … 17 MAYO 2025" y "… el 1o. de enero de 2024";
@@ -157,7 +157,7 @@ VARIOS_ENLACES ni los errores de uso.
 | Ley sustituida por otra | Reformas estructurales (p. ej. leyes de energía 2025) | `AGENTS.md` §7 paso E: marcar la vieja `abrogado` y `agregar` la nueva |
 | Ley renombrada (misma ley, nombre nuevo) | Un decreto cambió su denominación (p. ej. "Vida Libre de Violencia" -> "Violencias") | `catalogo renombrar <id> --nombre ... --nota ...` |
 | Documento de un año específico (RMF 2026) | Se sustituye cada año | `AGENTS.md` §11 (calendario) |
-| La versión vigente solo está en Word (`buscar enlaces` marca la fila "[WORD, no es PDF]") | Algunos portales (Querétaro, BCS) publican la última reforma solo en .doc, o el PDF quedó más viejo que el Word | `descargar <id> <URL del .doc>`: reconoce el Word por su firma y lo guarda tal cual en `documentos/<grupo>/` (con su extensión `.doc`); su texto sale con MarkItDown o `word`. Si hay PDF oficial con la MISMA reforma, se conserva el PDF |
+| La versión vigente solo está en Word (`buscar enlaces` marca la fila "[WORD, no es PDF]") | Algunos portales (Querétaro, BCS) publican la última reforma solo en .doc, o el PDF quedó más viejo que el Word | `descargar <id> <URL del .doc>`: reconoce el Word por su firma y lo guarda tal cual en `biblioteca/PDF/<grupo>/` (con su extensión `.doc`); su texto sale con MarkItDown o `word`. Si hay PDF oficial con la MISMA reforma, se conserva el PDF |
 | El documento oficial solo existe como página web (HTML), sin PDF ni Word | P. ej. la lista cronológica de reformas constitucionales (`ref/cpeum_crono.htm`) | **No se guarda** (solo PDF o Word). Busca su PDF o Word en otra fuente oficial: para la lista cronológica se guarda el sumario oficial en PDF de Diputados (`sumario/CPEUM_sumario_crono.pdf`), aunque esté congelado, con nota. Si no hay ninguno, repórtalo |
 | Una pista del catálogo resultó ser de OTRO documento | Dato viejo o de la investigación | `catalogo pista <id> --url <url> --quitar` |
 | Un reglamento federal no aparece en `buscar diputados ... --reglamentos` | El índice `regla.htm` no enlista todos los reglamentos; varios viven en `LeyesBiblio/regla/nNNN.pdf` y los de tránsito/autotransporte en `LeyesBiblio/norma/reglamento.htm` (a veces solo `.doc`; cambiar `.doc` por `.pdf` funciona solo a veces) | Usa la pista del catálogo (`catalogo ver <id>`) o `buscar enlaces <esa página>`; si murió, busca en el sitio de la dependencia (p. ej. SICT) o en el DOF |
@@ -175,7 +175,7 @@ VARIOS_ENLACES ni los errores de uso.
 | Un abrogado sigue como pendiente | Nunca se guardó su última versión | Orden: `renombrar` si hace falta → **descargar** la última versión → `marcar --estado abrogado`. Si el texto ya no está en línea: `marcar ... --sin-pdf`. `--sin-pdf` no aplica a `no_existe` |
 | `ERROR: ... no es una fuente oficial` | La URL es de Legismex/ITESM, ordenjuridico.gob.mx u otro sitio no oficial | Busca el documento en el congreso, el periódico oficial u otro organismo público. Si no está en ninguno, no lo guardes: repórtalo como no localizado |
 | El Congreso del estado solo publica Word y no hay PDF oficial (BCS) | Su portal no genera PDF | Descarga el `.doc` del Congreso con `descargar` (se guarda tal cual; `--forzar` si reemplaza una copia de otro sitio de la misma reforma). No uses copias de otros sitios: la fuente es el Word oficial |
-| `falta el paquete olefile` al leer un `.doc` | El entorno no está al día | `python biblioteca.py instalar --sin-ocr` y repite |
+| `falta el paquete olefile` al leer un `.doc` | El entorno no está al día | `python sistema/biblioteca.py instalar --sin-ocr` y repite |
 | `renombrar` no cambia el id | Así no se rompen referencias | Sigue usando el id original; el archivo sí toma el nombre nuevo |
 | La ficha trae un AVISO con URLs "nuevas" | Pueden ser de la ley SUCESORA, no del documento | Lee la nota de cada pista antes de descargar bajo ese id |
 
@@ -183,7 +183,7 @@ VARIOS_ENLACES ni los errores de uso.
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| Un PDF pasa de 100 MB y GitHub lo rechaza | Imágenes guardadas en un formato pesado (tablas como fotos JPEG a color, escaneos de 1 bit en Flate) | PROCESO 4: `comprimir` (nivel 30 recomendado). Método y variantes: `referencia/comprimir.md` |
+| Un PDF pasa de 100 MB y GitHub lo rechaza | Imágenes guardadas en un formato pesado (tablas como fotos JPEG a color, escaneos de 1 bit en Flate) | PROCESO 4: `comprimir` (nivel 30 recomendado). Método y variantes: `sistema/referencia/comprimir.md` |
 | `comprimir` dice `NO SE USA` | El comprimido no pasó la verificación (texto, páginas o fidelidad) o no pesa menos | Se conserva el original: nada se perdió. Prueba otro nivel |
 | Tras comprimir, `descargar` no detecta cambios | Compara contra la huella del PDF oficial (`compresion.sha256_original`), no contra el comprimido | Es lo esperado: si el oficial cambia, se guarda la versión nueva sin comprimir |
 | Tentación de usar Ghostscript `/ebook` o un compresor en línea | Bajan la resolución sin verificar | No: usa solo `comprimir`, que verifica cada página |
@@ -192,22 +192,22 @@ VARIOS_ENLACES ni los errores de uso.
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| "No module named ..." o "Falta la dependencia pdfminer" | No se ha ejecutado el instalador en esta computadora | PROCESO 1: `python biblioteca.py instalar` |
+| "No module named ..." o "Falta la dependencia pdfminer" | No se ha ejecutado el instalador en esta computadora | PROCESO 1: `python sistema/biblioteca.py instalar` |
 | `error: externally-managed-environment` al usar pip | Ubuntu/Debian recientes prohíben pip fuera de un entorno virtual | No uses pip directo: `instalar` crea el entorno (fuera del proyecto) y las herramientas lo usan solas |
 | Tesseract instalado pero "no aparece" | La terminal abierta no ve el PATH nuevo | Cerrar y abrir la terminal; `instalar` también lo busca en las rutas típicas |
-| "Tesseract no tiene el idioma español" | El paquete del sistema no trae `spa` | `python biblioteca.py instalar` lo descarga a la carpeta de datos (`tessdata/`) sin permisos de administrador |
+| "Tesseract no tiene el idioma español" | El paquete del sistema no trae `spa` | `python sistema/biblioteca.py instalar` lo descarga a la carpeta de datos (`tessdata/`) sin permisos de administrador |
 | Un PDF grande "agota el tiempo" al convertir | Tiene cientos de páginas | `convertir` ya reintenta con más tiempo; un PDF grande NO es necesariamente escaneado |
 | La computadora se vuelve muy lenta al convertir | Demasiadas conversiones a la vez | Nunca más de 5 procesos ni dos `convertir` juntos; usa `--procesos 2` en equipos modestos |
-| Los permisos preaprobados no aplican y el editor pregunta por cada comando | El comando no empieza como en el manual (`./biblioteca.py`, otra ruta, `cd` antes) | Escribe siempre `python biblioteca.py <herramienta>` desde la carpeta del proyecto (`python3` o `py` según el sistema) |
+| Los permisos preaprobados no aplican y el editor pregunta por cada comando | El comando no empieza como en el manual (`./biblioteca.py`, otra ruta, `cd` antes) | Escribe siempre `python sistema/biblioteca.py <herramienta>` desde la carpeta del proyecto (`python3` o `py` según el sistema) |
 
 ### Al organizar (estructura única: `estructura.md`)
 
 | Síntoma | Causa | Solución |
 |---|---|---|
-| `no es parte de la estructura de la biblioteca` al usar `agregar` o `mover` | Carpeta inventada o con el nombre viejo (`Leyes_federales_...`, `01_Tratados...`) | `python biblioteca.py catalogo grupos` y usa uno de esos valores. Los estatales: solo `--entidad` |
+| `no es parte de la estructura de la biblioteca` al usar `agregar` o `mover` | Carpeta inventada o con el nombre viejo (`Leyes_federales_...`, `01_Tratados...`) | `python sistema/biblioteca.py catalogo grupos` y usa uno de esos valores. Los estatales: solo `--entidad` |
 | `verificar`: "está en X pero es 'abrogado'" | Se cambió el estado sin `marcar`, o se movió a mano | Ejecuta el `catalogo mover` que sugiere el error |
 | `verificar`: "su archivo ... no corresponde a su nombre" | El nombre cambió sin `renombrar` | Ejecuta el `catalogo mover <id> --grupo "<su grupo>"` que sugiere: renombra PDF y Markdown juntos |
-| `descargar` se detiene "No se escribió nada en documentos/" / `convertir` o `comprimir` dicen `OMITIDO ... fuera de la estructura` | El documento del catálogo tiene un grupo o archivo que no cumple la estructura | Corrígelo con `catalogo mover` y repite |
+| `descargar` se detiene "No se escribió nada en biblioteca/" / `convertir` o `comprimir` dicen `OMITIDO ... fuera de la estructura` | El documento del catálogo tiene un grupo o archivo que no cumple la estructura | Corrígelo con `catalogo mover` y repite |
 | PDF o Markdown "que no pertenece a ningún documento" | Alguien movió o copió archivos a mano | Regrésalo a su ruta (`catalogo ver <id>` la muestra) o bórralo si es una copia |
 
 ### Al cerrar un proceso
@@ -215,7 +215,7 @@ VARIOS_ENLACES ni los errores de uso.
 | Síntoma | Causa | Solución |
 |---|---|---|
 | "Esperando el candado (lo tiene el proceso N)..." | Otro agente está registrando algo en ese momento | Espera: se libera en segundos. Si ese proceso murió, el sistema operativo ya soltó el candado |
-| `verificar` da ERROR "N temporal(es) en el proyecto" | Quedaron archivos de trabajo (`trabajo/`), restos `*.tmp`/`*.pyc` o `__pycache__` | `python biblioteca.py verificar --limpiar` (solo el agente principal, al terminar) |
+| `verificar` da ERROR "N temporal(es) en el proyecto" | Quedaron archivos de trabajo (`trabajo/`), restos `*.tmp`/`*.pyc` o `__pycache__` | `python sistema/biblioteca.py verificar --limpiar` (solo el agente principal, al terminar) |
 | `--limpiar` avisa "NO se pudieron borrar" | Otro programa tiene abierto ese archivo | Ciérralo y repite `--limpiar` |
 | `verificar` muestra AVISOS "no es parte del proyecto" | Alguien dejó archivos fuera de `trabajo/` (p. ej. un listado en la raíz) | Si son tuyos y temporales, bórralos; si son de una persona, déjalos |
 
@@ -284,8 +284,8 @@ VARIOS_ENLACES ni los errores de uso.
 Algunos documentos llevan el año en su nombre (p. ej. "Resolución Miscelánea Fiscal 2026",
 "Ley de Ingresos ... para el Ejercicio Fiscal 2026"). Para el año nuevo:
 
-1. Agrega los documentos nuevos: `python biblioteca.py catalogo agregar --nombre "... 2027" --grupo "..." --url ...`
+1. Agrega los documentos nuevos: `python sistema/biblioteca.py catalogo agregar --nombre "... 2027" --grupo "..." --url ...`
    (la RMF y sus anexos: `--grupo "Federal/Fiscal/Resolucion_Miscelanea_Fiscal_2027"`).
 2. Marca los del año anterior como abrogados, con nota (los federales se mueven solos a `<Materia>/Abrogadas/`):
-   `python biblioteca.py catalogo marcar <id> --estado abrogado --nota "Sustituida por la RMF 2027 (DOF fecha)"`
+   `python sistema/biblioteca.py catalogo marcar <id> --estado abrogado --nota "Sustituida por la RMF 2027 (DOF fecha)"`
 3. En Diputados, la Ley de Ingresos del año que termina pasa a `LeyesBiblio/abro/` (p. ej. `abro/lif_2026.htm`).

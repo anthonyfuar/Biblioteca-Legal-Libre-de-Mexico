@@ -1,7 +1,7 @@
 {
-  "descripcion": "Catálogo de la Biblioteca Legal Libre de México: qué documentos debe tener la biblioteca y pistas para encontrarlos. Lo mantienen las herramientas (python biblioteca.py) y el agente actualizador (ver AGENTS.md); esquema: referencia/esquema.md.",
+  "descripcion": "Catálogo de la Biblioteca Legal Libre de México: qué documentos debe tener la biblioteca y pistas para encontrarlos. Lo mantienen las herramientas (python sistema/biblioteca.py) y el agente actualizador (ver AGENTS.md); esquema: sistema/referencia/esquema.md.",
   "version": 3,
-  "actualizado": "2026-10-12",
+  "actualizado": "2026-10-13",
   "documentos": [
     {
       "id": "federal__constitucion_politica_de_los_estados_unidos_mexicanos",

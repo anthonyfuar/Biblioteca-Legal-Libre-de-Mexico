@@ -2,7 +2,7 @@
 name: comprimir
 description: Comprime los PDF grandes de la Biblioteca Legal Libre de México (los de más de 60 MB) para que se puedan publicar (GitHub rechaza archivos de 100 MB o más). Úsala SOLO cuando el usuario escriba "comprimir", "comprime los pdf", "reducir el peso de los pdf" o acepte comprimir. ANTES de comprimir PREGUNTA el nivel (10, 30 recomendado, 50 u 80 %) advirtiendo de las posibles pérdidas. Cada PDF comprimido se verifica contra el original (páginas, texto e imagen de cada página).
 ---
-<!-- ORIGINAL (fuente única). Claude Code usa la copia generada en .claude/skills/: después de editarlo ejecuta python biblioteca.py sincronizar -->
+<!-- ORIGINAL (fuente única). Claude Code usa la copia generada en .claude/skills/: después de editarlo ejecuta python sistema/biblioteca.py sincronizar -->
 
 # Comprimir los PDF grandes
 
@@ -10,17 +10,17 @@ description: Comprime los PDF grandes de la Biblioteca Legal Libre de México (l
 usuario indique, si también pasan de 60 MB. Si el usuario ya dijo el nivel ("comprimir 30"), úsalo y no
 vuelvas a preguntar.
 
-Sigue `AGENTS.md`, sección 9.1, y el método de `referencia/comprimir.md`. Trabaja desde la carpeta del proyecto.
+Sigue `AGENTS.md`, sección 9.1, y el método de `sistema/referencia/comprimir.md`. Trabaja desde la carpeta del proyecto.
 
 ## 1. Dependencias
 ```
-python biblioteca.py instalar --revisar --para comprimir
+python sistema/biblioteca.py instalar --revisar --para comprimir
 ```
-Código **1** → delega en el agente **`instalador`** (o ejecuta `python biblioteca.py instalar --para comprimir`) y continúa.
+Código **1** → delega en el agente **`instalador`** (o ejecuta `python sistema/biblioteca.py instalar --para comprimir`) y continúa.
 
 ## 2. Qué hay que comprimir
 ```
-python biblioteca.py comprimir --listar
+python sistema/biblioteca.py comprimir --listar
 ```
 Muestra cada PDF de más de 60 MB, su peso y de qué está hecho (tablas o texto escaneados en gris, fotos a
 color, escaneo en blanco y negro, texto vectorial o mixto). Si dice `PENDIENTES: 0`, no hay nada que
@@ -42,7 +42,7 @@ Si el usuario no elige, **no comprimas**. Si responde "sí" sin nivel, usa el re
 
 ## 4. Comprimir
 ```
-python biblioteca.py comprimir --nivel <10|30|50|80>          (o con --id <ids> si pidió solo algunos)
+python sistema/biblioteca.py comprimir --nivel <10|30|50|80>          (o con --id <ids> si pidió solo algunos)
 ```
 - Cada PDF se comprime en una carpeta temporal, se **verifica** contra el original (mismo número de
   páginas, mismo texto en cada página e imagen de cada página: píxeles idénticos en el nivel 10 o una
@@ -57,7 +57,7 @@ python biblioteca.py comprimir --nivel <10|30|50|80>          (o con --id <ids> 
 
 ## 5. Cierre
 ```
-python biblioteca.py verificar --limpiar
+python sistema/biblioteca.py verificar --limpiar
 ```
 **La limpieza es obligatoria, siempre** (aunque algo haya fallado o se haya cancelado): `verificar`
 debe decir `Temporales: 0 en el proyecto | 0 fuera del proyecto` e `INTEGRIDAD: OK`, sin AVISOS de archivos

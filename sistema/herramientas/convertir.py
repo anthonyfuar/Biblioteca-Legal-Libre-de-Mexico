@@ -19,7 +19,7 @@ from typing import Any
 from herramientas.catalogo import huella_origen, markdown_al_dia, problema_de_estructura, ruta_md, ruta_pdf, ruta_relativa_md
 from herramientas.comun import (
     ENTORNO,
-    RAIZ,
+    ENTRADA,
     TESSDATA,
     Analizador,
     bitacora,
@@ -1520,15 +1520,15 @@ Lecciones aprendidas que esta herramienta ya aplica:
     OCR las páginas sin texto; las demás conservan el suyo.
 
 USO:
-  python biblioteca.py convertir --listar           SOLO cuenta y lista lo pendiente (no convierte nada)
-  python biblioteca.py convertir                    convierte todo lo pendiente
-  python biblioteca.py convertir --id ID [ID ...]   solo esos documentos
-  python biblioteca.py convertir --grupo G / --entidad E   solo ese grupo (basta una parte del nombre) o esa
+  python sistema/biblioteca.py convertir --listar           SOLO cuenta y lista lo pendiente (no convierte nada)
+  python sistema/biblioteca.py convertir                    convierte todo lo pendiente
+  python sistema/biblioteca.py convertir --id ID [ID ...]   solo esos documentos
+  python sistema/biblioteca.py convertir --grupo G / --entidad E   solo ese grupo (basta una parte del nombre) o esa
                                                         entidad (--entidad federal = los federales)
-  python biblioteca.py convertir --forzar           reconvertir aunque esté al día (toda la biblioteca, o
+  python sistema/biblioteca.py convertir --forzar           reconvertir aunque esté al día (toda la biblioteca, o
                                                  lo que indiquen --id / --grupo / --entidad)
-  python biblioteca.py convertir --procesos 3       conversiones simultáneas (1 a 5; por defecto 3)
-  python biblioteca.py convertir --reestructurar    reaplica el formato vigente a los Markdown con formato anterior
+  python sistema/biblioteca.py convertir --procesos 3       conversiones simultáneas (1 a 5; por defecto 3)
+  python sistema/biblioteca.py convertir --reestructurar    reaplica el formato vigente a los Markdown con formato anterior
                                                  (acepta --id / --grupo / --entidad; con --forzar, a todos)
 
 "Pendiente" = documento descargado cuyo Markdown no existe o se hizo de una versión anterior
@@ -1601,7 +1601,7 @@ def _interno_markitdown(pdf: str, md: str, url: str = "") -> None:
         from markitdown import MarkItDown
     except ImportError as e:
         if isinstance(e, ModuleNotFoundError) and (e.name or "").split(".")[0] == "markitdown":
-            print("FALLA\tmarkitdown no está instalado: ejecuta python biblioteca.py instalar")
+            print("FALLA\tmarkitdown no está instalado: ejecuta python sistema/biblioteca.py instalar")
         elif "DLL load failed" in str(e) or "demasiado largo" in str(e) or "too long" in str(e).lower():
             print(f"FALLA\tmarkitdown está instalado pero no se pudo cargar ({str(e)[:150]}): la ruta de la "
                   "carpeta es demasiado larga para Windows; mueve la biblioteca a una ruta más corta (p. ej. C:\\Biblioteca)")
@@ -1650,16 +1650,16 @@ def _interno_ocr(pdf: str, md: str) -> None:
         import pypdfium2 as pdfium
         import pytesseract
     except ImportError:
-        print("FALLA\tfaltan pypdfium2/pytesseract: ejecuta python biblioteca.py instalar")
+        print("FALLA\tfaltan pypdfium2/pytesseract: ejecuta python sistema/biblioteca.py instalar")
         sys.exit(1)
     tesseract = ruta_tesseract()
     if not tesseract:
-        print("FALLA\tTesseract no está instalado: ejecuta python biblioteca.py instalar")
+        print("FALLA\tTesseract no está instalado: ejecuta python sistema/biblioteca.py instalar")
         sys.exit(1)
     pytesseract.pytesseract.tesseract_cmd = tesseract
     usar_tessdata_local()
     if "spa" not in pytesseract.get_languages(config=""):
-        print("FALLA\tTesseract no tiene el idioma español 'spa': ejecuta python biblioteca.py instalar")
+        print("FALLA\tTesseract no tiene el idioma español 'spa': ejecuta python sistema/biblioteca.py instalar")
         sys.exit(1)
     documento = pdfium.PdfDocument(pdf)
     partes = []
@@ -1748,7 +1748,7 @@ def _interno_estructurar(origen: str, destino: str, meta_json: str) -> None:
 # ---------------------------------------------------------------------------
 def _subproceso(modo: str, pdf, md, tiempo, url: str = ""):
     # registrado en comun: si biblioteca.py convertir se interrumpe, este subproceso también se detiene
-    r = correr_hijo([sys.executable, str(RAIZ / "biblioteca.py"), "convertir", modo, str(pdf), str(md), url], timeout=tiempo)
+    r = correr_hijo([sys.executable, str(ENTRADA), "convertir", modo, str(pdf), str(md), url], timeout=tiempo)
     salida = (r.stdout or "").strip().splitlines()
     if salida:
         return salida[-1]
@@ -1796,7 +1796,7 @@ def reestructurar_uno(doc: dict, registro: dict) -> dict:
         json.dump(meta_markdown(doc, registro, md_info.get("metodo", "markitdown"), md_info.get("fecha") or hoy()), f,
                   ensure_ascii=False)
     try:
-        r = correr_hijo([sys.executable, str(RAIZ / "biblioteca.py"), "convertir", "--interno-estructurar",
+        r = correr_hijo([sys.executable, str(ENTRADA), "convertir", "--interno-estructurar",
                          str(origen), str(destino), str(meta_json)], timeout=TIEMPO_ESTRUCTURAR)
     except subprocess.TimeoutExpired:
         return {"id": doc["id"], "resultado": "FALLA", "detalle": f"estructurar tardó más de {TIEMPO_ESTRUCTURAR} s"}
@@ -1821,7 +1821,7 @@ def main():
                          formatter_class=argparse.RawDescriptionHelpFormatter, epilog=AYUDA_CONVERTIR)
     p.add_argument("--listar", action="store_true", help="solo mostrar cuántos y cuáles están pendientes")
     p.add_argument("--id", nargs="+", help="solo estos documentos")
-    p.add_argument("--grupo", help="solo este grupo (ver: python biblioteca.py catalogo grupos)")
+    p.add_argument("--grupo", help="solo este grupo (ver: python sistema/biblioteca.py catalogo grupos)")
     p.add_argument("--entidad", help="solo esta entidad federativa")
     p.add_argument("--forzar", action="store_true", help="reconvertir aunque el Markdown esté al día")
     p.add_argument("--procesos", type=int, default=3, help="conversiones simultáneas (1-5)")
@@ -1870,7 +1870,7 @@ def main():
 
     if (args.grupo or args.entidad) and not coinciden:
         salir_con_error("Ningún documento descargado coincide con ese filtro (--grupo/--entidad). Revisa el "
-                              "nombre con: python biblioteca.py catalogo grupos")
+                              "nombre con: python sistema/biblioteca.py catalogo grupos")
     def motivo_de(d: dict) -> str:
         if args.reestructurar:
             return "formato anterior"
@@ -1879,7 +1879,7 @@ def main():
     salida.poner(pendientes=[{"id": d["id"], "motivo": motivo_de(d)} for d in trabajo],
                  formato_anterior=[d["id"] for d in formato_viejo], formato_vigente=VERSION)
     nota_formato = (f"\nCon formato anterior del Markdown: {len(formato_viejo)} (al día en contenido; reaplica el formato "
-                    f"{VERSION} con: python biblioteca.py convertir --reestructurar)" if formato_viejo else "")
+                    f"{VERSION} con: python sistema/biblioteca.py convertir --reestructurar)" if formato_viejo else "")
     if not trabajo:
         if args.reestructurar:
             print("PENDIENTES: 0 — Nada que reestructurar: todos los Markdown tienen el formato vigente.")

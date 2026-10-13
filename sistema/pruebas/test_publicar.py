@@ -28,9 +28,9 @@ MOMENTO_ORIGINAL = publicar._momento        # el real (espera a que el reloj pas
 # ---------------------------------------------------------------------------
 @pytest.fixture
 def documentos(tmp_path):
-    """Una documentos/ pequeña: PDF, Word, Markdown, los dos JSON, basura del sistema, temporales que git no
+    """Una biblioteca/ pequeña: PDF, Word, Markdown, los dos JSON, basura del sistema, temporales que git no
     publica y un SHA256SUMS viejo."""
-    carpeta = tmp_path / "documentos"
+    carpeta = tmp_path / "biblioteca"
     archivos = {
         "Federal/Energia/Ley_de_Hidrocarburos.pdf": b"%PDF-1.4 hidrocarburos",
         "Estados/Jalisco/Ley_de_Salud.doc": b"\xd0\xcf\x11\xe0 word",
@@ -359,13 +359,13 @@ def test_archivos_grandes_ignora_git_venv_y_trabajo(tmp_path):
         with open(ruta, "wb") as f:
             f.seek(mib * 1024 * 1024)
             f.write(b"0")
-    disperso(tmp_path / "documentos/Federal/Grande.pdf", 2)
-    disperso(tmp_path / "documentos/Federal/Chico.pdf", 0)
+    disperso(tmp_path / "biblioteca/Federal/Grande.pdf", 2)
+    disperso(tmp_path / "biblioteca/Federal/Chico.pdf", 0)
     disperso(tmp_path / ".git/objects/enorme", 3)
     disperso(tmp_path / ".venv/lib/enorme", 3)
     disperso(tmp_path / "trabajo/enorme.pdf", 3)              # archivos de trabajo del agente: no se publican
     disperso(tmp_path / "herramientas/datos.bin", 2)          # el código sí se publica
-    assert publicar.archivos_grandes(tmp_path, limite_mib=1) == [tmp_path / "documentos/Federal/Grande.pdf",
+    assert publicar.archivos_grandes(tmp_path, limite_mib=1) == [tmp_path / "biblioteca/Federal/Grande.pdf",
                                                                  tmp_path / "herramientas/datos.bin"]
     assert publicar.archivos_grandes(tmp_path, limite_mib=5) == []
 
@@ -385,8 +385,8 @@ def repositorio(tmp_path):
     _git(tmp_path, "config", "user.name", "Pruebas")
     _git(tmp_path, "config", "user.email", "pruebas@example.com")
     (tmp_path / ".gitignore").write_text("trabajo/\n.venv/\n*.tmp\n", encoding="utf-8")
-    (tmp_path / "documentos").mkdir()
-    (tmp_path / "documentos" / "a.pdf").write_bytes(b"%PDF-1.4 a")
+    (tmp_path / "biblioteca").mkdir()
+    (tmp_path / "biblioteca" / "a.pdf").write_bytes(b"%PDF-1.4 a")
     (tmp_path / "bitacora.jsonl").write_text("{}\n", encoding="utf-8")
     (tmp_path / "trabajo").mkdir()
     (tmp_path / "trabajo" / "notas.txt").write_text("listado del agente\n", encoding="utf-8")
@@ -408,11 +408,11 @@ def test_estado_git_y_commit_en_repositorio_temporal(repositorio):
     estado = publicar.estado_git(repositorio)
     assert estado["repositorio"] is True and estado["rama"] == "main" and estado["commits"] == 0
     assert estado["remoto"] is None and estado["origen_main"] is False and estado["adelante"] is None
-    assert sorted(estado["cambios"]) == [".gitignore", "bitacora.jsonl", "documentos/a.pdf"]
+    assert sorted(estado["cambios"]) == [".gitignore", "biblioteca/a.pdf", "bitacora.jsonl"]
     assert publicar.cambios_prohibidos(estado["cambios"]) == []
     assert publicar.cambios_prohibidos([".venv/x", "trabajo/notas.txt", "bitacora.jsonl", "herramientas/comun.py"]
                                        ) == [".venv/x", "trabajo/notas.txt"]
-    assert publicar.cambios_pendientes(["bitacora.jsonl", "a.txt"]) == ["a.txt"]
+    assert publicar.cambios_pendientes(["sistema/bitacora.jsonl", "a.txt"]) == ["a.txt"]
     sha, resumen = publicar.hacer_commit(repositorio, "Biblioteca 2026-10-06: 1 nuevo, 0 actualizados",
                                          "Documentos nuevos (1):\n- a")
     assert len(sha) >= 7 and "3 files changed" in resumen
@@ -429,11 +429,11 @@ def test_cambios_git_cuenta_una_sola_vez_los_renombrados(repositorio):
     (repositorio / "largo.txt").write_text("".join(f"línea {i} con contenido suficiente para la similitud\n" for i in range(60)),
                                            encoding="utf-8")
     publicar.hacer_commit(repositorio, "dos", "")
-    _git(repositorio, "mv", "documentos/a.pdf", "documentos/b.pdf")          # renombrado en el índice: "R  nuevo\0viejo"
-    assert publicar.cambios_git(repositorio) == ["documentos/b.pdf"]
+    _git(repositorio, "mv", "biblioteca/a.pdf", "biblioteca/b.pdf")          # renombrado en el índice: "R  nuevo\0viejo"
+    assert publicar.cambios_git(repositorio) == ["biblioteca/b.pdf"]
     (repositorio / "largo.txt").rename(repositorio / "largo2.txt")             # en el árbol de trabajo: " R nuevo\0viejo"
     _git(repositorio, "add", "-N", "largo2.txt")
-    assert sorted(publicar.cambios_git(repositorio)) == ["documentos/b.pdf", "largo2.txt"]
+    assert sorted(publicar.cambios_git(repositorio)) == ["biblioteca/b.pdf", "largo2.txt"]
 
 
 def test_hacer_commit_acepta_un_cuerpo_enorme(repositorio):
@@ -445,11 +445,11 @@ def test_hacer_commit_acepta_un_cuerpo_enorme(repositorio):
 
 
 def test_rutas_ignoradas(repositorio):
-    (repositorio / "documentos" / "x.tmp").write_bytes(b"x")
-    (repositorio / "documentos" / "b.pdf").write_bytes(b"b")
-    rutas = ["documentos/x.tmp", "documentos/b.pdf", "documentos/a.pdf"]
-    assert publicar.rutas_ignoradas(repositorio, rutas) == ["documentos/x.tmp"]
-    assert publicar.rutas_ignoradas(repositorio, ["documentos/b.pdf"]) == []
+    (repositorio / "biblioteca" / "x.tmp").write_bytes(b"x")
+    (repositorio / "biblioteca" / "b.pdf").write_bytes(b"b")
+    rutas = ["biblioteca/x.tmp", "biblioteca/b.pdf", "biblioteca/a.pdf"]
+    assert publicar.rutas_ignoradas(repositorio, rutas) == ["biblioteca/x.tmp"]
+    assert publicar.rutas_ignoradas(repositorio, ["biblioteca/b.pdf"]) == []
     assert publicar.rutas_ignoradas(repositorio, []) == []
 
 
@@ -521,7 +521,7 @@ def proyecto(repositorio, monkeypatch):
     eventos = []
     bitacora_tmp = repositorio / "bitacora.jsonl"
     monkeypatch.setattr(publicar, "RAIZ", repositorio)
-    monkeypatch.setattr(publicar, "DOCUMENTOS", repositorio / "documentos")
+    monkeypatch.setattr(publicar, "DOCUMENTOS", repositorio / "biblioteca")
     monkeypatch.setattr(publicar, "CAMBIOS", repositorio / "CAMBIOS.md")
     monkeypatch.setattr(publicar, "BITACORA", bitacora_tmp)
     monkeypatch.setattr(comun, "BITACORA", bitacora_tmp)
@@ -552,7 +552,7 @@ def _bare(raiz: Path, nombre: str, monkeypatch) -> str:
 def test_cmd_preparar_escribe_sumas_y_cambios_y_es_idempotente(proyecto, capsys):
     raiz, eventos = proyecto
     publicar.cmd_preparar()
-    sumas = (raiz / "documentos" / "SHA256SUMS").read_text(encoding="utf-8")
+    sumas = (raiz / "biblioteca" / "SHA256SUMS").read_text(encoding="utf-8")
     assert sumas == f"{hashlib.sha256(b'%PDF-1.4 a').hexdigest()}  a.pdf\n"
     cambios = (raiz / "CAMBIOS.md").read_text(encoding="utf-8")
     assert cambios.startswith(publicar.ENCABEZADO_CAMBIOS) and "## " in cambios
@@ -561,7 +561,7 @@ def test_cmd_preparar_escribe_sumas_y_cambios_y_es_idempotente(proyecto, capsys)
     assert eventos[-1]["sumas"] == {"archivos": 1, "reescrito": True}
     texto = capsys.readouterr().out
     assert "SHA256SUMS: generado (1 archivos)" in texto and "CAMBIOS.md: entrada añadida" in texto
-    assert "Siguiente paso: python biblioteca.py publicar --commit" in texto
+    assert "Siguiente paso: python sistema/biblioteca.py publicar --commit" in texto
     # segunda vez: nada nuevo en la bitácora (el marcador de la entrada es posterior) y las sumas siguen al día
     publicar.cmd_preparar()
     assert (raiz / "CAMBIOS.md").read_text(encoding="utf-8") == cambios
@@ -576,7 +576,7 @@ def test_cmd_preparar_exige_integridad(proyecto, monkeypatch, capsys):
     with pytest.raises(SystemExit) as fin:
         publicar.cmd_preparar()
     assert fin.value.code == 1 and "algo roto" in capsys.readouterr().out
-    assert not (raiz / "documentos" / "SHA256SUMS").exists() and not (raiz / "CAMBIOS.md").exists()
+    assert not (raiz / "biblioteca" / "SHA256SUMS").exists() and not (raiz / "CAMBIOS.md").exists()
 
 
 def test_cmd_preparar_no_pierde_ni_duplica_eventos_concurrentes(proyecto, monkeypatch):
@@ -653,7 +653,7 @@ def test_cmd_commit_con_dos_entradas_pendientes_las_suma(proyecto, monkeypatch):
     publicar.cmd_preparar()                                  # 1 nuevo (se olvida el commit)
     for doc in ("jalisco__ley_b", "jalisco__ley_c"):
         comun.bitacora({"herramienta": "descargar", "id": doc, "resultado": "ACTUALIZADO", "fecha_reforma": "2026-10-02"})
-    (raiz / "documentos" / "b.pdf").write_bytes(b"%PDF-1.4 b")
+    (raiz / "biblioteca" / "b.pdf").write_bytes(b"%PDF-1.4 b")
     publicar.cmd_preparar()                                  # 0 nuevos, 2 actualizados
     assert len(publicar.entradas(raiz / "CAMBIOS.md")) == 2
     publicar.cmd_commit()
@@ -675,14 +675,14 @@ def test_cmd_commit_se_niega_si_gitignore_no_tapa_trabajo(proyecto, capsys):
 
 def test_cmd_commit_se_niega_si_sha256sums_lista_un_archivo_ignorado(proyecto, capsys):
     raiz, _ = proyecto
-    (raiz / "documentos" / "secreto.pdf").write_bytes(b"%PDF-1.4 s")
+    (raiz / "biblioteca" / "secreto.pdf").write_bytes(b"%PDF-1.4 s")
     with open(raiz / ".gitignore", "a", encoding="utf-8") as f:
-        f.write("documentos/secreto.pdf\n")
+        f.write("biblioteca/secreto.pdf\n")
     publicar.cmd_preparar()
-    assert "secreto.pdf" in (raiz / "documentos" / "SHA256SUMS").read_text(encoding="utf-8")
+    assert "secreto.pdf" in (raiz / "biblioteca" / "SHA256SUMS").read_text(encoding="utf-8")
     with pytest.raises(SystemExit) as fin:
         publicar.cmd_commit()
-    assert fin.value.code == 1 and "documentos/secreto.pdf" in capsys.readouterr().out
+    assert fin.value.code == 1 and "biblioteca/secreto.pdf" in capsys.readouterr().out
     assert publicar.estado_git(raiz)["commits"] == 0
 
 
@@ -809,10 +809,10 @@ def _binario(ruta: Path, semilla: int, n: int = 200_000) -> None:
 def test_pesos_de_commits_suman_lo_que_se_sube_y_cuentan_las_ramas_unidas(repositorio):
     publicar.hacer_commit(repositorio, "uno", "")
     _git(repositorio, "switch", "-q", "-c", "lateral")
-    _binario(repositorio / "documentos" / "lateral.pdf", 1, 50_000)
+    _binario(repositorio / "biblioteca" / "lateral.pdf", 1, 50_000)
     publicar.hacer_commit(repositorio, "lateral", "")
     _git(repositorio, "switch", "-q", "main")
-    _binario(repositorio / "documentos" / "principal.pdf", 2, 30_000)
+    _binario(repositorio / "biblioteca" / "principal.pdf", 2, 30_000)
     publicar.hacer_commit(repositorio, "principal", "")
     _git(repositorio, "merge", "-q", "--no-ff", "-m", "unión", "lateral")
     commits = publicar.commits_por_subir(repositorio, None)
@@ -831,7 +831,7 @@ def test_cmd_push_por_bloques_y_retoma_desde_el_que_fallo(proyecto, monkeypatch,
     publicar.cmd_preparar()
     publicar.cmd_commit()                                      # commit 1: pequeño
     for i in range(3):                                         # commits 2-4: unos 200 KB cada uno
-        _binario(raiz / "documentos" / f"grande{i}.pdf", i)
+        _binario(raiz / "biblioteca" / f"grande{i}.pdf", i)
         publicar.hacer_commit(raiz, f"grande {i}", "")
     commits = _git(raiz, "rev-list", "--reverse", "main").split()
     monkeypatch.setattr(publicar, "BLOQUE_PUSH_BYTES", 300_000)
@@ -877,7 +877,7 @@ def test_cmd_push_no_sube_nada_si_un_commit_solo_pasa_del_limite(proyecto, monke
     raiz, eventos = proyecto
     publicar.cmd_preparar()
     publicar.cmd_commit()
-    _binario(raiz / "documentos" / "enorme.pdf", 9)
+    _binario(raiz / "biblioteca" / "enorme.pdf", 9)
     publicar.hacer_commit(raiz, "enorme", "")
     (raiz / "otra.txt").write_text("x\n", encoding="utf-8")
     publicar.hacer_commit(raiz, "chico", "")
@@ -896,13 +896,14 @@ def test_cmd_revisar_no_esta_listo_sin_preparar(proyecto, capsys):
     with pytest.raises(SystemExit) as fin:
         publicar.cmd_revisar()
     texto = capsys.readouterr().out
-    assert fin.value.code == 1 and "LISTO PARA PUBLICAR: NO · siguiente paso: python biblioteca.py publicar --preparar" in texto
+    assert fin.value.code == 1
+    assert "LISTO PARA PUBLICAR: NO · siguiente paso: python sistema/biblioteca.py publicar --preparar" in texto
     publicar.cmd_preparar()
     capsys.readouterr()
     with pytest.raises(SystemExit) as fin:
         publicar.cmd_revisar()
     texto = capsys.readouterr().out
-    assert fin.value.code == 0 and "siguiente paso: python biblioteca.py publicar --commit" in texto
+    assert fin.value.code == 0 and "siguiente paso: python sistema/biblioteca.py publicar --commit" in texto
 
 
 

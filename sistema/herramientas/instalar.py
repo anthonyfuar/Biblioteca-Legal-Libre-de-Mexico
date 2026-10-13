@@ -15,7 +15,7 @@ import urllib.request
 from datetime import datetime
 from pathlib import Path
 
-from herramientas.comun import ENTORNO, LOCAL, RAIZ, TESSDATA, VENV, Analizador, salida
+from herramientas.comun import ENTORNO, LOCAL, SISTEMA, TESSDATA, VENV, Analizador, salida
 
 # ====================================================================================================
 # Herramienta: instalar
@@ -29,16 +29,16 @@ carpeta de datos del usuario (macOS: ~/Library/Caches/biblioteca_legal_libre/<hu
 %LOCALAPPDATA%\\biblioteca_legal_libre\\<huella>; Linux: ~/.cache/biblioteca_legal_libre/<huella>).
 
 USO:
-  python biblioteca.py instalar              diagnostica e instala TODO (perfil completo, con OCR)
-  python biblioteca.py instalar --revisar    solo diagnostica (no instala nada)
-  python biblioteca.py instalar --para actualizar | comprimir | convertir | todo | desarrollo
+  python sistema/biblioteca.py instalar              diagnostica e instala TODO (perfil completo, con OCR)
+  python sistema/biblioteca.py instalar --revisar    solo diagnostica (no instala nada)
+  python sistema/biblioteca.py instalar --para actualizar | comprimir | convertir | todo | desarrollo
                                           instala solo lo que necesita ese proceso (secciones de
                                           requirements.txt): ACTUALIZAR ≈ 25 MB (requests, pdfminer,
                                           olefile...), COMPRIMIR añade pikepdf/numpy/Pillow, CONVERTIR y todo
                                           añaden markitdown y el OCR; desarrollo, además, pytest/ruff/mypy
-  python biblioteca.py instalar --sin-ocr    no instalar Tesseract (solo hace falta para PDFs escaneados);
+  python sistema/biblioteca.py instalar --sin-ocr    no instalar Tesseract (solo hace falta para PDFs escaneados);
                                           si ya está instalado con español, lo detecta y da código 0
-  python biblioteca.py instalar --quitar     utilidad manual (NO es parte del cierre de los procesos): borra
+  python sistema/biblioteca.py instalar --quitar     utilidad manual (NO es parte del cierre de los procesos): borra
                                           el entorno, el idioma español descargado y entorno.json. El
                                           siguiente proceso lo reinstala solo. No toca programas del
                                           sistema (Python, Tesseract, curl).
@@ -53,7 +53,7 @@ QUÉ REVISA (en orden):
                                     carpeta de datos (no requiere permisos de administrador).
   6. curl (opcional)             -> respaldo para portales con certificados incompletos.
 
-Las demás herramientas usan el entorno automáticamente: basta con escribir "python biblioteca.py <herramienta>".
+Las demás herramientas usan el entorno automáticamente: basta con escribir "python sistema/biblioteca.py <herramienta>".
 
 CÓDIGOS DE SALIDA:
   0 = todo listo (actualizar y convertir, incluido OCR)
@@ -62,7 +62,7 @@ CÓDIGOS DE SALIDA:
 """
 
 
-REQUISITOS = RAIZ / "requirements.txt"     # una sección '# [nombre]' por perfil
+REQUISITOS = SISTEMA / "requirements.txt"     # una sección '# [nombre]' por perfil
 PERFILES = {"actualizar": ["actualizar"], "comprimir": ["actualizar", "comprimir"],
             "convertir": ["actualizar", "comprimir", "convertir"], "todo": ["actualizar", "comprimir", "convertir"],
             "desarrollo": ["actualizar", "comprimir", "convertir", "desarrollo"]}
@@ -234,7 +234,8 @@ def _version_de(python: str | Path) -> tuple[int, int] | None:
 
 def mejor_python() -> str:
     """El intérprete con el que se crea el entorno: este mismo si es 3.10+; si no, el 3.10+ más nuevo del PATH
-    (python3.13, python3.12...). Así `python3 biblioteca.py instalar` funciona aunque el python3 del sistema sea viejo."""
+    (python3.13, python3.12...). Así `python3 sistema/biblioteca.py instalar` funciona aunque el python3 del
+    sistema sea viejo."""
     if sys.version_info >= (3, 10):  # este módulo corre también con Pythons viejos, para avisar
         return sys.executable
     for nombre in ("python3.14", "python3.13", "python3.12", "python3.11", "python3.10", "python3", "python", "py"):
@@ -420,8 +421,8 @@ def quitar() -> None:
     if fallidos:
         terminar(1, "RESULTADO: NO se pudo borrar " + ", ".join(str(f) for f in fallidos)
                  + ". ¿Sigue abierta alguna herramienta o un programa usa esos archivos? Ciérralo y repite "
-                   "python biblioteca.py instalar --quitar")
-    terminar(0, "RESULTADO: entorno quitado. El próximo proceso lo reinstala solo (python biblioteca.py instalar).")
+                   "python sistema/biblioteca.py instalar --quitar")
+    terminar(0, "RESULTADO: entorno quitado. El próximo proceso lo reinstala solo (python sistema/biblioteca.py instalar).")
 
 
 # ---------------------------------------------------------------------------

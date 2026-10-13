@@ -2,7 +2,7 @@
 name: actualizar
 description: Actualiza los PDF de la Biblioteca Legal Libre de México. Úsala cuando el usuario escriba "actualizar", "actualiza la biblioteca", "actualizar federal", "actualizar <estado>", "actualizar pendientes" o pida revisar si hay leyes nuevas o reformadas. Busca en fuentes oficiales, descarga, compara por SHA-256 y fecha de reforma, verifica, informa y al final PREGUNTA si se desea convertir a Markdown (nunca convierte por su cuenta).
 ---
-<!-- ORIGINAL (fuente única). Claude Code usa la copia generada en .claude/skills/: después de editarlo ejecuta python biblioteca.py sincronizar -->
+<!-- ORIGINAL (fuente única). Claude Code usa la copia generada en .claude/skills/: después de editarlo ejecuta python sistema/biblioteca.py sincronizar -->
 
 # Actualizar la biblioteca (solo PDF)
 
@@ -13,17 +13,17 @@ Sigue `AGENTS.md`, secciones 7 y 8. Trabaja desde la carpeta del proyecto.
 
 ## 1. Dependencias (solo si hace falta)
 ```
-python biblioteca.py instalar --revisar --para actualizar
+python sistema/biblioteca.py instalar --revisar --para actualizar
 ```
 Si sale con código **1**, delega en el agente **`instalador`** (o ejecuta tú
-`python biblioteca.py instalar --para actualizar`) y, cuando quede en 0 o 2, **continúa**. Los códigos 0 y 2
+`python sistema/biblioteca.py instalar --para actualizar`) y, cuando quede en 0 o 2, **continúa**. Los códigos 0 y 2
 permiten actualizar.
 
 ## 2. Preparación
 Anota la fecha y hora de inicio (`AAAA-MM-DD HH:MM`). Luego:
 ```
-python biblioteca.py verificar
-python biblioteca.py catalogo resumen
+python sistema/biblioteca.py verificar
+python sistema/biblioteca.py catalogo resumen
 ```
 
 ## 3. Plan
@@ -31,8 +31,8 @@ python biblioteca.py catalogo resumen
   - todo → bloque `federal` + los 32 estados en bloques de 3 a 4.
   - `federal` → los grupos federales (puedes partirlos en 2 o 3 bloques).
   - un estado → un solo bloque.
-  - `pendientes` → `python biblioteca.py catalogo listar --pendientes --limite 2000`, agrupados por entidad.
-  - una ley → `python biblioteca.py catalogo listar --buscar "<nombre>"` y hazlo tú directo (AGENTS.md §7).
+  - `pendientes` → `python sistema/biblioteca.py catalogo listar --pendientes --limite 2000`, agrupados por entidad.
+  - una ley → `python sistema/biblioteca.py catalogo listar --buscar "<nombre>"` y hazlo tú directo (AGENTS.md §7).
 - Prioriza dentro de cada bloque: pendientes, leyes de ingresos y RMF (cambian cada año) y lo no
   verificado en más de 30 días.
 
@@ -52,14 +52,14 @@ AGENTS.md §7.
 
 **La biblioteca crece:** todo documento oficial nuevo que aparezca (ley, código, reglamento, tratado, decreto),
 aunque no sustituya a otro, se agrega y se descarga (AGENTS.md, regla 14). **Solo PDF o Word, nunca páginas web**
-(regla 13). Un documento nuevo se agrega solo en una carpeta de la estructura única (`referencia/estructura.md`,
+(regla 13). Un documento nuevo se agrega solo en una carpeta de la estructura única (`sistema/referencia/estructura.md`,
 `catalogo grupos`); las abrogadas las mueve `catalogo marcar`. Nunca muevas archivos a mano.
 
 ## 5. Cierre (cuando TODOS los bloques terminaron)
 ```
-python biblioteca.py verificar --limpiar
-python biblioteca.py catalogo reporte --desde "<fecha y hora de inicio>"      (con --entidad/--grupo si el alcance fue uno)
-python biblioteca.py convertir --listar       (con el MISMO alcance: un estado → --entidad "<Estado>";
+python sistema/biblioteca.py verificar --limpiar
+python sistema/biblioteca.py catalogo reporte --desde "<fecha y hora de inicio>"      (con --entidad/--grupo si el alcance fue uno)
+python sistema/biblioteca.py convertir --listar       (con el MISMO alcance: un estado → --entidad "<Estado>";
                                            federal → --entidad federal; pendientes o una ley → --id <ids
                                            de esta corrida>; todo → sin filtro)
 ```

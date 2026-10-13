@@ -1,5 +1,5 @@
 # Todo lo que no es el proyecto vive FUERA de esta carpeta: el entorno de Python, el idioma español del OCR y el
-# candado en la carpeta de datos del usuario, y los temporales en la del sistema (referencia/estructura.md).
+# candado en la carpeta de datos del usuario, y los temporales en la del sistema (sistema/referencia/estructura.md).
 # Estas reglas solo cubren restos que pudieran aparecer; verificar --limpiar los borra.
 
 # Archivos de trabajo del agente (solo existen durante un proceso)

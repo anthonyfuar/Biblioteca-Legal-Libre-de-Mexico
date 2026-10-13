@@ -1,15 +1,15 @@
 LICENCIA DE LA BIBLIOTECA LEGAL LIBRE DE MÉXICO
 Versión 1.0 — 6 de octubre de 2026
 
-Esta licencia cubre la OBRA: las herramientas (biblioteca.py, herramientas/ y pruebas/), la documentación
-(README.md, AGENTS.md, CLAUDE.md, referencia/), la configuración de agentes (.agents/ y .claude/), el
-catálogo (documentos/catalogo.json), el mapa de fuentes (fuentes.json), el manifiesto
-(documentos/manifiesto.json), las conversiones a Markdown (archivos .md de documentos/) y la organización
+Esta licencia cubre la OBRA: las herramientas (la carpeta sistema/), la documentación
+(README.md, AGENTS.md, CLAUDE.md, sistema/referencia/), la configuración de agentes (.agents/ y .claude/), el
+catálogo (biblioteca/catalogo.json), el mapa de fuentes (sistema/fuentes.json), el manifiesto
+(biblioteca/manifiesto.json), las conversiones a Markdown (archivos .md de biblioteca/) y la organización
 de la biblioteca (estructura de carpetas, nombres de archivo y metadatos). Todo ello fue diseñado y construido por el
 autor del proyecto.
 
 NO cubre los textos oficiales (constituciones, leyes, códigos, reglamentos, decretos, tratados y
-demás documentos legislativos, reglamentarios, administrativos o judiciales guardados en documentos/
+demás documentos legislativos, reglamentarios, administrativos o judiciales guardados en biblioteca/
 en PDF o Word). Son documentos públicos del Estado mexicano, no están sujetos a derechos de autor
 (artículo 14, fracción VIII, de la Ley Federal del Derecho de Autor) y cualquier persona puede
 usarlos libremente, con o sin este proyecto.
@@ -59,6 +59,6 @@ Markdown conversions and the organisation of the library), provided this notice 
 use of the Work is strictly prohibited, under any condition and by any means, to persons affiliated
 with political parties (members, candidates and pre-candidates) and to public servants or officials
 of any branch or level of government while in office, and to parties and public bodies as such. The
-official legal texts (the PDF and Word files in documentos/) are public documents of the Mexican State, not subject to
+official legal texts (the PDF and Word files in biblioteca/) are public documents of the Mexican State, not subject to
 copyright, and are not covered by this license. THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
 KIND. This is not an OSI-approved open-source license.

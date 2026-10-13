@@ -31,6 +31,7 @@ from herramientas.comun import (
     DOCUMENTOS,
     LIMITE_GITHUB_MB,
     RAIZ,
+    SISTEMA,
     TEMP_PROYECTO,
     TRABAJO,
     UMBRAL_COMPRIMIR_MB,
@@ -70,8 +71,8 @@ Claude Code usa su propia carpeta, así que esta herramienta genera copias (con 
   .claude/skills/<comando>/SKILL.md   comandos /instalar, /actualizar, /convertir, /comprimir, /publicar
 
 USO:
-  python biblioteca.py sincronizar             regenera las copias
-  python biblioteca.py sincronizar --revisar   solo revisa que estén al día (código 1 si no)
+  python sistema/biblioteca.py sincronizar             regenera las copias
+  python sistema/biblioteca.py sincronizar --revisar   solo revisa que estén al día (código 1 si no)
 
 Cuándo usarlo: después de editar cualquier archivo de .agents/ (biblioteca.py verificar lo comprueba). Solo biblioteca estándar.
 """
@@ -199,15 +200,15 @@ def error_de_copias() -> str | None:
     try:
         if copias_desactualizadas():
             return ("las copias de .claude/agents/ y .claude/skills/ no coinciden con los originales de .agents/: "
-                    "ejecuta python biblioteca.py sincronizar")
+                    "ejecuta python sistema/biblioteca.py sincronizar")
     except (OriginalInvalido, OSError, ValueError) as e:
         return (f"no se pueden generar las copias de .claude/ desde .agents/ ({e}): corrige el original y ejecuta "
-                "python biblioteca.py sincronizar")
+                "python sistema/biblioteca.py sincronizar")
     return None
 
 
 def tipo_de_archivo(rel: str) -> str:
-    """Qué es un archivo de documentos/ según su ruta relativa (con /): 'documento' (PDF o Word dentro de PDF/),
+    """Qué es un archivo de biblioteca/ según su ruta relativa (con /): 'documento' (PDF o Word dentro de PDF/),
     'markdown' (dentro de Markdown/), 'dato' (el manifiesto o el catálogo de la raíz), 'web' (una página web: la
     biblioteca solo guarda PDF o Word) u 'otro' (cualquier otra cosa, o algo fuera de su carpeta: no debe publicarse)."""
     nombre = rel.rsplit("/", 1)[-1]
@@ -270,7 +271,7 @@ def main_sincronizar():
         for relativo in distintos:
             print(f"  desactualizado  {relativo}")
         if distintos or viejos:
-            print(f"\nHay {len(distintos) + len(viejos)} copia(s) por regenerar: python biblioteca.py sincronizar")
+            print(f"\nHay {len(distintos) + len(viejos)} copia(s) por regenerar: python sistema/biblioteca.py sincronizar")
             salida.cerrar(1)
             sys.exit(1)
         print(f"Todo al día: {len(generados)} copias coinciden con los originales de .agents/.")
@@ -294,12 +295,12 @@ Se ejecuta SIEMPRE al terminar cada proceso (y al empezar, para ver el estado). 
       los pocos documentos que la fuente oficial publica solo en Word (.doc/.docx): se revisa que el archivo sea de
       verdad eso y que cada documento tenga UN solo archivo. Una página web (.html) es ERROR: solo PDF o Word.
     - Documento cuya huella SHA-256 no coincide con el manifiesto (alguien lo cambió a mano).
-    - Entradas del catálogo o del manifiesto que no cumplen el esquema (referencia/esquema.md).
+    - Entradas del catálogo o del manifiesto que no cumplen el esquema (sistema/referencia/esquema.md).
     - Markdown sin su PDF, o PDF/Markdown que no pertenece a ningún documento del catálogo, y cualquier otro
-      archivo en documentos/ que no sea PDF, Markdown, manifiesto, catálogo o SHA256SUMS (todo lo que hay
+      archivo en biblioteca/ que no sea PDF, Markdown, manifiesto, catálogo o SHA256SUMS (todo lo que hay
       ahí se publica tal cual).
     - Markdown vacío o casi vacío (conversión fallida).
-    - Markdown o JSON de documentos/ con finales de línea CRLF: git los publica con LF (.gitattributes), así
+    - Markdown o JSON de biblioteca/ con finales de línea CRLF: git los publica con LF (.gitattributes), así
       que su huella en el repositorio no coincidiría con la de SHA256SUMS ni con la del disco.
     - Documentos del manifiesto cuyo PDF desapareció.
     - Catálogo con ids o archivos repetidos.
@@ -309,7 +310,7 @@ Se ejecuta SIEMPRE al terminar cada proceso (y al empezar, para ver el estado). 
     - Con --final, también los archivos de trabajo de trabajo/. Sin --final salen como AVISO,
       porque mientras varios agentes trabajan en paralelo es normal que haya archivos de trabajo de otros.
 
-  AVISOS (revísalos): PDF de más de 60 MB sin comprimir (PROCESO 4, biblioteca.py comprimir); documentos/SHA256SUMS
+  AVISOS (revísalos): PDF de más de 60 MB sin comprimir (PROCESO 4, biblioteca.py comprimir); biblioteca/SHA256SUMS
   desactualizado (lo regenera biblioteca.py publicar --preparar); y archivos o carpetas que no son parte del proyecto en
   su raíz (suelen ser restos de un agente). No se borran solos: podrían ser de una persona.
 
@@ -320,11 +321,11 @@ Se ejecuta SIEMPRE al terminar cada proceso (y al empezar, para ver el estado). 
 
 
 USO:
-  python biblioteca.py verificar            revisión completa
-  python biblioteca.py verificar --dias 60  cambia el umbral de "sin verificar"
-  python biblioteca.py verificar --limpiar  borra primero TODO lo temporal: los archivos de trabajo
+  python sistema/biblioteca.py verificar            revisión completa
+  python sistema/biblioteca.py verificar --dias 60  cambia el umbral de "sin verificar"
+  python sistema/biblioteca.py verificar --limpiar  borra primero TODO lo temporal: los archivos de trabajo
                                          del agente (trabajo/), restos *.tmp, __pycache__, .DS_Store,
-                                         cachés de desarrollo, carpetas vacías de documentos/ y la carpeta
+                                         cachés de desarrollo, carpetas vacías de biblioteca/ y la carpeta
                                          temporal del sistema de este proyecto (copias de los documentos
                                          reemplazados, caché y ejecuciones). Úsalo SIEMPRE al TERMINAR
                                          cada proceso (no a la mitad, si hay otros agentes trabajando). Al
@@ -343,7 +344,7 @@ Código de salida: 0 = sin errores (puede haber pendientes); 1 = hay errores.
 
 
 LIMITE_COMMIT_MIB = 95        # GitHub bloquea 100 MiB por archivo: margen para no hacer commit de uno así
-LIMITE_AGENTS_BYTES = 30 * 1024   # algunos agentes solo leen los primeros 32 KiB de AGENTS.md: avisar antes
+LIMITE_AGENTS_BYTES = 31 * 1024   # algunos agentes solo leen los primeros 32 KiB de AGENTS.md: avisar antes
 
 
 def _limpiar() -> list:
@@ -357,7 +358,7 @@ def _limpiar() -> list:
     if fallidos:
         print(f"AVISO: {len(fallidos)} temporal(es) NO se pudieron borrar (¿abiertos por otro programa?): "
               + ", ".join(str(f) for f in fallidos[:5]) + (" ..." if len(fallidos) > 5 else ""))
-        print("       Cierra el programa que los tenga abiertos y repite: python biblioteca.py verificar --limpiar")
+        print("       Cierra el programa que los tenga abiertos y repite: python sistema/biblioteca.py verificar --limpiar")
     print()
     return fallidos
 
@@ -404,7 +405,7 @@ def main() -> None:
     pdf_esperados = {ruta_pdf(d, "pdf").with_suffix("").resolve(): d for d in docs}
     md_esperados = {ruta_md(d).resolve(): d for d in docs}
 
-    # --- archivos en documentos/: cada documento oficial (.pdf, o .doc/.docx si la fuente solo publica Word) en
+    # --- archivos en biblioteca/: cada documento oficial (.pdf, o .doc/.docx si la fuente solo publica Word) en
     # PDF/<grupo>/ y su Markdown (.md) en Markdown/<grupo>/, con el mismo nombre; en la raíz solo el manifiesto, el
     # catálogo y SHA256SUMS. TODO lo que hay ahí se publica (SHA256SUMS y git add -A): cualquier otra cosa es un error.
     pdfs_disco, mds_disco = [], []
@@ -418,10 +419,10 @@ def main() -> None:
             pdfs_disco.append(ruta)
         elif tipo == "web":
             errores.append(f"Página web en la biblioteca: solo se guardan PDF o Word (busca el PDF o Word oficial; si no "
-                           f"existe, retírala con catalogo retirar-pdf): documentos/{rel}")
+                           f"existe, retírala con catalogo retirar-pdf): biblioteca/{rel}")
         elif tipo == "otro":
             errores.append(f"Archivo que no pertenece a la biblioteca o está fuera de su carpeta (documentos oficiales en "
-                           f"documentos/PDF/, Markdown en documentos/Markdown/; se publicaría tal cual): documentos/{rel}")
+                           f"biblioteca/PDF/, Markdown en biblioteca/Markdown/; se publicaría tal cual): biblioteca/{rel}")
     por_documento: Counter[str] = Counter()
     sin_revisar: dict[str, int] = {}      # dependencia que falta -> documentos cuyo contenido no se pudo revisar
     huellas: dict[Path, str] = {}          # huellas ya calculadas (para comprobar SHA256SUMS sin rehacerlas)
@@ -445,7 +446,8 @@ def main() -> None:
         registro = manifiesto.get(doc["id"])
         if not registro:
             errores.append(f"Documento sin registro en el manifiesto: {relativa(pdf)} "
-                           f"(regístralo con: python biblioteca.py descargar {doc['id']} --archivo \"{relativa(pdf)}\")")
+                           f"(regístralo con: python sistema/biblioteca.py descargar {doc['id']} "
+                           f"--archivo \"{relativa(pdf)}\")")
         else:
             huellas[pdf] = sha256_archivo(pdf)
             if registro.get("sha256") != huellas[pdf]:
@@ -459,7 +461,8 @@ def main() -> None:
         mb = pdf.stat().st_size / 1_000_000
         if pdf.stat().st_size > LIMITE_COMMIT_MIB * 1024 * 1024:
             errores.append(f"{relativa(pdf)} pesa {pdf.stat().st_size / 1024 / 1024:.0f} MiB: GitHub bloquea los "
-                           f"archivos de 100 MiB o más. NO hagas commit; comprímelo antes: python biblioteca.py comprimir")
+                           f"archivos de 100 MiB o más. NO hagas commit; comprímelo antes: "
+                           f"python sistema/biblioteca.py comprimir")
         if mb > UMBRAL_COMPRIMIR_MB and not (registro or {}).get("compresion"):
             grandes.append(f"{relativa(pdf)} ({mb:.0f} MB"
                            + (f", pasa del límite de {LIMITE_GITHUB_MB} MB de GitHub)" if mb >= LIMITE_GITHUB_MB else ")"))
@@ -479,18 +482,19 @@ def main() -> None:
             errores.append(f"Markdown casi vacío ({md.stat().st_size} bytes): {relativa(md)}")
         elif b"\r\n" in md.read_bytes():
             errores.append(f"Markdown con finales de línea CRLF (git lo publicaría con LF y su huella cambiaría): "
-                           f"{relativa(md)}; reconviértelo con python biblioteca.py convertir --forzar --id {doc['id']}")
+                           f"{relativa(md)}; reconviértelo con python sistema/biblioteca.py convertir --forzar "
+                           f"--id {doc['id']}")
 
-    # --- documentos/SHA256SUMS (lo escribe biblioteca.py publicar --preparar): si existe, debe describir lo que hay en disco
+    # --- biblioteca/SHA256SUMS (lo escribe biblioteca.py publicar --preparar): si existe, debe describir lo que hay en disco
     sumas_desactualizadas = ""
     if (DOCUMENTOS / "SHA256SUMS").is_file():
         calculadas = [(huellas.get(ruta) or sha256_archivo(ruta), rel) for rel, ruta in archivos_de(DOCUMENTOS)]
         s = comprobar_sumas(DOCUMENTOS, calculadas)
         if not s["ok"]:
-            sumas_desactualizadas = (f"documentos/SHA256SUMS desactualizado ({len(s['faltantes'])} sin listar, "
+            sumas_desactualizadas = (f"biblioteca/SHA256SUMS desactualizado ({len(s['faltantes'])} sin listar, "
                                      f"{len(s['sobrantes'])} ya no existen, {len(s['distintas'])} con otra huella"
                                      + (f", {s['lineas_invalidas']} líneas inválidas" if s["lineas_invalidas"] else "")
-                                     + "): lo regenera python biblioteca.py publicar --preparar")
+                                     + "): lo regenera python sistema/biblioteca.py publicar --preparar")
 
     # --- manifiesto contra disco
     for doc_id, registro in manifiesto.items():
@@ -530,19 +534,19 @@ def main() -> None:
     if restos:
         muestra = ", ".join(relativa(r) for r in restos[:5]) + (" ..." if len(restos) > 5 else "")
         errores.append(f"{len(restos)} temporal(es) en el proyecto ({muestra}): "
-                       "bórralos con: python biblioteca.py verificar --limpiar")
+                       "bórralos con: python sistema/biblioteca.py verificar --limpiar")
     fuera = contar_archivos(TEMP_PROYECTO)
     avisos = []
     if en_trabajo and not (args.final or args.limpiar):
         avisos.append(f"{len(en_trabajo)} archivo(s) de trabajo en trabajo/ (de este u otros agentes): "
-                      "el agente principal los borra al terminar con: python biblioteca.py verificar --limpiar")
+                      "el agente principal los borra al terminar con: python sistema/biblioteca.py verificar --limpiar")
     for dependencia, n in sin_revisar.items():
         avisos.append(f"no se pudo revisar el contenido de {n} documento(s): {dependencia}")
     if sumas_desactualizadas:
         avisos.append(sumas_desactualizadas)
     if grandes:
         avisos.append(f"{len(grandes)} PDF de más de {UMBRAL_COMPRIMIR_MB} MB sin comprimir (el usuario puede "
-                      "pedir 'comprimir'; ver python biblioteca.py comprimir --listar): " + ", ".join(grandes[:5])
+                      "pedir 'comprimir'; ver python sistema/biblioteca.py comprimir --listar): " + ", ".join(grandes[:5])
                       + (" ..." if len(grandes) > 5 else ""))
     avisos += [f"no es parte del proyecto (¿resto de un agente? si es tuyo y temporal, bórralo): "
               f"{relativa(p)}" for p in inesperados()]
@@ -550,7 +554,7 @@ def main() -> None:
     agents_md = RAIZ / "AGENTS.md"
     if agents_md.exists() and agents_md.stat().st_size > LIMITE_AGENTS_BYTES:
         avisos.append(f"AGENTS.md pesa {agents_md.stat().st_size:,} bytes: algunos agentes solo leen 32,768; recórtalo "
-                      f"(mueve detalle a referencia/) antes de que se trunque")
+                      f"(mueve detalle a sistema/referencia/) antes de que se trunque")
     error_copias = error_de_copias()
     if error_copias:
         errores.append(error_copias)
@@ -575,7 +579,7 @@ def main() -> None:
     for x in primeros:
         print(f"    - {x}")
     if len(pendientes) > len(primeros):
-        print(f"    ... y {len(pendientes) - len(primeros)} más (python biblioteca.py catalogo listar --pendientes)")
+        print(f"    ... y {len(pendientes) - len(primeros)} más (python sistema/biblioteca.py catalogo listar --pendientes)")
     if avisos:
         print(f"\nAVISOS: {len(avisos)}")
         for a in avisos[:20]:
@@ -598,7 +602,7 @@ def main() -> None:
 # ====================================================================================================
 def main_pruebas():
     """pytest, ruff y mypy con sus cachés FUERA del proyecto: nada de .pytest_cache/.ruff_cache/.mypy_cache aquí.
-    Requiere los paquetes de desarrollo: python biblioteca.py instalar --para desarrollo."""
+    Requiere los paquetes de desarrollo: python sistema/biblioteca.py instalar --para desarrollo."""
     p = Analizador(description="Pruebas del código: pytest, ruff y mypy (cachés fuera del proyecto).")
     p.add_argument("--rapido", action="store_true", help="solo pytest")
     p.add_argument("pytest_args", nargs="*", help="argumentos para pytest (p. ej. -k markdown)")
@@ -614,7 +618,7 @@ def main_pruebas():
     for cmd in pasos:
         print("$", " ".join(cmd[2:]), flush=True)
         # con --json, la salida de pytest/ruff/mypy va a stderr (sys.stdout ya apunta ahí): stdout queda para el JSON
-        if subprocess.run(cmd, cwd=RAIZ, env=entorno, check=False, stdout=sys.stdout).returncode != 0:
+        if subprocess.run(cmd, cwd=SISTEMA, env=entorno, check=False, stdout=sys.stdout).returncode != 0:
             fallas.append(cmd[2])
     salida.poner(resultado="OK" if not fallas else "FALLAN", fallas=fallas)
     print("\nPRUEBAS: " + ("OK" if not fallas else "fallan " + ", ".join(fallas)))

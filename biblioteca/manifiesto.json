@@ -1,7 +1,7 @@
 {
-  "descripcion": "Manifiesto de la Biblioteca Legal Libre de México: qué documento está guardado, de dónde salió, su huella SHA-256, su fecha de reforma y el estado de su Markdown. Lo escriben solo las herramientas de biblioteca.py (esquema: referencia/esquema.md).",
+  "descripcion": "Manifiesto de la Biblioteca Legal Libre de México: qué documento está guardado, de dónde salió, su huella SHA-256, su fecha de reforma y el estado de su Markdown. Lo escriben solo las herramientas de biblioteca.py (esquema: sistema/referencia/esquema.md).",
   "version": 3,
-  "actualizado": "2026-10-12",
+  "actualizado": "2026-10-13",
   "documentos": {
     "aguascalientes__codigo_civil_del_estado_de_aguascalientes": {
       "archivo": "PDF/Estados/Aguascalientes/Codigo_Civil_del_Estado_de_Aguascalientes.pdf",

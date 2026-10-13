@@ -1122,7 +1122,7 @@ def ya_guardado(tmp_path, monkeypatch):
     manifiesto en memoria."""
     doc = {"id": "lh", "nombre": "Ley de Hidrocarburos", "grupo": "Federal/Energia",
            "archivo": "Ley_de_Hidrocarburos", "estado": "vigente"}
-    monkeypatch.setattr(catalogo, "DOCUMENTOS", tmp_path / "documentos")
+    monkeypatch.setattr(catalogo, "DOCUMENTOS", tmp_path / "biblioteca")
     guardado = catalogo.ruta_pdf(doc, "pdf")
     guardado.parent.mkdir(parents=True)
     guardado.write_bytes(CUERPO_PDF[:5000])

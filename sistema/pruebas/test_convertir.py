@@ -572,7 +572,7 @@ def test_revision_independiente_de_lo_quitado():
 
 
 RAIZ = Path(__file__).resolve().parent.parent
-CONSTITUCION = RAIZ / "documentos/Markdown/Constitucion/Constitucion_Politica_de_los_Estados_Unidos_Mexicanos.md"
+CONSTITUCION = RAIZ.parent / "biblioteca/Markdown/Constitucion/Constitucion_Politica_de_los_Estados_Unidos_Mexicanos.md"
 
 
 @pytest.mark.skipif(not CONSTITUCION.exists(), reason="la biblioteca no está descargada")
